@@ -1,0 +1,59 @@
+
+default_shell "fish"
+default_layout "compact"
+theme "github_dark_dimmed"
+
+simplified_ui true
+styled_underlines false
+
+mouse_mode true
+
+copy_command "wl-copy"
+
+themes {
+    github_dark_dimmed {
+        fg "#adbac7"
+        bg "#1a1a1a"
+        black "#222222"
+        red "#f47067"
+        green "#57ab5a"
+        yellow "#daaa3f"
+        blue "#539bf5"
+        magenta "#b083f0"
+        cyan "#39c5cf"
+        white "#909dab"
+        orange "#D08770"
+    }
+}
+ui {
+    pane_frames {
+        rounded_corners true
+    }
+}
+pane_frames false
+session_serialization true
+pane_viewport_serialization true
+
+keybinds {
+    normal clear-defaults=true {
+      bind "Alt t" { SwitchToMode "tmux"; }
+    }
+    tmux {
+      bind "Ctrl w" { SwitchToMode "session"; }
+      bind "Ctrl l" { SwitchToMode "locked"; }
+      bind "Ctrl p" { SwitchToMode "pane"; }
+      bind "Ctrl t" { NewPane; }
+      bind "Esc" { SwitchToMode "normal"; }
+      bind "Alt t" { SwitchToMode "normal"; }
+    }
+    pane {
+        bind "m" "Left" { MoveFocus "Left"; }
+        bind "n" "Down" { MoveFocus "Down"; }
+        bind "e" "Up" { MoveFocus "Up"; }
+        bind "i" "Right" { MoveFocus "Right"; }
+        // bind "Tab" { SwitchFocus; }
+    }
+    locked clear-defaults=true {
+        bind "Ctrl l" { SwitchToMode "normal"; }
+    }
+}

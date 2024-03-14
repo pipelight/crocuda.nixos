@@ -1,0 +1,69 @@
+# SearXNG settings
+
+use_default_settings: true
+
+general:
+  debug: true
+  instance_name: "SearXNG"
+
+search:
+  safe_search: 2
+  autocomplete: 'duckduckgo'
+
+server:
+  # Is overwritten by ${SEARXNG_SECRET}
+  secret_key: "Ew72yQMTLcRTcvJg"
+  limiter: true
+  image_proxy: true
+  # public URL of the instance, to ensure correct inbound links. Is overwritten
+  # by ${SEARXNG_URL}.
+  # base_url: http://example.com/location
+
+redis:
+  # URL to connect redis database. Is overwritten by ${SEARXNG_REDIS_URL}.
+  url: unix:///run/redis-searxng-redis/redis.sock?db=0
+
+ui:
+  static_use_hash: true
+  hotkeys: vim
+
+# preferences:
+#   lock:
+#     - autocomplete
+#     - method
+
+enabled_plugins:
+  - 'Hash plugin'
+  - 'Self Informations'
+  - 'Tracker URL remover'
+  - 'Ahmia blacklist'
+  # - 'Hostname replace'  # see hostname_replace configuration below
+  # - 'Open Access DOI rewrite'
+
+# plugins:
+#   - only_show_green_results
+
+# hostname_replace:
+#
+#   # twitter --> nitter
+#   '(www\.)?twitter\.com$': 'nitter.net'
+
+engines:
+
+#   - name: fdroid
+#     disabled: false
+#
+#   - name: apk mirror
+#     disabled: false
+#
+#   - name: mediathekviewweb
+#     categories: TV
+#     disabled: false
+#
+#   - name: invidious
+#     disabled: false
+#     base_url:
+#       - https://invidious.snopyta.org
+#       - https://invidious.tiekoetter.com
+#       - https://invidio.xamh.de
+#       - https://inv.riverside.rocks

@@ -1,0 +1,135 @@
+[manager]
+prepend_keymap = [
+  { on = [
+    "e",
+  ], exec = "arrow -1", desc = "Move cursor up" },
+  { on = [
+    "n",
+  ], exec = "arrow 1", desc = "Move cursor down" },
+
+  { on = [
+    "E",
+  ], exec = "arrow -5", desc = "Move cursor up 5 lines" },
+  { on = [
+    "N",
+  ], exec = "arrow 5", desc = "Move cursor down 5 lines" },
+  { on = [
+    "m",
+  ], exec = "leave", desc = "Go back to the parent directory" },
+  { on = [
+    "i",
+  ], exec = "enter", desc = "Enter the child directory" },
+
+  { on = [
+    "M",
+  ], exec = "back", desc = "Go back to the previous directory" },
+  { on = [
+    "I",
+  ], exec = "forward", desc = "Go forward to the next directory" },
+  # Linemode
+  { on = [
+    "k",
+    "s",
+  ], exec = "linemode size", desc = "Set linemode to size" },
+  { on = [
+    "k",
+    "p",
+  ], exec = "linemode permissions", desc = "Set linemode to permissions" },
+  { on = [
+    "k",
+    "m",
+  ], exec = "linemode mtime", desc = "Set linemode to mtime" },
+  { on = [
+    "k",
+    "n",
+  ], exec = "linemode none", desc = "Set linemode to none" },
+  # Find
+  { on = [
+    "h",
+  ], exec = "find_arrow", desc = "Go to next found file" },
+  { on = [
+    "h",
+  ], exec = "find_arrow --previous", desc = "Go to previous found file" },
+]
+
+[tasks]
+prepend_keymap = [
+  { on = [
+    "e",
+  ], exec = "arrow -1", desc = "Move cursor up" },
+  { on = [
+    "n",
+  ], exec = "arrow 1", desc = "Move cursor down" },
+
+  { on = [
+    "E",
+  ], exec = "arrow -5", desc = "Move cursor up 5 lines" },
+  { on = [
+    "N",
+  ], exec = "arrow 5", desc = "Move cursor down 5 lines" },
+]
+
+[select]
+prepend_keymap = [
+  { on = [
+    "e",
+  ], exec = "arrow -1", desc = "Move cursor up" },
+  { on = [
+    "n",
+  ], exec = "arrow 1", desc = "Move cursor down" },
+
+  { on = [
+    "E",
+  ], exec = "arrow -5", desc = "Move cursor up 5 lines" },
+  { on = [
+    "N",
+  ], exec = "arrow 5", desc = "Move cursor down 5 lines" },
+]
+
+
+[input]
+prepend_keymap = [
+  # Mode
+  { on = [
+    "l",
+  ], exec = "insert", desc = "Enter insert mode" },
+  # Character-wise movement
+  { on = [
+    "left",
+  ], exec = "move -1", desc = "Move back a character" },
+  { on = [
+    "right",
+  ], exec = "move 1", desc = "Move forward a character" },
+  { on = [
+    "e",
+  ], exec = "nothing", desc = "Move forward to the end of the current or next word" },
+
+  # Delete
+  { on = [
+    "<C-h>",
+  ], exec = "nothing", desc = "Delete the character before the cursor" },
+  { on = [
+    "<C-d>",
+  ], exec = "nothing", desc = "Delete the character under the cursor" },
+]
+
+
+[completion]
+prepend_keymap = [
+  { on = [
+    "<A-e>",
+  ], exec = "arrow -1", desc = "Move cursor up" },
+  { on = [
+    "<A-n>",
+  ], exec = "arrow 1", desc = "Move cursor down" },
+]
+
+[help]
+prepend_keymap = [
+  # Navigation
+  { on = ["e"], exec = "arrow -1", desc = "Move cursor up" },
+  { on = ["n"], exec = "arrow 1", desc = "Move cursor down" },
+
+  { on = ["E"], exec = "arrow -5", desc = "Move cursor up 5 lines" },
+  { on = ["N"], exec = "arrow 5", desc = "Move cursor down 5 lines" },
+]

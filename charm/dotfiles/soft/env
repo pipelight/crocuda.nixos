@@ -1,0 +1,9 @@
+# Config defined here will override the config in /var/local/lib/soft-serve/config.yaml
+# Keys defined in `SOFT_SERVE_INITIAL_ADMIN_KEYS` will be merged with
+# the `initial_admin_keys` from /var/local/lib/soft-serve/config.yaml.
+#
+#SOFT_SERVE_GIT_LISTEN_ADDR=:9418
+#SOFT_SERVE_HTTP_LISTEN_ADDR=:23232
+#SOFT_SERVE_SSH_LISTEN_ADDR=:23231
+#SOFT_SERVE_SSH_KEY_PATH=ssh/soft_serve_host_ed25519
+#SOFT_SERVE_INITIAL_ADMIN_KEYS='ssh-rsa xxx =x@x'

@@ -1,0 +1,37 @@
+## Alias section 
+alias cp="cp -i"
+alias df='df -h'
+alias free='free -m'
+
+alias gitu='git add . && git commit && git push'
+
+alias lls='eza -alh'
+alias ll='eza -lh'
+alias tree='eza --tree -lh -L 2'
+alias treee='eza --tree -lh'
+
+alias off="sudo shutdown -h now"
+alias sus="sudo systemctl suspend"
+alias reboot="sudo reboot"
+
+# SSH
+alias sshk='kitten ssh'
+
+alias neo='neofetch'
+alias one="onefetch"
+alias lol="lolcat"
+
+alias p="pipelight"
+
+# Terminal multiplexer
+# fish function
+function ze;
+  zellij attach $argv --force-run-commands;
+end
+export ze
+
+## llm
+alias mate="ollama run dolphin-mixtral"
+
+## net
+alias myip="curl ifconfig.co"

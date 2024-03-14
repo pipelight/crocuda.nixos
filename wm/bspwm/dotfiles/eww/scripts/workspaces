@@ -1,0 +1,30 @@
+#!/bin/sh
+
+workspaces(){
+  desktops=$(bspc query -D --names)
+  desktops_box=""
+  # focused=$(bspc query -D --names -d focused)
+  for desktop in $desktops; do
+    desktop_box=$(echo "(box	:class \"workspace\" :orientation \"h\" \"$desktop\")")
+    desktops_box+=$desktop_box
+    # desktop=$(echo "$desktop")
+    nodes=$(bspc query -N -d $desktop)
+  # if [ ! -z "$nodes" ]; then
+    # desktops=$(echo $desktops | sed "s/$desktop/$success$desktop/")
+  # fi
+  done
+  # desktops=$(echo $desktops | sed "s/$focused/$error$focused/")
+  # echo $desktops
+  echo "(box \
+  :class \"workspaces\"	\
+  :orientation \"h\" \
+  :space-evenly \"false\" \
+  $desktops_box )"
+}
+
+# Update on change
+../scripts/workspaces.ts
+bspc subscribe desktop node_transfer | while read -r _ ; do
+../scripts/workspaces.ts
+# ./workspaces.ts
+done
