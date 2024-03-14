@@ -1,19 +1,14 @@
 {
-  description = "NixOS configuration for developers";
-
-  # This flake/file is the main file that gather every nix configuration in this directory
-  # This flake doesn't build any binaries and isn't meant to be used as is.
-  # It exports a nixosModule to be used from inside another flake.
+  description = "crocuda.nixos - NixOS configuration for paranoids";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nur.url = "github:nix-community/NUR";
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
 
-    # Flakes
-    pipelight.url = "github:pipelight/pipelight";
-    virshle.url = "github:pipelight/virshle";
-    ollama.url = "github:havaker/ollama-nix";
+    # Nixos profile
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    #nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+
+    # NUR - Nix User Repository
+    nur.url = "github:nix-community/NUR";
 
     # Utils
     flake-utils.url = "github:numtide/flake-utils";
@@ -26,6 +21,12 @@
       url = "github:pipelight/home-merger";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+
+    # Flakes
+    pipelight.url = "github:pipelight/pipelight";
+    virshle.url = "github:pipelight/virshle";
+    ollama.url = "github:havaker/ollama-nix";
 
     # Optional: Declarative tap management
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";

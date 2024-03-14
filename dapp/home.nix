@@ -11,27 +11,27 @@
     lynx
     ddgr
 
-    # Media
-    vlc
-
     # Mail client
     thunderbird-bin
 
-    # Messaging app
-    # Top tier
+    # Media player
+    vlc
+
+    # Messaging apps
     session-desktop
     signal-desktop
     element-desktop
     telegram-desktop
 
-    # Bottom tier apps
-    discord
-
-    # Image and video manipulation
+    # Image manipulation tools
     gimp
+    # Video manipulation tools
     ffmpeg
     mkvtoolnix
     mediainfo
+
+    # Bottom tier apps
+    discord
   ];
 
   home.file = {

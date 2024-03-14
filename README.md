@@ -1,4 +1,4 @@
-# Crocuda nixos
+# crocuda.nixos
 
 ...is a set of **nixos modules** which provide trivial configuration for
 **paranoids** and **hypocondriacs**.
@@ -74,7 +74,7 @@ Ssh Git Nginx-unit
 
 #### VM (virtual machines)
 
-mail 
+mail
 
 TODO: dns conf
 

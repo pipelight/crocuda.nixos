@@ -1,4 +1,9 @@
 /**
+Sets a minimal theme for firefox.
+Removes a lot of unused buttons for a keyboard focus navigation.
+*/
+
+/**
 Global vars
 */
 :root {

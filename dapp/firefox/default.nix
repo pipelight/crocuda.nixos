@@ -75,17 +75,21 @@ in {
         };
       in {
         "toolkit.legacyUserProfileCustomizations.stylesheets" = lock-true;
-        ## Remove poluting defaults
+
+        # Remove poluting defaults
         "extensions.pocket.enabled" = lock-false;
+
         # Remove default top sites
         "browser.topsites.contile.enabled" = lock-false;
         "browser.urlbar.suggest.topsites" = lock-false;
 
+        # Remove sponsored sites
         "browser.newtabpage.pinned" = lock-empty-string;
         "browser.newtabpage.activity-stream.showSponsored" = lock-false;
         "browser.newtabpage.activity-stream.system.showSponsored" = lock-false;
         "browser.newtabpage.activity-stream.showSponsoredTopSites" = lock-false;
-        # Remove useless buttons
+
+        # Remove firefox shiny buttons
         "browser.tabs.firefox-view" = false;
         "browser.tabs.firefox-view-next" = false;
         # Style
