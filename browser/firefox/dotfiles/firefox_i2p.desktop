@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+NoDisplay=true
+Exec=/home/anon/.nix-profile/bin/firefox -P i2p
+Name=Firefox-i2p
+Comment=Custom definition for Firefox

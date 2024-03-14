@@ -6,7 +6,7 @@
   inputs,
   ...
 }: let
-  cfg = config.services.wm;
+  cfg = config.crocuda;
 in {
   # Import home files
   home-merger = {

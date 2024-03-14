@@ -8,8 +8,8 @@
   home.packages = with pkgs; [
     # Yofi and dependencies
     inputs.yofi.packages.${system}.default
-    libnotify
-    fontconfig
+    # libnotify
+    # fontconfig
 
     eww
     swww

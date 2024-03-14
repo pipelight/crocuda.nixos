@@ -26,11 +26,15 @@ in {
   };
   environment.systemPackages = with pkgs; [
     wl-clipboard
-    cliphist
+    # Screen light
+    redshift
+    feh
     convert_to_grayscale
+
     #Keyboard
     via
   ];
+
   services.udev.packages = with pkgs; [
     via
   ];

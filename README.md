@@ -8,9 +8,6 @@
 This project aim is to provide a well-documented NixOs base config with:
 
 - **security and privacy**.
-
-And
-
 - **keyboard first** apps (qwerty, colemak-dh).
 
 It is devided in **modules** that can be cherry picked or copy/pasted and
@@ -22,9 +19,7 @@ Makes heavy usage of [home-merger](https://github.com/pipelight/nixos-utils) to
 keep config files in separate dotfiles in their original formats, and keep a
 consistent file tree.
 
-Modules are to be plugged like this.
-
-## Usage
+## Installation and Usage
 
 Enable with
 
