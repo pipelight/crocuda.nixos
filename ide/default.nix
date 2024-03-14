@@ -5,7 +5,7 @@
   inputs,
   ...
 }: let
-  cfg = config.services.developer;
+  cfg = config.crocuda;
 in {
   # Import home files
   home-merger = {
@@ -16,7 +16,7 @@ in {
     ];
   };
 
-    # Set default editor
+  # Set default editor
   programs = {
     neovim = {
       enable = true;

@@ -21,11 +21,6 @@ consistent file tree.
 
 ## Installation and Usage
 
-Enable with
-
-```sh
-nixos-rebuild switch
-```
 
 Internet;
 

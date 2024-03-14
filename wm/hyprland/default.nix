@@ -6,7 +6,7 @@
   inputs,
   ...
 }: let
-  cfg = config.services.wm;
+cfg = config.crocuda;
   convert_to_grayscale = pkgs.writeShellScriptBin "convert_to_grayscale" ''
     convert $1 -colorspace gray $1.gray.jpeg
   '';
