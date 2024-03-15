@@ -32,7 +32,7 @@
 
   users.users."llm" = {
     isSystemUser = true;
-    group = "llm";
+    group = "users";
   };
 
   systemd.services."ollama" = {
