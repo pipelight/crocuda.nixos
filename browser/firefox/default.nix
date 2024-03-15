@@ -30,7 +30,6 @@ in {
     enable = true;
     users = cfg.users;
     modules = [
-      inputs.arkenfox.hmModules.arkenfox
       ./home.nix
     ];
   };

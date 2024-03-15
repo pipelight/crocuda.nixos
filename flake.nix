@@ -36,7 +36,6 @@
         pkgs,
         lib,
         utils,
-        inputs,
         ...
       }:
         with inputs;

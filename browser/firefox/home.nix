@@ -1,9 +1,14 @@
 {
   config,
   pkgs,
+  inputs,
   lib,
   ...
 }: {
+  imports = [
+    inputs.arkenfox.hmModules.arkenfox
+  ];
+
   home.file = {
     # ".config/keepassxc/keepassxc.ini".source = dotfiles/keepassxc/keepassxc.ini;
     # Desktop entry for firefox_i2p
