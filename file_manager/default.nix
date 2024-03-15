@@ -8,7 +8,7 @@
   cfg = config.crocuda;
 in {
   # Import home files
-  home-merger = {
+  home-merger = with lib; mkIf cfg.file_manager.yazi.enable {
     enable = true;
     users = cfg.users;
     modules = [
