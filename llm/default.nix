@@ -30,8 +30,9 @@
     config.nur.repos.dustinblackman.oatmeal
   ];
 
-  users.users."llm"= {
+  users.users."llm" = {
     isSystemUser = true;
+    group = "llm";
   };
 
   systemd.services."ollama" = {
