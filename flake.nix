@@ -5,52 +5,32 @@
     # Nixos profile
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     #nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
-
     # NUR - Nix User Repository
     nur.url = "github:nix-community/NUR";
 
+    nixos-utils.url = "github:pipelight/nixos-utils";
+
     # Utils
     flake-utils.url = "github:numtide/flake-utils";
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+
     impermanence.url = "github:nix-community/impermanence";
-    home-merger = {
-      url = "github:pipelight/home-merger";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     # Flakes
     pipelight.url = "github:pipelight/pipelight";
     virshle.url = "github:pipelight/virshle";
     ollama.url = "github:havaker/ollama-nix";
 
-    # Optional: Declarative tap management
-    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
-    homebrew-core = {
-      url = "github:homebrew/homebrew-core";
-      flake = false;
-    };
-    homebrew-cask = {
-      url = "github:homebrew/homebrew-cask";
-      flake = false;
-    };
+    # Server
+    mail-server.url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
+    arkenfox.url = "github:dwarfmaster/arkenfox-nixos";
   };
 
   outputs = {
     nixpkgs,
-    # home-manager,
-    home-merger,
-    impermanence,
-    pipelight,
     ...
   } @ inputs: let
     system = "x86_64-linux";
     pkgs = nixpkgs;
-    homeMergerModule = home-merger.nixosModules.home-merger;
-    # homeManagerModule = home-manager.nixosModules.home-manager;
-    impermanenceModule = impermanence.nixosModules.impermanence;
   in {
     nixosModules = {
       # Default module
@@ -189,6 +169,10 @@
           };
 
           imports = [
+            inputs.nixos-utils.nixosModules.home-merger
+            inputs.nixos-utils.nixosModules.allow-unfree
+            inputs.impermanence.nixosModules.impermanence
+
             # Base
             ./base/default.nix
 

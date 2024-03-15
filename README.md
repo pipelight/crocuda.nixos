@@ -1,4 +1,4 @@
-# crocuda.nixos
+# crocuda.nixos module
 
 ...is a set of **nixos modules** which provide trivial configuration for
 **paranoids** and **hypocondriacs**.
@@ -111,15 +111,4 @@ Password manager:
 
 - KeepassXC (custom security centric layout)
 
-### Developer stuffs
 
-A developer toolkit for rust and web (non-exhaustiv).
-
-IDE: NvChad(github theme) with multiple lsp(+linters +formatters). LSP: - Rust -
-Deno - Bun - Typescript - Vue3(Vite, Vitepress... and the whole vue ecosystem) -
-Pug - Tailwindcss - Nix - Lua
-
-Shells: fish (github theme) default to bash
-
-```
-```
