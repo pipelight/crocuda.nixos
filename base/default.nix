@@ -15,10 +15,10 @@ in {
   # User specific
   home-merger = {
     enable = true;
-    extraSpecialArgs = {inherit pkgs;};
+    extraSpecialArgs = {inherit pkgs inputs;};
     users = cfg.users;
     modules = [
-      # Add single top level NUR for other modules 
+      # Add single top level NUR for other modules
       inputs.nur.hmModules.nur
       ./home.nix
     ];

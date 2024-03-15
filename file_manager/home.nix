@@ -2,7 +2,6 @@
   config,
   pkgs,
   lib,
-  inputs,
   ...
 }: {
   home.file = {
@@ -13,6 +12,5 @@
     # File manager
     # ranger
     yazi
-    ];
-
+  ];
 }
