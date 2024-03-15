@@ -17,12 +17,17 @@ in {
   ];
 
   ## Darkirc messaging background service
-  systemd.user.services."darkirc" = {
+  systemd.user.services.darkircd = {
     enable = false;
-    after = ["network.target"];
-    serviceConfig = {
+    Unit = {
+
+      After = ["network.target"];
+    };
+    Service = {
       ExecStart = "${darkfi}/bin/darkirc";
     };
-    wantedBy = ["multi-user.target"];
+    Install = {
+      WantedBy = ["multi-user.target"];
+    };
   };
 }
