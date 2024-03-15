@@ -21,32 +21,67 @@ consistent file tree.
 
 ## Installation and Usage
 
+Here is a module using crocuda every options
 
-Internet;
+```nix
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
+  crocuda = {
+    users = ["anon"];
 
-- dns, self hosted dns with dns over https.
-- search, searxng search engine configuration.
+    keyboard.layout = "colemak-dh";
 
-Developer;
+    base.enable = true;
 
-- developer, which you may not want to use because it is very very opinionated.
+    # Graphical
+    wm.hyprland.enable = true;
+
+    # Terminal stuffs
+    terminal = {
+      shell = {
+        fish.enable = true;
+      };
+      editor = {
+        nvchad.enable = true;
+        vim.enable = true;
+      };
+      file_manager = {
+        yazi.enable = true;
+      };
+    };
+
+    browser = {
+      firefox.enable = true;
+      searxng.enable = true;
+      i2p.enable = true;
+      tor.enable = true;
+    };
+
+    finance = {
+      monero.enable = false;
+      darkfi.enable = false;
+    };
+  };
+}
+```
 
 #### Normy stuffs
 
+Internet navigation:
+
+- firefox security enhanced: with an hardened version of arkenfox
+- secure dns: with bind9 dns over https
+- search engine: searxng search engine configuration.
+
 Simple tools for everyday usage.
-
-Web browsers:
-
-- firefox (arkenfox and some more security params + tridactil)
-- qutebrowser
-
-Mail client:
-
-- thunderbird
 
 Password manager:
 
-- KeepassXC (custom layout)
+- KeepassXC (custom security centric layout)
 
 #### Developer stuffs
 
@@ -58,29 +93,5 @@ Pug - Tailwindcss - Nix - Lua
 
 Shells: fish (github theme) default to bash
 
-### Servers
 
-Ssh Git Nginx-unit
 
-#### VM (virtual machines)
-
-mail
-
-TODO: dns conf
-
-Local test.com and example.com point to localhost (/etc/hosts).
-
-### WM (window managers)
-
-No Display manager. Log from the tty.
-
-XORG -> Bspwm / Sxhkd (Sound/Backlight + Touchpad fixes)
-
-```sh
-startx bspwm
-```
-
-Terminal emulators:
-
-- Raw xterm for failsafe
-- Custom fancy kitty
