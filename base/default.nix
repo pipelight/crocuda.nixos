@@ -18,6 +18,8 @@ in {
     extraSpecialArgs = {inherit pkgs;};
     users = cfg.users;
     modules = [
+      # Add single top level NUR for other modules 
+      inputs.nur.hmModules.nur
       ./home.nix
     ];
   };
