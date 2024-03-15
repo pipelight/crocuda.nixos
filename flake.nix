@@ -1,5 +1,5 @@
 {
-  description = "crocuda.nixos - NixOS configuration for paranoids";
+  description = "crocuda.nixos - Some NixOS configuration modules for paranoids";
 
   inputs = {
     # Nixos profile
@@ -82,20 +82,28 @@
               default = ["anon"];
             };
 
-            # Set editor and ide with the specified keyboard layout
-            editor = {
-              nvchad.enable = mkEnableOption ''
-                Toggle the module
-              '';
-              vim.enable = mkEnableOption ''
-                Toggle the module
-              '';
-            };
-            # Set shell with the specified keyboard layout
-            shell = {
-              fish.enable = mkEnableOption ''
-                Toggle the module
-              '';
+            # Set editors with the specified keyboard layout
+            terminal = {
+              editor = {
+                # Ide
+                nvchad.enable = mkEnableOption ''
+                  Toggle the module
+                '';
+                vim.enable = mkEnableOption ''
+                  Toggle the module
+                '';
+              };
+              # Set shell with the specified keyboard layout
+              shell = {
+                fish.enable = mkEnableOption ''
+                  Toggle the module
+                '';
+              };
+              file_manager = {
+                yazi.enable = mkEnableOption ''
+                  Toggle the module
+                '';
+              };
             };
 
             llm = {
