@@ -3,6 +3,7 @@
   pkgs,
   lib,
   inputs,
+  system,
   ...
 }: let
   cfg = config.crocuda;
@@ -15,7 +16,7 @@ in {
   # User specific
   home-merger = {
     enable = true;
-    extraSpecialArgs = {inherit pkgs inputs;};
+    extraSpecialArgs = {inherit pkgs inputs system;};
     users = cfg.users;
     modules = [
       # Add single top level NUR for other modules
