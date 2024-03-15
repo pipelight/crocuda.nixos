@@ -7,22 +7,13 @@
   ...
 }: let
   cfg = config.crocuda;
-    darkfi = inputs.darkfi.packages.${system}.default;
+  darkfi = inputs.darkfi.packages.${system}.default;
 in {
   boot.kernelParams = ["nr_hugepages=102400"];
 
   allow-unfree = [
     # "exodus"
   ];
-
-  # User specific
-  home-merger = {
-    enable = true;
-    users = cfg.users;
-    modules = [
-      ./home.nix
-    ];
-  };
 
   environment.systemPackages = with pkgs; [
     # Darkfi suit
