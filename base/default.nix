@@ -7,6 +7,10 @@
 }: let
   cfg = config.crocuda;
 in {
+  imports = [
+  ./users.nix
+
+  ];
   # User specific
   home-merger = {
     enable = true;
