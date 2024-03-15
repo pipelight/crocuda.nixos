@@ -25,7 +25,7 @@
     arkenfox.url = "github:dwarfmaster/arkenfox-nixos";
   };
 
-  outputs = {nixpkgs, arkenfox,...} @ inputs: let
+  outputs = {nixpkgs, ...} @ inputs: let
     system = "x86_64-linux";
     pkgs = nixpkgs;
   in {
@@ -36,6 +36,7 @@
         pkgs,
         lib,
         utils,
+        inputs,
         ...
       }:
         with inputs;
