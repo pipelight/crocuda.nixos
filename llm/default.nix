@@ -29,7 +29,7 @@ in {
     freeglut
     # Python dependencies managment
     poetry
-    config.nur.repos.dustinblackman.oatmeal
+    nur.repos.dustinblackman.oatmeal
   ];
 
   systemd.services."ollama" = {
