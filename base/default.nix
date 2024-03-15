@@ -26,6 +26,13 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
+    # Versioning
     git
+    # Query
+    curl
+    wget
+    # Builders
+    gnumake
+    cmake
   ];
 }

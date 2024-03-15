@@ -56,9 +56,7 @@ in {
     lazygit
 
     # web
-    curl
     whois
-    wget
     tshark
     # Usefull commands
     htop
