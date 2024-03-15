@@ -5,9 +5,7 @@
   utils,
   inputs,
   ...
-}: let
-  user = ["anon"];
-in {
+}: {
   nixpkgs.overlays = [
     # (
     #   final: prev: {
@@ -32,14 +30,19 @@ in {
     config.nur.repos.dustinblackman.oatmeal
   ];
 
+  users.users = {
+    name = "llm";
+    isNormalUser = false;
+  };
+
   systemd.services."ollama" = {
     enable = true;
     after = ["network.target"];
     description = "Ollama service";
     documentation = ["https://github.com/jmorganca/ollama"];
     serviceConfig = {
-      User = user;
-      Group = "wheel";
+      User = "llm";
+      Group = "users";
       WorkingDirectory = "~";
       ExecStart = ''
         ${pkgs.ollama}/bin/ollama serve
