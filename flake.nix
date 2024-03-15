@@ -22,7 +22,11 @@
 
     # Server
     mail-server.url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
-    arkenfox.url = "github:dwarfmaster/arkenfox-nixos";
+
+    arkenfox = {
+      url = "github:dwarfmaster/arkenfox-nixos";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {nixpkgs, ...} @ inputs: let
