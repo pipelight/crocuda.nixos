@@ -10,6 +10,8 @@
 in {
   # Automatic user creation
   imports = [
+      # Add single top level NUR for other modules
+      inputs.nur.nixosModules.nur
     ./users.nix
   ];
 
