@@ -15,19 +15,6 @@ in {
       ./home.nix
     ];
   };
-  # Loosen Security for fast sudoing
-  security.sudo.extraRules = [
-    {
-      groups = ["wheel"];
-      commands = [
-        {
-          command = "ALL";
-          options = ["NOPASSWD"];
-        }
-      ];
-    }
-  ];
-  users.groups.wheel.members = config.services.developer.users;
 
   # Fonts
   fonts = {

@@ -25,7 +25,22 @@ in {
     ];
   };
 
+  # Loosen Security for fast sudoing
+  security.sudo.extraRules = [
+    {
+      groups = ["wheel"];
+      commands = [
+        {
+          command = "ALL";
+          options = ["NOPASSWD"];
+        }
+      ];
+    }
+  ];
+  users.groups.wheel.members = cfg.users;
+
   environment.systemPackages = with pkgs; [
+    # doas
     # Versioning
     git
     # Query
