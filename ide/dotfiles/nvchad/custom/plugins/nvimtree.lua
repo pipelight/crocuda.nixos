@@ -60,7 +60,7 @@ M.opts = function()
 		vim.keymap.set("n", ".", api.tree.toggle_hidden_filter, opts("Toggle hidden files"))
 		vim.keymap.set("n", "?", api.tree.toggle_help, opts("Toggle help"))
 	end
-	-- COLEMAK
+	-- COLEMAK-DH
 	local function on_attach_colemak(bufnr)
 		local api = require("nvim-tree.api")
 		local function opts(desc)
@@ -71,7 +71,7 @@ M.opts = function()
 		-- custom mappings
 		vim.keymap.set("n", "i", api.node.open.edit, opts("Edit"))
 		vim.keymap.set("n", "s", api.node.open.vertical, opts("Open in verical split pane"))
-		vim.keymap.set("n", "u", api.node.open.horizontal, opts("Open horizontal split pane"))
+		vim.keymap.set("n", "l", api.node.open.horizontal, opts("Open horizontal split pane"))
 
 		vim.keymap.set("n", "m", api.node.navigate.parent_close, opts("Close parent node"))
 

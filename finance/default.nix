@@ -7,6 +7,7 @@
   ...
 }: let
   cfg = config.crocuda;
+    darkfi = inputs.darkfi.packages.${system}.default;
 in {
   boot.kernelParams = ["nr_hugepages=102400"];
 
@@ -24,6 +25,12 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
+    # Darkfi suit
+    # darkfi
+
+    # Wallet
+    # exodus
+
     # Mining
     xmrig
     p2pool
@@ -72,5 +79,14 @@ in {
         }
       ];
     };
+  };
+  ## Darkirc messaging background service
+  systemd.user.services."darkircd" = {
+    enable = false;
+    after = ["network.target"];
+    serviceConfig = {
+      ExecStart = "${darkfi}/bin/darkirc";
+    };
+    wantedBy = ["multi-user.target"];
   };
 }
