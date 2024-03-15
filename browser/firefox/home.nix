@@ -8,7 +8,7 @@
   home.file = {
     # ".config/keepassxc/keepassxc.ini".source = dotfiles/keepassxc/keepassxc.ini;
     # Desktop entry for firefox_i2p
-    ".local/share/applications/firefox_i2p.desktop" = dotfiles/firefox_i2p.desktop;
+    ".local/share/applications/firefox_i2p.desktop".source = dotfiles/firefox_i2p.desktop;
   };
 
   programs.firefox = {
