@@ -7,10 +7,11 @@
 }: let
   cfg = config.crocuda;
 in {
+  # Automatic user creation
   imports = [
-  ./users.nix
-
+    ./users.nix
   ];
+
   # User specific
   home-merger = {
     enable = true;
