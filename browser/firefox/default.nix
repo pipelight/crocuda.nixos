@@ -28,7 +28,6 @@ in {
   # User specific
   home-merger = {
     enable = true;
-    extraSpecialArgs = {inherit pkgs inputs;};
     users = cfg.users;
     modules = [
       inputs.arkenfox.hmModules.arkenfox
