@@ -14,8 +14,6 @@
     # Nushell
     ".config/nushell/config.nu".source = dotfiles/nushell/config.nu;
     ".config/nushell/env.nu".source = dotfiles/nushell/env.nu;
-
-    ".config/yazi/keymap.toml".source = dotfiles/yazi/keymap.toml;
     # Fish
     ".config/fish/colemak.fish".source = dotfiles/fish/colemak.fish;
     ".config/fish/extra_config.fish".source = dotfiles/fish/config.fish;
@@ -35,10 +33,6 @@
     ripgrep
     btop
     tldr
-
-    # File manager
-    # ranger
-    yazi
 
     # Packaging for AUR
     pacman
