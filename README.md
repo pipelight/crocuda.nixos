@@ -5,7 +5,7 @@
 
 ## Motivations
 
-This project aim is to provide a well-documented NixOs base config with:
+This project aim is to provide a well-documented NixOs base configuration with:
 
 - **security and privacy**.
 - **keyboard first** apps (qwerty, colemak-dh).
@@ -19,11 +19,15 @@ Makes heavy usage of [home-merger](https://github.com/pipelight/nixos-utils) to
 keep config files in separate dotfiles in their original formats, and keep a
 consistent file tree.
 
-## Installation and Usage
+## Installation and Usage (Flake)
 
-Here is a module using crocuda every options
+Setting up a user is sufficient to get you up and running on a fresh nixos
+installation.
+
+Enable the software you whish to use via the module options and you are done.
 
 ```nix
+# crocuda.nix
 {
   config,
   pkgs,
@@ -69,7 +73,31 @@ Here is a module using crocuda every options
 }
 ```
 
-#### Normy stuffs
+Then import the module and its configuration file from your flake.nix.
+
+```nix
+# flake.nix
+nixosConfigurations = {
+  # CrocudaVM config
+  my_machine = pkgs.lib.nixosSystem {
+    specialArgs = {inherit inputs;};
+    modules = [
+        # Import the module
+        crocuda.nixosModules.default
+        # Import your configuration for this module
+        ./crocuda.nix
+    ];
+  };
+};
+```
+
+```sh
+nixos-rebuild switch
+```
+
+## What is inside ?
+
+### Normy stuffs
 
 Internet navigation:
 
@@ -83,7 +111,7 @@ Password manager:
 
 - KeepassXC (custom security centric layout)
 
-#### Developer stuffs
+### Developer stuffs
 
 A developer toolkit for rust and web (non-exhaustiv).
 
@@ -93,5 +121,5 @@ Pug - Tailwindcss - Nix - Lua
 
 Shells: fish (github theme) default to bash
 
-
-
+```
+```
