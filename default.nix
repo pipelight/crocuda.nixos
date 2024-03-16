@@ -168,4 +168,14 @@ with lib; {
     # AI
     ./llm/default.nix
   ];
+
+  home-merger = {
+    enable = true;
+    extraSpecialArgs = {inherit inputs;};
+    users = cfg.users;
+    modules = [
+      # Add single top level NUR for other modules
+      inputs.nur.hmModules.nur
+    ];
+  };
 }
