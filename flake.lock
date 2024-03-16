@@ -275,11 +275,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1710581835,
-        "narHash": "sha256-GSVzSJe5QXVS8N66ND9GabfukrQhLEzmKNsjT47Y/ok=",
+        "lastModified": 1710583857,
+        "narHash": "sha256-CJvo3A8UwECxotMqW1KKwysEWyFlb6jIn+hgdGdNTA8=",
         "owner": "pipelight",
         "repo": "nixos-utils",
-        "rev": "6c42ba02f13d463328c397d99e21c7df5ef35219",
+        "rev": "e47aacbe4172d2bcb51b01cd670decdfe99b19e2",
         "type": "github"
       },
       "original": {
