@@ -21,10 +21,8 @@
 
     # Flakes
     arkenfox.url = "github:dwarfmaster/arkenfox-nixos";
-    pipelight = {
-      url = "github:pipelight/pipelight";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    pipelight.url = "github:pipelight/pipelight";
+    inputs.nixpkgs.follows = "nixpkgs";
     virshle.url = "github:pipelight/virshle";
     ollama.url = "github:havaker/ollama-nix";
 
@@ -32,14 +30,9 @@
     mail-server.url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    ...
-  } @ inputs: {
+  outputs = {self, ...} @ inputs: {
     nixosModules = {
       # Default module
-        specialArgs = {inherit inputs;};
       default = ./default.nix;
     };
   };
