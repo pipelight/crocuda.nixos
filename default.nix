@@ -133,7 +133,7 @@ with lib; {
   };
 
   imports = [
-    # inputs.nur.nixosModules.nur
+    inputs.nur.nixosModules.nur
     # inputs.impermanence.nixosModules.impermanence
 
     inputs.nixos-utils.nixosModules.home-merger
