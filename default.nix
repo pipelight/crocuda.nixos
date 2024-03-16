@@ -133,14 +133,15 @@ with lib; {
   };
 
   imports = [
-    inputs.nur.nixosModules.nur
     # inputs.impermanence.nixosModules.impermanence
 
     inputs.nixos-utils.nixosModules.home-merger
     inputs.nixos-utils.nixosModules.allow-unfree
 
     # Add single top level import of NUR
-    # for inner home manager usage
+    # for nixosModules usage
+    # and for inner hmModules usage
+    inputs.nur.nixosModules.nur
     (
       {
         config,
