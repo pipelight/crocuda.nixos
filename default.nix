@@ -146,7 +146,7 @@ with lib; {
     ./terminal/default.nix
 
     # File Manager
-    # ./file_manager/default.nix
+    ./file_manager/default.nix
 
     # Ide
     # ./ide/default.nix
