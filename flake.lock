@@ -300,11 +300,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1710601115,
-        "narHash": "sha256-H707MPzdxLfCTHejycdK+1gr8kYTX8g1gyOUpm0+FZQ=",
+        "lastModified": 1710601248,
+        "narHash": "sha256-PPK9pNC04lM9zjs8pWjepPiJYO5SEr8HmyTKRrfcwJ8=",
         "owner": "pipelight",
         "repo": "nixos-utils",
-        "rev": "d59abc975ad4f6cb34dfc295ebcc5391e6c0dc93",
+        "rev": "f1dc1bbfc312dd2463c5a7ef76fdeac8921a6510",
         "type": "github"
       },
       "original": {
