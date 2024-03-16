@@ -30,21 +30,10 @@
   };
 
   outputs = {
+    self,
     nixpkgs,
-    nur,
-    flake-utils,
-    impermanence,
-    nixos-utils,
-    home-manager,
-    arkenfox,
-    pipelight,
-    virshle,
-    ollama,
-    mail-server,
-  } @ inputs: let
-    system = "x86_64-linux";
-    pkgs = nixpkgs;
-  in {
+    ...
+  } :{ 
     nixosModules = {
       # Default module
       default = ./default.nix;
