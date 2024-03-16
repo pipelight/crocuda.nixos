@@ -140,13 +140,15 @@ with lib; {
     inputs.nixos-utils.nixosModules.allow-unfree
 
     # Add single top level import of NUR
-    # for inner home manager usage 
+    # for inner home manager usage
     (
       {
         config,
         inputs,
         ...
-      }: {
+      }: let
+        cfg = config.crocuda;
+      in {
         home-merger = {
           enable = true;
           extraSpecialArgs = {inherit inputs;};
