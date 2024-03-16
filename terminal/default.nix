@@ -10,6 +10,7 @@ in {
   # Import home files
   home-merger = {
     enable = true;
+    extraSpecialArgs = {inherit inputs;};
     users = cfg.users;
     modules = [
       ./home.nix
