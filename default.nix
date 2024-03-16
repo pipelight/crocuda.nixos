@@ -149,23 +149,23 @@ with lib; {
     ./file_manager/default.nix
 
     # Ide
-    # ./ide/default.nix
+    ./ide/default.nix
 
     # Browser
-    # ./browser/extra/default.nix
-    # ./browser/firefox/default.nix
-    # ./browser/searxng/default.nix
+    ./browser/extra/default.nix
+    ./browser/firefox/default.nix
+    ./browser/searxng/default.nix
 
     # Chat
-    # ./chat/default.nix
+    ./chat/default.nix
 
     # Finance
-    # ./finance/default.nix
+    ./finance/default.nix
 
     # Virtualization tools
-    # ./virtualization/default.nix
+    ./virtualization/default.nix
 
     # AI
-    # ./llm/default.nix
+    ./llm/default.nix
   ];
 }
