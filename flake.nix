@@ -165,9 +165,11 @@
           };
 
           imports = [
+            inputs.nur.nixosModules.nur
+            inputs.impermanence.nixosModules.impermanence
+
             inputs.nixos-utils.nixosModules.home-merger
             inputs.nixos-utils.nixosModules.allow-unfree
-            inputs.impermanence.nixosModules.impermanence
 
             # Base
             ./base/default.nix
@@ -200,15 +202,14 @@
           ];
         };
 
-      # User specific
-      # home-merger = {
-      #   enable = true;
-      #   extraSpecialArgs = {inherit pkgs system;};
-      #   modules = [
-      #     # Add single top level NUR for other modules
-      #     inputs.nur.hmModules.nur
-      #   ];
-      # };
+      home-merger = {
+        enable = true;
+        extraSpecialArgs = {inherit pkgs system;};
+        modules = [
+          # Add single top level NUR for other modules
+          inputs.nur.hmModules.nur
+        ];
+      };
     };
   };
 }
