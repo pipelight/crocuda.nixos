@@ -2,31 +2,23 @@
   description = "crocuda.nixos - Some NixOS configuration modules for paranoids";
 
   inputs = {
-    # Nixos profile
+    # Nixos pkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    #nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
     # NUR - Nix User Repository
     nur.url = "github:nix-community/NUR";
 
-    nixos-utils.url = "github:pipelight/nixos-utils";
-
     # Utils
     flake-utils.url = "github:numtide/flake-utils";
-
     impermanence.url = "github:nix-community/impermanence";
+    nixos-utils.url = "github:pipelight/nixos-utils";
 
     # Flakes
+    arkenfox.url = "github:dwarfmaster/arkenfox-nixos";
     pipelight.url = "github:pipelight/pipelight";
     virshle.url = "github:pipelight/virshle";
     ollama.url = "github:havaker/ollama-nix";
-
     # Server
     mail-server.url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
-
-    arkenfox = {
-      url = "github:dwarfmaster/arkenfox-nixos";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = {
@@ -207,6 +199,16 @@
             ./llm/default.nix
           ];
         };
+
+      # User specific
+      home-merger = {
+        enable = true;
+        extraSpecialArgs = {inherit pkgs system;};
+        modules = [
+          # Add single top level NUR for other modules
+          inputs.nur.hmModules.nur
+        ];
+      };
     };
   };
 }

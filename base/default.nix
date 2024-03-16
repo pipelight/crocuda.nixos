@@ -18,7 +18,7 @@ in {
   # User specific
   home-merger = {
     enable = true;
-    extraSpecialArgs = {inherit pkgs inputs system;};
+    extraSpecialArgs = {inherit pkgs system;};
     users = cfg.users;
     modules = [
       # Add single top level NUR for other modules
