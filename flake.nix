@@ -30,7 +30,6 @@
   };
 
   outputs = {
-    self,
     nixpkgs,
     nur,
     flake-utils,
