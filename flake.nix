@@ -180,7 +180,7 @@
             inputs.nixos-utils.nixosModules.allow-unfree
 
             # Base
-            # ./base/default.nix
+            ./base/default.nix
 
             # Terminal
             # ./terminal/default.nix
