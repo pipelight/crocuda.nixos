@@ -10,14 +10,22 @@
     # Utils
     flake-utils.url = "github:numtide/flake-utils";
     impermanence.url = "github:nix-community/impermanence";
-    nixos-utils.url = "github:pipelight/nixos-utils";
+    nixos-utils = {
+      url = "github:pipelight/nixos-utils";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Flakes
     arkenfox.url = "github:dwarfmaster/arkenfox-nixos";
     pipelight.url = "github:pipelight/pipelight";
     virshle.url = "github:pipelight/virshle";
     ollama.url = "github:havaker/ollama-nix";
-    # Server
+
+    # Servers
     mail-server.url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
   };
 
@@ -165,8 +173,8 @@
           };
 
           imports = [
-            inputs.nur.nixosModules.nur
-            inputs.impermanence.nixosModules.impermanence
+            # inputs.nur.nixosModules.nur
+            # inputs.impermanence.nixosModules.impermanence
 
             inputs.nixos-utils.nixosModules.home-merger
             inputs.nixos-utils.nixosModules.allow-unfree
@@ -201,7 +209,6 @@
             ./llm/default.nix
           ];
         };
-
     };
   };
 }
