@@ -139,6 +139,25 @@ with lib; {
     inputs.nixos-utils.nixosModules.home-merger
     inputs.nixos-utils.nixosModules.allow-unfree
 
+    # Add single top level import of NUR
+    # for inner home manager usage 
+    (
+      {
+        config,
+        inputs,
+        ...
+      }: {
+        home-merger = {
+          enable = true;
+          extraSpecialArgs = {inherit inputs;};
+          users = cfg.users;
+          modules = [
+            inputs.nur.hmModules.nur
+          ];
+        };
+      }
+    )
+
     # Base
     ./base/default.nix
 
@@ -168,14 +187,4 @@ with lib; {
     # AI
     ./llm/default.nix
   ];
-
-  home-merger = {
-    enable = true;
-    extraSpecialArgs = {inherit inputs;};
-    users = cfg.users;
-    modules = [
-      # Add single top level NUR for other modules
-      inputs.nur.hmModules.nur
-    ];
-  };
 }
