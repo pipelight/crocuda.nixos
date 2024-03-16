@@ -29,7 +29,11 @@
     };
   };
 
-  outputs = {nixpkgs, ...} @ inputs: let
+  outputs = {
+    self,
+    nixpkgs,
+    ...
+  } @ inputs: let
     system = "x86_64-linux";
     pkgs = nixpkgs;
   in {
@@ -42,7 +46,6 @@
         utils,
         ...
       }:
-        with inputs;
         with lib; {
           # Set the module options
           options.crocuda = {
