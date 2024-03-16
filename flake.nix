@@ -30,7 +30,7 @@
     mail-server.url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
   };
 
-  outputs = {self, ...} @ inputs: {
+  outputs = {self,nixpkgs, ...} @ inputs: {
     nixosModules = {
       # Default module
       default = ./default.nix;
