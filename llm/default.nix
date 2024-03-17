@@ -32,7 +32,7 @@
 
   users.users."llm" = {
     isNormalUser = true;
-    home = "/mnt/HDD/monero";
+    home = "/home/llm";
   };
 
   systemd.services."ollama" = {
