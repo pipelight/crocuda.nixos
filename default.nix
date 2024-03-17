@@ -133,7 +133,7 @@ with lib; {
   };
 
   imports = [
-    # inputs.impermanence.nixosModules.impermanence
+    inputs.impermanence.nixosModules.impermanence
 
     inputs.nixos-utils.nixosModules.home-merger
     inputs.nixos-utils.nixosModules.allow-unfree
@@ -164,6 +164,9 @@ with lib; {
     # Base
     ./base/default.nix
 
+    # Network
+    ./network/default.nix
+
     # Terminal
     ./terminal/default.nix
 
@@ -189,5 +192,10 @@ with lib; {
 
     # AI
     ./llm/default.nix
+
+    # Window manager
+    ./wm/base/default.nix
+    ./wm/hyprland/default.nix
+    ./wm/gnome/default.nix
   ];
 }
