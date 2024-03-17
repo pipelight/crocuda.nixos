@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Version=1.0
 Type=Application
-NoDisplay=true
+NoDisplay=false
 Exec=/usr/bin/env firefox -P i2p
 Name=Firefox-i2p
-Comment=Custom definition for Firefox
+Comment=Custom definition for Firefox with i2p proxy

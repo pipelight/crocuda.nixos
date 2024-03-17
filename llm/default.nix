@@ -31,7 +31,7 @@
   ];
 
   users.users."llm" = {
-    isSystemUser = true;
+    isNormalUser = true;
     group = "users";
   };
 
