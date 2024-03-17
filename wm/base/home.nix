@@ -14,6 +14,8 @@
     ffmpeg
     mkvtoolnix
     mediainfo
+    # Download videos
+    yt-dlp
   ];
 
   home.file = {

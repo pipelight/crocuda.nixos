@@ -58,10 +58,34 @@ with lib; {
       };
     };
 
-    mail = {
-      server.enable = mkEnableOption ''
-        Toggle the module
-      '';
+    servers = {
+      ssh = {
+        enable = mkEnableOption ''
+          Toggle the module
+        '';
+      };
+      mail = {
+        enable = mkEnableOption ''
+          Toggle the module
+        '';
+      };
+      git = {
+        radicle = {
+          enable = mkEnableOption ''
+            Run a git radicle instance module
+          '';
+        };
+        soft = {
+          enable = mkEnableOption ''
+            Toggle the module
+          '';
+        };
+        charm = {
+          enable = mkEnableOption ''
+            Toggle the module
+          '';
+        };
+      };
     };
 
     browser = {
@@ -83,24 +107,6 @@ with lib; {
       tor = {
         enable = mkEnableOption ''
           Run  the module
-        '';
-      };
-    };
-
-    git = {
-      radicle = {
-        enable = mkEnableOption ''
-          Run a git radicle instance module
-        '';
-      };
-      soft = {
-        enable = mkEnableOption ''
-          Toggle the module
-        '';
-      };
-      charm = {
-        enable = mkEnableOption ''
-          Toggle the module
         '';
       };
     };
