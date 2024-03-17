@@ -21,6 +21,11 @@ in {
     storage.members = cfg.users;
   };
 
+  # Allow unfree software
+  allow-unfree = [
+    "unrar"
+  ];
+
   environment.systemPackages = with pkgs; [
     unrar
     du-dust
