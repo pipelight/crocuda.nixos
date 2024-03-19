@@ -17,6 +17,7 @@
     # Fish
     ".config/fish/colemak.fish".source = dotfiles/fish/colemak.fish;
     ".config/fish/extra_config.fish".source = dotfiles/fish/config.fish;
+    ".config/kitten/ssh.conf".source = dotfiles/kitten/kitten.conf;
   };
 
   home.packages = with pkgs; [
@@ -96,19 +97,7 @@
     # Terminal
     kitty = {
       enable = true;
-      extraConfig = ''
-        # Disable exit confirmation dialogue
-        confirm_os_window_close 0
-
-        # Set inner margins
-        window_margin_width 2
-
-        map page_up scroll_page_up
-        map page_down scroll_page_down
-
-        tab_title_template "{index}: {title}"
-
-      '';
+      extraConfig = lib.readFile dotfiles/kitten/kitten.conf;
       theme = "GitHub Dark Dimmed";
     };
     fish = {

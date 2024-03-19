@@ -10,17 +10,8 @@
 in {
   # system.disableInstallerTools = true;
   # Loose security
-  security.sudo.extraRules = [
-    {
-      groups = ["wheel"];
-      commands = [
-        {
-          command = "ALL";
-          options = ["NOPASSWD"];
-        }
-      ];
-    }
-  ];
+  security.sudo.wheelNeedsPassword = false;
+
   users.groups = {
     docker.members = [username];
     unit.members = [username];
