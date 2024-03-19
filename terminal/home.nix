@@ -34,6 +34,7 @@
     ripgrep
     btop
     tldr
+    cheat
 
     # Packaging for AUR
     pacman

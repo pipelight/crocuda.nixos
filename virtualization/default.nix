@@ -7,10 +7,11 @@
 }: let
   cfg = config.crocuda;
 in {
+
   environment.systemPackages = with pkgs; [
     docker
     # libvirt things
-unscd
+    unscd
     OVMF
     # Build images based on flakes and local config
     nixos-generators
@@ -77,10 +78,4 @@ unscd
 
   # Enable command line utility to create VM
   programs.virt-manager.enable = true;
-
-  # Expose guest VM tty to host through virsh
-  # boot.kernelParams = [
-  #   "console=tty1"
-  #   "console=ttyS0,115200"
-  # ];
 }

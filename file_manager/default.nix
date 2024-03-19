@@ -30,7 +30,6 @@ in {
     unrar
     du-dust
     lolcat
-
     # Mount android phones
     #usbutils
     adbfs-rootless
@@ -39,9 +38,11 @@ in {
     #fuse3
   ];
 
+  services.udisks2.enable = true; #stable bup old
+  services.devmon.enable = true;
+
   ################################
   ## Disk automount
-  services.udisks2.enable = true; #stable
   environment.etc."udisks2/mount_options.conf".text = ''
     [defaults]
     btrfs_defaults=compress=zstd
@@ -51,7 +52,6 @@ in {
   ################################
   ### Phones
   ## Automount Google devices
-  services.devmon.enable = true;
   # programs.udevil.enable = true; #unstable
   # services.gvfs.enable = true;
   services.udev.packages = with pkgs; [
