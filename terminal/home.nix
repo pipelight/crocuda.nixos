@@ -17,7 +17,7 @@
     # Fish
     ".config/fish/colemak.fish".source = dotfiles/fish/colemak.fish;
     ".config/fish/extra_config.fish".source = dotfiles/fish/config.fish;
-    ".config/kitten/ssh.conf".source = dotfiles/kitten/kitten.conf;
+    ".config/kitty/ssh.conf".source = dotfiles/kitty/kitty.conf;
   };
 
   home.packages = with pkgs; [
@@ -97,7 +97,7 @@
     # Terminal
     kitty = {
       enable = true;
-      extraConfig = lib.readFile dotfiles/kitten/kitten.conf;
+      extraConfig = lib.readFile dotfiles/kitty/kitty.conf;
       theme = "GitHub Dark Dimmed";
     };
     fish = {
