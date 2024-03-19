@@ -32,6 +32,8 @@
     ".config/nvim/lua/plugins".source = nvchad + "/lua/plugins";
     ".config/nvim/init.lua".source = nvchad + "/init.lua";
     ".config/nvim/lua/custom".source = dotfiles/nvchad/custom;
+
+    ".vimrc".source = dotfiles/.vimrc;
   };
 
   home.packages = with pkgs; [

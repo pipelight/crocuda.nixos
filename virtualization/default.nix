@@ -10,6 +10,7 @@ in {
   environment.systemPackages = with pkgs; [
     docker
     # libvirt things
+unscd
     OVMF
     # Build images based on flakes and local config
     nixos-generators
