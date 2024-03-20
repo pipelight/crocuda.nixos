@@ -17,6 +17,7 @@ in {
     ];
   };
 
+
   environment.systemPackages = with pkgs; [
     docker
     # libvirt things
@@ -34,11 +35,15 @@ in {
   # Enable docker usage
   virtualisation.docker.enable = true;
 
+  virtualisation.xen = {
+    enable = true;
+
+};
   # Enable libvirt virtualization framework
   virtualisation.libvirtd = {
     enable = true;
     # A name server to map VM ip to its name defined with libvirt
-    # Allows this: `ssh nixos_vm`
+    # Allows this: `ssh vm_nixos`
     nss = {
       enable = true;
       enableGuest = true;
