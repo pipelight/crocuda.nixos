@@ -9,6 +9,8 @@ local map = function(mode, lhs, rhs)
 	})
 end
 
+local lsp = vim.lsp
+
 M.general = {
 
 	n = {
@@ -61,6 +63,16 @@ M.load = function()
 	--select
 	map("n", "vi", "vl")
 	map("n", "vn", "vj")
+
+	-- lsp
+	map("n", "gD", lsp.buf.declaration)
+	map("n", "gd", lsp.buf.definition)
+	map("n", "gi", lsp.buf.implementation)
+	map("n", "<leader>D", lsp.buf.type_definition)
+	map("n", "gr", lsp.buf.reference)
+	map("n", "<leader>ca", lsp.buf.code_action)
+	map("v", "<leader>ca", lsp.buf.code_action)
+
 end
 
 return M
