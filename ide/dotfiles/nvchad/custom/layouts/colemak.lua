@@ -4,7 +4,7 @@ local M = {}
 -- it simplifies remapping
 local map = function(mode, lhs, rhs)
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
-	vim.keymap.set.keymap(mode, lhs, rhs, bufopts)
+	vim.keymap.set(mode, lhs, rhs, bufopts)
 end
 
 local lsp = vim.lsp
