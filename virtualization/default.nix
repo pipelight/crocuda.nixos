@@ -36,7 +36,7 @@ in {
 
   # Do not support efi boot
   virtualisation.xen = {
-    enable = true;
+    enable = false;
   };
   # Enable libvirt virtualization framework
   virtualisation.libvirtd = {
