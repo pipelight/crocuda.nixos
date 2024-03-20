@@ -19,6 +19,7 @@ M.general = {
 		["<C-n>"] = { "<C-w>j", "Window down" },
 		["<C-e>"] = { "<C-w>k", "Window up" },
 		["<C-i>"] = { "<C-w>l", "Window right" },
+
 	},
 }
 M.disabled = {

@@ -7,6 +7,16 @@
 }: let
   cfg = config.crocuda;
 in {
+  # Import home file
+  home-merger = {
+    enable = true;
+    extraSpecialArgs = {inherit pkgs inputs;};
+    users = cfg.users;
+    modules = [
+      ./home.nix
+    ];
+  };
+
   environment.systemPackages = with pkgs; [
     docker
     # libvirt things
@@ -43,11 +53,19 @@ in {
       "virbr4"
       "virbr6"
     ];
+
     qemu = {
       runAsRoot = true;
       swtpm.enable = true;
       ovmf = {
         enable = true;
+        packages = [
+          (pkgs.OVMF.override {
+            secureBoot = true;
+            tpmSupport = true;
+          })
+          .fd
+        ];
       };
     };
   };

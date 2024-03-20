@@ -16,6 +16,7 @@
     wev
     # notifications
     dunst
+
   ];
   home.file = {
     ".profile".source = dotfiles/.profile;
