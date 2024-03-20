@@ -48,7 +48,6 @@ in {
       runAsRoot = true;
       swtpm.enable = true;
       ovmf = {
-        packages = [pkgs.OVMF];
         enable = true;
       };
     };
