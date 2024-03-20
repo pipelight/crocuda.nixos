@@ -7,7 +7,6 @@
 }: let
   cfg = config.crocuda;
 in {
-
   environment.systemPackages = with pkgs; [
     docker
     # libvirt things
@@ -28,6 +27,7 @@ in {
 
   # Enable libvirt virtualization framework
   virtualisation.libvirtd = {
+    efi.OVMF;
     enable = true;
     # A name server to map VM ip to its name defined with libvirt
     # Allows this: `ssh nixos_vm`
