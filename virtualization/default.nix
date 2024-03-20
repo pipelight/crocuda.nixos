@@ -17,7 +17,6 @@ in {
     ];
   };
 
-
   environment.systemPackages = with pkgs; [
     docker
     # libvirt things
@@ -35,10 +34,10 @@ in {
   # Enable docker usage
   virtualisation.docker.enable = true;
 
+  # Do not support efi boot
   virtualisation.xen = {
     enable = true;
-
-};
+  };
   # Enable libvirt virtualization framework
   virtualisation.libvirtd = {
     enable = true;
