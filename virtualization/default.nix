@@ -21,7 +21,6 @@ in {
     docker
     # libvirt things
     unscd
-    OVMF
     # Build images based on flakes and local config
     nixos-generators
     # A VM deployment tool
@@ -55,7 +54,7 @@ in {
     ];
 
     qemu = {
-          package = pkgs.qemu_kvm;
+      package = pkgs.qemu_kvm;
       runAsRoot = true;
       swtpm.enable = true;
       ovmf = {
