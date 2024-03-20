@@ -3,10 +3,8 @@ local M = {}
 
 -- it simplifies remapping
 local map = function(mode, lhs, rhs)
-	vim.api.nvim_set_keymap(mode, lhs, rhs, {
-		noremap = true,
-		silent = true,
-	})
+	local bufopts = { noremap = true, silent = true, buffer = bufnr }
+	vim.keymap.set.keymap(mode, lhs, rhs, bufopts)
 end
 
 local lsp = vim.lsp
@@ -72,7 +70,6 @@ M.load = function()
 	map("n", "gr", lsp.buf.reference)
 	map("n", "<leader>ca", lsp.buf.code_action)
 	map("v", "<leader>ca", lsp.buf.code_action)
-
 end
 
 return M
