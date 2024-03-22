@@ -176,6 +176,9 @@ with lib; {
     # Terminal
     ./terminal/default.nix
 
+    # Servers
+    ./server/default.nix
+
     # File Manager
     ./file_manager/default.nix
 
