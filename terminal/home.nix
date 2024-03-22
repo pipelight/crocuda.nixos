@@ -17,7 +17,7 @@
     # Fish
     ".config/fish/colemak.fish".source = dotfiles/fish/colemak.fish;
     ".config/fish/extra_config.fish".source = dotfiles/fish/config.fish;
-    ".config/kitty/ssh.conf".source = dotfiles/kitty/kitty.conf;
+    ".config/kitty/ssh.conf".source = dotfiles/kitty/ssh.conf;
   };
 
   home.packages = with pkgs; [
