@@ -19,7 +19,6 @@ M.general = {
 		["<C-n>"] = { "<C-w>j", "Window down" },
 		["<C-e>"] = { "<C-w>k", "Window up" },
 		["<C-i>"] = { "<C-w>l", "Window right" },
-
 	},
 }
 M.disabled = {
@@ -55,13 +54,16 @@ M.load = function()
 	map("n", "i", "l")
 	map("v", "i", "l")
 
-	--insert
+	-- insert
 	map("n", "l", "i")
 	map("n", "L", "I")
 
-	--select
+	-- select
 	map("n", "vi", "vl")
 	map("n", "vn", "vj")
+
+	-- find
+	map("n", "g", "n")
 
 	-- lsp
 	map("n", "gD", lsp.buf.declaration)
