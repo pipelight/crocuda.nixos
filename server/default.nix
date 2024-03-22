@@ -17,8 +17,4 @@ in {
     # settings.PermitRootLogin = "yes";
   };
 
-  environment.systemPackages = with pkgs; [
-    # Decentralized code collaboration plateform
-    radicle-cli
-  ];
 }

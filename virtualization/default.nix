@@ -23,6 +23,7 @@ in {
     unscd
     # Build images based on flakes and local config
     nixos-generators
+    cdrkit
     # A VM deployment tool
     colmena
     # Virshle from the flake
