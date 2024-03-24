@@ -6,7 +6,7 @@
   inputs,
   ...
 }: let
-cfg = config.crocuda;
+  cfg = config.crocuda;
   convert_to_grayscale = pkgs.writeShellScriptBin "convert_to_grayscale" ''
     convert $1 -colorspace gray $1.gray.jpeg
   '';
@@ -27,6 +27,7 @@ in {
   environment.systemPackages = with pkgs; [
     wl-clipboard
     hyprlock
+    hypridle
     # Screen light
     redshift
     feh
