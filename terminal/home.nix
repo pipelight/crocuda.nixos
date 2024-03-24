@@ -98,7 +98,7 @@
     # Terminal
     kitty = {
       enable = true;
-      extraConfig = lib.readFile dotfiles/kitty/kitty.conf;
+      extraConfig = builtins.readFile dotfiles/kitty/kitty.conf;
       theme = "GitHub Dark Dimmed";
     };
     fish = {

@@ -26,6 +26,7 @@ in {
   };
   environment.systemPackages = with pkgs; [
     wl-clipboard
+    hyprlock
     # Screen light
     redshift
     feh
