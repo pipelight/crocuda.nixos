@@ -60,6 +60,7 @@ M.opts = function()
 		vim.keymap.set("n", ".", api.tree.toggle_hidden_filter, opts("Toggle hidden files"))
 		vim.keymap.set("n", "?", api.tree.toggle_help, opts("Toggle help"))
 	end
+
 	-- COLEMAK-DH
 	local function on_attach_colemak(bufnr)
 		local api = require("nvim-tree.api")
@@ -80,7 +81,7 @@ M.opts = function()
 		-- directions
 		vim.keymap.set("n", "n", "j", opts("Next"))
 		vim.keymap.set("n", "e", "k", opts("Prev"))
-    -- deprecated
+		-- deprecated
 		vim.keymap.set("n", "o", "", opts("Open"))
 	end
 
