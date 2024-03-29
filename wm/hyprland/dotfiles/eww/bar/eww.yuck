@@ -1,12 +1,12 @@
 ; Workspace vars
 (deflisten workspaces "../scripts/workspaces.ts")
 (deflisten active-window "../scripts/active-window.ts")
+(deflisten BATTERY "../scripts/battery.ts")
 
 ;; System vars
 (defpoll HOST :interval "5s" `hostname`)
 (defpoll CPU_USAGE :interval "1s" `../scripts/sys_info --cpu`)
 (defpoll MEM_USAGE :interval "1s" `../scripts/sys_info --mem`)
-(defpoll BATTERY :interval "5s" `../scripts/battery.ts`)
 
 ;; system
 (defwidget system [] 
