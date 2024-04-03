@@ -23,7 +23,7 @@
   home.file = {
     ".profile".source = dotfiles/.profile;
 
-    ".config/wpaperd/wallpaper.toml".source = dotfiles/wallpaper.toml;
+    ".config/wpaperd/wallpaper.toml".source = dotfiles/wpaperd/wallpaper.toml;
     ".config/hypr".source = dotfiles/hypr;
     ".config/eww".source = dotfiles/eww;
     ".config/yofi".source = dotfiles/yofi;
