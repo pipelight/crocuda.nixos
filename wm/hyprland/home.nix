@@ -11,16 +11,19 @@
     # libnotify
     # fontconfig
 
-    eww
+    # Wallpapers
+    # inputs.wpaperd.packages.${system}.default
     swww
+
+    eww
     wev
     # notifications
     dunst
-
   ];
   home.file = {
     ".profile".source = dotfiles/.profile;
 
+    ".config/wpaperd/wallpaper.toml".source = dotfiles/wallpaper.toml;
     ".config/hypr".source = dotfiles/hypr;
     ".config/eww".source = dotfiles/eww;
     ".config/yofi".source = dotfiles/yofi;

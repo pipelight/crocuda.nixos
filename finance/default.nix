@@ -36,6 +36,7 @@ in {
   environment.etc = {
     # monero node conf
     "monero/monerod.conf".source = dotfiles/monero/monerod.conf;
+    "monero/monerod.testnet.conf".source = dotfiles/monero/monerod.testnet.conf;
   };
 
   # Run monero node
@@ -43,16 +44,32 @@ in {
     enable = false;
     after = ["network.target"];
     serviceConfig = {
-      ExecStart = "${pkgs.monero-cli}/bin/monerod --non-interactive --prune-blockchain";
+      ExecStart = "${pkgs.monero-cli}/bin/monerod --config-file ~/monero/monero.conf";
       User = "monero";
       Group = "users";
       Type = "simple";
-      WorkingDirectory = "~";
+      # WorkingDirectory = "~";
       StateDirectory = "monero";
       LogsDirectory = "monero";
     };
     wantedBy = ["multi-user.target"];
   };
+
+  systemd.services."monerod-testnet" = {
+    enable = false;
+    after = ["network.target"];
+    serviceConfig = {
+      ExecStart = "${pkgs.monero-cli}/bin/monerod --config-file ~/monero/monero.testnet.conf";
+      User = "monero";
+      Group = "users";
+      Type = "simple";
+      # WorkingDirectory = "~";
+      StateDirectory = "monero";
+      LogsDirectory = "monero";
+    };
+    wantedBy = ["multi-user.target"];
+  };
+
   # Mine monero (validation node)
   services.xmrig = {
     enable = false;

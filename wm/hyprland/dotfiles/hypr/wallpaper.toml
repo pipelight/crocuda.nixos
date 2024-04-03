@@ -1,0 +1,12 @@
+# Wpaperd
+# https://github.com/danyspin97/wpaperd
+
+[default]
+path = "/home/anon/Pictures/Background/"
+duration = "30m"
+sorting = "ascending"
+
+
+[eDP-1]
+path = "/home/anon/Pictures/Background/"
+apply-shadow = true

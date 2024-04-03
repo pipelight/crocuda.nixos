@@ -31,6 +31,7 @@
     mail-server.url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
     # WM
     yofi.url = "github:l4l/yofi";
+    # wpaperd.url = "github:danyspin97/wpaperd";
   };
 
   outputs = {
