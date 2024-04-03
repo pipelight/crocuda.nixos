@@ -9,7 +9,7 @@
   cfg = config.crocuda;
 in
   with lib;
-    mkIf cfg.hyprland.enable {
+    mkIf cfg.wm.hyprland.enable {
       # Import home file
       home-merger = {
         enable = true;
