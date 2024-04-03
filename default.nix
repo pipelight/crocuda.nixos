@@ -145,10 +145,10 @@ with lib; {
     # Window manager
     # Heavily customed hypr
     wm = {
-      hyprland = mkEnableOption ''
+      hyprland.enable = mkEnableOption ''
         Toggle the hyprland window manager
       '';
-      gnome = mkEnableOption ''
+      gnome.enable = mkEnableOption ''
         Toggle gnome desktop environment
       '';
     };
