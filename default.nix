@@ -25,6 +25,7 @@ with lib; {
       '';
       default = ["anon"];
     };
+
     network = {
       privacy.enable = EnableOption ''
         Enable ipv6 privacy features, quad9 dns.
@@ -67,11 +68,11 @@ with lib; {
         '';
       };
     };
-      chat = {
-        enable = mkEnableOption ''
-          Toggle libvirt usage
-        '';
-      };
+    chat = {
+      enable = mkEnableOption ''
+        Toggle libvirt usage
+      '';
+    };
 
     servers = {
       ssh = {
