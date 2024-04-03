@@ -8,7 +8,7 @@
   cfg = config.crocuda;
 in
   with lib;
-    mkIf cfg.virtualisation.libvirt.enable {
+    mkIf cfg.virtualization.libvirt.enable {
       # Import home file
       home-merger = {
         enable = true;

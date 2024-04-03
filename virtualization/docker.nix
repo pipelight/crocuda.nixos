@@ -8,8 +8,7 @@
   cfg = config.crocuda;
 in
   with lib;
-
-    mkIf cfg.virtualisation.docker.enable {
+    mkIf cfg.virtualization.docker.enable {
       environment.systemPackages = with pkgs; [
         docker
       ];
