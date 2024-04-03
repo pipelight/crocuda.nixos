@@ -6,7 +6,9 @@
   ...
 }: let
   cfg = config.crocuda;
-in {
+in
+  with lib;
+    mkIf cfg.wm.hyprland.enable {
   # User specific
   home-merger = {
     enable = true;

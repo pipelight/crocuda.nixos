@@ -58,6 +58,19 @@ with lib; {
       };
     };
 
+    virtualization = {
+      libvirt = {
+        enable = mkEnableOption ''
+          Toggle libvirt usage
+        '';
+      };
+      docker = {
+        enable = mkEnableOption ''
+          Toggle docker usage
+        '';
+      };
+    };
+
     servers = {
       ssh = {
         enable = mkEnableOption ''
@@ -133,7 +146,10 @@ with lib; {
     # Heavily customed hypr
     wm = {
       hyprland = mkEnableOption ''
-        Toggle the module
+        Toggle the hyprland window manager
+      '';
+      gnome = mkEnableOption ''
+        Toggle gnome desktop environment
       '';
     };
   };

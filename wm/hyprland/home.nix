@@ -4,19 +4,29 @@
   lib,
   inputs,
   ...
-}: {
+}: let
+  convert_to_grayscale = pkgs.writeShellScriptBin "convert_to_grayscale" ''
+    convert $1 -colorspace gray $1.gray.jpeg
+  '';
+in {
   home.packages = with pkgs; [
     # Yofi and dependencies
     inputs.yofi.packages.${system}.default
-    # libnotify
-    # fontconfig
+    #libnotify
+    #fontconfig
 
     # Wallpapers
-    # inputs.wpaperd.packages.${system}.default
+    #inputs.wpaperd.packages.${system}.default
+    feh
+    convert_to_grayscale
     swww
 
+    # toolbars
     eww
+
+    # utils
     wev
+
     # notifications
     dunst
   ];
