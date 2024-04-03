@@ -27,7 +27,7 @@ with lib; {
     };
 
     network = {
-      privacy.enable = EnableOption ''
+      privacy.enable = mkEnableOption ''
         Enable ipv6 privacy features, quad9 dns.
       '';
     };
