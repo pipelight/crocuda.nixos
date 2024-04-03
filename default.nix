@@ -25,29 +25,26 @@ with lib; {
       '';
       default = ["anon"];
     };
+    network = {
+      privacy.enable = EnableOption ''
+        Enable ipv6 privacy features, quad9 dns.
+      '';
+    };
 
     # Set editors with the specified keyboard layout
     terminal = {
-      editor = {
-        # Ide
-        nvchad.enable = mkEnableOption ''
-          Toggle the module
-        '';
-        vim.enable = mkEnableOption ''
-          Toggle the module
-        '';
-      };
+      editors.enable = mkEnableOption ''
+        Toggle the module
+      '';
       # Set shell with the specified keyboard layout
       shell = {
         fish.enable = mkEnableOption ''
           Toggle the module
         '';
       };
-      file_manager = {
-        yazi.enable = mkEnableOption ''
-          Toggle the module
-        '';
-      };
+      file_manager.enable = mkEnableOption ''
+        Toggle the module
+      '';
     };
 
     llm = {
@@ -70,6 +67,11 @@ with lib; {
         '';
       };
     };
+      chat = {
+        enable = mkEnableOption ''
+          Toggle libvirt usage
+        '';
+      };
 
     servers = {
       ssh = {
@@ -137,7 +139,7 @@ with lib; {
       };
       darkfi = {
         enable = mkEnableOption ''
-          Run local monero node
+          Run local darkfi node
         '';
       };
     };

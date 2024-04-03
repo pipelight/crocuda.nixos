@@ -6,7 +6,9 @@
   ...
 }: let
   cfg = config.crocuda;
-in {
+in
+  with lib;
+    mkIf cfg.chat.enable {
   # Allow bottom tier apps
   allow-unfree = [
     "discord"

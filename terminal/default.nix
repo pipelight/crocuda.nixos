@@ -43,18 +43,13 @@ in {
     eza
     lazygit
 
-    # web
-    whois
-    tshark
     # Usefull commands
     htop
     nushell
+
     # Archive
     unzip
-    # Networking
-    # VPN
-    wireguard-tools
-    iftop
+
     # utils
     cheat
     vhs
