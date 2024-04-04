@@ -35,12 +35,9 @@ in
         description = "Radicle node daemon";
         documentation = ["https://radicle.xyz/guides/user"];
         requires = ["network-online.target"];
-        serviceConfig = 
-
-          let 
+        serviceConfig = with pkgs; let
           package = inputs.radicle.packages.${system}.default;
-          in 
-        {
+        in {
           ExecStart = "${package}/bin/rad node start";
           User = "${username}";
           Group = "users";
