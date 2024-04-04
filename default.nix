@@ -196,7 +196,7 @@ with lib; {
     ./terminal/default.nix
 
     # Servers
-    ./server/default.nix
+    ./servers/default.nix
 
     # File Manager
     ./file_manager/default.nix
