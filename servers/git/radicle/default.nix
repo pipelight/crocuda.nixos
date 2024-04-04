@@ -38,7 +38,7 @@ in
         serviceConfig = with pkgs; let
           package = inputs.radicle.packages.${system}.default;
         in {
-          ExecStart = "${package}/bin/rad node start";
+          ExecStart = "${package}/bin/rad node start --foreground";
           User = "${username}";
           Group = "users";
           Type = "simple";
