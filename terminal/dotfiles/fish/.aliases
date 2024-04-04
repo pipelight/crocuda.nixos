@@ -2,6 +2,7 @@
 alias cp="cp -i"
 alias df='df -h'
 alias free='free -m'
+alias kee='keepasskc-cli'
 
 alias gitu='git add . && git commit && git push'
 

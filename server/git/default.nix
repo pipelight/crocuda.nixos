@@ -1,12 +1,16 @@
 {
   config,
   pkgs,
+  inputs,
   ...
-}: let
-  cfg = config.crocuda;
-in {
-  environment.systemPackages = with pkgs; [
-    # Decentralized code collaboration plateform
-    radicle-cli
+}: {
+  imports = [
+    # ./charm/default.nix
+    ./radicle/default.nix
   ];
+  # Git server
+  users.users.git = {
+    isNormalUser = true;
+    homeMode = "770";
+  };
 }

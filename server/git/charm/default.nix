@@ -12,10 +12,6 @@ in {
   # Loose security
   security.sudo.wheelNeedsPassword = false;
 
-  users.groups = {
-    docker.members = [username];
-    unit.members = [username];
-  };
   ## Add global packages
   # environment.systemPackages = [];
   environment.defaultPackages = with pkgs; [
@@ -23,11 +19,7 @@ in {
     util-linux
     tree
     git
-    sqlite
-    soft-serve
     charm
-    docker
-    curl
     openssl
     unit
     deno
@@ -87,14 +79,6 @@ in {
   #   defaults.email = "admin+acme@example.org";
   # };
 
-  # Allow docker usage
-  virtualisation.docker.enable = true;
-
-  # Git server
-  users.users.git = {
-    isNormalUser = true;
-    homeMode = "770";
-  };
 
   environment.etc = {
     # charm's soft-serve
