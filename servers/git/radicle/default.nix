@@ -21,6 +21,15 @@ in
         # inputs.radicle-tui.packages.${system}.default
       ];
 
+      # For a local dummy node either set a password and provide it to the
+      # radicle systemd unit via variable a manualy created file at /etc/radicle.conf
+      # with the following
+      # RAD_PASSPHRASE="my_password"
+
+      # environment.etc = {
+      #   "radicle.conf".source = dotfiles/radicle.conf;
+      # };
+
       systemd.services."radicle-node" = {
         enable = true;
         description = "Radicle node daemon";
@@ -34,7 +43,7 @@ in
           Restart = "always";
           RestartSec = 1;
           WorkingDirectory = "/home/${username}";
-          # EnvironmentFile = ["/etc/charm.conf"];
+          EnvironmentFile = ["/etc/radicle.conf"];
         };
         wantedBy = ["multi-user.target"];
       };
