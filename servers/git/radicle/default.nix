@@ -45,7 +45,7 @@ in
           Restart = "always";
           RestartSec = 1;
           WorkingDirectory = "/home/${username}";
-          EnvironmentFile = ["/etc/radicle.conf"];
+          EnvironmentFile = "/etc/radicle.conf";
         };
         wantedBy = ["multi-user.target"];
       };
