@@ -6,6 +6,7 @@
   ...
 }: let
   cfg = config.crocuda;
+  # A dedicated unpriviledged user for public node
   username = "radicle";
 in
   with lib;
@@ -30,7 +31,7 @@ in
       #   "radicle.conf".source = dotfiles/radicle.conf;
       # };
 
-      systemd.services."radicle-node" = {
+      systemd.services."radicle-public-node" = {
         enable = true;
         description = "Radicle node daemon";
         documentation = ["https://radicle.xyz/guides/user"];
