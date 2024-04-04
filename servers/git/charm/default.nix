@@ -79,7 +79,6 @@ in {
   #   defaults.email = "admin+acme@example.org";
   # };
 
-
   environment.etc = {
     # charm's soft-serve
     # "soft/config.yaml".source = dotfiles/soft/config.yaml;

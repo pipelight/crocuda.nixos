@@ -18,4 +18,4 @@ in {
     certbot
     # fail2ban
   ];
-  }
+}
