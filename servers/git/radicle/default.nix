@@ -36,7 +36,7 @@ in
         documentation = ["https://radicle.xyz/guides/user"];
         requires = ["network-online.target"];
         serviceConfig = {
-          ExecStart = "${pkgs.charm}/bin/rad node start";
+          ExecStart = "${pkgs.radicle}/bin/rad node start";
           User = "${username}";
           Group = "users";
           Type = "simple";
