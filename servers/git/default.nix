@@ -13,4 +13,7 @@
     isNormalUser = true;
     homeMode = "770";
   };
+  environment.systemPackages = with pkgs; [
+  git
+  ];
 }
