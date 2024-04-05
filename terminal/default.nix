@@ -7,15 +7,14 @@
 }: let
   cfg = config.crocuda;
 in {
-
   # Import home files
   home-merger = {
     enable = true;
-    extraSpecialArgs = {inherit inputs;};
+    extraSpecialArgs = {inherit inputs config;};
     users = cfg.users;
     modules = [
       ./home.nix
-    ./kitty.nix
+      ./kitty.nix
     ];
   };
 
