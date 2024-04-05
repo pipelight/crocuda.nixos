@@ -74,17 +74,7 @@ in {
   #   defaults.email = "admin+acme@example.org";
   # };
 
-  # Enable the OpenSSH daemon.
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
-  services.openssh = {
-    enable = true;
-    # require public key authentication for better security
-    # settings.PasswordAuthentication = true;
-    settings.PasswordAuthentication = false;
-    # settings.KbdInteractiveAuthentication = true;
-    settings.KbdInteractiveAuthentication = false;
-    #settings.PermitRootLogin = "yes";
-  };
 
 }
