@@ -6,9 +6,7 @@
   ...
 }: let
   cfg = config.crocuda;
-in
-  with lib;
-    mkIf cfg.terminal.emulators.enable {
+in{
       home.file = {
         ".config/pacman/makepkg.conf".source = dotfiles/pacman/makepkg.conf;
         ".config/kitty/ssh.conf".source = dotfiles/kitty/ssh.conf;
@@ -18,8 +16,8 @@ in
         zellij
         # Packaging for AUR
         pacman
-    # utils
-    vhs
+        # utils
+        vhs
       ];
 
       # Shell

@@ -10,11 +10,13 @@ in {
   # Import home files
   home-merger = {
     enable = true;
-    extraSpecialArgs = {inherit inputs config;};
+    extraSpecialArgs = {inherit inputs;};
     users = cfg.users;
-    modules = [
+    modules = with lib; [
       ./home.nix
-      ./kitty.nix
+      (mkIf
+      cfg.terminal.emulators.enable
+      ./kitty.nix)
     ];
   };
 
