@@ -8,8 +8,9 @@
   cfg = config.crocuda;
 in {
   users.groups = {
-    unit.members = [cfg.users];
+    unit.members = cfg.users;
   };
+
   environment.defaultPackages = with pkgs; [
     # Crocuda dependencies
     caddy
