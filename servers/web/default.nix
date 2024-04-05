@@ -12,6 +12,9 @@ in {
   };
   environment.defaultPackages = with pkgs; [
     # Crocuda dependencies
+    caddy
+    nodePackages.serve
+
     openssl
     unit
     deno

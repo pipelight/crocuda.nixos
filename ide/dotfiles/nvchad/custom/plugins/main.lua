@@ -43,6 +43,10 @@ local plugins = {
 		end,
 	},
 	{
+		"isobit/vim-caddyfile",
+		lazy = true,
+	},
+	{
 		"psliwka/vim-smoothie",
 		lazy = false,
 	},
