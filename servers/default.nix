@@ -9,6 +9,7 @@
 in {
   imports = [
     ./git/default.nix
+    ./web/default.nix
   ];
   ################################
   # Ssh
