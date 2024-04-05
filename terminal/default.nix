@@ -7,9 +7,6 @@
 }: let
   cfg = config.crocuda;
 in {
-  imports = [
-    ./kitty.nix
-  ];
 
   # Import home files
   home-merger = {
@@ -18,6 +15,7 @@ in {
     users = cfg.users;
     modules = [
       ./home.nix
+    ./kitty.nix
     ];
   };
 
