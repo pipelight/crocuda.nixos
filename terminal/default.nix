@@ -15,8 +15,8 @@ in {
     modules = with lib; [
       ./home.nix
       (mkIf
-      cfg.terminal.emulators.enable
-      ./kitty.nix)
+        cfg.terminal.emulators.enable
+        ./kitty.nix)
     ];
   };
 
@@ -52,7 +52,5 @@ in {
     # Archive
     unzip
 
-    # utils
-    cheat
   ];
 }

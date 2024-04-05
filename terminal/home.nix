@@ -17,15 +17,9 @@
     # Fish
     ".config/fish/colemak.fish".source = dotfiles/fish/colemak.fish;
     ".config/fish/extra_config.fish".source = dotfiles/fish/config.fish;
-    ".config/kitty/ssh.conf".source = dotfiles/kitty/ssh.conf;
   };
 
   home.packages = with pkgs; [
-    # flakes
-    inputs.pipelight.packages.${system}.default
-
-    zellij
-
     # Fast find
     fzf
     fd
@@ -35,9 +29,6 @@
     btop
     tldr
     cheat
-
-    # Packaging for AUR
-    pacman
 
     # Dev utils
     neofetch
@@ -58,6 +49,7 @@
     ## Fish Shell dependencies
     fish
     zsh
+
     # Recolorize commands
     grc
     bat
@@ -65,7 +57,6 @@
     # Dotenv, environment autoload
     nix-direnv
     nix-index
-
 
     # Auto configure fish tide prompt
     (pkgs.writeShellScriptBin "fish_tide_auto" ''
