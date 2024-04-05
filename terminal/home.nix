@@ -66,8 +66,6 @@
     nix-direnv
     nix-index
 
-    # Vercel server anything
-    nodePackages.serve
 
     # Auto configure fish tide prompt
     (pkgs.writeShellScriptBin "fish_tide_auto" ''

@@ -14,6 +14,8 @@ in {
   environment.defaultPackages = with pkgs; [
     # Crocuda dependencies
     caddy
+
+    # Vercel server anything
     nodePackages.serve
 
     openssl
@@ -86,5 +88,4 @@ in {
     settings.KbdInteractiveAuthentication = false;
     #settings.PermitRootLogin = "yes";
   };
-
 }

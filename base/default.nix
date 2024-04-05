@@ -52,5 +52,17 @@ in {
     # Builders
     gnumake
     cmake
+
+    # Language engines
+    deno
+    bun
+    nodejs_latest
+    jo
+    jq
+    yq-go
+
+    # CICD
+    just
+    gnumake
   ];
 }

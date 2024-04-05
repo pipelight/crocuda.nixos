@@ -7,6 +7,10 @@
 }: let
   cfg = config.crocuda;
 in {
+  imports = [
+    ./kitty.nix
+  ];
+
   # Import home files
   home-merger = {
     enable = true;
@@ -41,7 +45,6 @@ in {
   environment.systemPackages = with pkgs; [
     # base commands
     eza
-    lazygit
 
     # Usefull commands
     htop
@@ -52,6 +55,5 @@ in {
 
     # utils
     cheat
-    vhs
   ];
 }

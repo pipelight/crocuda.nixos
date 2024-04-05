@@ -34,6 +34,9 @@ with lib; {
 
     # Set editors with the specified keyboard layout
     terminal = {
+      emulators.enable = mkEnableOption ''
+        Toggle the module
+      '';
       editors.enable = mkEnableOption ''
         Toggle the module
       '';
