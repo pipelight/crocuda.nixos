@@ -13,7 +13,11 @@ in
     mkIf cfg.servers.web.caddy.enable {
       users.users."${username}" = {
         isNormalUser = true;
-    homeMode = "770";
+        homeMode = "770";
+      };
+      # Allow low ports binding
+      users.groups = {
+        netdev.members = [username];
       };
 
       environment.defaultPackages = with pkgs; [
