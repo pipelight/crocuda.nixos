@@ -10,8 +10,7 @@
   username = "caddy";
 in
   with lib;
-    mkIf cfg.servers.web.enable {
-
+    mkIf cfg.servers.web.caddy.enable {
       users.users."${username}" = {
         isNormalUser = true;
       };
