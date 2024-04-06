@@ -146,7 +146,7 @@
         id = 1;
 
         settings = {
-          "media.peerConnection.ice.proxy_only" = true;
+          "media.peerconnection.ice.proxy_only" = true;
           "network.proxy.http" = "127.0.0.1";
           "network.proxy.http_port" = 4444;
           "network.proxy.ssl" = "127.0.0.1";
