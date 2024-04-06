@@ -7,74 +7,22 @@
 }: let
   cfg = config.crocuda;
 in {
-  users.groups = {
-    unit.members = cfg.users;
-  };
-
-  environment.defaultPackages = with pkgs; [
-    # Crocuda dependencies
-    caddy
-    nodePackages.serve
-
-    openssl
-    unit
-    deno
-    certbot
-    # fail2ban
+  imports = [
+    ./unit.nix
+    ./caddy.nix
   ];
 
-  ## Add global packages
-  services.unit.enable = true;
-  # Replace default secure unix socket with local tcp socket
-  systemd.services.unit = {
-    serviceConfig = {
-      ExecStart = lib.mkForce ''
-        ${pkgs.unit}/bin/unitd \
-          --control '127.0.0.1:8080' \
-          --pid '/run/unit/unit.pid' \
-          --log '/var/log/unit/unit.log' \
-          --statedir '/var/spool/unit' \
-          --tmpdir '/tmp' \
-          --user unit \
-          --group unit
-      '';
-      # Provision server with minimal config
-      # route: Certbot acme challenge
-      ExecStartPost = let
-        data = builtins.toJSON ''
-          {
-            "listeners": {},
-            "applications": {},
-            "routes": {
-                "acme": [
-                    {
-                      "match": {
-                          "uri": "/.well-known/acme-challenge/*"
-                      },
-                      "action": {
-                          "share": "/var/www/www.example.com/"
-                      }
-                    }
-                ]
-            }
-          } '';
-      in
-        lib.mkForce ''
-          ${pkgs.curl}/bin/curl \
-            -X PUT \
-            --data-binary ${data} \
-            'http://localhost:8080/config'
-        '';
-    };
-  };
+  environment.defaultPackages = with pkgs; [
+    # Vercel server anything
+    nodePackages.serve
+    # fail2ban
+  ];
+      # SSL suport
+      # security.acme = {
+      #   acceptTerms = true;
+      #   defaults.email = "admin+acme@example.org";
+      # };
 
-  # SSL suport
-  # security.acme = {
-  #   acceptTerms = true;
-  #   defaults.email = "admin+acme@example.org";
-  # };
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-
+      # Open ports in the firewall.
+      # networking.firewall.allowedTCPPorts = [ ... ];
 }

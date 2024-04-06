@@ -78,6 +78,15 @@ with lib; {
     };
 
     servers = {
+      web ={
+        unit.enable = mkEnableOption ''
+          Nginx unit web server
+        '';
+        caddy.enable = mkEnableOption ''
+          Caddy web server
+        '';
+
+      };
       ssh = {
         enable = mkEnableOption ''
           Toggle the module
