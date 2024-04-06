@@ -12,26 +12,13 @@ in
   with lib;
     mkIf cfg.servers.web.caddy.enable {
       users.users."${username}" = {
-        isNormalUser = true;
+        isSystemUser = true;
         homeMode = "770";
       };
-      # Allow low ports binding
-      users.groups = {
-        netdev.members = [username];
-      };
-
-      environment.defaultPackages = with pkgs; [
-        caddy
-      ];
-
-      systemd.services.caddy = {
+      services.caddy = {
         enable = true;
-        serviceConfig = {
-          ExecStart = "${pkgs.caddy}/bin/caddy run";
-          User = "${username}";
-          Group = "users";
-          Restart = "always";
-          RestartSec = 3;
-        };
+        user = username;
+        group = "users";
+        acmeCA = "https://acme-staging-v02.api.letsencrypt.org/directory";
       };
     }
