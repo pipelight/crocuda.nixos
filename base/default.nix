@@ -64,5 +64,7 @@ in {
     # CICD
     just
     gnumake
+    # Pipelight from flake
+    inputs.pipelight.packages.${system}.default
   ];
 }

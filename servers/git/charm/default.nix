@@ -26,8 +26,6 @@ in {
     certbot
     # fail2ban
 
-    # Pipelight from flake
-    inputs.pipelight.packages.${system}.default
   ];
   services.unit.enable = true;
   # Replace default secure unix socket with local tcp socket

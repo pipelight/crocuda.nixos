@@ -27,6 +27,9 @@ in
       services.unit.enable = true;
       # Replace default secure unix socket with local tcp socket
       systemd.services.unit = {
+        # enable = false;
+        # after = ["network.target"];
+        # wantedBy = ["multi-user.target"];
         serviceConfig = {
           ExecStart = lib.mkForce ''
             ${pkgs.unit}/bin/unitd \
@@ -67,5 +70,4 @@ in
             '';
         };
       };
-
     }
