@@ -1,8 +1,26 @@
 [Desktop Entry]
-Encoding=UTF-8
-Version=1.0
-Type=Application
-NoDisplay=false
-Exec=/usr/bin/env firefox -P i2p
+Actions=new-private-window;new-window;profile-manager-window
+Categories=Network;WebBrowser
+Exec=firefox -P i2p --name firefox-i2p %U
+GenericName=Web Browser
+Icon=firefox
+MimeType=text/html;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;x-scheme-handler/http;x-scheme-handler/https
 Name=Firefox-i2p
+StartupNotify=true
+StartupWMClass=firefox
+Terminal=false
+Type=Application
+Version=1.4
 Comment=Custom definition for Firefox with i2p proxy
+
+[Desktop Action new-private-window]
+Exec=firefox -P i2p --private-window %U
+Name=New Private Window
+
+[Desktop Action new-window]
+Exec=firefox -P i2p --new-window %U
+Name=New Window
+
+[Desktop Action profile-manager-window]
+Exec=firefox -P i2p --ProfileManager
+Name=Profile Manager

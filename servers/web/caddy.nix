@@ -24,14 +24,4 @@ in
         acmeCA = "https://acme-staging-v02.api.letsencrypt.org/directory";
       };
 
-      # systemd.services.caddy = {
-      #   enable = true;
-      #   serviceConfig = {
-      #     ExecStart = "${pkgs.caddy}/bin/caddy run";
-      #     User = "${username}";
-      #     Group = "users";
-      #     Restart = "always";
-      #     RestartSec = 3;
-      #   };
-      # };
     }
