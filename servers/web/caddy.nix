@@ -13,6 +13,7 @@ in
     mkIf cfg.servers.web.caddy.enable {
       users.users."${username}" = {
         isNormalUser = true;
+    homeMode = "770";
       };
 
       environment.defaultPackages = with pkgs; [
