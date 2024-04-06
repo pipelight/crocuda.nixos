@@ -20,7 +20,7 @@
     ## Enable arkenfox user.js
     arkenfox = {
       enable = true;
-      version = "123.0";
+      version = "122.0";
     };
 
     profiles = let
