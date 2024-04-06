@@ -31,6 +31,7 @@
         tridactyl
       ];
 
+      # Set a default userChrome
       userChrome = builtins.readFile dotfiles/userChrome.css;
 
       # Get every susbsection number
@@ -138,7 +139,7 @@
     in {
       i2p = {
         inherit extensions;
-        inherit userChrome;
+        userChrome = builtins.readFile dotfiles/userChrome_alt.css;
         inherit arkenfox;
         inherit search;
 

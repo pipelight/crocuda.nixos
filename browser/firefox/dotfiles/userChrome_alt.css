@@ -1,0 +1,105 @@
+/**
+Sets a minimal theme for firefox.
+Removes a lot of unused buttons for a keyboard focus navigation.
+*/
+
+/**
+Global vars
+*/
+:root {
+  /**
+   Dimensions
+  */
+  --row-height: 28px;
+  --glow: 0 1px 10px 1px;
+  /**
+   Colorscheme
+  */
+
+  /* Amoled */
+  --ultra-black: #000000;
+
+  /* Github dark dimmed */
+  --background: #1a1a1a;
+  --foreground: #adbac7;
+
+  --black: #222222;
+  --brightBlack: #636e7b;
+  --red: #f47067; 
+  --brightRed: #ff938a;
+  --green: #57ab5a;
+  --brightGreen: #6bc46d; 
+  --yellow: #c69026;
+  --brightYellow: #daaa3f;
+  --blue: #539bf5; 
+  --brightBlue: #6cb6ff;
+  --magenta: #b083f0; 
+  --brightMagenta: #dcbdfb;
+  --cyan: #39c5cf;
+  --brightCyan: #56d4dd;
+  --white: #909dab;
+  --brightWhite: #cdd9e5;
+  
+  --selection: #539bf5;
+  --cursor: #539bf5;
+}
+/**
+Compact height
+*/
+#TabsToolbar,
+#tabbrowser-tabs,
+.toolbar-items
+{
+    --tab-min-height: var(--row-heght) !important;
+    --tab-max-height: var(--row-heght) !important;
+    padding-left: 2px;
+}
+
+/**
+Hide elements
+*/
+.tab-close-button,
+#tabs-newtab-button,
+#alltabs-button,
+
+#back-button,
+#forward-button,
+
+#reload-button,
+#stop-button,
+#go-button
+
+/* #tracking-protection-icon-container, */
+/* #identity-box, */
+/* #urlbar-label-box, */
+/* #page-action-buttons  */
+{
+  display: none !important 
+}
+
+
+/**
+Tab theme
+*/
+
+/*Inactive tab*/
+.tab-background {
+  background-color: var(--black) !important;
+}
+/*Active tab*/
+.tabbrowser-tab:is([selected=true]) 
+.tab-background {
+  background-color: var(--red) !important;
+}
+
+/* container tabs indicator */
+.tabbrowser-tab[usercontextid]
+  > .tab-stack
+  > .tab-background
+  > .tab-context-line {
+    margin: 1px !important;
+    padding: 1px !important;
+    height: 2px !important;
+    box-shadow: var(--glow) var(--identity-tab-color) !important;
+}
+
