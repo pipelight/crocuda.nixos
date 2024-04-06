@@ -13,12 +13,25 @@ in
     mkIf cfg.servers.web.caddy.enable {
       users.users."${username}" = {
         isSystemUser = true;
-        homeMode = "770";
       };
+      environment.defaultPackages = with pkgs; [
+        caddy
+      ];
       services.caddy = {
         enable = true;
         user = username;
         group = "users";
         acmeCA = "https://acme-staging-v02.api.letsencrypt.org/directory";
       };
+
+      # systemd.services.caddy = {
+      #   enable = true;
+      #   serviceConfig = {
+      #     ExecStart = "${pkgs.caddy}/bin/caddy run";
+      #     User = "${username}";
+      #     Group = "users";
+      #     Restart = "always";
+      #     RestartSec = 3;
+      #   };
+      # };
     }
