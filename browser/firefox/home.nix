@@ -20,7 +20,7 @@
     ## Enable arkenfox user.js
     arkenfox = {
       enable = true;
-      version = "122.0";
+      version = "123.0";
     };
 
     profiles = let
@@ -145,25 +145,12 @@
         isDefault = false;
         id = 1;
 
-        settings = let
-          lock-false = {
-            Value = false;
-            Status = "locked";
-          };
-          lock-true = {
-            Value = true;
-            Status = "locked";
-          };
-          lock-empty-string = {
-            Value = "";
-            Status = "locked";
-          };
-        in {
-          "media.peerConnection.ice.proxy_only" = lock-true;
+        settings = {
+          "media.peerConnection.ice.proxy_only" = true;
           "network.proxy.http" = "127.0.0.1";
-          "network.proxy.http_port" = "4444";
+          "network.proxy.http_port" = 4444;
           "network.proxy.ssl" = "127.0.0.1";
-          "network.proxy.ssl_port" = "4444";
+          "network.proxy.ssl_port" = 4444;
         };
       };
       default = {
