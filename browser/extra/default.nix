@@ -30,13 +30,9 @@ in
       ];
 
       ## Invisible Internet Project background service
-      systemd.services."i2pd" = {
+      services.i2pd = {
         enable = true;
-        after = ["network.target"];
-        serviceConfig = {
-          ExecStart = "${pkgs.i2pd}/bin/i2pd";
-        };
-        wantedBy = ["multi-user.target"];
+        bandwidth = "P";
       };
 
       ## Tor background service
