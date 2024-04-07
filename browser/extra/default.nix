@@ -32,7 +32,7 @@ in
       ## Invisible Internet Project background service
       services.i2pd = {
         enable = true;
-        bandwidth = "P";
+        bandwidth = 2048;
       };
 
       ## Tor background service
