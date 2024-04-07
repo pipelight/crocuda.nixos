@@ -31,16 +31,10 @@ in
 
       environment.etc = {
         "i2pd/i2pd.conf".source = dotfiles/i2pd/i2pd.conf;
-
       };
 
-      systemd.services."i2pd" = {
+      services.i2pd = {
         enable = true;
-        after = ["network.target"];
-        serviceConfig = {
-          ExecStart = "${pkgs.i2pd}/bin/i2pd";
-        };
-        wantedBy = ["multi-user.target"];
       };
 
       ## Tor background service
