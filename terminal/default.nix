@@ -10,10 +10,13 @@ in {
   # Import home files
   home-merger = {
     enable = true;
-    extraSpecialArgs = {inherit inputs config;};
+    extraSpecialArgs = {inherit inputs;};
     users = cfg.users;
-    modules = [
-      ./home.nix
+    modules = with lib; [
+      (mkIf cfg.terminal.shell.fish.enable
+        ./fish.nix)
+      (mkIf cfg.terminal.emulators.enable
+        ./kitty.nix)
     ];
   };
 
