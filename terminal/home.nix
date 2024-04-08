@@ -6,9 +6,12 @@
   ...
 }: let
   cfg = config.crocuda;
-in with lib;{
-  imports = [
-    (mkIf cfg.terminal.shell.fish.enable ./fish.nix)
-    (mkIf cfg.terminal.emulator.enable ./kitty.nix)
-  ];
-}
+in
+  with lib; {
+    imports = [
+      # ./fish.nix
+      # ./kitty.nix
+      (mkIf cfg.terminal.shell.fish.enable ./fish.nix)
+      (mkIf cfg.terminal.emulator.enable ./kitty.nix)
+    ];
+  }

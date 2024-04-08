@@ -12,11 +12,8 @@ in {
     enable = true;
     extraSpecialArgs = {inherit inputs;};
     users = cfg.users;
-    modules = with lib; [
+    modules = [
       ./home.nix
-      (mkIf
-        cfg.terminal.emulators.enable
-        ./kitty.nix)
     ];
   };
 
@@ -51,6 +48,5 @@ in {
 
     # Archive
     unzip
-
   ];
 }
