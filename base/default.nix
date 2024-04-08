@@ -12,6 +12,7 @@ in {
     # Add single top level NUR for other modules
     # inputs.nur.nixosModules.nur
     ./users.nix
+    ./yubikey.nix
   ];
 
   # User specific
