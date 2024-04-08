@@ -6,6 +6,7 @@
   ...
 }: let
   cfg = config.crocuda;
+  username = "i2pd";
 in
   with lib;
     mkIf cfg.browser.i2p.enable {
@@ -16,6 +17,10 @@ in
         modules = [
           ./home.nix
         ];
+      };
+
+      users.users."${username}" = {
+        isSystemUser = true;
       };
 
       environment.systemPackages = with pkgs; [
@@ -39,12 +44,12 @@ in
 
         description = "I2P Router written in C++";
         documentation = [
-        "man:i2pd(1) https://i2pd.readthedocs.io/en/latest/"
+          "man:i2pd(1) https://i2pd.readthedocs.io/en/latest/"
         ];
 
         serviceConfig = {
           User = "i2pd";
-          Group = "i2pd";
+          Group = "users";
           RuntimeDirectory = "i2pd";
           RuntimeDirectoryMode = "0700";
           LogsDirectory = "i2pd";
