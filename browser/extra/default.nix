@@ -21,7 +21,7 @@ in
 
       # Dedicated user and group
       users.groups.i2pd = {};
-      users.users."${username}" = {
+      users.users.${username} = {
         isSystemUser = true;
         group = "i2pd";
       };
@@ -53,7 +53,7 @@ in
 
         serviceConfig = {
           User = "i2pd";
-          Group = "users";
+          Group = "i2pd";
           RuntimeDirectory = "i2pd";
           RuntimeDirectoryMode = "0700";
           LogsDirectory = "i2pd";
