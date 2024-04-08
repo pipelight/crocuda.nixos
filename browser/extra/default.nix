@@ -38,7 +38,9 @@ in
         after = ["network.target"];
 
         description = "I2P Router written in C++";
-        documentation = "man:i2pd(1) https://i2pd.readthedocs.io/en/latest/";
+        documentation = [
+        "man:i2pd(1) https://i2pd.readthedocs.io/en/latest/"
+        ];
 
         serviceConfig = {
           User = "i2pd";
