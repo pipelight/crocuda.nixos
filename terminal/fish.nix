@@ -4,8 +4,12 @@
   lib,
   inputs,
   ...
-}: {
-  home.file = {
+}: let
+  cfg = config.crocuda;
+in
+  with lib;
+      mkIf cfg.terminal.shell.fish.enable {
+        home.file = {
     ".config/atuin".source = dotfiles/atuin;
     ".config/pacman/makepkg.conf".source = dotfiles/pacman/makepkg.conf;
     ".config/neofetch".source = dotfiles/neofetch;

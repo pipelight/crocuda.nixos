@@ -6,7 +6,9 @@
   ...
 }: let
   cfg = config.crocuda;
-in{
+in
+  with lib;
+    mkIf cfg.terminal.shell.fish.enable {
       home.file = {
         ".config/pacman/makepkg.conf".source = dotfiles/pacman/makepkg.conf;
         ".config/kitty/ssh.conf".source = dotfiles/kitty/ssh.conf;
