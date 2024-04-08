@@ -37,8 +37,8 @@ in
         enable = true;
         after = ["network.target"];
 
-        Description = "I2P Router written in C++";
-        Documentation = "man:i2pd(1) https://i2pd.readthedocs.io/en/latest/";
+        description = "I2P Router written in C++";
+        documentation = "man:i2pd(1) https://i2pd.readthedocs.io/en/latest/";
 
         serviceConfig = {
           User = "i2pd";
@@ -67,11 +67,11 @@ in
           KillSignal = "SIGTERM";
           TimeoutStopSec = "30s";
           SendSIGKILL = "yes";
-          
+
           # If you have problems with hanging i2pd, you can try increase this
-LimitNOFILE="8192";
-# To enable write of coredump uncomment this
-#LimitCORE=infinity
+          LimitNOFILE = "8192";
+          # To enable write of coredump uncomment this
+          #LimitCORE=infinity
         };
         wantedBy = ["multi-user.target"];
       };
