@@ -36,6 +36,7 @@ in
 
       environment.etc = {
         "i2pd/i2pd.conf".source = dotfiles/i2pd/i2pd.conf;
+        "i2pd/tunnels.conf".source = dotfiles/i2pd/tunnels.conf;
       };
 
       systemd.services."i2pd" = {
