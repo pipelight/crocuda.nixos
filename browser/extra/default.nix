@@ -19,8 +19,11 @@ in
         ];
       };
 
+      # Dedicated user and group
+      users.groups.i2pd = {};
       users.users."${username}" = {
         isSystemUser = true;
+        group = "i2pd";
       };
 
       environment.systemPackages = with pkgs; [
