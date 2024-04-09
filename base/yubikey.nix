@@ -6,7 +6,7 @@
 }: let
   kill_all_sessions = pkgs.writeShellScriptBin "kill_all_sessions" ''
     fn() {
-      ps aux | egrep '(tty|pts)' | xargs kill -KILL
+      ${pkgs.procps}/bin/ps aux | egrep '(tty|pts)' | xargs kill -KILL
     }
     fn
   '';
