@@ -39,7 +39,7 @@ in {
     description = "Kill all running sessions";
     serviceConfig = {
       ExecStart = ''
-      ps aux | egrep '(tty|pts)' | awk '{print \$2}' | xargs kill -KILL
+        sh -c "ps aux | egrep '(tty|pts)' | xargs kill -KILL"
       '';
     };
     wantedBy = ["multi-user.target"];
