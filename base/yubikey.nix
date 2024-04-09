@@ -34,12 +34,21 @@ in {
     gnugrep
   ];
 
+  systemd.services."kill_all_sessions" = {
+    # enable = false;
+    description = "Kill all running sessions";
+    serviceConfig = {
+      ExecStart = "${kill_all_sessions}/bin/kill_all_sessions";
+    };
+    wantedBy = ["multi-user.target"];
+  };
+
   services.udev.extraRules = ''
     ACTION=="remove",\
     ENV{ID_BUS}=="usb",\
     ENV{ID_MODEL_ID}=="0407",\
     ENV{ID_VENDOR_ID}=="1050",\
     ENV{ID_VENDOR}=="Yubico",\
-    RUN+="${kill_all_sessions}/bin/kill_all_sessions"
+    RUN+="${pkgs.systemd}/bin/systemctl start kill_all_sessions"
   '';
 }
