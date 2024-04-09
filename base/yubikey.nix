@@ -9,23 +9,24 @@
 
   '';
 in {
-  services.udev.packages = [pkgs.yubikey-personalization];
-
   environment.systemPackages = with pkgs; [
     yubikey-manager
     kill_all_sessions
   ];
+  security.pam.services = {
+    login.u2fAuth = true;
+    sudo.u2fAuth = true;
+  };
 
   # programs.gnupg.agent = {
   #   enable = true;
   #   enableSSHSupport = true;
   #};
 
-  security.pam.services = {
-    login.u2fAuth = true;
-    sudo.u2fAuth = true;
-  };
-  services.udev.path = [/usr/bin/env];
+  services.udev.packages = [
+    pkgs.yubikey-personalization
+    kill_all_sessions
+  ];
   services.udev.extraRules = ''
     ACTION=="remove",\
     ENV{ID_BUS}=="usb",\
