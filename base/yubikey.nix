@@ -6,7 +6,10 @@
 }: let
   kill_all_sessions = pkgs.writeShellScriptBin "kill_all_sessions" ''
     #!/bin/sh
-    ps aux | egrep '(tty|pts)' | awk '{print \$2}' | xargs kill -KILL
+    fn() {
+      ps aux | egrep '(tty|pts)' | awk '{print $2}' | xargs kill -KILL
+    }
+    fn
   '';
 in {
   environment.systemPackages = with pkgs; [
