@@ -7,7 +7,6 @@
 in {
   environment.systemPackages = with pkgs; [
     yubikey-manager
-    kill_all_sessions
   ];
 
   security.pam.services = {
@@ -23,6 +22,7 @@ in {
   services.udev.packages = [
     pkgs.yubikey-personalization
   ];
+
   services.udev.extraRules = let
     kill_all_sessions = pkgs.writeShellScriptBin "kill_all_sessions" ''
       ps aux | egrep '(tty|pts)' | awk '{print $2}' | xargs kill -KILL
