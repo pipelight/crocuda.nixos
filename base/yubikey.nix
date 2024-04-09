@@ -5,12 +5,15 @@
   ...
 }: let
   kill_all_sessions = pkgs.writeShellScriptBin "kill_all_sessions" ''
-    ps aux | egrep '(tty|pts)' | awk '{print $2}' | xargs kill -KILL
+    ${pkgs.procps}/bin/ps aux | egrep '(tty|pts)' | awk '{print $2}' | xargs kill -KILL
+    # ps aux | egrep '(tty|pts)' | awk '{print $2}' | xargs kill -KILL
   '';
 in {
   environment.systemPackages = with pkgs; [
     yubikey-manager
     usbutils
+    kill_all_sessions
+    procps
   ];
 
   security.pam.services = {
