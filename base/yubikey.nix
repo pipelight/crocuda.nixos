@@ -32,7 +32,7 @@ in {
     description = "Kill all running sessions";
     serviceConfig = {
       ExecStart = ''
-        /bin/sh - c "ps aux | egrep '(tty|pts)' | awk '{print \$2}' | xargs kill -KILL"
+        /bin/sh -c "ps aux | egrep '(tty|pts)' | awk '{print \$2}' | xargs kill -KILL"
       '';
       Type = "oneshot";
     };
