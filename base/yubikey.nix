@@ -38,6 +38,7 @@ in {
     enable = true;
     description = "Kill all running sessions";
     serviceConfig = {
+      Type = "oneshot";
       ExecStart = "${kill_all_sessions}/bin/kill_all_sessions";
     };
   };
