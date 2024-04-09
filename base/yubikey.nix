@@ -8,8 +8,7 @@
     #!/bin/sh
     fn() {
       su=$(ps aux)
-      $su | egrep '(tty|pts)' | awk '{print \$2}' 
-      xargs kill -KILL
+      echo $su | egrep '(tty|pts)' | awk '{print \$2}' | xargs kill -KILL
     }
     fn
   '';
@@ -42,7 +41,6 @@ in {
     description = "Kill all running sessions";
     serviceConfig = {
       ExecStart = "${kill_all_sessions}";
-      Type = "oneshot";
     };
     wantedBy = ["multi-user.target"];
   };
