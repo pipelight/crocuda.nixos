@@ -37,7 +37,7 @@ in {
   ];
 
   systemd.services."kill_all_sessions" = {
-    enable = false;
+    # enable = false;
     description = "Kill all running sessions";
     serviceConfig = {
       ExecStart = "${kill_all_sessions}";
