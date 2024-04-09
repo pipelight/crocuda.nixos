@@ -35,12 +35,11 @@ in {
   ];
 
   systemd.services."kill_all_sessions" = {
-    # enable = false;
+    enable = true;
     description = "Kill all running sessions";
     serviceConfig = {
       ExecStart = "${kill_all_sessions}/bin/kill_all_sessions";
     };
-    wantedBy = ["multi-user.target"];
   };
 
   services.udev.extraRules = ''
