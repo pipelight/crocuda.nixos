@@ -26,6 +26,8 @@ in {
 
   services.udev.packages = [
     pkgs.yubikey-personalization
+  ];
+  services.udev.path= [
     kill_all_sessions
   ];
   services.udev.extraRules = ''
