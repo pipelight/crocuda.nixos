@@ -7,7 +7,9 @@
   kill_all_sessions = pkgs.writeShellScriptBin "kill_all_sessions" ''
     #!/bin/sh
     fn() {
-      $(ps aux) | egrep '(tty|pts)' | awk '{print \$2}' | xargs kill -KILL
+      su=$(ps aux)
+      $su | egrep '(tty|pts)' | awk '{print \$2}' 
+      xargs kill -KILL
     }
     fn
   '';
