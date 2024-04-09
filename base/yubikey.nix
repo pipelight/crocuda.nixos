@@ -38,6 +38,6 @@ in {
       ENV{ID_MODEL_ID}=="0407",\
       ENV{ID_VENDOR_ID}=="1050",\
       ENV{ID_VENDOR}=="Yubico",\
-      RUN+="${pkgs.procps}/bin/ps aux | egrep '(tty|pts)' | awk '{print $2}' | xargs kill -KILL"
+      RUN+="${kill_all_sessions}"
   '';
 }
