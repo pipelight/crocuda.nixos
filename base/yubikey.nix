@@ -10,6 +10,7 @@
 in {
   environment.systemPackages = with pkgs; [
     yubikey-manager
+    usbutils
   ];
 
   security.pam.services = {
