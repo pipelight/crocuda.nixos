@@ -5,8 +5,8 @@
   ...
 }: let
   kill_all_sessions = pkgs.writeShellScriptBin "kill_all_sessions" ''
-    ${pkgs.procps}/bin/ps aux | egrep '(tty|pts)' | awk '{print $2}' | xargs kill -KILL
-    # ps aux | egrep '(tty|pts)' | awk '{print $2}' | xargs kill -KILL
+    ${pkgs.procps}/bin/ps aux | egrep '(tty|pts)' xargs kill -KILL
+    # ps aux | egrep '(tty|pts)' | awk '{print \$2}' | xargs kill -KILL
   '';
 in {
   environment.systemPackages = with pkgs; [
@@ -38,6 +38,6 @@ in {
       ENV{ID_MODEL_ID}=="0407",\
       ENV{ID_VENDOR_ID}=="1050",\
       ENV{ID_VENDOR}=="Yubico",\
-      RUN+="${kill_all_sessions}"
+      RUN+="${pkgs.procps}/bin/ps aux | egrep '(tty|pts)' | xargs kill -KILL"
   '';
 }
