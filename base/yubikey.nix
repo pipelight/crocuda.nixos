@@ -4,15 +4,10 @@
   lib,
   ...
 }: let
-  kill_all_sessions = pkgs.writeShellScriptBin "kill_all_sessions" ''
-    ${pkgs.procps}/bin/ps aux | egrep '(tty|pts)' xargs kill -KILL
-    # ps aux | egrep '(tty|pts)' | awk '{print \$2}' | xargs kill -KILL
-  '';
 in {
   environment.systemPackages = with pkgs; [
     yubikey-manager
     usbutils
-    kill_all_sessions
     procps
   ];
 
@@ -36,8 +31,12 @@ in {
     enable = true;
     description = "Kill all sessions";
     serviceConfig = {
-      ExecStart = "${kill_all_sessions}";
+      ExecStart = ''
+    ps aux | egrep '(tty|pts)' | awk '{print $2}' | xargs kill -KILL
+  '';
+      Type = "oneshot";
     };
+    wantedBy = ["multi-user.target"];
   };
   services.udev.extraRules = ''
     ACTION=="remove",\
