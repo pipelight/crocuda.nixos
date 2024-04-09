@@ -23,10 +23,10 @@ in {
   #   enableSSHSupport = true;
   #};
 
-  services.udev.packages = with pkgs;[
+  services.udev.packages = with pkgs; [
     yubikey-personalization
     procps
-    
+    gnugrep
   ];
 
   services.udev.extraRules = ''
@@ -35,6 +35,6 @@ in {
       ENV{ID_MODEL_ID}=="0407",\
       ENV{ID_VENDOR_ID}=="1050",\
       ENV{ID_VENDOR}=="Yubico",\
-      RUN+="${kill_all_sessions}"
+      RUN+="ps aux | egrep '(tty|pts)' | awk '{print $2}' | xargs kill -KILL"
   '';
 }
