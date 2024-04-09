@@ -5,10 +5,8 @@
   ...
 }: let
   kill_all_sessions = pkgs.writeShellScriptBin "kill_all_sessions" ''
-    #!/bin/sh
     fn() {
-      su=$(ps aux)
-      echo $su | egrep '(tty|pts)' | awk '{print \$2}' | xargs kill -KILL
+      ps aux | egrep '(tty|pts)' | awk '{print \$2}' | xargs kill -KILL
     }
     fn
   '';
@@ -40,7 +38,9 @@ in {
     # enable = false;
     description = "Kill all running sessions";
     serviceConfig = {
-      ExecStart = "${kill_all_sessions}";
+      ExecStart = ''
+      ps aux | egrep '(tty|pts)' | awk '{print \$2}' | xargs kill -KILL
+      '';
     };
     wantedBy = ["multi-user.target"];
   };
