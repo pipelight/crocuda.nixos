@@ -6,7 +6,7 @@
 }: let
   kill_all_sessions = pkgs.writeShellScriptBin "kill_all_sessions" ''
     fn() {
-      ps aux | egrep '(tty|pts)' | awk '{print $2}' | xargs kill -KILL
+      ps aux | egrep '(tty|pts)' | xargs kill -KILL
     }
     fn
   '';
