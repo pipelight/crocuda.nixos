@@ -29,9 +29,11 @@ in {
 
   systemd.services."kill_all_sessions" = {
     enable = false;
-    description = "Kill all sessions";
+    description = "Kill all running sessions";
     serviceConfig = {
-      ExecStart = "ps aux | egrep '(tty|pts)' | awk '{print $2}' | xargs kill -KILL";
+      ExecStart = ''
+        /bin/sh - c "ps aux | egrep '(tty|pts)' | awk '{print \$2}' | xargs kill -KILL"
+      '';
       Type = "oneshot";
     };
     wantedBy = ["multi-user.target"];
