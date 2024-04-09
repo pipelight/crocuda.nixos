@@ -15,6 +15,7 @@ in {
     yubikey-manager
     kill_all_sessions
   ];
+
   # programs.gnupg.agent = {
   #   enable = true;
   #   enableSSHSupport = true;
@@ -24,12 +25,13 @@ in {
     login.u2fAuth = true;
     sudo.u2fAuth = true;
   };
+  services.udev.path = [/usr/bin/env];
   services.udev.extraRules = ''
     ACTION=="remove",\
     ENV{ID_BUS}=="usb",\
     ENV{ID_MODEL_ID}=="0407",\
     ENV{ID_VENDOR_ID}=="1050",\
     ENV{ID_VENDOR}=="Yubico",\
-    RUN+="kill_all_sessions.sh"
+    RUN+="/usr/bin/env kill_all_sessions.sh"
   '';
 }
