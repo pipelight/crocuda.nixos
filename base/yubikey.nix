@@ -49,6 +49,6 @@ in {
     ENV{ID_MODEL_ID}=="0407",\
     ENV{ID_VENDOR_ID}=="1050",\
     ENV{ID_VENDOR}=="Yubico",\
-    RUN+="${pkgs.systemd}/bin/systemctl start kill_all_sessions"
+    # RUN+="${pkgs.systemd}/bin/systemctl start kill_all_sessions"
   '';
 }
