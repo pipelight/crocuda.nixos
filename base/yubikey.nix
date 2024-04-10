@@ -47,7 +47,7 @@ in {
   services.udev.extraRules = ''
     ACTION=="remove",\
     ENV{SUBSYSTEM}=="usb",\
-    ENV{PRODUCT}=="PRODUCT=1050/407/543",\
+    ENV{PRODUCT}=="1050/407/543",\
     RUN+="${pkgs.systemd}/bin/systemctl start kill_all_sessions"
   '';
 }
