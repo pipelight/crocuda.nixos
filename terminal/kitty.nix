@@ -21,6 +21,7 @@
       CONFIG_PATHS=".config/fish .config/nvim .aliases"
 
       # Ensure output path
+      rm -rf $OUTDIR
       mkdir -p $OUTDIR
 
       for DIR in $CONFIG_PATHS
