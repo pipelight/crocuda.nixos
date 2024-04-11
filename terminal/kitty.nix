@@ -21,13 +21,13 @@
       CONFIG_PATHS=".config/fish .config/atuin .aliases"
 
       # Ensure output path
-      rm -rf $OUTDIR
+      sudo rm -rf $OUTDIR
       mkdir -p $OUTDIR
 
       for DIR in $CONFIG_PATHS
       do
         cp --recursive --dereference \
-        $HOME/$DIR \
+        $HOME \
         $OUTDIR
       done
 
