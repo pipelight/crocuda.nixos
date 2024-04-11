@@ -18,7 +18,7 @@
       set -x
 
       OUTDIR="$HOME/.config.deref/"
-      CONFIG_PATHS=".config/fish .config/nvim .aliases"
+      CONFIG_PATHS=".config/fish .config/atuin .aliases"
 
       # Ensure output path
       rm -rf $OUTDIR
@@ -45,7 +45,9 @@
   in
     with pkgs; [
       zellij
+
       kitty_ssh_deref
+      fish_clean_config
       # Packaging for AUR
       pacman
     ];
