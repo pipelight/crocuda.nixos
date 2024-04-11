@@ -13,10 +13,10 @@ in {
     extraSpecialArgs = {inherit inputs;};
     users = cfg.users;
     modules = with lib; [
-      (mkIf cfg.terminal.shell.fish.enable
-        ./fish.nix)
-      (mkIf cfg.terminal.emulators.enable
-        ./kitty.nix)
+      mkIf cfg.terminal.shell.fish.enable
+        ./fish.nix
+      mkIf cfg.terminal.emulators.enable
+        ./kitty.nix
     ];
   };
 
