@@ -53,7 +53,7 @@ in {
     gnumake
     cmake
 
-    # Language engines
+    # JS Language engines
     deno
     bun
     nodejs_latest

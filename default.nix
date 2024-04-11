@@ -42,6 +42,9 @@ with lib; {
       '';
       # Set shell with the specified keyboard layout
       shell = {
+        utils.enable = mkEnableOption ''
+        add fast find command and utils
+        '';
         fish.enable = mkEnableOption ''
           Toggle the module
         '';
@@ -78,14 +81,13 @@ with lib; {
     };
 
     servers = {
-      web ={
+      web = {
         unit.enable = mkEnableOption ''
           Nginx unit web server
         '';
         caddy.enable = mkEnableOption ''
           Caddy web server
         '';
-
       };
       ssh = {
         enable = mkEnableOption ''

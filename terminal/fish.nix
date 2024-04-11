@@ -20,44 +20,6 @@
   };
 
   home.packages = with pkgs; [
-    # Fast find
-    fzf
-    fd
-    atuin
-    zoxide
-    ripgrep
-    btop
-    tldr
-    cheat
-
-    # Dev utils
-    neofetch
-    onefetch
-
-    # Language engines
-    deno
-    bun
-    nodejs_latest
-    jo
-    jq
-    yq-go
-
-    # CICD
-    just
-    gnumake
-
-    ## Fish Shell dependencies
-    fish
-    zsh
-
-    # Recolorize commands
-    grc
-    bat
-
-    # Dotenv, environment autoload
-    nix-direnv
-    nix-index
-
     # Auto configure fish tide prompt
     (pkgs.writeShellScriptBin "fish_tide_auto" ''
       fish -c 'tide configure --auto \
