@@ -27,7 +27,7 @@
       for DIR in $CONFIG_PATHS
       do
         cp --recursive --dereference \
-        $HOME \
+        $HOME/$DIR \
         $OUTDIR
       done
 
