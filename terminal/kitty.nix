@@ -30,6 +30,17 @@
         $HOME/$DIR \
         $OUTDIR
       done
+
+      fish_clean_config
+    '';
+    # A script to remove fish nix store files sourcing.
+    fish_clean_config = pkgs.writeShellScriptBin "fish_clean_config" ''
+      #!/usr/bin/env sh
+      set -x
+
+      CONFIG_DIR="$HOME/.config.deref"
+
+      sed -i '/\/nix\/store/d' $CONFIG_DIR/fish/config.fish
     '';
   in
     with pkgs; [
