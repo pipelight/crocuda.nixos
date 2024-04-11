@@ -34,4 +34,11 @@
     nix-direnv
     nix-index
   ];
+
+  programs = {
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
+  };
 }
