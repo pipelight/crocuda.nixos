@@ -10,11 +10,33 @@
     ".config/kitty/ssh.conf".source = dotfiles/kitty/ssh.conf;
   };
 
-  home.packages = with pkgs; [
-    zellij
-    # Packaging for AUR
-    pacman
-  ];
+  home.packages = let
+    # A script to derefer nix store symlink.
+    # The resulting config directory can be safely copied by kitty ssh kitten.
+    kitty_ssh_deref = pkgs.writeShellScriptBin "kitty_ssh_deref" ''
+      #!/usr/bin/env sh
+      set -x
+
+      OUTDIR="$HOME/.config.deref"
+      CONFIG_PATHS=".config/kitty .config/nvim .aliases"
+
+      # Ensure output path
+      mkdir $OUTDIR
+
+      for DIR in $CONFIG_PATHS
+      do
+        cp --recursive --dereference \
+        $HOME/$DIR \
+        $OUTDIR
+      done
+    '';
+  in
+    with pkgs; [
+      zellij
+      kitty_ssh_deref
+      # Packaging for AUR
+      pacman
+    ];
 
   # Shell
   programs = {
