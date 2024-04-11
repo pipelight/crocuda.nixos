@@ -17,11 +17,11 @@
       #!/usr/bin/env sh
       set -x
 
-      OUTDIR="$HOME/.config.deref"
+      OUTDIR="$HOME/.config.deref/"
       CONFIG_PATHS=".config/kitty .config/nvim .aliases"
 
       # Ensure output path
-      mkdir $OUTDIR
+      mkdir -p $OUTDIR
 
       for DIR in $CONFIG_PATHS
       do
