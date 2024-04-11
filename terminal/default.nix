@@ -12,10 +12,9 @@ in {
     enable = true;
     extraSpecialArgs = {inherit inputs;};
     users = cfg.users;
-    modules = with lib; 
-    mkMerge [
-      (mkIf cfg.terminal.shell.fish.enable
-        ./fish.nix)
+    modules = with lib; [
+      (mkIf cfg.terminal.shell.fish.enable 
+          ./fish.nix)
       (mkIf cfg.terminal.emulators.enable
         ./kitty.nix)
     ];
