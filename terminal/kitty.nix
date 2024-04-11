@@ -18,7 +18,7 @@
       set -x
 
       OUTDIR="$HOME/.config.deref/"
-      CONFIG_PATHS=".config/kitty .config/nvim .aliases"
+      CONFIG_PATHS=".config/fish .config/nvim .aliases"
 
       # Ensure output path
       mkdir -p $OUTDIR
