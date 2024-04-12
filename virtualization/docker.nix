@@ -9,9 +9,9 @@
 in
   with lib;
     mkIf cfg.virtualization.docker.enable {
-      environment.systemPackages = with pkgs; [
-        docker
-      ];
+
+      # Enable docker usage
+      virtualisation.docker.enable = true;
 
       users.groups = let
         users = cfg.users;
