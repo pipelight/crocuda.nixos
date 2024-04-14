@@ -21,6 +21,7 @@ in
 
       environment.systemPackages = with pkgs; with pkgs.gnome; [
         gnome-session
+        gnome-shell
       ];
       # Temporary fix one line full gnome installation
       # services.xserver.desktopManager.gnome.enable = true;
