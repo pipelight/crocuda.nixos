@@ -10,7 +10,7 @@
   primaryDomain = lib.list.take 1 domains;
 in
   with lib;
-    mkIf cfg.servers.mail.maddy.enable {
+    mkIf cfg.mail.maddy.enable {
       # The mail server
       services.maddy = {
         enable = true;
