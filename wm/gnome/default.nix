@@ -19,7 +19,7 @@ in
         ];
       };
 
-      environment.systemPackages = with pkgs; [
+      environment.systemPackages = with pkgs; with pkgs.gnome; [
         gnome-session
       ];
       # Temporary fix one line full gnome installation
