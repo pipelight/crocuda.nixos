@@ -10,9 +10,15 @@ in {
   imports = [
     ./git/default.nix
     ./web/default.nix
+    ./mail/default.nix
   ];
   ################################
   # Ssh
+  #
+  # Caution:
+  # This service internally modify the firewall to
+  # allow tcp and udp on the specified ports.
+  #
   services.openssh = {
     enable = cfg.ssh.enable;
     # require public key authentication for better security

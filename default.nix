@@ -43,7 +43,7 @@ with lib; {
       # Set shell with the specified keyboard layout
       shell = {
         utils.enable = mkEnableOption ''
-        add fast find command and utils
+          add fast find command and utils
         '';
         fish.enable = mkEnableOption ''
           Toggle the module
@@ -83,21 +83,31 @@ with lib; {
     servers = {
       web = {
         unit.enable = mkEnableOption ''
-          Nginx unit web server
+          Nginx unit web server.
         '';
         caddy.enable = mkEnableOption ''
-          Caddy web server
+          Caddy web server.
         '';
       };
       ssh = {
         enable = mkEnableOption ''
-          Toggle the module
+          Toggle ssh daemon.
         '';
       };
       mail = {
-        enable = mkEnableOption ''
-          Toggle the module
-        '';
+        maddy = {
+          enable = mkEnableOption ''
+            Toggle the module
+          '';
+          domains = mkOption {
+            type = with types; listOf str;
+            description = ''
+              List of domain to map to.
+              The first domain of the list is used as the primary domain.
+            '';
+            default = ["anon"];
+          };
+        };
       };
       git = {
         radicle = {

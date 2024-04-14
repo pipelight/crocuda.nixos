@@ -9,7 +9,7 @@
   cfg = config.crocuda;
 in
   with lib;
-    mkIf cfg.wm.hyprland.enable {
+    mkIf cfg.wm.gnome.enable {
       # Import home files
       home-merger = {
         enable = true;
@@ -19,6 +19,9 @@ in
         ];
       };
 
+      environment.systemPackages = with pkgs; [
+        gnome-session
+      ];
       # Temporary fix one line full gnome installation
       # services.xserver.desktopManager.gnome.enable = true;
 
