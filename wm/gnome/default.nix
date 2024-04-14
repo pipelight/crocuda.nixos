@@ -19,9 +19,17 @@ in
         ];
       };
 
-      environment.systemPackages = with pkgs; with pkgs.gnome; [
+      # TODO: Having https://github.com/NixOS/nixpkgs/issues/54150 would supersede this
+      nixos-gsettings-desktop-schemas = pkgs.gnome.nixos-gsettings-overrides.override {
+        inherit (cfg) extraGSettingsOverrides extraGSettingsOverridePackages favoriteAppsOverride;
+        inherit flashbackEnabled nixos-background-dark nixos-background-light;
+      };
+      environment.sessionVariables.NIX_GSETTINGS_OVERRIDES_DIR = "${nixos-gsettings-desktop-schemas}/share/gsettings-schemas/nixos-gsettings-overrides/glib-2.0/schemas";
+      environment.systemPackages = with pkgs;
+      with pkgs.gnome; [
         gnome-session
         gnome-shell
+        gnome-initial-setup
       ];
       # Temporary fix one line full gnome installation
       # services.xserver.desktopManager.gnome.enable = true;
