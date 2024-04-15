@@ -8,6 +8,7 @@
     ## Password managers
     keepassxc
     gnupg
+    cryptsetup
   ];
 
   home.file = {
