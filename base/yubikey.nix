@@ -12,17 +12,20 @@
   '';
 in {
   environment.systemPackages = with pkgs; [
+    # Yubikey
     yubikey-manager
     yubikey-personalization
+    yubiko-pam
+
     usbutils
     procps
     kill_all_sessions
   ];
 
-  security.pam.services = {
-    login.u2fAuth = true;
-    sudo.u2fAuth = true;
-  };
+  # security.pam.services = {
+  #   login.u2fAuth = true;
+  #   sudo.u2fAuth = true;
+  # };
 
   # programs.gnupg.agent = {
   #   enable = true;
