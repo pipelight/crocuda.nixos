@@ -13,6 +13,7 @@
 in {
   environment.systemPackages = with pkgs; [
     yubikey-manager
+    yubikey-personalization
     usbutils
     procps
     kill_all_sessions
