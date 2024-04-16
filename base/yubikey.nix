@@ -15,7 +15,7 @@ in {
     # Yubikey
     yubikey-manager
     yubikey-personalization
-    yubiko-pam
+    yubico-pam
 
     usbutils
     procps
