@@ -32,11 +32,11 @@ in
         du-dust
         lolcat
         # Mount android phones
-        #usbutils
+        usbutils
         adbfs-rootless
         jmtpfs
-        #glib
-        #fuse3
+        glib
+        fuse3
       ];
 
       services.udisks2.enable = true; #stable bup old

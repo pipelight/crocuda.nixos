@@ -24,6 +24,7 @@ in
         gnome-session
         gnome-shell
         gnome-initial-setup
+        nautilus
       ];
       # Temporary fix one line full gnome installation
       # services.xserver.desktopManager.gnome.enable = true;
