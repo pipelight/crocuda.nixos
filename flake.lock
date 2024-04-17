@@ -295,11 +295,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1712759992,
-        "narHash": "sha256-2APpO3ZW4idlgtlb8hB04u/rmIcKA8O7pYqxF66xbNY=",
+        "lastModified": 1713294767,
+        "narHash": "sha256-LmaabaQZdx52MPGKPRt9Opoc9Gd9RbwvCdysUUYQoXI=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "31357486b0ef6f4e161e002b6893eeb4fafc3ca9",
+        "rev": "fa8c16e2452bf092ac76f09ee1fb1e9f7d0796e7",
         "type": "github"
       },
       "original": {
@@ -352,11 +352,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1710449465,
-        "narHash": "sha256-2orO8nfplp6uQJBFqKkj1iyNMC6TysmwbWwbb4osTag=",
+        "lastModified": 1713012165,
+        "narHash": "sha256-z/soXKDnz+w4Nw0LkRaM73YqolhSmIYy6cpg1F2ps8I=",
         "owner": "simple-nixos-mailserver",
         "repo": "nixos-mailserver",
-        "rev": "79c8cfcd5873a85559da6201b116fb38b490d030",
+        "rev": "9f6635a0351c190179dc6904545f950108a23dd8",
         "type": "gitlab"
       },
       "original": {
@@ -466,11 +466,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1712791164,
-        "narHash": "sha256-3sbWO1mbpWsLepZGbWaMovSO7ndZeFqDSdX0hZ9nVyw=",
+        "lastModified": 1713248628,
+        "narHash": "sha256-NLznXB5AOnniUtZsyy/aPWOk8ussTuePp2acb9U+ISA=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "1042fd8b148a9105f3c0aca3a6177fd1d9360ba5",
+        "rev": "5672bc9dbf9d88246ddab5ac454e82318d094bb8",
         "type": "github"
       },
       "original": {
@@ -562,11 +562,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1712935599,
-        "narHash": "sha256-raHWckCSlGolfqvkqKpJfzyOcSWuIGmuVsOTWMxkssQ=",
+        "lastModified": 1713365147,
+        "narHash": "sha256-ZOPpV7NGnY0wd49vAuXWPYyNA+n3XbuAnlZ7NwXHyrU=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "e5d7288700dab849d2f2261b4a4ef383df1adbb5",
+        "rev": "9b0f500e19055bdb94942c5dde758301e8f4ea13",
         "type": "github"
       },
       "original": {
@@ -644,11 +644,11 @@
         "rust-overlay": "rust-overlay_2"
       },
       "locked": {
-        "lastModified": 1712742240,
-        "narHash": "sha256-5V5170OElYX8YQ+dlpJlBfxQwf8TD5gOGmTVKfmHDZE=",
+        "lastModified": 1713193956,
+        "narHash": "sha256-OKeGGnH+RZP5qLH7SvbtH4BnN9hAHZx1Ly1aoqXQnrk=",
         "ref": "refs/heads/master",
-        "rev": "574ac3566bd465d5306cd58d17ff9c87a5118ddd",
-        "revCount": 1855,
+        "rev": "f17df8822954871875468ddac13c3d3c9200eea8",
+        "revCount": 1856,
         "type": "git",
         "url": "https://seed.radicle.garden/z3gqcJUoA1n9HaHKufZs5FCSGazv5"
       },
