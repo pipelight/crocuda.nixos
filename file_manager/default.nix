@@ -53,8 +53,9 @@ in
       ################################
       ### Phones
       ## Automount Google devices
-      # programs.udevil.enable = true; #unstable
-      # services.gvfs.enable = true;
+      programs.udevil.enable = true; #unstable
+      services.gvfs.enable = true;
+
       services.udev.packages = with pkgs; [
         android-udev-rules
       ];
