@@ -57,17 +57,19 @@ in
       };
 
       ##########################
-      ## Ssh
-      programs.ssh.startAgent = true;
-
-      ##########################
       ## Bluetooth
 
-      hardware.bluetooth = {
+      hardware.bluetooth = mkIf cfg.network.bluetooth.enable {
         enable = true;
         powerOnBoot = false;
       };
-      services.blueman.enable = true;
+      services.blueman = mkIf cfg.network.bluetooth.enable {
+        enable = true;
+      };
+
+      ##########################
+      ## Ssh
+      programs.ssh.startAgent = true;
 
       environment.systemPackages = with pkgs; [
         # Networking

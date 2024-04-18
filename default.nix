@@ -30,6 +30,9 @@ with lib; {
       privacy.enable = mkEnableOption ''
         Enable ipv6 privacy features, quad9 dns.
       '';
+      bluetooth.enable = mkEnableOption ''
+        Enable ipv6 privacy features, quad9 dns.
+      '';
     };
 
     # Set editors with the specified keyboard layout
