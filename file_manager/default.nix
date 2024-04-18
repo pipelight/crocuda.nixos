@@ -62,8 +62,7 @@ in
       ];
       services.udev.extraRules = ''
         ACTION=="add", \
-        ENV{ID_BUS}=="usb", \
-        SUBSYSTEM=="usb", \
+        ENV{SUBSYSTEM}=="usb", \
         ATTR{idVendor}=="18d1", \
         MODE="0660", \
         GROUP="plugdev", \
