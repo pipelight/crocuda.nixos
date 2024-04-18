@@ -25,7 +25,7 @@ in
           service_addr = ":1323";
           domain = "autoconfig.${primaryDomain}";
           imap = {
-            server = domain;
+            server = primaryDomain;
             port = 993;
           };
           smtp = {
