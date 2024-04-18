@@ -63,10 +63,7 @@ in
       services.udev.extraRules = ''
         ACTION=="add", \
         ENV{SUBSYSTEM}=="usb", \
-        ATTR{idVendor}=="18d1", \
-        MODE="0660", \
-        GROUP="plugdev", \
-        SYMLINK+="pixel%k", \
+        ENV{ID_VENDOR_ID}=="18d1", \
         RUN{program}+="${pkgs.jmtpfs}/bin/jmtpfs /run/media/"
       '';
     }
