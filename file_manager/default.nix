@@ -64,6 +64,6 @@ in
         ACTION=="bind", \
         ENV{SUBSYSTEM}=="usb", \
         ENV{ID_VENDOR_ID}=="18d1", \
-        RUN{program}+="${pkgs.jmtpfs}/bin/jmtpfs /run/media/"
+        RUN{program}+="mkdir -p /run/media/pixel && ${pkgs.jmtpfs}/bin/jmtpfs /run/media/pixel"
       '';
     }
