@@ -7,7 +7,7 @@
 }: let
   cfg = config.crocuda.servers;
   domains = cfg.mail.maddy.domains;
-  primaryDomain = builtins.elemAt 0 domains;
+  primaryDomain = builtins.elemAt domains 0;
 in
   with lib;
     mkIf cfg.mail.maddy.enable {
