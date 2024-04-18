@@ -105,7 +105,14 @@ with lib; {
               List of domain to map to.
               The first domain of the list is used as the primary domain.
             '';
-            default = ["anon"];
+            default = ["example.com"];
+          };
+          accounts = mkOption {
+            type = with types; listOf str;
+            description = ''
+              List of account to create
+            '';
+            default = ["anon@example.com"];
           };
         };
       };
