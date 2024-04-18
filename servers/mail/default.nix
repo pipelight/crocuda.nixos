@@ -48,7 +48,7 @@ in
           Group = "caddy";
           WorkingDirectory = "~";
           ExecStart = ''
-            ${pkgs.caddy}/bin/caddy reload --config
+            ${pkgs.caddy}/bin/caddy reload --config /etc/caddy/Maddy.Caddyfile
           '';
         };
         wantedBy = ["multi-user.target"];
