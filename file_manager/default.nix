@@ -30,13 +30,13 @@ in
       environment.systemPackages = with pkgs; [
         unrar
         du-dust
-        lolcat
 
         # Mount android phones
-        usbutils
-
         adbfs-rootless
         jmtpfs
+        glib
+
+        usbutils
       ];
 
       services.udisks2.enable = true; #stable
