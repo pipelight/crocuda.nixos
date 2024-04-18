@@ -26,6 +26,10 @@ with lib; {
       default = ["anon"];
     };
 
+    yubikey.enable = mkEnableOption ''
+      Toggle the module
+    '';
+
     network = {
       privacy.enable = mkEnableOption ''
         Enable ipv6 privacy features, quad9 dns.
