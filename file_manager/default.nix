@@ -49,7 +49,8 @@ in
       environment.etc."udisks2/mount_options.conf".text = ''
         [defaults]
         btrfs_defaults=compress=zstd
-        ntfs_defaults=uid=$UID,gid=$GID,prealloc
+        ntfs_defaults=uid=$UID,gid=$GID
+        # ntfs_defaults=uid=$UID,gid=$GID,prealloc
       '';
 
       ################################
