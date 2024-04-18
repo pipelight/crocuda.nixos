@@ -1,7 +1,9 @@
-:587 {
-	reverse_proxy :587
+# Smtp
+crocuda.com:587, areskul.com:587 {
+	reverse_proxy localhost:587
 }
 
-:143 {
-	reverse_proxy :143
+# Imap
+crocuda.com:143, areskul.com:143 {
+	reverse_proxy localhost:143
 }

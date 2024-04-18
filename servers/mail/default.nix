@@ -14,12 +14,9 @@ in
       # The mail server
       services.maddy = {
         enable = true;
+        config = builtins.readFile ./dotfiles/maddy.conf;
         openFirewall = false;
         inherit primaryDomain;
-      };
-
-      environment.etc = {
-        "caddy/Maddy.Caddyfile".source = ./dotfiles/Maddy.Caddyfile;
       };
 
       # Autodiscovery services
@@ -39,6 +36,9 @@ in
         };
       };
 
+      environment.etc = {
+        "caddy/Maddy.Caddyfile".source = ./dotfiles/Maddy.Caddyfile;
+      };
       systemd.services."caddy_expose_maddy" = {
         enable = true;
         after = ["caddy.service"];
@@ -48,7 +48,9 @@ in
           Group = "users";
           WorkingDirectory = "~";
           ExecStart = ''
-            ${pkgs.caddy}/bin/caddy reload --config /etc/caddy/Maddy.Caddyfile
+            ${pkgs.caddy}/bin/caddy reload \
+              --adapter caddyfile \
+              --config /etc/caddy/Maddy.Caddyfile
           '';
         };
         wantedBy = ["multi-user.target"];
