@@ -60,10 +60,4 @@ in
       services.udev.packages = with pkgs; [
         android-udev-rules
       ];
-      services.udev.extraRules = ''
-        ACTION=="bind", \
-        ENV{SUBSYSTEM}=="usb", \
-        ENV{ID_VENDOR_ID}=="18d1", \
-        RUN{program}+="mkdir -p /run/media/pixel && ${pkgs.jmtpfs}/bin/jmtpfs /run/media/pixel"
-      '';
     }
