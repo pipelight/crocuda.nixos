@@ -7,7 +7,7 @@
 }: let
   cfg = config.crocuda.servers;
   domains = cfg.mail.maddy.domains;
-  domains = cfg.mail.maddy.accounts;
+  accounts = cfg.mail.maddy.accounts;
   primaryDomain = builtins.elemAt domains 0;
 in
   with lib;
@@ -18,10 +18,11 @@ in
         config = builtins.readFile ./dotfiles/maddy.conf;
         openFirewall = false;
         inherit primaryDomain;
-        ensureAccounts = [
-          "anon@${primaryDomain}"
-        ] ++ accounts
-       ;
+        ensureAccounts =
+          [
+            "anon@${primaryDomain}"
+          ]
+          ++ accounts;
       };
 
       # Autodiscovery services
