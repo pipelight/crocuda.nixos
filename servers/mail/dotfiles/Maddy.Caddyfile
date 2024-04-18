@@ -1,9 +1,9 @@
 # Smtp
-crocuda.com:587, areskul.com:587 {
-	reverse_proxy localhost:587
+:587 {
+	reverse_proxy localhost:10587
 }
 
 # Imap
-crocuda.com:143, areskul.com:143 {
-	reverse_proxy localhost:143
+:993 {
+	reverse_proxy localhost:10993
 }
