@@ -45,7 +45,7 @@ in
         description = "Load a caddy proxy config to redirect tls to maddy mail server";
         serviceConfig = {
           User = "caddy";
-          Group = "caddy";
+          Group = "users";
           WorkingDirectory = "~";
           ExecStart = ''
             ${pkgs.caddy}/bin/caddy reload --config /etc/caddy/Maddy.Caddyfile
