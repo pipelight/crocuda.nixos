@@ -29,7 +29,7 @@ in
             port = 993;
           };
           smtp = {
-            server = domain;
+            server = primaryDomain;
             port = 587;
           };
         };
