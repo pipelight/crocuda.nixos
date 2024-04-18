@@ -61,7 +61,7 @@ in
         android-udev-rules
       ];
       services.udev.extraRules = ''
-        ACTION=="add", \
+        ACTION=="bind", \
         ENV{SUBSYSTEM}=="usb", \
         ENV{ID_VENDOR_ID}=="18d1", \
         RUN{program}+="${pkgs.jmtpfs}/bin/jmtpfs /run/media/"
