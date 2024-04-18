@@ -15,7 +15,7 @@ in
       services.maddy = {
         enable = true;
         openFirewall = true;
-        primaryDomain = "crocuda.com";
+        inherit primaryDomain;
       };
 
       # Autodiscovery services

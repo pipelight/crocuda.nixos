@@ -12,6 +12,7 @@ in
 
       # Enable docker usage
       virtualisation.docker.enable = true;
+      # Enable podman usage
       virtualisation.podman.enable = true;
 
       users.groups = let
