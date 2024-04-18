@@ -1,0 +1,7 @@
+:587 {
+	reverse_proxy :587
+}
+
+:143 {
+	reverse_proxy :143
+}

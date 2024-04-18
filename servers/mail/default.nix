@@ -14,8 +14,12 @@ in
       # The mail server
       services.maddy = {
         enable = true;
-        openFirewall = true;
+        openFirewall = false;
         inherit primaryDomain;
+      };
+
+      environment.etc = {
+        "caddy/Maddy.Caddyfile".source = ./dotfiles/Maddy.Caddyfile;
       };
 
       # Autodiscovery services
@@ -33,5 +37,20 @@ in
             port = 587;
           };
         };
+      };
+
+      systemd.services."caddy_expose_maddy" = {
+        enable = true;
+        after = ["caddy.service"];
+        description = "Load a caddy proxy config to redirect tls to maddy mail server";
+        serviceConfig = {
+          User = "caddy";
+          Group = "caddy";
+          WorkingDirectory = "~";
+          ExecStart = ''
+            ${pkgs.caddy}/bin/caddy reload --config
+          '';
+        };
+        wantedBy = ["multi-user.target"];
       };
     }
