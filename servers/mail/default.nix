@@ -17,6 +17,9 @@ in
         config = builtins.readFile ./dotfiles/maddy.conf;
         openFirewall = false;
         inherit primaryDomain;
+        ensureAccounts = [
+          "anon@${primaryDomain}"
+        ];
       };
 
       # Autodiscovery services
