@@ -4,6 +4,8 @@
   lib,
   ...
 }: let
+
+  cfg = config.crocuda;
   kill_all_sessions = pkgs.writeShellScriptBin "kill_all_sessions" ''
     fn() {
       ${pkgs.procps}/bin/ps aux | egrep '(tty|pts)' | xargs kill -KILL
@@ -12,7 +14,7 @@
   '';
 in
   with lib;
-    mkIf cfg.mail.yubikey.enable {
+    mkIf cfg.yubikey.enable {
       environment.systemPackages = with pkgs; [
         # Yubikey
         yubikey-manager
