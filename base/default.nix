@@ -53,10 +53,12 @@ in {
     gnumake
     cmake
 
-    # JS Language engines
-    deno
-    bun
-    nodejs_latest
+    # Js engines
+    # deno
+    # bun
+    # nodejs_latest
+
+    # Js utils
     jo
     jq
     yq-go
