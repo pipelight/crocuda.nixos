@@ -67,6 +67,6 @@ in
         MODE="0660", \
         GROUP="plugdev", \
         SYMLINK+="pixel%k", \
-        RUN{program}+="${pkgs.systemd}/bin/systemd-mount --no-block --automount=yes --collect $devnode /run/media"
+        RUN{program}+="${pkgs.jmtpfs}/bin/jmtpfs /run/media/"
       '';
     }
