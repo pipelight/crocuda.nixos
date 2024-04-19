@@ -29,7 +29,6 @@
     ollama.url = "github:havaker/ollama-nix";
     # Servers
     radicle.url = "git+https://seed.radicle.garden/z3gqcJUoA1n9HaHKufZs5FCSGazv5";
-    # radicle-tui.url = "git+https://seed.radicle.garden/z39mP9rQAaGmERfUMPULfPUi473tY";
     # mail-server.url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
     # WM
     yofi.url = "github:l4l/yofi";
