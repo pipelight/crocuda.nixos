@@ -20,13 +20,18 @@ in
 
       environment.etc = {
         "caddy/Caddyfile" = {
-          source = ./dotfiles/Caddyfile;
+          # source = ./dotfiles/Caddyfile;
           text = with lib;
-            mkDefault (mkAfter ''
-              ${concatStringsSep " " cfg.servers.web.caddy.ssl} {
-                reverse_proxy localhost:10443
-              }
-            '');
+            mkMerge [
+              (builtins.readFile
+              ./dotfiles/Caddyfile)
+              mkDefault
+              (mkAfter ''
+                ${concatStringsSep " " cfg.servers.web.caddy.ssl} {
+                  reverse_proxy localhost:10443
+                }
+              '')
+            ];
         };
       };
 
