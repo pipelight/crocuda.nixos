@@ -22,16 +22,17 @@ in
         "caddy/Caddyfile" = {
           # source = ./dotfiles/Caddyfile;
           text = let
-          dns_list = lib.concatStringsSep " " cfg.servers.web.caddy.ssl;
-          in with lib;
+            dns_list = lib.concatStringsSep " " cfg.servers.web.caddy.ssl;
+          in
+            with lib;
               concatLines [
-
-              (builtins.readFile ./dotfiles/Caddyfile)
-              ''
-                ${dns_list} {
-                  reverse_proxy localhost:10443
-                }
-              ''
+                (builtins.readFile ./dotfiles/Caddyfile)
+                ''
+                  # Crocuda caddy Nix module
+                  ${dns_list} {
+                    reverse_proxy localhost:10443
+                  }
+                ''
               ];
         };
       };
