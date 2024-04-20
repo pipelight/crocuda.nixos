@@ -45,8 +45,9 @@ in
       environment.etc = {
         "caddy/Maddy.Caddyfile".source = ./dotfiles/Maddy.Caddyfile;
       };
+
       systemd.services."caddy_expose_maddy" = {
-        enable = true;
+        enable = false;
         after = ["caddy.service"];
         description = "Load a caddy proxy config to redirect tls to maddy mail server";
         serviceConfig = {
@@ -56,7 +57,7 @@ in
           ExecStart = ''
             ${pkgs.caddy}/bin/caddy reload \
               --adapter caddyfile \
-              --config /etc/caddy/Maddy.Caddyfile
+              --config /etc/caddy/Caddyfile
           '';
         };
         wantedBy = ["multi-user.target"];

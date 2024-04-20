@@ -17,10 +17,32 @@ in
       environment.defaultPackages = with pkgs; [
         caddy
       ];
+
+      environment.etc = {
+        "caddy/Caddyfile".source = ./dotfiles/Caddyfile;
+      };
+
       services.caddy = {
         enable = true;
         user = username;
         group = "users";
         acmeCA = "https://acme-staging-v02.api.letsencrypt.org/directory";
+      };
+
+      systemd.services."caddy_expose" = {
+        enable = true;
+        after = ["caddy.service"];
+        description = "Load a caddy proxy config to redirect tls to maddy mail server and nginx unit";
+        serviceConfig = {
+          User = "caddy";
+          Group = "users";
+          WorkingDirectory = "~";
+          ExecStart = ''
+            ${pkgs.caddy}/bin/caddy reload \
+              --adapter caddyfile \
+              --config /etc/caddy/Caddyfile
+          '';
+        };
+        wantedBy = ["multi-user.target"];
       };
     }
