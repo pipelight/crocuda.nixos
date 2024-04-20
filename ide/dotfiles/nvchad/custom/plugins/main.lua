@@ -84,6 +84,7 @@ local plugins = {
 			vim.g["test#neovim#term_position"] = "vert"
 			vim.g["test#strategy"] = "toggleterm"
 			vim.g["test#rust#cargotest#test_options"] = "-- --test-threads 1 --nocapture"
+			vim.g["test#javascript#deno#test_options"] = "--allow-all"
 		end,
 		lazy = false,
 	},
