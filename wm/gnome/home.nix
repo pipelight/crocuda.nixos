@@ -72,7 +72,7 @@ in {
   # Qt theming
   qt = with pkgs; {
     enable = true;
-    platformTheme = "qtct";
+    platformTheme.name = "qtct";
     style = {
       name = "adwaita-dark";
       package = adwaita-qt;

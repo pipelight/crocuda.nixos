@@ -22,11 +22,10 @@ in
           dns = "none";
           dhcp = "dhcpcd";
           connectionConfig = {
-
-            ethernet.cloned-mac-address="random";
-            wifi.cloned-mac-address="random";
-            ipv6.ip6-privacy=2;
-            ipv4.ignore-auto-dns="yes";
+            ethernet = "cloned-mac-address =random";
+            wifi= "cloned-mac-address=random";
+            ipv6= "ip6-privacy=2";
+            ipv4="ignore-auto-dns=yes";
           };
           logLevel = "DEBUG";
         };
