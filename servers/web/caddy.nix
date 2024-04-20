@@ -21,17 +21,18 @@ in
       environment.etc = {
         "caddy/Caddyfile" = {
           # source = ./dotfiles/Caddyfile;
-          text = with lib;
-            mkMerge [
-              (builtins.readFile
-              ./dotfiles/Caddyfile)
-              mkDefault
-              (mkAfter ''
-                ${concatStringsSep " " cfg.servers.web.caddy.ssl} {
+          text = let
+          dns_list = lib.concatStringsSep " " cfg.servers.web.caddy.ssl;
+          in with lib;
+              concatLines [
+
+              (builtins.readFile ./dotfiles/Caddyfile)
+              ''
+                ${dns_list} {
                   reverse_proxy localhost:10443
                 }
-              '')
-            ];
+              ''
+              ];
         };
       };
 
