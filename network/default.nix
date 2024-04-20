@@ -21,16 +21,13 @@ in
           enable = true;
           dns = "none";
           dhcp = "dhcpcd";
-          extraConfig = ''
-            [logging]
-            level=DEBUG
-
-            [connection]
+          connectionConfig = ''
             ethernet.cloned-mac-address=random
             wifi.cloned-mac-address=random
             ipv6.ip6-privacy=2
             ipv4.ignore-auto-dns=yes
           '';
+          logLevel = "DEBUG";
         };
         dhcpcd = {
           enable = true;

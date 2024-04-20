@@ -92,9 +92,18 @@ with lib; {
         unit.enable = mkEnableOption ''
           Nginx unit web server.
         '';
-        caddy.enable = mkEnableOption ''
-          Caddy web server.
-        '';
+        caddy = {
+          enable = mkEnableOption ''
+            Caddy web server.
+          '';
+          ssl = mkOption {
+            type = with types; listOf str;
+            description = ''
+              List of domains and subdomains for autotls (http challenge)
+            '';
+            default = ["example.com"];
+          };
+        };
       };
       ssh = {
         enable = mkEnableOption ''

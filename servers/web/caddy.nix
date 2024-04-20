@@ -19,7 +19,15 @@ in
       ];
 
       environment.etc = {
-        "caddy/Caddyfile".source = ./dotfiles/Caddyfile;
+        "caddy/Caddyfile" = {
+          source = ./dotfiles/Caddyfile;
+          text = with lib;
+            mkDefault (mkAfter ''
+              ${concatStringsSep " " cfg.servers.web.caddy.ssl} {
+                reverse_proxy localhost:10443
+              }
+            '');
+        };
       };
 
       services.caddy = {
