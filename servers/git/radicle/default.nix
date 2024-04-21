@@ -15,17 +15,24 @@ in
         isNormalUser = true;
       };
 
-      environment.systemPackages = with pkgs; [
-        # Decentralized code collaboration plateform
-        # radicle-cli
-        # inputs.radicle.packages.${system}.default
-        inputs.radicle.packages.${system}.rad
-        inputs.radicle-interface.packages.${system}.default.override
-        {
-          doCheck = false;
-        }
-        # inputs.radicle-tui.packages.${system}.default
-      ];
+      environment.systemPackages = let
+        rad = inputs.radicle.packages.${system};
+        rad_wep = inputs.radicle.packages.${system};
+      in
+        with pkgs; [
+          # Decentralized code collaboration plateform
+          # radicle-cli
+          # inputs.radicle.packages.${system}.default
+          rad.default
+          rad.radicle-httpd
+
+          rad_web.default.override
+          {
+            doCheck = false;
+          }
+
+          # inputs.radicle-tui.packages.${system}.default
+        ];
 
       # For a local dummy node either set a password and provide it to the
       # radicle systemd unit via variable a manualy created file at /etc/radicle.env
@@ -42,7 +49,8 @@ in
         documentation = ["https://radicle.xyz/guides/user"];
         requires = ["network-online.target"];
         serviceConfig = with pkgs; let
-          package = inputs.radicle.packages.${system}.rad;
+          rad = inputs.radicle.packages.${system};
+          package = rad.default;
         in {
           ExecStart = "${package}/bin/radicle-node --listen 0.0.0.0:8776 --force";
           User = "${username}";
@@ -62,7 +70,8 @@ in
         documentation = ["https://radicle.xyz/guides/user"];
         requires = ["network-online.target"];
         serviceConfig = with pkgs; let
-          package = inputs.radicle.packages.${system}.rad;
+          rad = inputs.radicle.packages.${system};
+          package = rad.radicle-httpd;
         in {
           ExecStart = "${package}/bin/radicle-httpd --listen 127.0.0.1:8786 --force";
           User = "${username}";
