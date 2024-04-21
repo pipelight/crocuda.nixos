@@ -71,6 +71,7 @@ in
       environment.systemPackages = with pkgs; [
         # Networking
         dhcpcd
+        bluez
 
         # Pentest
         whois
