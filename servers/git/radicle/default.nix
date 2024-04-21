@@ -18,7 +18,7 @@ in
       environment.systemPackages = let
         system = pkgs.system;
         rad = inputs.radicle.packages.${system};
-        rad_wep = inputs.radicle.packages.${system};
+        rad_web = inputs.radicle.packages.${system};
       in
         with pkgs; [
           # Decentralized code collaboration plateform
@@ -50,7 +50,7 @@ in
         documentation = ["https://radicle.xyz/guides/user"];
         requires = ["network-online.target"];
         serviceConfig = with pkgs; let
-        system = pkgs.system;
+          system = pkgs.system;
           rad = inputs.radicle.packages.${system};
           package = rad.default;
         in {
@@ -72,7 +72,7 @@ in
         documentation = ["https://radicle.xyz/guides/user"];
         requires = ["network-online.target"];
         serviceConfig = with pkgs; let
-        system = pkgs.system;
+          system = pkgs.system;
           rad = inputs.radicle.packages.${system};
           package = rad.radicle-httpd;
         in {
