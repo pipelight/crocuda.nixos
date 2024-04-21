@@ -19,6 +19,7 @@ in
         # Decentralized code collaboration plateform
         # radicle-cli
         inputs.radicle.packages.${system}.default
+        inputs.radicle-interface.packages.${system}.default
         # inputs.radicle-tui.packages.${system}.default
       ];
 

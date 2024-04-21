@@ -27,8 +27,11 @@
     pipelight.url = "github:pipelight/pipelight";
     virshle.url = "github:pipelight/virshle";
     ollama.url = "github:havaker/ollama-nix";
+
     # Servers
+    # Racicle
     radicle.url = "git+https://seed.radicle.garden/z3gqcJUoA1n9HaHKufZs5FCSGazv5";
+    radicle-interface.url = "git+https://seed.radicle.garden/z4V1sjrXqjvFdnCUbxPFqd5p4DtH5";
     # mail-server.url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
     # WM
     yofi.url = "github:l4l/yofi";
