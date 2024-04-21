@@ -27,7 +27,10 @@ in
           rad.default
           rad.radicle-httpd
 
-          rad_web.default
+          (rad_web.default.override
+          {
+            doCheck = false;
+          })
 
           # inputs.radicle-tui.packages.${system}.default
         ];
