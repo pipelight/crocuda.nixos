@@ -3,7 +3,6 @@
   pkgs,
   lib,
   inputs,
-  system,
   ...
 }: let
   cfg = config.crocuda;
@@ -17,6 +16,7 @@ in
       };
 
       environment.systemPackages = let
+        system = pkgs.system;
         rad = inputs.radicle.packages.${system};
         rad_wep = inputs.radicle.packages.${system};
       in
@@ -50,6 +50,7 @@ in
         documentation = ["https://radicle.xyz/guides/user"];
         requires = ["network-online.target"];
         serviceConfig = with pkgs; let
+        system = pkgs.system;
           rad = inputs.radicle.packages.${system};
           package = rad.default;
         in {
@@ -71,6 +72,7 @@ in
         documentation = ["https://radicle.xyz/guides/user"];
         requires = ["network-online.target"];
         serviceConfig = with pkgs; let
+        system = pkgs.system;
           rad = inputs.radicle.packages.${system};
           package = rad.radicle-httpd;
         in {
