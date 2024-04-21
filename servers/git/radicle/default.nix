@@ -3,6 +3,7 @@
   pkgs,
   lib,
   inputs,
+  system,
   ...
 }: let
   cfg = config.crocuda;
