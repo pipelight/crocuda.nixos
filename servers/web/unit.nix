@@ -29,7 +29,7 @@ in
       ## Custom optionnal systemd unit
       # Replace default secure unix socket with local tcp socket
       systemd.services.unit = {
-        enable = false;
+        enable = true;
         after = ["network.target"];
         wantedBy = ["multi-user.target"];
         serviceConfig = {

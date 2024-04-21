@@ -32,7 +32,7 @@
     # Racicle
     radicle.url = "git+https://seed.radicle.garden/z3gqcJUoA1n9HaHKufZs5FCSGazv5";
     radicle-interface.url = "git+https://seed.radicle.garden/z4V1sjrXqjvFdnCUbxPFqd5p4DtH5";
-    rust-overlay.url = "github:oxalica/rust-overlay";
+    # rust-overlay.url = "github:oxalica/rust-overlay";
     # mail-server.url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
     # WM
     yofi.url = "github:l4l/yofi";
