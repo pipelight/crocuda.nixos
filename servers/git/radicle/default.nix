@@ -14,11 +14,19 @@ in
       users.users."${username}" = {
         isNormalUser = true;
       };
+      imports = let 
+
+        rad_web = inputs.radicle-interface.packages.${system};
+      in[
+          rad_web.default.override
+          {
+            doCheck = false;
+          }
+      ];
 
       environment.systemPackages = let
         system = pkgs.system;
         rad = inputs.radicle.packages.${system};
-        rad_web = inputs.radicle-interface.packages.${system};
       in
         with pkgs; [
           # Decentralized code collaboration plateform
@@ -27,10 +35,6 @@ in
           rad.default
           rad.radicle-httpd
 
-          rad_web.default.override
-          {
-            doCheck = false;
-          }
 
           # inputs.radicle-tui.packages.${system}.default
         ];
