@@ -202,6 +202,9 @@ with lib; {
         Toggle gnome desktop environment
       '';
     };
+    stream.enable = mkEnableOption ''
+        Toggle streaming module
+      '';
   };
 
   imports = [
