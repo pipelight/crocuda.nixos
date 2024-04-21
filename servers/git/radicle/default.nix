@@ -15,7 +15,7 @@ in
         isNormalUser = true;
       };
 
-      nixpkgs.overlays = [rust-overlay.overlays.default];
+      nixpkgs.overlays = [inputs.rust-overlay.overlays.default];
 
       environment.systemPackages = let
         system = pkgs.system;
