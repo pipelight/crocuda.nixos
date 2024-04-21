@@ -19,10 +19,11 @@ in
         # Decentralized code collaboration plateform
         # radicle-cli
         inputs.radicle.packages.${system}.default
-        inputs.radicle-interface.packages.${system}.default.override
-        {
-          doCheck = false;
-        }
+        inputs.radicle-interface.packages.${system}.radicle-interface
+        # inputs.radicle-interface.packages.${system}.default.override
+        # {
+        #   doCheck = false;
+        # }
         # inputs.radicle-tui.packages.${system}.default
       ];
 
