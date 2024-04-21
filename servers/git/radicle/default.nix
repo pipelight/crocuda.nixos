@@ -18,7 +18,7 @@ in
       environment.systemPackages = let
         system = pkgs.system;
         rad = inputs.radicle.packages.${system};
-        rad_web = inputs.radicle.packages.${system};
+        rad_web = inputs.radicle_interface.packages.${system};
       in
         with pkgs; [
           # Decentralized code collaboration plateform
