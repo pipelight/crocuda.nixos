@@ -18,8 +18,9 @@ in
       environment.systemPackages = with pkgs; [
         # Decentralized code collaboration plateform
         # radicle-cli
-        inputs.radicle.packages.${system}.default
-        inputs.radicle-interface.packages.${system}.radicle-interface.override
+        # inputs.radicle.packages.${system}.default
+        inputs.radicle.packages.${system}.radicle-full
+        inputs.radicle-interface.packages.${system}.default.override
         {
           doCheck = false;
         }
@@ -61,11 +62,7 @@ in
         documentation = ["https://radicle.xyz/guides/user"];
         requires = ["network-online.target"];
         serviceConfig = with pkgs; let
-          package =
-            inputs.radicle-interface.packages.${system}.radicle-interface.override
-            {
-              doCheck = false;
-            };
+          package = inputs.radicle.packages.${system}.default;
         in {
           ExecStart = "${package}/bin/radicle-httpd --listen 127.0.0.1:8786 --force";
           User = "${username}";
