@@ -42,7 +42,7 @@ in
         documentation = ["https://radicle.xyz/guides/user"];
         requires = ["network-online.target"];
         serviceConfig = with pkgs; let
-          package = inputs.radicle.packages.${system}.default;
+          package = inputs.radicle.packages.${system}.radicle-full;
         in {
           ExecStart = "${package}/bin/radicle-node --listen 0.0.0.0:8776 --force";
           User = "${username}";
@@ -62,7 +62,7 @@ in
         documentation = ["https://radicle.xyz/guides/user"];
         requires = ["network-online.target"];
         serviceConfig = with pkgs; let
-          package = inputs.radicle.packages.${system}.default;
+          package = inputs.radicle.packages.${system}.radicle-full;
         in {
           ExecStart = "${package}/bin/radicle-httpd --listen 127.0.0.1:8786 --force";
           User = "${username}";
