@@ -25,11 +25,13 @@ in
 
       ## Add global packages
       services.unit.enable = true;
+
+      ## Custom optionnal systemd unit
       # Replace default secure unix socket with local tcp socket
       systemd.services.unit = {
-        # enable = false;
-        # after = ["network.target"];
-        # wantedBy = ["multi-user.target"];
+        enable = false;
+        after = ["network.target"];
+        wantedBy = ["multi-user.target"];
         serviceConfig = {
           ExecStart = lib.mkForce ''
             ${pkgs.unit}/bin/unitd \
