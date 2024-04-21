@@ -203,8 +203,8 @@ with lib; {
       '';
     };
     stream.enable = mkEnableOption ''
-        Toggle streaming module
-      '';
+      Toggle streaming module
+    '';
   };
 
   imports = [
@@ -275,5 +275,8 @@ with lib; {
     ./wm/base/default.nix
     ./wm/hyprland/default.nix
     ./wm/gnome/default.nix
+
+    # Streaming
+    ./stream/default.nix
   ];
 }
