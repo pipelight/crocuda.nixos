@@ -20,7 +20,7 @@ in
       environment.systemPackages = let
         system = pkgs.system;
         rad = inputs.radicle.packages.${system};
-        rad_web = inputs.radicle-interface.packages.${system};
+        # rad_web = inputs.radicle-interface.packages.${system};
       in
         with pkgs; [
           # Decentralized code collaboration plateform
@@ -30,10 +30,10 @@ in
           rad.radicle-httpd
 
           # rust-bin.stable.latest.default
-          (rad_web.default.override
-            {
-              doCheck = false;
-            })
+          # (rad_web.default.override
+          #   {
+          #     doCheck = false;
+          #   })
 
           # inputs.radicle-tui.packages.${system}.default
         ];
