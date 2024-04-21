@@ -15,6 +15,8 @@ in
         isNormalUser = true;
       };
 
+      nixpkgs.overlays = [rust-overlay.overlays.default];
+
       environment.systemPackages = let
         system = pkgs.system;
         rad = inputs.radicle.packages.${system};
@@ -26,11 +28,11 @@ in
           # inputs.radicle.packages.${system}.default
           rad.default
           rad.radicle-httpd
-
+          rust-bin.stable.latest.default
           (rad_web.default.override
-          {
-            doCheck = false;
-          })
+            {
+              doCheck = false;
+            })
 
           # inputs.radicle-tui.packages.${system}.default
         ];
