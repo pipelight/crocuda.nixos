@@ -79,7 +79,7 @@ in
           rad = inputs.radicle.packages.${system};
           package = rad.radicle-httpd;
         in {
-          ExecStart = "${package}/bin/radicle-httpd --listen 127.0.0.1:8786 --force";
+          ExecStart = "${package}/bin/radicle-httpd --listen 127.0.0.1:8786";
           User = "${username}";
           Group = "users";
           Type = "simple";
