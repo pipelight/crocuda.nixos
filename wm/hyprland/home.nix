@@ -42,9 +42,9 @@ in {
     # Keyboard layouts
     ".config/hypr/binds.conf".source = with lib;
       mkMerge [
-        (mkIf cfg.keyboard.layout == "colemak-dh" dotfiles/hypr/binds/colemak.conf)
-        (mkIf cfg.keyboard.layout == "azerty" dotfiles/hypr/binds/azerty.conf)
-        (mkIf cfg.keyboard.layout == "qwerty" dotfiles/hypr/binds/qwerty.conf)
+        (mkIf (cfg.keyboard.layout == "colemak-dh") dotfiles/hypr/binds/colemak.conf)
+        (mkIf (cfg.keyboard.layout == "azerty") dotfiles/hypr/binds/azerty.conf)
+        (mkIf (cfg.keyboard.layout == "qwerty") dotfiles/hypr/binds/qwerty.conf)
       ];
 
     ".profile".source = dotfiles/.profile;
