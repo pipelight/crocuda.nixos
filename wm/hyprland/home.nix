@@ -41,7 +41,7 @@ in {
 
     # Keyboard layouts
     ".config/hypr/binds.conf".source = with lib;
-      mkApply [
+      mkMerge [
         (mkIf cfg.keyboard.layout == "colemak-dh" dotfiles/hypr/binds/colemak.conf)
         (mkIf cfg.keyboard.layout == "azerty" dotfiles/hypr/binds/azerty.conf)
         (mkIf cfg.keyboard.layout == "qwerty" dotfiles/hypr/binds/qwerty.conf)
