@@ -1,5 +1,6 @@
 {
   config,
+  cfg,
   pkgs,
   lib,
   inputs,
@@ -27,13 +28,34 @@
     # Terminal multiplexer
     ".config/zellij".source = dotfiles/zellij;
 
-    # NvChad minimal files
+    ## Default
+    # NvChad minimal files colemak
     ".config/nvim/lua/core".source = nvchad + "/lua/core";
     ".config/nvim/lua/plugins".source = nvchad + "/lua/plugins";
     ".config/nvim/init.lua".source = nvchad + "/init.lua";
     ".config/nvim/lua/custom".source = dotfiles/nvchad/custom;
+    # NvChad colemak-dh mod
+    ".config/nvchad-colemak-dh/lua/core".source = nvchad + "/lua/core";
+    ".config/nvchad-colemak-dh/lua/plugins".source = nvchad + "/lua/plugins";
+    ".config/nvchad-colemak-dh/init.lua".source = nvchad + "/init.lua";
+    ".config/nvchad-colemak-dh/lua/custom".source = dotfiles/nvchad/custom;
+
+    # NvChad azerty mod
+    ".config/nvchad-azerty/lua/core".source = nvchad + "/lua/core";
+    ".config/nvchad-azerty/lua/plugins".source = nvchad + "/lua/plugins";
+    ".config/nvchad-azerty/init.lua".source = nvchad + "/init.lua";
+    ".config/nvchad-azerty/lua/custom".source = dotfiles/nvchad/custom;
 
     ".vimrc".source = dotfiles/.vimrc;
+  };
+
+  home.sessionVariables = {
+    NVIM_APPNAME = with lib;
+      mkMerge [
+        (mkIf (cfg.keyboard.layout == "colemak-dh") "nvchad-colemak-dh")
+        (mkIf (cfg.keyboard.layout == "azerty") "nvchad-azerty")
+        # (mkIf (cfg.keyboard.layout == "azerty") "nvchad-qwerty")
+      ];
   };
 
   home.packages = with pkgs; [
