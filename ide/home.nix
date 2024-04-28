@@ -24,16 +24,25 @@
       rev = "refs/heads/v2.0";
       hash = "sha256-SG3pJIkFu/AhNqh07F+Ab0VgOBF2VxdkrxZwk7lepyg=";
     };
+    # Fetch NvChad files for later symlink.
+    base = pkgs.fetchFromGitHub {
+      owner = "NvChad";
+      repo = "starter";
+      rev = "main";
+      hash = "sha256-SG3pJIkFu/AhNqh07F+Ab0VgOBF2VxdkrxZwk7lepyg=";
+    };
   in {
     # Terminal multiplexer
     ".config/zellij".source = dotfiles/zellij;
 
     ## Default
     # NvChad minimal files colemak
-    ".config/nvim/lua/core".source = nvchad + "/lua/core";
-    ".config/nvim/lua/plugins".source = nvchad + "/lua/plugins";
-    ".config/nvim/init.lua".source = nvchad + "/init.lua";
+    ".config/nvim/lua/core".source = base + "/lua/core";
+    ".config/nvim/lua/plugins".source = base + "/lua/plugins";
+    ".config/nvim/init.lua".source = base + "/init.lua";
+    ".config/nvim/.stylua.lua".source = base + "/.stylua.toml";
     ".config/nvim/lua/custom".source = dotfiles/nvchad/custom;
+
     # NvChad colemak-dh mod
     ".config/nvchad-colemak-dh/lua/core".source = nvchad + "/lua/core";
     ".config/nvchad-colemak-dh/lua/plugins".source = nvchad + "/lua/plugins";

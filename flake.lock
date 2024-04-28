@@ -263,11 +263,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1713566308,
-        "narHash": "sha256-7Y91t8pheIzjJveUMAPyeh5NOq5F49Nq4Hl2532QpJs=",
+        "lastModified": 1714203603,
+        "narHash": "sha256-eT7DENhYy7EPLOqHI9zkIMD9RvMCXcqh6gGqOK5BWYQ=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "057117a401a34259c9615ce62218aea7afdee4d3",
+        "rev": "c1609d584a6b5e9e6a02010f51bd368cb4782f8e",
         "type": "github"
       },
       "original": {
@@ -382,11 +382,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1713537308,
-        "narHash": "sha256-XtTSSIB2DA6tOv+l0FhvfDMiyCmhoRbNB+0SeInZkbk=",
+        "lastModified": 1714253743,
+        "narHash": "sha256-mdTQw2XlariysyScCv2tTE45QSU9v/ezLcHJ22f0Nxc=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "5c24cf2f0a12ad855f444c30b2421d044120c66f",
+        "rev": "58a1abdbae3217ca6b702f03d3b35125d88a2994",
         "type": "github"
       },
       "original": {
@@ -494,11 +494,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1713623047,
-        "narHash": "sha256-dT9ZtEa0SvaWr/S17Xl50s9chZVjVSHEcK2go2ZMxLA=",
+        "lastModified": 1714323481,
+        "narHash": "sha256-0rpsGYcOzWTqBk/p0LfQubmBAHhOYU3Ig2aGxQMzjlo=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "346f421b665d84a8b7066d33713bd3ea51d10221",
+        "rev": "6351c17bf20576708aaa14d2e5b85ae88e67706d",
         "type": "github"
       },
       "original": {
@@ -576,11 +576,11 @@
         "rust-overlay": "rust-overlay_2"
       },
       "locked": {
-        "lastModified": 1713604260,
-        "narHash": "sha256-xj0eHzjqL4FODnGBEA4OB3Elqolq0exmabDH4Nioea4=",
+        "lastModified": 1714120734,
+        "narHash": "sha256-H360WxdE2vspnczxNI5MXe5LJjVCu2Ec0gLctpZSN8M=",
         "ref": "refs/heads/master",
-        "rev": "95b5191533db1ffbd66e888b3503224db8f5d5e6",
-        "revCount": 1860,
+        "rev": "a3ffe51ddf28e564dccf1558e2c3fdf4c62278f7",
+        "revCount": 1878,
         "type": "git",
         "url": "https://seed.radicle.garden/z3gqcJUoA1n9HaHKufZs5FCSGazv5"
       },
