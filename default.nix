@@ -19,7 +19,8 @@ with lib; {
 
     # Set the keyboard layout
     keyboard.layout = mkOption {
-      type = with types; listOf str;
+      # type = with types; listOf str;
+      type = with types; str;
       description = ''
         The name of the user for whome to add this module.
       '';
