@@ -185,17 +185,17 @@ local plugins = {
 		priority = 60,
 		lazy = true,
 	},
-	{
-		"dustinblackman/oatmeal.nvim",
-		cmd = { "Oatmeal" },
-		keys = {
-			{ "<leader>om", mode = "n", desc = "Start Oatmeal session" },
-		},
-		opts = {
-			backend = "ollama",
-			model = "starcoder:latest",
-		},
-	},
+	-- {
+	-- 	"dustinblackman/oatmeal.nvim",
+	-- 	cmd = { "Oatmeal" },
+	-- 	keys = {
+	-- 		{ "<leader>om", mode = "n", desc = "Start Oatmeal session" },
+	-- 	},
+	-- 	opts = {
+	-- 		backend = "ollama",
+	-- 		model = "starcoder:latest",
+	-- 	},
+	-- },
 }
 
 return plugins
