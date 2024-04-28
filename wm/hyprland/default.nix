@@ -13,7 +13,7 @@ in
       # Import home file
       home-merger = {
         enable = true;
-        extraSpecialArgs = {inherit pkgs inputs;};
+        extraSpecialArgs = {inherit config pkgs inputs;};
         users = cfg.users;
         modules = [
           ./home.nix
