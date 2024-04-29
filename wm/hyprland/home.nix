@@ -39,6 +39,7 @@ in {
     ".config/hypr/utils".source = dotfiles/hypr/utils;
     ".config/hypr/rules.conf".source = dotfiles/hypr/rules.conf;
     ".config/hypr/theme.conf".source = dotfiles/hypr/theme.conf;
+    ".config/hypr/hyprland.conf".source = dotfiles/hypr/hyprland.conf;
 
     # Keyboard layouts
     ".config/hypr/binds.conf".source = with lib;
