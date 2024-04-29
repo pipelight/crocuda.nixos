@@ -41,6 +41,11 @@ in
         "i2pd/i2pd.conf".source = dotfiles/i2pd/i2pd.conf;
         "i2pd/tunnels.conf".source = dotfiles/i2pd/tunnels.conf;
       };
+      # Create working dir for Soft and Charm
+      systemd.tmpfiles.rules = [
+        "d /run/${username} 755 ${username} ${username}"
+        "d /var/log/${username} 755 ${username} ${username}"
+      ];
 
       systemd.services."i2pd" = {
         enable = true;
