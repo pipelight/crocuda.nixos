@@ -45,6 +45,7 @@ in
       systemd.tmpfiles.rules = [
         "d /run/${username} 755 ${username} ${username}"
         "d /var/log/${username} 755 ${username} ${username}"
+        "d /var/lib/${username} 755 ${username} ${username}"
       ];
 
       systemd.services."i2pd" = {
