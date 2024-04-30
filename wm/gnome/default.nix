@@ -24,6 +24,9 @@ in
         gnome-session
         gnome-shell
         gnome-initial-setup
+        gnome-control-center
+        gnome-bluetooth
+        gnome-backgrounds
         nautilus
       ];
       # Temporary fix one line full gnome installation
