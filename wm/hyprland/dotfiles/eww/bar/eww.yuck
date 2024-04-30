@@ -41,6 +41,8 @@
   (centerbox 
     :orientation "h"
     :class "bar"
+    :hexpand "false" 
+    :vexpand "false" 
     (workspaces)
     (active-window)
     (box 
