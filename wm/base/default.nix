@@ -20,6 +20,7 @@ in
   };
 
   ## Video /Sound
+  programs.light.enable = true;
   # Disable old software
   sound.enable = false;
   hardware.pulseaudio.enable = false;
