@@ -5,5 +5,5 @@ fi
 
 # Autostart Hyprland on login
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty2 ]]; then
-  gnome
+ dbus-run-session -- gnome-shell --display-server --wayland
 fi
