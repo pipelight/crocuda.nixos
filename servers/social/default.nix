@@ -16,7 +16,7 @@ in
       services.mastodon = {
         enable = true;
         localDomain = "social.example.com"; # Replace with your own domain
-        # configureNginx = true;
+        configureNginx = false;
         smtp.fromAddress = "noreply@social.example.com"; # Email address used by Mastodon to send emails, replace with your own
         extraConfig.SINGLE_USER_MODE = "true";
       };
