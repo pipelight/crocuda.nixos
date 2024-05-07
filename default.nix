@@ -89,6 +89,12 @@ with lib; {
     };
 
     servers = {
+      social = {
+        mastodon.enable = mkEnableOption ''
+          Enable mastodon with bird Ui.
+        '';
+
+      };
       web = {
         unit.enable = mkEnableOption ''
           Nginx unit web server.

@@ -11,6 +11,7 @@ in {
     ./git/default.nix
     ./web/default.nix
     ./mail/default.nix
+    ./social/default.nix
   ];
   ################################
   # Ssh
