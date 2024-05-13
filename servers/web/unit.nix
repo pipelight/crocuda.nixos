@@ -44,21 +44,20 @@ in
               --group unit
           '';
           # Provision server with minimal config
-          # route: Certbot acme challenge
-          # ExecStartPost = let
-          #   data = builtins.toJSON ''
-          #     {
-          #       "listeners": {},
-          #       "applications": {},
-          #       "routes": {}
-          #     } '';
-          # in
-          #   lib.mkForce ''
-          #     ${pkgs.curl}/bin/curl \
-          #       -X POST \
-          #       --data-binary ${data} \
-          #       'http://localhost:8080/config'
-          #   '';
+          ExecStartPost = let
+            data = builtins.toJSON ''
+              {
+                "listeners": {},
+                "applications": {},
+                "routes": {}
+              } '';
+          in
+            lib.mkForce ''
+              ${pkgs.curl}/bin/curl \
+                -X POST \
+                --data-binary ${data} \
+                'http://localhost:8080/config'
+            '';
         };
       };
     }
