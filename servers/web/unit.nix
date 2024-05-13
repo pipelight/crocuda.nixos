@@ -45,31 +45,20 @@ in
           '';
           # Provision server with minimal config
           # route: Certbot acme challenge
-          ExecStartPost = let
-            data = builtins.toJSON ''
-              {
-                "listeners": {},
-                "applications": {},
-                "routes": {
-                    "acme": [
-                        {
-                          "match": {
-                              "uri": "/.well-known/acme-challenge/*"
-                          },
-                          "action": {
-                              "share": "/var/www/www.example.com/"
-                          }
-                        }
-                    ]
-                }
-              } '';
-          in
-            lib.mkForce ''
-              ${pkgs.curl}/bin/curl \
-                -X PUT \
-                --data-binary ${data} \
-                'http://localhost:8080/config'
-            '';
+          # ExecStartPost = let
+          #   data = builtins.toJSON ''
+          #     {
+          #       "listeners": {},
+          #       "applications": {},
+          #       "routes": {}
+          #     } '';
+          # in
+          #   lib.mkForce ''
+          #     ${pkgs.curl}/bin/curl \
+          #       -X POST \
+          #       --data-binary ${data} \
+          #       'http://localhost:8080/config'
+          #   '';
         };
       };
     }
