@@ -10,7 +10,7 @@
   username = "radicle";
 in
   with lib;
-    mkIf cfg.servers.radicle.enable {
+    mkIf cfg.servers.git.radicle.enable {
       users.users."${username}" = {
         isNormalUser = true;
       };
