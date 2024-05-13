@@ -10,7 +10,7 @@
   username = "radicle";
 in
   with lib;
-    mkIf cfg.wm.hyprland.enable {
+    mkIf cfg.servers.radicle.enable {
       users.users."${username}" = {
         isNormalUser = true;
       };
