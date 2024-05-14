@@ -38,7 +38,7 @@ local plugins = {
 			end,
 		},
 		config = function()
-			require("plugins.configs.lspconfig")
+			require("nvchad.configs.lspconfig")
 			require("custom.plugins.lspconfig")
 		end,
 	},
