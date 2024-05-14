@@ -35,14 +35,6 @@
     # Terminal multiplexer
     ".config/zellij".source = dotfiles/zellij;
 
-    ## Default
-    # NvChad minimal files colemak
-    ".config/nvim/lua/core".source = base + "/lua/core";
-    ".config/nvim/lua/plugins".source = base + "/lua/plugins";
-    ".config/nvim/init.lua".source = base + "/init.lua";
-    ".config/nvim/.stylua.lua".source = base + "/.stylua.toml";
-    ".config/nvim/lua/custom".source = dotfiles/nvchad/custom;
-
     # NvChad colemak-dh mod
     ".config/nvchad-colemak-dh/lua/core".source = nvchad + "/lua/core";
     ".config/nvchad-colemak-dh/lua/plugins".source = nvchad + "/lua/plugins";
