@@ -25,6 +25,8 @@ return {
         "vimdoc",
         "bash",
         "rust",
+        "lua",
+        "nix",
         "toml",
         "jq",
         "yaml",
