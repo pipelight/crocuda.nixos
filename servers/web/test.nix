@@ -7,7 +7,6 @@
 }: let
   cfg = config.crocuda;
 in {
-
   environment.defaultPackages = with pkgs; [
     pebble
   ];
@@ -22,24 +21,24 @@ in {
   # networking.firewall.allowedTCPPorts = [ ... ];
 
   systemd.services.pebble = let
-  pebbleConfig = pkgs.writeText "pebble.json" (builtins.toJSON {
-    pebble = {
-      listenAddress = "0.0.0.0:14000";
-      managementListenAddress = "0.0.0.0:15000";
-      certificate = "${pkgs.pebble.src}/test/certs/localhost/cert.pem";
-      privateKey = "${pkgs.pebble.src}/test/certs/localhost/key.pem";
-      httpPort = 5002;
-      tlsPort = 5001;
-      ocspResponderURL = "";
-      externalAccountBindingRequired = false;
-    };
-  });
-in {
+    pebbleConfig = pkgs.writeText "pebble.json" (builtins.toJSON {
+      pebble = {
+        listenAddress = "127.0.0.1:14000";
+        managementListenAddress = "127.0.0.1:15000";
+        certificate = "${pkgs.pebble.src}/test/certs/localhost/cert.pem";
+        privateKey = "${pkgs.pebble.src}/test/certs/localhost/key.pem";
+        httpPort = 5002;
+        tlsPort = 5001;
+        ocspResponderURL = "";
+        externalAccountBindingRequired = false;
+      };
+    });
+  in {
     description = "Pebble ACME Test Server";
-    after = [ "network-online.target" ];
-    wantedBy = [ "multi-user.target" ];
+    after = ["network-online.target"];
+    wantedBy = ["multi-user.target"];
     serviceConfig = {
-      Environment = [ "PEBBLE_VA_NOSLEEP=1" "PEBBLE_VA_ALWAYS_VALID=1" ];
+      Environment = ["PEBBLE_VA_NOSLEEP=1" "PEBBLE_VA_ALWAYS_VALID=1"];
       ExecStart = "${pkgs.pebble}/bin/pebble -config ${pebbleConfig}";
       DynamicUser = true;
     };
