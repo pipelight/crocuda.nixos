@@ -16,6 +16,7 @@ in {
     # Vercel server anything
     nodePackages.serve
     # fail2ban
+    pebble
   ];
       # SSL suport
       # security.acme = {
