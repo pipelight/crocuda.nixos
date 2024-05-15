@@ -8,6 +8,7 @@ return {
       require("nvchad.configs.lspconfig").defaults()
       require "configs.lspconfig"
     end,
+    lazy = false,
   },
   {
     "stevearc/conform.nvim",
