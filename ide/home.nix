@@ -24,23 +24,18 @@
       rev = "refs/heads/v2.0";
       hash = "sha256-SG3pJIkFu/AhNqh07F+Ab0VgOBF2VxdkrxZwk7lepyg=";
     };
-    # Fetch NvChad files for later symlink.
-    base = pkgs.fetchFromGitHub {
-      owner = "NvChad";
-      repo = "starter";
-      rev = "main";
-      hash = "sha256-SG3pJIkFu/AhNqh07F+Ab0VgOBF2VxdkrxZwk7lepyg=";
-    };
   in {
     # Terminal multiplexer
     ".config/zellij".source = dotfiles/zellij;
+    # NvChad
+    ".config/nvchad-colemak-dh".source = dotfiles/nvchad_next;
 
+    # Deprecated
     # NvChad colemak-dh mod
-    ".config/nvchad-colemak-dh/lua/core".source = nvchad + "/lua/core";
-    ".config/nvchad-colemak-dh/lua/plugins".source = nvchad + "/lua/plugins";
-    ".config/nvchad-colemak-dh/init.lua".source = nvchad + "/init.lua";
-    ".config/nvchad-colemak-dh/lua/custom".source = dotfiles/nvchad/custom;
-
+    ".config/nvchad/lua/core".source = nvchad + "/lua/core";
+    ".config/nvchad/lua/plugins".source = nvchad + "/lua/plugins";
+    ".config/nvchad/init.lua".source = nvchad + "/init.lua";
+    ".config/nvchad/lua/custom".source = dotfiles/nvchad/custom;
     # NvChad azerty mod
     ".config/nvchad-azerty/lua/core".source = nvchad + "/lua/core";
     ".config/nvchad-azerty/lua/plugins".source = nvchad + "/lua/plugins";

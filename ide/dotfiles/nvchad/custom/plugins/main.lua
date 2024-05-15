@@ -119,11 +119,11 @@ local plugins = {
 		config = function()
 			require("auto-session").setup({
 				log_level = "warn",
-				auto_session_enable_last_session = true,
+				-- auto_session_enable_last_session = true,
 				auto_session_root_dir = vim.fn.stdpath("data") .. "/sessions",
-				auto_session_enabled = true,
-				auto_save_enabled = true,
-				auto_restore_enabled = true,
+				-- auto_session_enabled = true,
+				-- auto_save_enabled = true,
+				-- auto_restore_enabled = true,
 				auto_session_suppress_dirs = nil,
 				pre_save_cmds = { "tabdo NvimTreeClose" },
 				post_restore_cmds = { "tabdo NvimTreeRefresh" },
