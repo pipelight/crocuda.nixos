@@ -21,23 +21,30 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
+        -- usual
         "vim",
         "vimdoc",
         "bash",
         "rust",
+        "go",
         "lua",
         "nix",
+
+        -- markup
         "toml",
-        "jq",
         "yaml",
+        "jq",
+
+        -- web
         "vue",
         "javascript",
         "typescript",
         "css",
         "scss",
-        "yuck",
         "pug",
         "html",
+
+        "yuck",
       },
     },
   },
