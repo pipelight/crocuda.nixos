@@ -28,8 +28,8 @@
     # Terminal multiplexer
     ".config/zellij".source = dotfiles/zellij;
     # NvChad
-    ".config/nvchad-colemak-dh/lua".source = dotfiles/nvchad_next/lua;
-    ".config/nvchad-colemak-dh/init.lua".source = dotfiles/nvchad_next/init.lua;
+    # :Lazy sync on first boot
+    ".config/nvchad-colemak-dh".source = dotfiles/nvchad_next;
 
     # Deprecated
     # NvChad colemak-dh mod
