@@ -15,6 +15,7 @@ local options = {
     python = { "black" },
     -- rust = { "rust-fmt" },
     go = { "prettier" },
+    nix = { "alejandra" },
   },
 
   format_on_save = {
