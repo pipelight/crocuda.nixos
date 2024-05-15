@@ -1,4 +1,4 @@
-local nv_lspconfig = require("nvchad.configs.lspconfig")
+local nv_lspconfig = require "nvchad.configs.lspconfig"
 local on_attach = nv_lspconfig.on_attach
 local on_init = nv_lspconfig.on_init
 local capabilities = nv_lspconfig.capabilities
@@ -8,31 +8,31 @@ local lspconfig = require "lspconfig"
 local servers = {
 
   -- Lua
-	"lua_ls",
+  "lua_ls",
 
-	-- Web
-	"html",
-	"cssls",
+  -- Web
+  "html",
+  "cssls",
 
-	-- "tailwindcss",
+  -- "tailwindcss",
   "tsserver",
 
-	-- Nix
-	"nil_ls",
+  -- Nix
+  "nil_ls",
 
-	-- Markup
-	"taplo",
+  -- Markup
+  "taplo",
   "yamlls",
-  "markdown_oxide",
+  "marksman",
 
-	-- Go
-	"gopls",
+  -- Go
+  "gopls",
 
   -- Deno
   "denols",
 
-	-- Python
-	"pylsp",
+  -- Python
+  "pylsp",
 
   -- Rust
   "rust_analyzer",
@@ -54,11 +54,11 @@ end
 --
 -- Enable diagnostic floating window
 local function diagnostic_floating_window()
-	vim.diagnostic.open_float(nil, { focus = false })
+  vim.diagnostic.open_float(nil, { focus = false })
 end
 vim.api.nvim_create_autocmd("CursorHoldI", { callback = diagnostic_floating_window })
 
 -- Toggle diagnostic virtual text
-vim.diagnostic.config({
-	virtual_text = false,
-})
+vim.diagnostic.config {
+  virtual_text = false,
+}

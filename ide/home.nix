@@ -81,7 +81,6 @@
     stylelint
     # Markdown
     marksman
-    makdown-oxide
     # Go
     gopls
     golangci-lint
