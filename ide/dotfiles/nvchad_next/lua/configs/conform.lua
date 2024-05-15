@@ -13,7 +13,7 @@ local options = {
     markdown = { "prettier" },
     graphql = { "prettier" },
     python = { "black" },
-    rust = { "rust-fmt" },
+    -- rust = { "rust-fmt" },
     go = { "prettier" },
   },
 

@@ -1,7 +1,7 @@
-local nv_lspconfig = require "nvchad.configs.lspconfig"
-local on_attach = nv_lspconfig.on_attach
-local on_init = nv_lspconfig.on_init
-local capabilities = nv_lspconfig.capabilities
+local lspconfig = require "nvchad.configs.lspconfig"
+local on_attach = lspconfig.on_attach
+local on_init = lspconfig.on_init
+local capabilities = lspconfig.capabilities
 
 local lspconfig = require "lspconfig"
 
@@ -52,7 +52,7 @@ end
 
 -- Diagnostic styling
 --
--- Enable diagnostic floating window
+-- Enable diagnostic floating window on insert mode
 local function diagnostic_floating_window()
   vim.diagnostic.open_float(nil, { focus = false })
 end
