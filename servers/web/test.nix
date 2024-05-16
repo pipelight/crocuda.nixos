@@ -18,39 +18,42 @@
       externalAccountBindingRequired = false;
     };
   });
-in {
-  environment.defaultPackages = with pkgs; [
-    # https://github.com/letsencrypt/pebble
-    pebble
-  ];
+in
+  with lib;
+    mkIf cfg.servers.web.pebble.enable {
+      environment.defaultPackages = with pkgs; [
+        # https://github.com/letsencrypt/pebble
+        pebble
+        minica
+      ];
 
-  # SSL suport
-  # security.acme = {
-  #   acceptTerms = true;
-  #   defaults.email = "admin+acme@example.org";
-  # };
+      # SSL suport
+      # security.acme = {
+      #   acceptTerms = true;
+      #   defaults.email = "admin+acme@example.org";
+      # };
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
+      # Open ports in the firewall.
+      # networking.firewall.allowedTCPPorts = [ ... ];
 
-  systemd.services.pebble-challtestsrv = {
-    description = "Pebble ACME Challenge Test Server";
-    after = ["network-online.target"];
-    wantedBy = ["multi-user.target"];
-    serviceConfig = {
-      Environment = ["PEBBLE_VA_NOSLEEP=1" "PEBBLE_VA_ALWAYS_VALID=1"];
-      ExecStart = "${pkgs.pebble}/bin/pebble-challtestsrv";
-      DynamicUser = true;
-    };
-  };
-  systemd.services.pebble = {
-    description = "Pebble ACME Test Server";
-    after = ["network-online.target"];
-    wantedBy = ["multi-user.target"];
-    serviceConfig = {
-      Environment = ["PEBBLE_VA_NOSLEEP=1" "PEBBLE_VA_ALWAYS_VALID=1"];
-      ExecStart = "${pkgs.pebble}/bin/pebble -config ${pebbleConfig}";
-      DynamicUser = true;
-    };
-  };
-}
+      systemd.services.pebble-challtestsrv = {
+        description = "Pebble ACME Challenge Test Server";
+        after = ["network-online.target"];
+        wantedBy = ["multi-user.target"];
+        serviceConfig = {
+          Environment = ["PEBBLE_VA_NOSLEEP=1" "PEBBLE_VA_ALWAYS_VALID=1"];
+          ExecStart = "${pkgs.pebble}/bin/pebble-challtestsrv";
+          DynamicUser = true;
+        };
+      };
+      systemd.services.pebble = {
+        description = "Pebble ACME Test Server";
+        after = ["network-online.target"];
+        wantedBy = ["multi-user.target"];
+        serviceConfig = {
+          Environment = ["PEBBLE_VA_NOSLEEP=1" "PEBBLE_VA_ALWAYS_VALID=1"];
+          ExecStart = "${pkgs.pebble}/bin/pebble -config ${pebbleConfig}";
+          DynamicUser = true;
+        };
+      };
+    }

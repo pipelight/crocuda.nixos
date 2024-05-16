@@ -93,9 +93,11 @@ with lib; {
         mastodon.enable = mkEnableOption ''
           Enable mastodon with bird Ui.
         '';
-
       };
       web = {
+        pebble.enable = mkEnableOption ''
+          Nginx unit web server.
+        '';
         unit.enable = mkEnableOption ''
           Nginx unit web server.
         '';
