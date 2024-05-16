@@ -10,14 +10,20 @@
     pebble = {
       listenAddress = "127.0.0.1:14000";
       managementListenAddress = "127.0.0.1:15000";
-      certificate = "${pkgs.pebble.src}/test/certs/localhost/cert.pem";
-      privateKey = "${pkgs.pebble.src}/test/certs/localhost/key.pem";
+      certificate = "/etc/pebble/cert.pem";
+      privateKey = "/etc/pebble/key.pem";
       httpPort = 5002;
       tlsPort = 5001;
       ocspResponderURL = "";
       externalAccountBindingRequired = false;
     };
   });
+  pebble_gen_certs = pkgs.writeShellScriptBin "pebble_gen_certs" ''
+    minica -ca-cert /etc/pebble/cert.pem \
+           -ca-key /etc/pebble/key.pem \
+           -domains localhost,pebble \
+           -ip-addresses 127.0.0.1
+  '';
 in
   with lib;
     mkIf cfg.servers.web.pebble.enable {
@@ -25,8 +31,9 @@ in
         # https://github.com/letsencrypt/pebble
         pebble
         minica
+        # Run before runnig pebble
+        pebble_gen_certs
       ];
-
       # SSL suport
       # security.acme = {
       #   acceptTerms = true;
