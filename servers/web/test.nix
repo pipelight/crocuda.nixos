@@ -23,6 +23,7 @@
            -ca-key /etc/pebble/key.pem \
            -domains localhost,pebble \
            -ip-addresses 127.0.0.1
+    chmod +r /etc/pebble/*
   '';
 in
   with lib;
