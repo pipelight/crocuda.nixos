@@ -25,8 +25,12 @@
       hash = "sha256-SG3pJIkFu/AhNqh07F+Ab0VgOBF2VxdkrxZwk7lepyg=";
     };
   in {
+    # Notifications
+    ".config/dunst/dunstrc".source = dotfiles/dunstrc;
+
     # Terminal multiplexer
     ".config/zellij".source = dotfiles/zellij;
+
     # NvChad
     # :Lazy sync on first boot
     ".config/nvchad-colemak-dh/lua".source = dotfiles/nvchad_next/lua;
