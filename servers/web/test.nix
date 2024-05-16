@@ -27,10 +27,7 @@ in
         minica
       ];
       environment.etc = {
-        "pebble/minica.cert.pem".source = "${pkgs.pebble.src}/test/certs/pebble.minica.pem";
-        "pebble/minica.key.pem".source = "${pkgs.pebble.src}/test/certs/pebble.minica.key.pem";
-        "pebble/cert.pem".source = "${pkgs.pebble.src}/test/certs/localhost/cert.pem";
-        "pebble/key.pem".source = "${pkgs.pebble.src}/test/certs/localhost/key.pem";
+        "pebble/test".source = "${pkgs.pebble.src}/test";
       };
       # SSL suport
       # security.acme = {
