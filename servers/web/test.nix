@@ -19,6 +19,7 @@
     };
   });
   pebble_gen_certs = pkgs.writeShellScriptBin "pebble_gen_certs" ''
+    rm -rf /etc/pebble/
     mkdir -p /etc/pebble
     minica -ca-cert /etc/pebble/cert.pem \
            -ca-key /etc/pebble/key.pem \
