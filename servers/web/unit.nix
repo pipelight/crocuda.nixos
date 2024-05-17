@@ -49,6 +49,8 @@ in
         after = ["network.target"];
         wantedBy = ["multi-user.target"];
         serviceConfig = {
+          Type = "forking";
+          PIDFile = "/run/unit/unit.pid";
           ExecStart = ''
             ${pkgs.unit}/bin/unitd \
               --control '127.0.0.1:8080' \
