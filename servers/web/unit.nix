@@ -17,6 +17,7 @@ in
         # Vercel server anything
         nodePackages.serve
 
+        # Web server and dependencies
         unit
         deno
         openssl
@@ -24,7 +25,7 @@ in
       ];
 
       ## Add global packages
-      services.unit.enable = true;
+      # services.unit.enable = true; # Do not use because overkilling config file
 
       ## Custom optionnal systemd unit
       # Replace default secure unix socket with local tcp socket
@@ -33,7 +34,7 @@ in
         after = ["network.target"];
         wantedBy = ["multi-user.target"];
         serviceConfig = {
-          ExecStart = lib.mkForce ''
+          ExecStart = ''
             ${pkgs.unit}/bin/unitd \
               --control '127.0.0.1:8080' \
               --pid '/run/unit/unit.pid' \
@@ -43,7 +44,7 @@ in
               --user unit \
               --group unit
           '';
-          ExecStartPost = lib.mkForce "";
+          # ExecStartPost = lib.mkForce "";
         };
       };
     }
