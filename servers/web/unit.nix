@@ -20,7 +20,7 @@ in
         isSystemUser = true;
       };
       users.groups = {
-        unit.members = cfg.users;
+        unit.members = main_cfg.users;
       };
 
       environment.defaultPackages = with pkgs; [
