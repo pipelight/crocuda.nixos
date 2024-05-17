@@ -5,10 +5,16 @@
   inputs,
   ...
 }: let
-  cfg = config.crocuda;
+  main_cfg = config.crocuda;
+  cfg = {
+    user = "unit";
+    group = "unit";
+    stateDir = "/var/spool/unit";
+    logDir = "/var/log/unit/";
+  };
 in
   with lib;
-    mkIf cfg.servers.web.unit.enable {
+    mkIf main_cfg.servers.web.unit.enable {
       users.users.unit = {
         isSystemUser = true;
       };
@@ -26,6 +32,10 @@ in
         openssl
         certbot
       ];
+      systemd.tmpfiles.rules = [
+        "d '${cfg.stateDir}' 0750 ${cfg.user} ${cfg.group} - -"
+        "d '${cfg.logDir}' 0750 ${cfg.user} ${cfg.group} - -"
+      ];
 
       ## Add global packages
       # services.unit.enable = true; # Do not use because overkilling config file
@@ -41,12 +51,39 @@ in
             ${pkgs.unit}/bin/unitd \
               --control '127.0.0.1:8080' \
               --pid '/run/unit/unit.pid' \
-              --log '/var/log/unit/unit.log' \
-              --statedir '/var/spool/unit' \
+              --log '${cfg.logDir}/unit.log' \
+              --statedir '${cfg.stateDir}' \
               --tmpdir '/tmp' \
               --user unit \
               --group unit
           '';
+          # Runtime directory and mode
+          RuntimeDirectory = "unit";
+          RuntimeDirectoryMode = "0750";
+          # Access write directories
+          ReadWritePaths = [cfg.stateDir cfg.logDir];
+          # Security
+          NoNewPrivileges = true;
+          # Sandboxing
+          ProtectSystem = "strict";
+          ProtectHome = true;
+          PrivateTmp = true;
+          PrivateDevices = true;
+          PrivateUsers = false;
+          ProtectHostname = true;
+          ProtectClock = true;
+          ProtectKernelTunables = true;
+          ProtectKernelModules = true;
+          ProtectKernelLogs = true;
+          ProtectControlGroups = true;
+          RestrictAddressFamilies = ["AF_UNIX" "AF_INET" "AF_INET6"];
+          LockPersonality = true;
+          MemoryDenyWriteExecute = true;
+          RestrictRealtime = true;
+          RestrictSUIDSGID = true;
+          PrivateMounts = true;
+          # System Call Filtering
+          SystemCallArchitectures = "native";
         };
       };
     }
