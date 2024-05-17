@@ -9,6 +9,9 @@
 in
   with lib;
     mkIf cfg.servers.web.unit.enable {
+      users.users.unit = {
+        isSystemUser = true;
+      };
       users.groups = {
         unit.members = cfg.users;
       };
@@ -44,7 +47,6 @@ in
               --user unit \
               --group unit
           '';
-          # ExecStartPost = lib.mkForce "";
         };
       };
     }
