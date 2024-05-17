@@ -16,6 +16,7 @@ in
   with lib;
     mkIf main_cfg.servers.web.unit.enable {
       users.users.unit = {
+        group = "unit";
         isSystemUser = true;
       };
       users.groups = {
@@ -40,8 +41,9 @@ in
       ## Add global packages
       # services.unit.enable = true; # Do not use because overkilling config file
 
-      ## Custom optionnal systemd unit
+      ## Custom systemd unit
       # Replace default secure unix socket with local tcp socket
+      # source at: https://github.com/NixOS/nixpkgs/nixos/modules/services/web-servers/unit/default.nix
       systemd.services.unit = {
         enable = true;
         after = ["network.target"];
