@@ -75,7 +75,7 @@ return {
         end,
         direction = "vertical",
         persist_size = true,
-        hide_numbers = false,
+        hide_numbers = true,
         close_on_exit = false,
         shade_terminals = true,
         shading_factor = "-5",
