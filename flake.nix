@@ -26,6 +26,7 @@
     arkenfox.url = "github:dwarfmaster/arkenfox-nixos";
     pipelight.url = "github:pipelight/pipelight";
     virshle.url = "github:pipelight/virshle";
+    jucenit.url = "github:pipelight/jucenit";
     # ollama.url = "github:havaker/ollama-nix";
 
     # Servers
