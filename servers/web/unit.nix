@@ -62,6 +62,8 @@ in
               --user unit \
               --group unit
           '';
+          User = cfg.user;
+          Group = cfg.group;
           # Runtime directory and mode
           RuntimeDirectory = "unit";
           RuntimeDirectoryMode = "0750";
