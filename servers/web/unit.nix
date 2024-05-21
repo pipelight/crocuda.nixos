@@ -36,7 +36,9 @@ in
       ];
       systemd.tmpfiles.rules = [
         "d '${cfg.stateDir}' 0750 ${cfg.user} ${cfg.group} - -"
+        "Z '${cfg.stateDir}' 0750 ${cfg.user} ${cfg.group} - -"
         "d '${cfg.logDir}' 0750 ${cfg.user} ${cfg.group} - -"
+        "Z '${cfg.logDir}' 0750 ${cfg.user} ${cfg.group} - -"
       ];
 
       ## Add global packages
@@ -62,8 +64,6 @@ in
               --user unit \
               --group unit
           '';
-          User = cfg.user;
-          Group = cfg.group;
           # Runtime directory and mode
           RuntimeDirectory = "unit";
           RuntimeDirectoryMode = "0750";
