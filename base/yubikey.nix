@@ -4,7 +4,6 @@
   lib,
   ...
 }: let
-
   cfg = config.crocuda;
   kill_all_sessions = pkgs.writeShellScriptBin "kill_all_sessions" ''
     fn() {
@@ -51,11 +50,18 @@ in
           ExecStart = "${kill_all_sessions}/bin/kill_all_sessions";
         };
       };
+      systemd.services."lock_session" = {
+        enable = true;
+        description = "Kill all running sessions";
+        serviceConfig = {
+          ExecStart = "${pkgs.hyprlock}/bin/hyprlock";
+        };
+      };
 
       services.udev.extraRules = ''
         ACTION=="remove",\
         ENV{SUBSYSTEM}=="usb",\
         ENV{PRODUCT}=="1050/407/543",\
-        RUN+="${pkgs.systemd}/bin/systemctl start kill_all_sessions"
+        RUN+="${pkgs.systemd}/bin/systemctl lock_session"
       '';
     }
