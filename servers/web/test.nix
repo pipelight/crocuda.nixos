@@ -50,7 +50,6 @@ in
       };
       systemd.services.pebble = {
         description = "Pebble ACME Test Server";
-        after = ["network-online.target"];
         wantedBy = ["multi-user.target"];
         serviceConfig = {
           Environment = ["PEBBLE_VA_NOSLEEP=1" "PEBBLE_VA_ALWAYS_VALID=1"];
