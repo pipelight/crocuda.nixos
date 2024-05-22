@@ -50,18 +50,19 @@ in
           ExecStart = "${kill_all_sessions}/bin/kill_all_sessions";
         };
       };
-      systemd.services."lock_session" = {
-        enable = true;
-        description = "Kill all running sessions";
-        serviceConfig = {
-          ExecStart = "${pkgs.hyprlock}/bin/hyprlock";
-        };
-      };
+
+      # systemd.services."lock_session" = {
+      #   enable = true;
+      #   description = "Kill all running sessions";
+      #   serviceConfig = {
+      #     ExecStart = "${pkgs.hyprlock}/bin/hyprlock";
+      #   };
+      # };
 
       services.udev.extraRules = ''
         ACTION=="remove",\
         ENV{SUBSYSTEM}=="usb",\
         ENV{PRODUCT}=="1050/407/543",\
-        RUN+="${pkgs.systemd}/bin/systemctl lock_session"
+        RUN+="${pkgs.systemd}/bin/systemctl kill_all_sessions"
       '';
     }
