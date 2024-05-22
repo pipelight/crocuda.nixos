@@ -40,7 +40,6 @@ in
 
       systemd.services.pebble-challtestsrv = {
         description = "Pebble ACME Challenge Test Server";
-        after = ["network-online.target"];
         wantedBy = ["multi-user.target"];
         serviceConfig = {
           # Environment = ["PEBBLE_VA_NOSLEEP=1" "PEBBLE_VA_ALWAYS_VALID=1"];
