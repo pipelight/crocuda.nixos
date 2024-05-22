@@ -63,6 +63,6 @@ in
         ACTION=="remove",\
         ENV{SUBSYSTEM}=="usb",\
         ENV{PRODUCT}=="1050/407/543",\
-        RUN+="${pkgs.systemd}/bin/systemctl kill_all_sessions"
+        RUN+="${pkgs.systemd}/bin/systemctl start kill_all_sessions"
       '';
     }
