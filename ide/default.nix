@@ -33,8 +33,8 @@ in
         # Text editor (IDE)
         vim
         neovim
-        # Charm.sh
-        glow
-        mods
+        # charmbracelet / Charm.sh
+        # glow
+        # mods
       ];
     }
