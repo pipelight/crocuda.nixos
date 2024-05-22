@@ -78,8 +78,8 @@ return {
         hide_numbers = true,
         close_on_exit = false,
         shade_terminals = true,
-        shading_factor = -15,
-        terminal_mappings = false,
+        shading_factor = 25,
+        terminal_mappings = true,
         shell = "fish",
       }
     end,
