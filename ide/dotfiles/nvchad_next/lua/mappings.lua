@@ -52,9 +52,9 @@ map("n", "vn", "vj", { desc = "Motions select" })
 
 -- find
 nomap("n", "g")
-nomap("n", "G")
-map("n", "g", "n", { desc = "Motions go to next occurance" })
-map("n", "G", "N", { desc = "Motions go to previous occurance" })
+
+map("n", "<C-n>", "n", { desc = "Motions go to next occurance" })
+map("n", "<C-N>", "N", { desc = "Motions go to previous occurance" })
 
 -- Lsp
 --
