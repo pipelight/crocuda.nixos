@@ -51,7 +51,8 @@ map("n", "vi", "vl", { desc = "Motions select" })
 map("n", "vn", "vj", { desc = "Motions select" })
 
 -- find
-map("n", "g", "n")
+map("n", "g", "n", { desc = "Motions go to next occurance" })
+map("n", "G", "n", { desc = "Motions go to previous occurance" })
 
 -- Lsp
 --
