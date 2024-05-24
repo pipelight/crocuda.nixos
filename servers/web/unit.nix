@@ -26,7 +26,7 @@ in
       environment.defaultPackages = with pkgs; [
         # Vercel server anything
         nodePackages.serve
-        # inputs.jucenit.packages.${system}.default
+        inputs.jucenit.packages.${system}.default
 
         # Web server and dependencies
         unit
