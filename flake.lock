@@ -355,11 +355,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1716549684,
-        "narHash": "sha256-O+Jm7hh6ArM9+gW3VLY86y7EvqJXZ6hUaznIiTmxm0E=",
+        "lastModified": 1716564808,
+        "narHash": "sha256-ZCNcLcPY9U/qH3YKqvWqO9eXcYvITBJL2z9Qr9ksEqo=",
         "owner": "pipelight",
         "repo": "jucenit",
-        "rev": "3c06db8fb8c0a92d368659a9cbc67f6cd600d10d",
+        "rev": "fc3a275dc922568041950d47908ef17192a7c4ea",
         "type": "github"
       },
       "original": {
@@ -566,11 +566,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1716543979,
-        "narHash": "sha256-uGp1xBxjPL2ACagXOkazhYtE4WujXwXUI6nKiXrlEZ0=",
+        "lastModified": 1716563102,
+        "narHash": "sha256-oZiGIPcU6ht64RqZHp+tFlH/929nIwC1apTHcP2shug=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "8d56a7c71dd362321002041a704978e3dc23e51f",
+        "rev": "577a1383f6cde64b8bffffbdef0e4a7e56cded7d",
         "type": "github"
       },
       "original": {
@@ -630,11 +630,11 @@
         "rust-overlay": "rust-overlay_3"
       },
       "locked": {
-        "lastModified": 1716545222,
-        "narHash": "sha256-eoJ0CDoGQa1Wua7znCoeRBuo8gaKUli4nGACbopiPfE=",
+        "lastModified": 1716563062,
+        "narHash": "sha256-bkP9/S9luT0tgESabt3KaaEUObx6SGxz87XLOIIrDNw=",
         "ref": "refs/heads/master",
-        "rev": "34d213ad23eeef6b2803f4f3f88a83cad4423234",
-        "revCount": 1977,
+        "rev": "db98daeccaa08d2dbf2982beec599519be24f6af",
+        "revCount": 1981,
         "type": "git",
         "url": "https://seed.radicle.garden/z3gqcJUoA1n9HaHKufZs5FCSGazv5"
       },
