@@ -50,7 +50,9 @@ in
       systemd.services.unit = let
         settings = ''
           {
-            "log_route": true,
+            "http": {
+              "log_route": true,
+            },
           }
         '';
       in {
