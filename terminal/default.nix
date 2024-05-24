@@ -18,27 +18,7 @@ in {
       (mkIf cfg.terminal.emulators.enable
         ./kitty.nix)
       (mkIf cfg.terminal.shell.utils.enable
-      ./utils.nix)
-    ];
-  };
-
-  # Fonts
-  fonts = {
-    fontconfig = {
-      defaultFonts = {
-        monospace = ["JetBrainsMonoNL Nerd Font"];
-        sansSerif = ["JetBrainsMonoNL Nerd Font"];
-        serif = ["JetBrainsMonoNL Nerd Font"];
-      };
-    };
-    packages = with pkgs; [
-      (nerdfonts.override {
-        fonts = [
-          "FiraCode"
-          "JetBrainsMono"
-          "DroidSansMono"
-        ];
-      })
+        ./utils.nix)
     ];
   };
 
