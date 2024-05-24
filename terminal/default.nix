@@ -26,13 +26,12 @@ in {
   environment.systemPackages = with pkgs; [
     # base commands
     eza
-
-    # Usefull commands
-    htop
-    btop
-    nushell
-
     # Archive
     unzip
+    # Usefull commands
+    htop
+
+    # btop
+    nushell
   ];
 }
