@@ -47,7 +47,11 @@ in
       ## Custom systemd unit
       # Replace default secure unix socket with local tcp socket
       # source at: https://github.com/NixOS/nixpkgs/nixos/modules/services/web-servers/unit/default.nix
-      systemd.services.unit = {
+      systemd.services.unit = let
+        settings = "{
+          'log_route': true,
+        }";
+      in {
         enable = true;
         after = ["network.target"];
         wantedBy = ["multi-user.target"];
@@ -64,6 +68,10 @@ in
               --user unit \
               --group unit
           '';
+          postStart = ''
+            ${pkgs.curl}/bin/curl -X PUT --data-binary '${settings}' 'http://localhost:8080/config/settings'
+          '';
+
           # Runtime directory and mode
           RuntimeDirectory = "unit";
           RuntimeDirectoryMode = "0750";
