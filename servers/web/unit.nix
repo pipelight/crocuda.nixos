@@ -30,7 +30,7 @@ in
 
         # Web server and dependencies
         unit
-        deno
+        # deno
         openssl
         certbot
       ];
