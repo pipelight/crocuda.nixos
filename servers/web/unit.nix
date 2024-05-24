@@ -55,6 +55,9 @@ in
         enable = true;
         after = ["network.target"];
         wantedBy = ["multi-user.target"];
+        postStart = ''
+          ${pkgs.curl}/bin/curl -X PUT --data-binary '${settings}' 'http://localhost:8080/config/settings'
+        '';
         serviceConfig = {
           Type = "forking";
           PIDFile = "/run/unit/unit.pid";
@@ -68,10 +71,6 @@ in
               --user unit \
               --group unit
           '';
-          postStart = ''
-            ${pkgs.curl}/bin/curl -X PUT --data-binary '${settings}' 'http://localhost:8080/config/settings'
-          '';
-
           # Runtime directory and mode
           RuntimeDirectory = "unit";
           RuntimeDirectoryMode = "0750";
