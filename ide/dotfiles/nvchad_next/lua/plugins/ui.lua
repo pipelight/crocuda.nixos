@@ -13,6 +13,18 @@ return {
       require("nvim-tree").setup(opts)
     end,
   },
+  {
+    "lewis6991/gitsigns.nvim",
+    lazy = false,
+  },
+  {
+    "windwp/nvim-autopairs",
+    lazy = false,
+  },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    lazy = false,
+  },
 
   -- Session manager
   -- https://github.com/NvChad/NvChad/issues/646

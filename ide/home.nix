@@ -27,6 +27,8 @@
     # :Lazy sync on first boot
     ".config/nvim/lua".source = dotfiles/nvchad_next/lua;
     ".config/nvim/init.lua".source = dotfiles/nvchad_next/init.lua;
+
+    # Vim colemak conf
     ".vimrc".source = dotfiles/.vimrc;
   };
 
