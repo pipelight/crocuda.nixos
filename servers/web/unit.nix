@@ -48,9 +48,11 @@ in
       # Replace default secure unix socket with local tcp socket
       # source at: https://github.com/NixOS/nixpkgs/nixos/modules/services/web-servers/unit/default.nix
       systemd.services.unit = let
-        settings = "{
-          'log_route': true,
-        }";
+        settings = ''
+          {
+            "log_route": true,
+          }
+        '';
       in {
         enable = true;
         after = ["network.target"];
