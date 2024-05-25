@@ -30,7 +30,7 @@ map("n", "<PageDown>", "<cmd>call smoothie#do('<C-d>')<cr>", { desc = "Motions p
 map("v", "<PageUp>", "<cmd>call smoothie#do('<C-u>')<cr>", { desc = "Motions page down (smooth)" })
 map("v", "<PageDown>", "<cmd>call smoothie#do('<C-d>')<cr>", { desc = "Motions page down (smooth)" })
 
-map("n", "m", "h", { desc = "Motions move left" })
+map("n", "m", "h", { desc = "rotions move left" })
 map("v", "m", "h", { desc = "Motions move left" })
 
 map("n", "n", "j", { desc = "Motions move down" })
@@ -51,10 +51,9 @@ map("n", "vi", "vl", { desc = "Motions select" })
 map("n", "vn", "vj", { desc = "Motions select" })
 
 -- find
-nomap("n", "g")
 
-map("n", "<C-n>", "n", { desc = "Motions go to next occurance" })
-map("n", "<C-N>", "N", { desc = "Motions go to previous occurance" })
+map("n", "f", "n", { desc = "Motions go to next occurance" })
+map("n", "F", "N", { desc = "Motions go to previous occurance" })
 
 -- Lsp
 --
@@ -69,7 +68,6 @@ map("v", "<leader>ca", lsp.buf.code_action)
 -- Toggle
 --
 map("n", "<C-h>", "<cmd> NvimTreeToggle <CR>", { desc = "Toggle nvimtree" })
-nomap("n", "<C-n>")
 
 -- Telescope
 --
