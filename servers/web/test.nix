@@ -43,7 +43,7 @@ in
         wantedBy = ["multi-user.target"];
         serviceConfig = {
           # Environment = ["PEBBLE_VA_NOSLEEP=1" "PEBBLE_VA_ALWAYS_VALID=1"];
-          Environment = ["PEBBLE_VA_NOSLEEP=1"];
+          # Environment = ["PEBBLE_VA_NOSLEEP=1"];
           ExecStart = "${pkgs.pebble}/bin/pebble-challtestsrv";
           DynamicUser = true;
         };
@@ -53,7 +53,7 @@ in
         wantedBy = ["multi-user.target"];
         serviceConfig = {
           # Environment = ["PEBBLE_VA_NOSLEEP=1" "PEBBLE_VA_ALWAYS_VALID=1"];
-          Environment = ["PEBBLE_VA_NOSLEEP=1"];
+          # Environment = ["PEBBLE_VA_NOSLEEP=1"];
           ExecStart = "${pkgs.pebble}/bin/pebble -config ${pebbleConfig}";
           DynamicUser = true;
         };
