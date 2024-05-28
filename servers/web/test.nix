@@ -39,6 +39,7 @@ in
       # networking.firewall.allowedTCPPorts = [ ... ];
 
       systemd.services.pebble-challtestsrv = {
+        enable = false;
         description = "Pebble ACME Challenge Test Server";
         wantedBy = ["multi-user.target"];
         serviceConfig = {
