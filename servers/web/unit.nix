@@ -79,13 +79,13 @@ in
           RuntimeDirectory = "unit";
           RuntimeDirectoryMode = "0750";
           # Access write directories
-          ReadWritePaths = [cfg.stateDir cfg.logDir];
+          ReadWritePaths = [cfg.stateDir cfg.logDir "/tmp/jucenit"];
           # Security
           NoNewPrivileges = true;
           # Sandboxing
           ProtectSystem = "strict";
           ProtectHome = true;
-          PrivateTmp = true;
+          # PrivateTmp = true;
           PrivateDevices = true;
           PrivateUsers = false;
           ProtectHostname = true;
