@@ -5,7 +5,11 @@ source ~/.aliases
 
 ## Fix reflow bug
 set -Ux fish_handle_reflow 0
-set -g _tide_fish_right_prompt_display
+# set -g tide_fish_right_prompt_display
+set -g tide_left_prompt_prefix
+set -g tide_left_prompt_suffix
+set -g tide_right_prompt_prefix
+set -g tide_right_prompt_suffix
 
 # Vim mod Colemak-DH keybindings
 set -g fish_key_bindings fish_vi_key_bindings
