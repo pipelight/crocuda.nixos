@@ -30,7 +30,7 @@
         --classic_prompt_separators=Angled \
         --powerline_prompt_heads=Sharp \
         --powerline_prompt_tails=Round \
-        --powerline_prompt_style="Two lines, character and frame" \
+        --powerline_prompt_style="Two lines, character" \
         --prompt_connection=Disconnected \
         --powerline_right_prompt_frame=No \
         --prompt_connection_andor_frame_color=Darkest \
