@@ -29,6 +29,7 @@ in
         hypridle
         # Screen light
         # wl-sunset
+        redshift
         gammastep
         #Keyboard
         via

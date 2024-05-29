@@ -3,6 +3,9 @@ set fish_greeting
 # Source aliases
 source ~/.aliases
 
+## Fix reflow bug
+set -Ux fish_handle_reflow 0
+
 # Vim mod Colemak-DH keybindings
 set -g fish_key_bindings fish_vi_key_bindings
 
