@@ -30,7 +30,6 @@ in
         # Screen light
         # wl-sunset
         gammastep
-
         #Keyboard
         via
       ];

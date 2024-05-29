@@ -18,8 +18,6 @@ in {
     #fontconfig
 
     # Wallpapers
-    #inputs.wpaperd.packages.${system}.default
-    feh
     convert_to_grayscale
     swww
 
