@@ -31,10 +31,10 @@
         --powerline_prompt_heads=Sharp \
         --powerline_prompt_tails=Round \
         --powerline_prompt_style="Two lines, character and frame" \
-        --prompt_connection=Dotted \
+        --prompt_connection=Disconnected \
         --powerline_right_prompt_frame=No \
         --prompt_connection_andor_frame_color=Darkest \
-        --prompt_spacing=Compact \
+        --prompt_spacing=Sparce \
         --icons="Few icons" \
         --transient=Yes'
     '')
