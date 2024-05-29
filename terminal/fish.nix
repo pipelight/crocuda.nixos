@@ -34,7 +34,7 @@
         --prompt_connection=Disconnected \
         --powerline_right_prompt_frame=No \
         --prompt_connection_andor_frame_color=Darkest \
-        --prompt_spacing=Sparce \
+        --prompt_spacing=Sparse \
         --icons="Few icons" \
         --transient=Yes'
     '')
