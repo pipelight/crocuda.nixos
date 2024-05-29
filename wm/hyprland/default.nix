@@ -28,7 +28,8 @@ in
         hyprlock
         hypridle
         # Screen light
-        redshift
+        # wl-sunset
+        gammastep
 
         #Keyboard
         via
