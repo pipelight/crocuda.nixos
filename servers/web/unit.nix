@@ -42,8 +42,8 @@ in
         "Z '${cfg.logDir}' 0750 ${cfg.user} ${cfg.group} - -"
 
         # Jucenit
-        "d '/var/spool/jucenit' 0764 ${cfg.user} users - -"
-        "Z '/var/spool/jucenit' 0764 ${cfg.user} users - -"
+        "d '/var/spool/jucenit' 0766 ${cfg.user} users - -"
+        "Z '/var/spool/jucenit' 0766 ${cfg.user} users - -"
       ];
 
       ## Add global packages
