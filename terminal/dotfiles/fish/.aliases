@@ -6,8 +6,8 @@ alias kee='keepassxc-cli'
 
 alias gitu='git add . && git commit && git push'
 
-alias lls='eza -alh'
-alias ll='eza -lh'
+alias lls='eza -aalgh'
+alias ll='eza -lgh'
 alias tree='eza --tree -lh -L 2'
 alias treee='eza --tree -lh'
 
