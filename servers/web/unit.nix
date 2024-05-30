@@ -26,19 +26,24 @@ in
       environment.defaultPackages = with pkgs; [
         # Vercel server anything
         nodePackages.serve
-        # inputs.jucenit.packages.${system}.default
 
         # Web server and dependencies
+        inputs.jucenit.packages.${system}.default
         unit
-        # deno
         openssl
-        certbot
+        # certbot
       ];
+
       systemd.tmpfiles.rules = [
+        # Nginx-unit
         "d '${cfg.stateDir}' 0750 ${cfg.user} ${cfg.group} - -"
         "Z '${cfg.stateDir}' 0750 ${cfg.user} ${cfg.group} - -"
         "d '${cfg.logDir}' 0750 ${cfg.user} ${cfg.group} - -"
         "Z '${cfg.logDir}' 0750 ${cfg.user} ${cfg.group} - -"
+
+        # Jucenit
+        "d '/var/spool/jucenit' 0764 ${cfg.user} users - -"
+        "Z '/var/spool/jucenit' 0764 ${cfg.user} users - -"
       ];
 
       ## Add global packages
