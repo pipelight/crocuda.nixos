@@ -44,8 +44,8 @@ in
         # Jucenit
         "d '/var/spool/jucenit' 770 ${cfg.user} users - -"
         "Z '/var/spool/jucenit' 770 ${cfg.user} users - -"
-        "d '/tmp/jucenit' 764 ${cfg.user} users - -"
-        "Z '/tmp/jucenit' 764 ${cfg.user} users - -"
+        "d '/tmp/jucenit' 774 ${cfg.user} users - -"
+        "Z '/tmp/jucenit' 774 ${cfg.user} users - -"
       ];
 
       ## Add global packages
