@@ -12,8 +12,15 @@
       managementListenAddress = "127.0.0.1:15000";
       certificate = "${pkgs.pebble.src}/test/certs/localhost/cert.pem";
       privateKey = "${pkgs.pebble.src}/test/certs/localhost/key.pem";
-      httpPort = 5002;
-      tlsPort = 5001;
+
+      # Defaults
+      # httpPort = 5002;
+      # tlsPort = 5001;
+
+      # Production
+      httpPort = 80;
+      tlsPort = 442;
+
       ocspResponderURL = "";
       externalAccountBindingRequired = false;
     };

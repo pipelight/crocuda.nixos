@@ -10,7 +10,7 @@
     user = "unit";
     group = "unit";
     stateDir = "/var/spool/unit";
-    logDir = "/var/log/unit/";
+    logDir = "/var/log/unit";
   };
 in
   with lib;
@@ -42,8 +42,8 @@ in
         "Z '${cfg.logDir}' 0750 ${cfg.user} ${cfg.group} - -"
 
         # Jucenit
-        "d '/var/spool/jucenit' 774 ${cfg.user} users - -"
-        "Z '/var/spool/jucenit' 774 ${cfg.user} users - -"
+        "d '/var/spool/jucenit' 777 ${cfg.user} users - -"
+        "Z '/var/spool/jucenit' 777 ${cfg.user} users - -"
       ];
 
       ## Add global packages
