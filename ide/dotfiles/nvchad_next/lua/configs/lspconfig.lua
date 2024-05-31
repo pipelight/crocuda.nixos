@@ -6,7 +6,6 @@ local capabilities = lspconfig.capabilities
 local lspconfig = require "lspconfig"
 
 local servers = {
-
   -- Lua
   "lua_ls",
 

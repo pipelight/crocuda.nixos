@@ -11,6 +11,7 @@
     group = "unit";
     stateDir = "/var/spool/unit";
     logDir = "/var/log/unit";
+    challengDir = "/tmp/jucenit";
   };
 in
   with lib;
@@ -86,7 +87,7 @@ in
           RuntimeDirectory = "unit";
           RuntimeDirectoryMode = "0750";
           # Access write directories
-          ReadWritePaths = [cfg.stateDir cfg.logDir "/tmp/jucenit"];
+          ReadWritePaths = [cfg.stateDir cfg.logDir cfg.challengDir];
           # Security
           NoNewPrivileges = true;
           # Sandboxing
