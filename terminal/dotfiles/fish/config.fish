@@ -16,7 +16,8 @@ zoxide init fish | source
 
 ## FZF configuration
 # Keybindings
-fzf_configure_bindings --directory=\ck
+fzf_configure_bindings --directory=\cf --history= --variable=
+
 # Options
 set fzf_preview_dir_cmd ls -alh --color=always
 set fzf_preview_file_cmd nvim
