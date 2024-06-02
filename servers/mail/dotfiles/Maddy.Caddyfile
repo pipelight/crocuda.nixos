@@ -1,9 +1,0 @@
-# Smtp
-:587 {
-	reverse_proxy localhost:10587
-}
-
-# Imap
-:993 {
-	reverse_proxy localhost:10993
-}

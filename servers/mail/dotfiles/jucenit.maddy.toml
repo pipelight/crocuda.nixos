@@ -1,0 +1,23 @@
+## Route public tls trafic to local private maddy
+
+# Smtp
+[[unit]]
+listeners = ["*:10587"]
+[unit.match]
+hosts = [
+  "crocuda.com",
+  "areskul.com", # main
+]
+[unit.action]
+proxy = "http://127.0.0.1:587"
+
+# Imap
+[[unit]]
+listeners = ["*:10993"]
+[unit.match]
+hosts = [
+  "crocuda.com",
+  "areskul.com", # main
+]
+[unit.action]
+proxy = "http://127.0.0.1:993"
