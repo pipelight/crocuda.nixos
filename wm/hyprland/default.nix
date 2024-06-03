@@ -29,7 +29,7 @@ in
         wl-clipboard
         hyprlock
         hypridle
-        inputs.hyprland.packages.${system}.default
+        # inputs.hyprland.packages.${system}.default
         # Screen light
         # wl-sunset
         redshift

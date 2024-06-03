@@ -28,7 +28,7 @@
     virshle.url = "github:pipelight/virshle";
     jucenit.url = "github:pipelight/jucenit";
     # ollama.url = "github:havaker/ollama-nix";
-    hyprland.url = "github:hyprwm/Hyprland";
+    # hyprland.url = "github:hyprwm/Hyprland";
 
     # Servers
     # Racicle
