@@ -19,14 +19,17 @@ in
           ./home.nix
         ];
       };
+
       programs.hyprland = {
         enable = true;
         xwayland.enable = true;
       };
+
       environment.systemPackages = with pkgs; [
         wl-clipboard
         hyprlock
         hypridle
+        # input.hyprland
         # Screen light
         # wl-sunset
         redshift
