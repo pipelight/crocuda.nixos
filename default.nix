@@ -71,6 +71,11 @@ with lib; {
     };
 
     virtualization = {
+      init = {
+        enable = mkEnableOption ''
+          Toggle pipelight as cloud init replacement
+        '';
+      };
       libvirt = {
         enable = mkEnableOption ''
           Toggle libvirt usage

@@ -8,5 +8,6 @@
   imports = [
     ./docker.nix
     ./libvirt.nix
+    ./init.nix
   ];
 }

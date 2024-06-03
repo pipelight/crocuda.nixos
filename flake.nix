@@ -3,7 +3,8 @@
 
   inputs = {
     # Nixos pkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
 
     # Nixos utils and dependencies
     nixos-utils = {
