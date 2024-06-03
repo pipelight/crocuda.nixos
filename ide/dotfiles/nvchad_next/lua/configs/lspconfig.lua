@@ -36,6 +36,9 @@ local servers = {
   -- Rust
   "rust_analyzer",
 
+  -- Zig
+  "zls",
+
   -- Vuels
   "vuels",
 }

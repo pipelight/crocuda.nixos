@@ -16,6 +16,7 @@ local options = {
     -- rust = { "rust-fmt" },
     go = { "prettier" },
     nix = { "alejandra" },
+    zig = { "zigfmt" },
   },
 
   format_on_save = {
