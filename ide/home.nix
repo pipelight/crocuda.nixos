@@ -72,9 +72,11 @@
     # Go
     gopls
     golangci-lint
-    #Python
+    # Python
     python3Packages.python-lsp-server
     ruff
     black
+    # Zip
+    zls
   ];
 }
