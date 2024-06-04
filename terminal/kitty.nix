@@ -23,8 +23,8 @@
     kitty = {
       enable = true;
       extraConfig = builtins.readFile dotfiles/kitty/kitty.conf;
-      # theme = "GitHub Dark Dimmed";
-      theme = "Doom One";
+      theme = "GitHub Dark Dimmed";
+      # theme = "Doom One";
     };
   };
 }

@@ -32,6 +32,7 @@ in
         inputs.virshle.packages.${system}.default
         # Tool to easily create volumes(qcow)
         libguestfs
+        guestfs-tools
         deno
       ];
 
