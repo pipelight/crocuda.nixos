@@ -30,6 +30,8 @@ in
         # Virshle from the flake
         # and dependencies
         inputs.virshle.packages.${system}.default
+        # Tool to easily create volumes(qcow)
+        libguestfs
         deno
       ];
 
