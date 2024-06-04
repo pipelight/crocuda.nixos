@@ -20,6 +20,8 @@
   };
 
   home.packages = with pkgs; [
+    # fish
+
     # Auto configure fish tide prompt
     (pkgs.writeShellScriptBin "fish_tide_auto" ''
       fish -c 'tide configure --auto \

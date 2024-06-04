@@ -27,13 +27,14 @@ in
 
       environment.systemPackages = with pkgs; [
         wl-clipboard
-        hyprlock
-        hypridle
-        # inputs.hyprland.packages.${system}.default
+        # hyprlock
+        # hypridle
+
         # Screen light
         # wl-sunset
         redshift
         gammastep
+
         #Keyboard
         via
       ];
