@@ -20,7 +20,7 @@ in
 
       environment.systemPackages = with pkgs; [
         obs-cli
-      shotcut
+        shotcut
       ];
       # Import home files
       home-merger = {

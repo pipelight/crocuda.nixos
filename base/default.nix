@@ -53,11 +53,6 @@ in {
     gnumake
     cmake
 
-    # Js engines
-    # deno
-    # bun
-    # nodejs_latest
-
     # Js utils
     jo
     jq
