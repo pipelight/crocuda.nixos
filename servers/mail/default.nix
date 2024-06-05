@@ -16,17 +16,20 @@ in
         # Maddy directories
         # Make them by hand if maddy unit fails
         "d '/run/maddy' 774 maddy users - -"
-        # "Z '/run/maddy' 774 maddy users - -"
+        "Z '/run/maddy' 774 maddy users - -"
       ];
 
       environment.etc = {
         "jucenit/juceni.maddy.toml".source = ./dotfiles/jucenit.maddy.toml;
       };
 
-      systemd.services.maddy = with lib; {
-        postStart = ''
-          jucenit push --file /etc/jucenit/jucenit.maddy.toml
-        '';
+      systemd.services = {
+        maddy-ensure-accounts.enable = lib.mkForce false;
+        maddy = {
+          postStart = lib.mkForce ''
+            jucenit push --file /etc/jucenit/jucenit.maddy.toml
+          '';
+        };
       };
 
       # The mail server
