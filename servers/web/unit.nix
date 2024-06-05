@@ -43,8 +43,8 @@ in
         "Z '${cfg.logDir}' 0750 ${cfg.user} ${cfg.group} - -"
 
         # Jucenit
-        "d '/var/spool/jucenit' 770 ${cfg.user} users - -"
-        "Z '/var/spool/jucenit' 770 ${cfg.user} users - -"
+        "d '/var/spool/jucenit' 774 ${cfg.user} users - -"
+        "Z '/var/spool/jucenit' 774 ${cfg.user} users - -"
         "d '/tmp/jucenit' 774 ${cfg.user} users - -"
         "Z '/tmp/jucenit' 774 ${cfg.user} users - -"
       ];
