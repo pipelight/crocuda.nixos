@@ -14,8 +14,9 @@ in
     mkIf cfg.mail.maddy.enable {
       systemd.tmpfiles.rules = [
         # Maddy directories
+        # Make them by hand if maddy unit fails
         "d '/run/maddy' 774 maddy users - -"
-        "Z '/run/maddy' 774 maddy users - -"
+        # "Z '/run/maddy' 774 maddy users - -"
       ];
 
       environment.etc = {
@@ -26,10 +27,6 @@ in
         postStart = ''
           jucenit push --file /etc/jucenit/jucenit.maddy.toml
         '';
-        serviceConfig.wantedBy = lib.mkDefault [
-          "multi-user.target"
-          "network.target"
-        ];
       };
 
       # The mail server
