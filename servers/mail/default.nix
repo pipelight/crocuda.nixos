@@ -34,6 +34,7 @@ in
 
       # The mail server
       services.maddy = {
+        group = "users";
         enable = true;
         config = builtins.readFile ./dotfiles/maddy.conf;
         openFirewall = false;
