@@ -12,14 +12,21 @@
 in
   with lib;
     mkIf cfg.mail.maddy.enable {
+      systemd.tmpfiles.rules = [
+        # Maddy directories
+        "d '/run/maddy' 774 maddy users - -"
+        "Z '/run/maddy' 774 maddy users - -"
+      ];
+
       environment.etc = {
         "jucenit/juceni.maddy.toml".source = ./dotfiles/jucenit.maddy.toml;
       };
-      systemd.services.maddy.serviceConfig = {
-        ExecStart = ''
+      systemd.services.maddy = {
+        postStart = ''
           jucenit push --file /etc/jucenit/jucenit.maddy.toml
         '';
       };
+
       # The mail server
       services.maddy = {
         enable = true;
