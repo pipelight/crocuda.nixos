@@ -28,6 +28,7 @@ in
         maddy-jucenit-proxy = {
           enable = true;
           after = ["maddy.service"];
+          wantedBy = ["multi-user.target"];
           serviceConfig = {
             Type = "oneshot";
             Environment = "PATH=/run/current-system/sw/bin";
