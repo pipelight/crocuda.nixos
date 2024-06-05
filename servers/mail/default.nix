@@ -26,13 +26,17 @@ in
 
       systemd.services = {
         maddy-ensure-accounts.enable = lib.mkForce false;
-        maddy = {
-          postStart = let
-            jucenit = inputs.jucenit.packages.${system}.default;
-          in
-            lib.mkForce ''
-              ${jucenit} push --file /etc/jucenit/jucenit.maddy.toml
-            '';
+        maddy-jucenit-proxy = {
+          after = ["maddy.service"];
+          serviceConfig = {
+            Environment = "PATH=/run/current-system/sw/bin";
+            ExecStart = with pkgs; let
+              package = inputs.jucenit.packages.${system}.default;
+            in
+              lib.mkForce ''
+                ${package}/bin/jucenit push --file /etc/jucenit/jucenit.maddy.toml
+              '';
+          };
         };
       };
 
