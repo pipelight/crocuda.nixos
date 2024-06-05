@@ -21,10 +21,15 @@ in
       environment.etc = {
         "jucenit/juceni.maddy.toml".source = ./dotfiles/jucenit.maddy.toml;
       };
-      systemd.services.maddy = {
+
+      systemd.services.maddy = with lib; {
         postStart = ''
           jucenit push --file /etc/jucenit/jucenit.maddy.toml
         '';
+        serviceConfig.wantedBy = lib.mkDefault [
+          "multi-user.target"
+          "network.target"
+        ];
       };
 
       # The mail server
