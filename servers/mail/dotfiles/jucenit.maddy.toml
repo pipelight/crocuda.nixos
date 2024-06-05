@@ -2,22 +2,22 @@
 
 # Smtp
 [[unit]]
-listeners = ["*:10587"]
+listeners = ["*:587"]
 [unit.match]
 hosts = [
   "crocuda.com",
   "areskul.com", # main
 ]
 [unit.action]
-proxy = "http://127.0.0.1:587"
+proxy = "http://127.0.0.1:10587"
 
 # Imap
 [[unit]]
-listeners = ["*:10993"]
+listeners = ["*:993"]
 [unit.match]
 hosts = [
   "crocuda.com",
   "areskul.com", # main
 ]
 [unit.action]
-proxy = "http://127.0.0.1:993"
+proxy = "http://127.0.0.1:10993"
