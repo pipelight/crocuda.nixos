@@ -24,7 +24,7 @@ in
       };
 
       systemd.services = {
-        maddy-ensure-accounts.enable = lib.mkForce false;
+        # maddy-ensure-accounts.enable = lib.mkForce false;
         maddy-jucenit-proxy = {
           after = ["maddy.service"];
           serviceConfig = {
