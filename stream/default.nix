@@ -21,7 +21,11 @@ in
       environment.systemPackages = with pkgs; [
         obs-cli
         shotcut
+        hyprshot
       ];
+      environment.sessionVariables = {
+        HYPRSHOT_DIR = "$HOME/Pictures/Screenshots";
+      };
       # Import home files
       home-merger = {
         enable = true;

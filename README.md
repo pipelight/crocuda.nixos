@@ -1,4 +1,4 @@
-# crocuda.nixos module
+# crocuda.nixos
 
 ...is a set of **nixos modules** which provide trivial configuration for
 **paranoids** and **hypocondriacs**.
@@ -13,9 +13,9 @@ This project aim is to provide a well-documented NixOs base configuration with:
 It is devided in **modules** that can be cherry picked or copy/pasted and
 modified at your will.
 
-## How are stuffs so tidy ?
+## Configuration directory architecture
 
-Makes heavy usage of [home-merger](https://github.com/pipelight/nixos-utils) to
+This flake makes a heavy use of [home-merger](https://github.com/pipelight/nixos-utils) to
 keep config files in separate dotfiles in their original formats, and keep a
 consistent file tree.
 
@@ -25,6 +25,7 @@ Setting up a user is sufficient to get you up and running on a fresh nixos
 installation.
 
 Enable the software you whish to use via the module options and you are done.
+Refer to `default.nix` for the list of all available options.
 
 ```nix
 # crocuda.nix
@@ -111,4 +112,15 @@ Password manager:
 
 - KeepassXC (custom security centric layout)
 
+### WM: A hyprland rice to use at your own risks.
 
+<img src="hyprshot.png" width="480"/>
+
+### Per layout configurations.
+
+Every command-line tool that has vim specific bindings has been customized to be usable with:
+
+- Qwerty
+- Azerty
+  and
+- Colemak-dh
