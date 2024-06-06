@@ -98,7 +98,7 @@ nixos-rebuild switch
 
 ## What is inside ?
 
-### Normy stuffs
+### Browsing and Search engines
 
 Internet navigation:
 
@@ -106,13 +106,21 @@ Internet navigation:
 - secure dns: with bind9 dns over https
 - search engine: searxng search engine configuration.
 
-Simple tools for everyday usage.
+Linux ipv6 privacy features enabled.
+
+### Passwords and keys
 
 Password manager:
 
 - KeepassXC (custom security centric layout)
 
-### WM: A hyprland rice to use at your own risks.
+### Desktop environments
+
+- Gnome vanilla.
+
+- Hyprland, Eww, Dunst
+
+A hyprland rice to use at your own risks.
 
 <img src="hyprshot.png" width="1080"/>
 
