@@ -114,7 +114,7 @@ Password manager:
 
 ### WM: A hyprland rice to use at your own risks.
 
-<img src="hyprshot.png" width="480"/>
+<img src="hyprshot.png" width="1080"/>
 
 ### Per layout configurations.
 
