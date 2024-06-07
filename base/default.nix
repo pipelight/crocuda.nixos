@@ -46,6 +46,7 @@ in {
     git
     util-linux
     sqlite
+    usql
     # Query
     curl
     wget
