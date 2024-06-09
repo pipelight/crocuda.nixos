@@ -5,7 +5,7 @@
   inputs,
   ...
 }: {
-  dconf.settingst = {
+  dconf.settings = {
     "org/gnome/shell" = {
       favorite-apps = [
         "firefox.desktop"
