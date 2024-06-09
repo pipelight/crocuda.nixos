@@ -23,6 +23,7 @@ in
       # Gaming
       allow-unfree = [
         "steam"
+        "steam-*"
       ];
 
       services.xserver.desktopManager.gnome.enable = true;
