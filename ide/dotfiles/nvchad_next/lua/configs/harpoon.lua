@@ -42,7 +42,7 @@ map("n", "<leader>a", function()
 end, { desc = "Harpoon add file to list" })
 map("n", "<leader>A", function()
   harpoon:list():remove()
-end, { desc = "Harpoon add file to list" })
+end, { desc = "Harpoon Remove file from list" })
 
 -- Toggle previous & next buffers stored within Harpoon list
 map("n", "<Tab>", function()

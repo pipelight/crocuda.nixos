@@ -13,8 +13,8 @@ in
       # Gaming
       allow-unfree = [
         "steam"
-        "steam-original"
         "steam*"
+        "steam-original"
       ];
       # Import home files
       home-merger = {
