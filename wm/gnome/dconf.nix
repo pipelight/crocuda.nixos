@@ -15,6 +15,11 @@
       ];
     };
   };
+
+  allow-unfree = [
+    "steam"
+  ];
+
   home.packages = with pkgs; [
     lutris
     bottles
