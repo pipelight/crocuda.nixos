@@ -10,6 +10,12 @@
 in
   with lib;
     mkIf cfg.wm.gnome.enable {
+      # Gaming
+      allow-unfree = [
+        "steam"
+        "steam-original"
+        "steam*"
+      ];
       # Import home files
       home-merger = {
         enable = true;
@@ -19,12 +25,6 @@ in
           ./dconf.nix
         ];
       };
-
-      # Gaming
-      allow-unfree = [
-        "steam"
-        "steam-*"
-      ];
 
       services.xserver.desktopManager.gnome.enable = true;
 
