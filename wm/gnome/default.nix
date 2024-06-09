@@ -16,6 +16,7 @@ in
         users = cfg.users;
         modules = [
           ./home.nix
+          ./dconf.nix
         ];
       };
 
