@@ -5,7 +5,7 @@ local nomap = vim.keymap.del
 local lsp = vim.lsp
 
 local dbee = require "dbee"
-dbee:setup {}
+dbee.setup {}
 
 -- Mappings
 -- Dbee

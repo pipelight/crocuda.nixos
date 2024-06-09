@@ -44,6 +44,7 @@
 
   home.packages = with pkgs; [
     ## Lsp lint/formatting tools
+    tree-sitter
     # Node LSP servers
     prettierd
     tailwindcss
