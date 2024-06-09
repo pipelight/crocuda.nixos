@@ -19,35 +19,12 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = {
-
-        -- usual
-        "vim",
-        "vimdoc",
-        "bash",
-        "rust",
-        "go",
-        "lua",
-        "nix",
-
-        -- markup
-        "toml",
-        "yaml",
-        "jq",
-
-        -- web
-        "vue",
-        "javascript",
-        "typescript",
-        "css",
-        "scss",
-        "pug",
-        "html",
-
-        "yuck",
-      },
-    },
+    config = function(_, opts)
+      dofile(vim.g.base46_cache .. "syntax")
+      dofile(vim.g.base46_cache .. "treesitter")
+      require "configs.treesitter"
+    end,
+    lazy = false,
   },
 
   -- Tests

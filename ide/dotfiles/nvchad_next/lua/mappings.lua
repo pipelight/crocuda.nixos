@@ -78,3 +78,9 @@ nomap("n", "<leader>e")
 -- Test suite
 --
 map("n", "<leader>tt", ":<c-u>TestFile<cr>", { desc = "Test launch nearest test suite" })
+
+-- Database
+--
+map("n", "<leader>db", function()
+  require("dbee").toggle()
+end, { desc = "Database open editor" })
