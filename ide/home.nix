@@ -78,5 +78,7 @@
     black
     # Zip
     zls
+    # Sql
+    sqls
   ];
 }

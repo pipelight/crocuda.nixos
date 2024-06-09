@@ -39,6 +39,9 @@ local servers = {
   -- Zig
   "zls",
 
+  --sql
+  "sqls",
+
   -- Vuels
   "vuels",
 }
