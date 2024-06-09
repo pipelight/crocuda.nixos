@@ -20,6 +20,11 @@ in
         ];
       };
 
+      # Gaming
+      allow-unfree = [
+        "steam"
+      ];
+
       services.xserver.desktopManager.gnome.enable = true;
 
       environment.systemPackages = with pkgs;
