@@ -32,7 +32,7 @@ end
 
 -- Mappings
 -- Harpoon
---
+
 map("n", "<C-,>", function()
   toggle_telescope(harpoon:list())
 end, { desc = "Telescope open harpoon list" })
