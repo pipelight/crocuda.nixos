@@ -97,12 +97,12 @@ return {
   {
     "nvim-focus/focus.nvim",
     config = function()
-      local ignore_filetypes = { "nvim-tree", "neo-tree", "NvimTree_*" }
-      local ignore_buftypes = { "nofile", "prompt", "popup", "NvimTree_*" }
+      local ignore_filetypes = { "nvim-tree", "neo-tree", "NvimTree_" }
+      local ignore_buftypes = { "nofile", "prompt", "popup", "NvimTree_", "fish;#toggleterm#" }
 
       local augroup = vim.api.nvim_create_augroup("FocusDisable", { clear = true })
 
-      vim.api.nvim_create_autocmd({ "WinEnter", "VimEnter" }, {
+      vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter", "VimEnter" }, {
         group = augroup,
         callback = function(_)
           if vim.tbl_contains(ignore_buftypes, vim.bo.buftype) then
@@ -124,6 +124,7 @@ return {
         end,
         desc = "Disable focus autoresize for FileType",
       })
+
       require("focus").setup {
         ui = {
           number = false,
@@ -131,13 +132,12 @@ return {
         },
         autoresize = {
           enable = true,
-          width = 80,
-          height = 50,
+          width = 100,
+          height = 30,
           height_quickfix = 10,
         },
       }
     end,
-    priority = 60,
-    lazy = true,
+    lazy = false,
   },
 }
