@@ -19,12 +19,12 @@ M.ui = {
         local cwd = vim.loop.cwd()
         local path = vim.api.nvim_buf_get_name(0)
         local subpath = string.gsub(path, cwd, "")
-        return "%#Comment#" .. subpath
+        return "%#St_lspInfo#" .. subpath
       end,
     },
   },
 }
 
-M.mappings = require("mappings")
+M.mappings = require "mappings"
 
 return M
