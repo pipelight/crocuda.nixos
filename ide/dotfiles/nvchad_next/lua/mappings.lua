@@ -65,6 +65,17 @@ map("n", "gr", lsp.buf.references)
 map("n", "<leader>ca", lsp.buf.code_action)
 map("v", "<leader>ca", lsp.buf.code_action)
 
+-- Comment
+map("n", "<leader>/", function()
+  require("Comment.api").toggle.linewise.current()
+end, { desc = "Comment toggle" })
+map(
+  "v",
+  "<leader>/",
+  "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
+  { desc = "Comment toggle" }
+)
+
 -- Toggle
 --
 map("n", "<C-h>", "<cmd> NvimTreeToggle <CR>", { desc = "Toggle nvimtree" })

@@ -27,6 +27,11 @@ return {
     lazy = false,
   },
 
+  {
+    "numToStr/Comment.nvim",
+    lazy = false,
+  },
+
   -- Tests
   --
   {
