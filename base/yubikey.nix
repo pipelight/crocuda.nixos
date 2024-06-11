@@ -11,6 +11,13 @@
     }
     fn
   '';
+  unmount_cryptstorage = pkgs.writeShellScriptBin "unmount_cryptstorage" ''
+    fn() {
+      ${pkgs.systemd}/bin/systemd-cryptsetup attach cryptstorage /dev/disk/by-label/CRYPTSTORAGE"
+      ${pkgs.util-linux}/bin/mount /dev/by-label/CRYPTSTORAGE /mnt/HDD"
+    }
+    fn
+  '';
 in
   with lib;
     mkIf cfg.yubikey.enable {

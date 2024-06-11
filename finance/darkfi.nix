@@ -1,4 +1,3 @@
-
 {
   config,
   pkgs,
@@ -15,7 +14,7 @@ in
       environment.systemPackages = with pkgs; [
         # Darkfi suit
         # darkfi
-        ];
+      ];
       ## Darkirc messaging background service
       systemd.user.services."darkircd" = {
         enable = false;
@@ -25,4 +24,4 @@ in
         };
         wantedBy = ["multi-user.target"];
       };
-      }
+    }
