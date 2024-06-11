@@ -50,7 +50,6 @@ in
           ExecStart = "${kill_all_sessions}/bin/kill_all_sessions";
         };
       };
-
       # systemd.services."lock_session" = {
       #   enable = true;
       #   description = "Kill all running sessions";
@@ -63,6 +62,11 @@ in
         ACTION=="remove",\
         ENV{SUBSYSTEM}=="usb",\
         ENV{PRODUCT}=="1050/407/543",\
-        RUN+="${pkgs.systemd}/bin/systemctl start kill_all_sessions"
+        RUN+="${pkgs.systemd}/bin/systemctl start kill_all_sessions" \
+        RUN+="${pkgs.systemd}/bin/systemd-cryptsetup detach cryptstorage" \
+        ACTION=="add",\
+        ENV{SUBSYSTEM}=="usb",\
+        ENV{PRODUCT}=="1050/407/543",\
+        RUN+="${pkgs.systemd}/bin/systemd-cryptsetup attach cryptstorage /dev/disk/by-label/CRYPTSTORAGE"
       '';
     }
