@@ -11,13 +11,6 @@
     }
     fn
   '';
-  unmount_cryptstorage = pkgs.writeShellScriptBin "unmount_cryptstorage" ''
-    fn() {
-      ${pkgs.systemd}/bin/systemd-cryptsetup attach cryptstorage /dev/disk/by-label/CRYPTSTORAGE"
-      ${pkgs.util-linux}/bin/mount /dev/by-label/CRYPTSTORAGE /mnt/HDD"
-    }
-    fn
-  '';
 in
   with lib;
     mkIf cfg.yubikey.enable {
@@ -64,16 +57,4 @@ in
       #     ExecStart = "${pkgs.hyprlock}/bin/hyprlock";
       #   };
       # };
-
-      # services.udev.extraRules = ''
-      #   ACTION=="remove",\
-      #   ENV{SUBSYSTEM}=="usb",\
-      #   ENV{PRODUCT}=="1050/407/543",\
-      #   RUN+="${pkgs.systemd}/bin/systemctl start kill_all_sessions",\
-      #   RUN+="${pkgs.systemd}/bin/systemd-cryptsetup detach cryptstorage" \
-      #   ACTION=="add",\
-      #   ENV{SUBSYSTEM}=="usb",\
-      #   ENV{PRODUCT}=="1050/407/543",\
-      #   RUN+="${pkgs.systemd}/bin/systemd-cryptsetup attach cryptstorage /dev/disk/by-label/CRYPTSTORAGE"
-      # '';
     }
