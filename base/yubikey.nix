@@ -11,9 +11,30 @@
     }
     fn
   '';
+  mount_cryptstorage = pkgs.writeShellScriptBin "mount_cryptstorage" ''
+    fn() {
+      ${pkgs.systemd}/bin/systemd-cryptsetup attach cryptstorage /dev/disk/by-label/CRYPTSTORAGE
+      ${pkgs.util-linux}/bin/mount /dev/mapper/cryptstorage /mnt/HDD
+    }
+    fn
+  '';
+  unmount_cryptstorage = pkgs.writeShellScriptBin "unmount_cryptstorage" ''
+    fn() {
+      ${pkgs.util-linux}/bin/umount /mnt/HDD
+      ${pkgs.systemd}/bin/systemd-cryptsetup detach cryptstorage
+    }
+    fn
+  '';
 in
   with lib;
     mkIf cfg.yubikey.enable {
+      services.udev.extraRules = ''
+        ACTION=="remove",\
+        ENV{SUBSYSTEM}=="usb",\
+        ENV{PRODUCT}=="1050/407/543",\
+        RUN+="${pkgs.systemd}/bin/systemctl start kill_all_sessions",\
+        RUN+="${unmount_cryptstorage}/bin/unmount_cryptstorage"
+      '';
       environment.systemPackages = with pkgs; [
         # Yubikey
         yubikey-manager
