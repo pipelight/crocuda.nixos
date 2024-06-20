@@ -38,10 +38,6 @@ in
         video.members = cfg.users;
       };
 
-      home.file = {
-        ".profile".source = dotfiles/.profile;
-      };
-
       environment.systemPackages = with pkgs; [
         # pactl audio control cli
         pulseaudio
