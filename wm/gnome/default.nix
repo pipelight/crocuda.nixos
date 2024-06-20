@@ -30,6 +30,8 @@ in
 
       environment.systemPackages = with pkgs;
       with pkgs.gnome; [
+        gnome-settings-daemon
+        gnome-control-center
         gnome-session
         gnome-shell
         gnome-initial-setup
