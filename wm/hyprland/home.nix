@@ -47,8 +47,6 @@ in {
         (mkIf (cfg.keyboard.layout == "qwerty") dotfiles/hypr/binds/qwerty.conf)
       ];
 
-    ".profile".source = dotfiles/.profile;
-
     ".config/wpaperd/wallpaper.toml".source = dotfiles/wpaperd/wallpaper.toml;
 
     # Widgets
