@@ -127,7 +127,7 @@ return {
 
       require("focus").setup {
         ui = {
-          number = false,
+          number = true,
           signcolumn = false, -- Display signcolumn in the focussed window only
         },
         autoresize = {
@@ -138,6 +138,6 @@ return {
         },
       }
     end,
-    lazy = false,
+    lazy = true,
   },
 }
