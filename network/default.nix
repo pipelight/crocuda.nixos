@@ -72,6 +72,7 @@ in
         # Networking
         dhcpcd
         bluez
+        speedtest-go
 
         # Pentest
         whois

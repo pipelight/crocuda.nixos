@@ -24,7 +24,11 @@ alias neo='neofetch'
 alias one="onefetch"
 alias lol="lolcat"
 
+alias speed="speedtest-go"
+
 alias p="pipelight"
+alias v="virshle"
+
 
 # Terminal multiplexer
 # fish function
