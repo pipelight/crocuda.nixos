@@ -5,10 +5,10 @@ local M = {}
 M.enable_tree_sitter = function(data)
   vim.cmd "TSEnable highlight"
 end
-vim.api.nvim_create_autocmd("BufNewFile", { callback = M.enable_tree_sitter })
-vim.api.nvim_create_autocmd("BufReadPre", { callback = M.enable_tree_sitter })
-vim.api.nvim_create_autocmd("FileReadPre", { callback = M.enable_tree_sitter })
-vim.api.nvim_create_autocmd("FilterReadPre", { callback = M.enable_tree_sitter })
+-- vim.api.nvim_create_autocmd("BufNewFile", { callback = M.enable_tree_sitter })
+-- vim.api.nvim_create_autocmd("BufReadPre", { callback = M.enable_tree_sitter })
+-- vim.api.nvim_create_autocmd("FileReadPre", { callback = M.enable_tree_sitter })
+-- vim.api.nvim_create_autocmd("FilterReadPre", { callback = M.enable_tree_sitter })
 
 M.options = {
   ensure_installed = {
