@@ -26,7 +26,12 @@ in
         ];
       };
 
-      services.xserver.desktopManager.gnome.enable = true;
+      # gnome-panel needs these for menu applet
+      environment.sessionVariables.XDG_DATA_DIRS = ["${pkgs.gnome.gnome-flashback}/share"];
+      # TODO: switch to sessionVariables (resolve conflict)
+      environment.variables.XDG_CONFIG_DIRS = ["${pkgs.gnome.gnome-flashback}/etc/xdg"];
+
+      services.gnome.gnome-settings-daemon.enable = true;
 
       environment.systemPackages = with pkgs;
       with pkgs.gnome; [
@@ -37,6 +42,8 @@ in
         gnome-initial-setup
         gnome-control-center
         gnome-bluetooth
+        gnome-color-manager
+        gnome-menus
         gnome-backgrounds
         nautilus
       ];
@@ -53,7 +60,7 @@ in
           gedit # text editor
         ])
         ++ (with pkgs.gnome; [
-          seahorse
+          # seahorse
           cheese # webcam tool
           gnome-music
           gnome-terminal

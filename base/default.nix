@@ -40,6 +40,8 @@ in {
   ];
   users.groups.wheel.members = cfg.users;
 
+  security.polkit.enable = true;
+
   environment.systemPackages = with pkgs; [
     # doas
     # Versioning
