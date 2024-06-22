@@ -30,15 +30,11 @@ in
 
       environment.systemPackages = with pkgs;
       with pkgs.gnome; [
-        gnome-settings-daemon
         gnome-control-center
+        gnome-initial-setup
         gnome-session
         gnome-shell
-        gnome-initial-setup
-        gnome-control-center
         gnome-bluetooth
-        gnome-color-manager
-        gnome-menus
         gnome-backgrounds
         nautilus
       ];
