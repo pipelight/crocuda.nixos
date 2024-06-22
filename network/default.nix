@@ -59,7 +59,7 @@ in
       hardware.bluetooth = mkIf cfg.network.bluetooth.enable {
         enable = true;
         powerOnBoot = true;
-        General = {
+        settings.General = {
           Enable = "Source,Sink,Media,Socket";
           AutoEnable = true;
           ControllerMode = "bredr";
