@@ -59,6 +59,12 @@ in
       hardware.bluetooth = mkIf cfg.network.bluetooth.enable {
         enable = true;
         powerOnBoot = true;
+        General = {
+          Enable = "Source,Sink,Media,Socket";
+          AutoEnable = true;
+          ControllerMode = "bredr";
+          UserspaceHID = true;
+        };
       };
       services.blueman = mkIf cfg.network.bluetooth.enable {
         enable = true;
