@@ -10,10 +10,15 @@ in
     mkIf cfg.network.privacy.enable {
       boot.kernelParams = ["IPv6PrivacyExtensions=1"];
 
+      users.groups = let
+        users = cfg.users;
+      in {
+        networkmanager.members = users;
+        bluetooth.members = users;
+      };
+
       ##########################
       ## Tcp/ip
-
-      users.groups.networkmanager.members = cfg.users;
 
       services.resolved.enable = lib.mkForce false;
       networking = {
@@ -68,6 +73,9 @@ in
             Experimental = true;
             KernelExperimental = false;
           };
+          Policy = {
+            AutoEnable = true;
+          };
         };
         input = {
           General = {
@@ -84,6 +92,7 @@ in
       services.blueman = mkIf cfg.network.bluetooth.enable {
         enable = true;
       };
+
       # systemd.tmpfiles.rules = [
       #   "d /var/lib/bluetooth 700 root root - -"
       # ];
