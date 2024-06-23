@@ -63,12 +63,13 @@ in
           General = {
             Enable = "Source,Sink,Media,Socket";
             ControllerMode = "bredr";
-            FastConnectable = true;
-            UserspaceHID = true;
-            Experimental = true;
+            FastConnectable = "true";
+            UserspaceHID = "true";
+            Experimental = "true";
+            KernelExperimental = "true";
           };
           Policy = {
-            AutoEnable = true;
+            AutoEnable = "true";
           };
         };
       };
