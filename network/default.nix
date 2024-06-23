@@ -57,12 +57,12 @@ in
       ## Bluetooth
 
       hardware.bluetooth = mkIf cfg.network.bluetooth.enable {
-        package = pkgs.bluezFull;
         enable = true;
         powerOnBoot = true;
         settings = {
           General = {
             Enable = "Source,Sink,Media,Socket";
+            ControllerMode = "bredr";
             FastConnectable = true;
             UserspaceHID = true;
             Experimental = true;
