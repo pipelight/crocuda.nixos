@@ -57,7 +57,7 @@ in
       ## Bluetooth
 
       hardware.bluetooth = mkIf cfg.network.bluetooth.enable {
-        # package = pkgs.bluezFull;
+        package = pkgs.bluezFull;
         enable = true;
         powerOnBoot = true;
         settings = {
