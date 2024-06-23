@@ -63,13 +63,21 @@ in
           General = {
             Enable = "Source,Sink,Media,Socket";
             ControllerMode = "bredr";
+            # ControllerMode = "dual";
             FastConnectable = true;
-            UserspaceHID = true;
             Experimental = true;
-            ClassicBondedOnly = false;
+            KernelExperimental = false;
           };
-          Policy = {
-            AutoEnable = true;
+        };
+        input = {
+          General = {
+            ClassicBondedOnly = false;
+            UserspaceHID = true;
+          };
+        };
+        network = {
+          General = {
+            DisableSecuriy = true;
           };
         };
       };
