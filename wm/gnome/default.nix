@@ -31,15 +31,9 @@ in
       environment.systemPackages = with pkgs;
       with pkgs.gnome; [
         gnome-control-center
-        gnome-initial-setup
-        gnome-session
         gnome-shell
-        # gnome-bluetooth
-        gnome-backgrounds
 
         nixos-gsettings-overrides
-        gnome-settings-daemon
-        gnome-menus
 
         nautilus
       ];
