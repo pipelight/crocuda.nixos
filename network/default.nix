@@ -67,6 +67,7 @@ in
             UserspaceHID = "true";
             Experimental = "true";
             KernelExperimental = "true";
+            ClassicBondedOnly = "false";
           };
           Policy = {
             AutoEnable = "true";
