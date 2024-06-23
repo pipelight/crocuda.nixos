@@ -34,8 +34,13 @@ in
         gnome-initial-setup
         gnome-session
         gnome-shell
-        gnome-bluetooth
+        # gnome-bluetooth
         gnome-backgrounds
+
+        nixos-gsettings-overrides
+        gnome-settings-daemon
+        gnome-menus
+
         nautilus
       ];
       # Temporary fix one line full gnome installation
