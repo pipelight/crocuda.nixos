@@ -75,9 +75,9 @@ in
       # systemd.tmpfiles.rules = [
       #   "d /var/lib/bluetooth 700 root root - -"
       # ];
-      services.blueman = mkIf cfg.network.bluetooth.enable {
-        enable = true;
-      };
+      # services.blueman = mkIf cfg.network.bluetooth.enable {
+      #   enable = true;
+      # };
 
       ##########################
       ## Ssh
