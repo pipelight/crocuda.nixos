@@ -31,10 +31,16 @@ in
       environment.systemPackages = with pkgs;
       with pkgs.gnome; [
         gnome-control-center
+        gnome-initial-setup
+        gnome-session
         gnome-shell
+        gnome-bluetooth
+        gnome-backgrounds
+        gnome-power-manager
 
         nixos-gsettings-overrides
-
+        gnome-settings-daemon
+        gnome-menus
         nautilus
       ];
       # Temporary fix one line full gnome installation
