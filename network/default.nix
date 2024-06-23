@@ -57,15 +57,24 @@ in
       ## Bluetooth
 
       hardware.bluetooth = mkIf cfg.network.bluetooth.enable {
+        # package = pkgs.bluezFull;
         enable = true;
         powerOnBoot = true;
-        settings.General = {
-          Enable = "Source,Sink,Media,Socket";
-          AutoEnable = true;
-          ControllerMode = "bredr";
-          UserspaceHID = true;
+        settings = {
+          General = {
+            Enable = "Source,Sink,Media,Socket";
+            FastConnectable = true;
+            UserspaceHID = true;
+            Experimental = true;
+          };
+          Policy = {
+            AutoEnable = true;
+          };
         };
       };
+      # systemd.tmpfiles.rules = [
+      #   "d /var/lib/bluetooth 700 root root - -"
+      # ];
       services.blueman = mkIf cfg.network.bluetooth.enable {
         enable = true;
       };
@@ -77,7 +86,6 @@ in
       environment.systemPackages = with pkgs; [
         # Networking
         dhcpcd
-        bluez
         speedtest-go
 
         # Pentest
