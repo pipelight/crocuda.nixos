@@ -26,17 +26,22 @@ nomap("n", "<C-l>")
 nomap("n", "<leader>h")
 
 -- fast file browsing
-map("n", "<PageUp>", "<cmd>call smoothie#do('<C-u>')<cr>", { desc = "Motions page down (smooth)" })
-map("n", "<PageDown>", "<cmd>call smoothie#do('<C-d>')<cr>", { desc = "Motions page down (smooth)" })
-map("v", "<PageUp>", "<cmd>call smoothie#do('<C-u>')<cr>", { desc = "Motions page down (smooth)" })
-map("v", "<PageDown>", "<cmd>call smoothie#do('<C-d>')<cr>", { desc = "Motions page down (smooth)" })
+map("n", "<PageUp>", "<cmd>call smoothie#do('25<C-u>')<cr>", { desc = "Motions page down (smooth)" })
+map("v", "<PageUp>", "<cmd>call smoothie#do('25<C-u>')<cr>", { desc = "Motions page down (smooth)" })
+
+map("v", "<PageDown>", "<cmd>call smoothie#do('25<C-d>')<cr>", { desc = "Motions page down (smooth)" })
+map("n", "<PageDown>", "<cmd>call smoothie#do('25<C-d>')<cr>", { desc = "Motions page down (smooth)" })
 
 map("n", "m", "h", { desc = "rotions move left" })
 map("v", "m", "h", { desc = "Motions move left" })
 
+-- map("n", "n", "1<C-d>", { desc = "Motions move down" })
+-- map("v", "n", "1<C-d>", { desc = "Motions move down" })
 map("n", "n", "j", { desc = "Motions move down" })
 map("v", "n", "j", { desc = "Motions move down" })
 
+-- map("n", "e", "1<C-u>", { desc = "Motions move up" })
+-- map("v", "e", "1<C-u>", { desc = "Motions move up" })
 map("n", "e", "k", { desc = "Motions move up" })
 map("v", "e", "k", { desc = "Motions move up" })
 
@@ -55,6 +60,7 @@ map("n", "vn", "vj", { desc = "Motions select" })
 
 map("n", "f", "n", { desc = "Motions go to next occurance" })
 map("n", "F", "N", { desc = "Motions go to previous occurance" })
+map("n", "ff", "N", { desc = "Motion find under cursor" })
 
 -- Lsp
 --
