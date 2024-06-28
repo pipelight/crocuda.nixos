@@ -24,6 +24,7 @@ in
         xmrig
         p2pool
         monero-cli
+        monero-gui
       ];
 
       users.users.monero = {
