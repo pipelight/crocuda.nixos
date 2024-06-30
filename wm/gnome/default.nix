@@ -47,7 +47,7 @@ in
       # services.xserver.desktopManager.gnome.enable = true;
 
       # App store
-      services.flatpak.enable = false;
+      services.flatpak.enable = true;
 
       environment.gnome.excludePackages =
         (with pkgs; [
