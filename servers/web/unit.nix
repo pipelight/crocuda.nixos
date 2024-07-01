@@ -8,15 +8,12 @@
   main_cfg = config.crocuda;
 
   # Package configuration variables
-  cfg = with lib; {
+  cfg = {
     user = "unit";
     group = "unit";
     stateDir = "/var/spool/unit";
     logDir = "/var/log/unit";
     challengDir = "/tmp/jucenit";
-
-    # Get package from flake inputs
-    jucenit = inputs.jucenit.packages.${system}.default;
   };
 in
   with lib;
@@ -29,7 +26,10 @@ in
         unit.members = main_cfg.users;
       };
 
-      environment.defaultPackages = with pkgs; [
+      environment.defaultPackages = with pkgs; let
+        # Get package from flake inputs
+        jucenit = inputs.jucenit.packages.${system}.default;
+      in [
         # Vercel server anything
         nodePackages.serve
 
@@ -63,8 +63,10 @@ in
         after = ["network.target"];
         wantedBy = ["multi-user.target"];
         serviceConfig = {
-          ExecStart = ''
-            ${pkgs.jucenit} ssl --watch
+          ExecStart = with pkgs; let
+            jucenit = inputs.jucenit.packages.${system}.default;
+          in ''
+            ${jucenit}/bin/jucenit ssl --watch
           '';
           ReadWritePaths = [cfg.stateDir cfg.logDir cfg.challengDir];
         };
