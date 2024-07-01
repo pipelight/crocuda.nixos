@@ -86,7 +86,8 @@ in
       # Hyprland
       programs.dconf.enable = true;
       xdg.portal = {
-        enable = lib.mkForce false;
+        enable = true;
+        # enable = lib.mkForce false;
         extraPortals = with pkgs; [
           xdg-desktop-portal-gtk
           xdg-desktop-portal-wlr

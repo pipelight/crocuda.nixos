@@ -26,8 +26,9 @@
     }
   '';
 in {
-  # home.sessionVariables = {
-  # };
+  home.sessionVariables = {
+    XDG_DATA_DIRS = "$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
+  };
   home.packages = with pkgs; [
     ## Gtk/Qt theme compatibility
     qt6Packages.qt6ct
@@ -64,12 +65,12 @@ in {
   dconf = {
     enable = true;
     settings = {
-    "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
-    };
-    "org/gnome/desktop/wm/preferences" = {
-      button-layout = "";
-    };
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+      };
+      "org/gnome/desktop/wm/preferences" = {
+        button-layout = "";
+      };
     };
   };
   # Qt theming

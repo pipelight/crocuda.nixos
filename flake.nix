@@ -31,6 +31,7 @@
     # ollama.url = "github:havaker/ollama-nix";
     # hyprland.url = "github:hyprwm/Hyprland";
 
+    rustmission.url = "github:intuis/rustmission";
     # Servers
     # Racicle
     radicle.url = "git+https://seed.radicle.garden/z3gqcJUoA1n9HaHKufZs5FCSGazv5";

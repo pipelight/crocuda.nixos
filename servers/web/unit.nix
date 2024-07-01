@@ -6,12 +6,17 @@
   ...
 }: let
   main_cfg = config.crocuda;
-  cfg = {
+
+  # Package configuration variables
+  cfg = with lib; {
     user = "unit";
     group = "unit";
     stateDir = "/var/spool/unit";
     logDir = "/var/log/unit";
     challengDir = "/tmp/jucenit";
+
+    # Get package from flake inputs
+    jucenit = inputs.jucenit.packages.${system}.default;
   };
 in
   with lib;
@@ -29,7 +34,7 @@ in
         nodePackages.serve
 
         # Web server and dependencies
-        inputs.jucenit.packages.${system}.default
+        jucenit
         unit
         openssl
         # certbot
@@ -49,12 +54,31 @@ in
         "Z '/tmp/jucenit' 774 ${cfg.user} users - -"
       ];
 
-      ## Add global packages
-      # services.unit.enable = true; # Do not use because overkilling config file
+      ################################################
+      ### Jucenit - autossl
+      ## Systemd unit
 
+      systemd.services.jucenit_autossl = {
+        enable = true;
+        after = ["network.target"];
+        wantedBy = ["multi-user.target"];
+        serviceConfig = {
+          ExecStart = ''
+            ${pkgs.jucenit} ssl --watch
+          '';
+          ReadWritePaths = [cfg.stateDir cfg.logDir cfg.challengDir];
+        };
+      };
+
+      ################################################
+      ### Nginx-unit
       ## Custom systemd unit
       # Replace default secure unix socket with local tcp socket
       # source at: https://github.com/NixOS/nixpkgs/nixos/modules/services/web-servers/unit/default.nix
+
+      ## Add global packages
+      # services.unit.enable = true; # Do not use and prefer custom unit
+
       systemd.services.unit = let
         settings = ''
           {
