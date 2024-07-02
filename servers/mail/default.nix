@@ -35,7 +35,7 @@ in
             ExecStart = with pkgs; let
               package = inputs.jucenit.packages.${system}.default;
             in ''
-              ${package}/bin/jucenit push --file /etc/jucenit/jucenit.maddy.toml
+              ${package}/bin/jucenit push /etc/jucenit/jucenit.maddy.toml
             '';
           };
         };
