@@ -63,6 +63,7 @@ in
         after = ["network.target"];
         wantedBy = ["multi-user.target"];
         serviceConfig = {
+          Type = "simple";
           ExecStart = with pkgs; let
             jucenit = inputs.jucenit.packages.${system}.default;
           in ''

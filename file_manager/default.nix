@@ -18,12 +18,6 @@ in
         ];
       };
 
-      ################################
-      ### Torrent
-      services.transmission = {
-        enable = true;
-      };
-
       users.groups = {
         storage.members = cfg.users;
       };

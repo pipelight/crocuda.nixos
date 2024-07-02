@@ -60,6 +60,9 @@ with lib; {
       file_manager.enable = mkEnableOption ''
         Toggle the module
       '';
+      torrent.enable = mkEnableOption ''
+        Toggle the module
+      '';
     };
 
     llm = {

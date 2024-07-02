@@ -10,14 +10,8 @@
   };
 
   home.packages = with pkgs; [
-    # Torrent cli
-    inputs.rustmission.packages.${system}.default
-
     # File manager
+    # ranger
     yazi
   ];
-
-  home.file = {
-    "config/rustmission/config.toml".source = dotfiles/rustmission/config.toml;
-  };
 }

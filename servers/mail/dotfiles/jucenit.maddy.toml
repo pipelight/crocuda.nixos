@@ -1,7 +1,7 @@
 ## Route public tls trafic to local private maddy
-
 # Smtp
 [[unit]]
+uuid = "fba18f41-31fe-4e0d-9072-db27bbb35ffb"
 listeners = ["*:587"]
 [unit.match]
 hosts = [
@@ -13,6 +13,7 @@ proxy = "http://127.0.0.1:10587"
 
 # Imap
 [[unit]]
+uuid = "e503a981-033c-478d-9202-f55e19eaf945"
 listeners = ["*:993"]
 [unit.match]
 hosts = [
