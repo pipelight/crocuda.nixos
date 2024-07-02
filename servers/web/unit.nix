@@ -60,7 +60,7 @@ in
 
       systemd.services.jucenit_autossl = {
         enable = true;
-        after = ["network.target"];
+        after = ["network.target" "unit.service"];
         wantedBy = ["multi-user.target"];
         serviceConfig = {
           Type = "simple";

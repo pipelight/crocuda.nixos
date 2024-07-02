@@ -20,18 +20,18 @@ in
       ];
 
       environment.etc = {
-        "jucenit/juceni.maddy.toml".source = ./dotfiles/jucenit.maddy.toml;
+        "jucenit/jucenit.maddy.toml".source = ./dotfiles/jucenit.maddy.toml;
       };
 
       systemd.services = {
         # maddy-ensure-accounts.enable = lib.mkForce false;
         maddy-jucenit-proxy = {
           enable = true;
-          after = ["maddy.service"];
+          after = ["maddy.service" "unit.service"];
           wantedBy = ["multi-user.target"];
           serviceConfig = {
             Type = "oneshot";
-            Environment = "PATH=/run/current-system/sw/bin";
+            # Environment = "PATH=/run/current-system/sw/bin";
             ExecStart = with pkgs; let
               package = inputs.jucenit.packages.${system}.default;
             in ''
