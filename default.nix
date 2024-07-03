@@ -102,6 +102,12 @@ with lib; {
           Enable mastodon with bird Ui.
         '';
       };
+      dns = {
+        enable = mkEnableOption ''
+          Enable complete secured dns suite
+          (unbound + nsd).
+        '';
+      };
       web = {
         pebble.enable = mkEnableOption ''
           Nginx unit web server.
@@ -109,18 +115,6 @@ with lib; {
         unit.enable = mkEnableOption ''
           Nginx unit web server.
         '';
-        caddy = {
-          enable = mkEnableOption ''
-            Caddy web server.
-          '';
-          ssl = mkOption {
-            type = with types; listOf str;
-            description = ''
-              List of domains and subdomains for autotls (http challenge)
-            '';
-            default = ["example.com"];
-          };
-        };
       };
       ssh = {
         enable = mkEnableOption ''

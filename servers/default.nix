@@ -10,6 +10,7 @@ in {
   imports = [
     ./git/default.nix
     ./web/default.nix
+    ./dns/default.nix
     ./mail/default.nix
     ./social/default.nix
   ];

@@ -9,7 +9,6 @@
 in {
   imports = [
     ./unit.nix
-    ./caddy.nix
     ./test.nix
   ];
 
@@ -18,12 +17,6 @@ in {
     nodePackages.serve
     # fail2ban
   ];
-
-  # SSL suport
-  # security.acme = {
-  #   acceptTerms = true;
-  #   defaults.email = "admin+acme@example.org";
-  # };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
