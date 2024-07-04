@@ -6,7 +6,7 @@ local lsp = vim.lsp
 
 -- File
 --
-map("n", "<C-q>", "<cmd> q <CR>", { desc = "File quit if saved" })
+map("n", "<C-q>", "<cmd> qa <CR>", { desc = "File quit if saved" })
 
 -- Motions
 --
