@@ -16,10 +16,4 @@ in
       ];
       environment.etc = {
       };
-
-      # Run as dns user
-      users.users.dns = {
-        isNormalUser = true;
-        home = "/home/dns";
-      };
     }

@@ -6,7 +6,8 @@ local lsp = vim.lsp
 
 -- File
 --
-map("n", "<C-q>", "<cmd> qa <CR>", { desc = "File quit if saved" })
+map("n", "<C-q>", "<cmd> q <CR>", { desc = "File quit if saved" })
+-- map("n", "<C-q>", "<cmd> qa <CR>", { desc = "File quit if saved" })
 
 -- Motions
 --
@@ -21,6 +22,7 @@ nomap("n", "<C-h>")
 nomap("n", "<C-j>")
 nomap("n", "<C-k>")
 nomap("n", "<C-l>")
+nomap("v", "ff")
 
 -- terminal
 nomap("n", "<leader>h")

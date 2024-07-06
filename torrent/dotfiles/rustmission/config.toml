@@ -11,6 +11,38 @@ accent_color = "LightMagenta"
 # little bit cluttered interface.
 beginner_mode = true
 
+keybindings = [
+  { on = "?", action = "ShowHelp" },
+
+  { on = "q", action = "Quit" },
+  { on = "Esc", action = "SoftQuit" },
+  { on = "Enter", action = "Confirm" },
+  { on = "Tab", action = "SwitchFocus" },
+  { on = "/", action = "Search" },
+
+  { on = "1", action = "SwitchToTorrents" },
+  { on = "2", action = "SwitchToSearch" },
+
+  { on = "Home", action = "Home" },
+  { on = "End", action = "End" },
+  { on = "PageUp", action = "PageUp" },
+  { on = "PageDown", action = "PageDown" },
+
+  # Arrows
+  { on = "Left", action = "Left" },
+  { on = "Right", action = "Right" },
+  { on = "Up", action = "Up" },
+  { on = "Down", action = "Down" },
+
+  # Vi mode for Colemak-DH
+  { modifier = "Ctrl", on = "h", action = "PageDown" },
+  { modifier = "Ctrl", on = ",", action = "PageUp" },
+  { on = "m", action = "Left" },
+  { on = "n", action = "Down" },
+  { on = "e", action = "Up" },
+  { on = "i", action = "Right" },
+]
+
 [connection]
 url = "http://localhost:9091/transmission/rpc" # REQUIRED!
 

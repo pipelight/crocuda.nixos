@@ -102,6 +102,7 @@ function fish_vi_key_bindings --description 'vi-like key bindings for fish'
     bind -s --preset -m insert A end-of-line repaint-mode
 
     bind -s --preset -m visual v begin-selection repaint-mode
+    bind -s --preset -m visual-line V beginning-of-line begin-selection repaint-mode
 
     bind -s --preset gg beginning-of-buffer
     bind -s --preset G end-of-buffer
@@ -318,11 +319,13 @@ function fish_vi_key_bindings --description 'vi-like key bindings for fish'
 
     bind -s --preset -M visual -m insert c kill-selection end-selection repaint-mode
     bind -s --preset -M visual -m insert s kill-selection end-selection repaint-mode
-    bind -s --preset -M visual -m default d kill-selection fish_clipboard_copy end-selection repaint-mode
+
+    bind -s --preset -M visual -m default d kill-selection end-selection repaint-mode
     bind -s --preset -M visual -m default x kill-selection end-selection repaint-mode
+
     bind -s --preset -M visual -m default X kill-whole-line end-selection repaint-mode
-    bind -s --preset -M visual -m default y kill-selection fish_clipboard_copy end-selection repaint-mode
-    bind -s --preset -M visual -m default p forward-char fish_clipboard_paste end-selection repaint-mode
+    bind -s --preset -M visual -m default y "fish_clipboard_copy; commandline -f end-selection repaint-mode"
+    bind -s --preset -M visual -m default p "commandline -f forward-char; fish_clipboard_paste; commandline -f end-selection repaint-mode"
     bind -s --preset -M visual -m default '~' togglecase-selection end-selection repaint-mode
 
     bind -s --preset -M visual -m default \cc end-selection repaint-mode

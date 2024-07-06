@@ -261,6 +261,8 @@ with lib; {
 
     # File Manager
     ./file_manager/default.nix
+    # Torrent
+    ./torrent/defautlt.nix
 
     # Ide
     ./ide/default.nix
