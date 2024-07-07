@@ -9,7 +9,7 @@ hosts = [
   "areskul.com", # main
 ]
 [unit.action]
-proxy = "http://127.0.0.1:10587"
+proxy = "http://localhost:10587"
 
 # Imap
 [[unit]]
@@ -21,4 +21,16 @@ hosts = [
   "areskul.com", # main
 ]
 [unit.action]
-proxy = "http://127.0.0.1:10993"
+proxy = "http://localhost:10993"
+
+# Autoconfig
+[[unit]]
+uuid = "fd372163-c655-44b4-9850-f4b26366a7d2"
+listeners = ["*:993"]
+[unit.match]
+hosts = [
+  "autoconfig.crocuda.com",
+  "autoconfig.areskul.com", # main
+]
+[unit.action]
+proxy = "http://localhost:1323"

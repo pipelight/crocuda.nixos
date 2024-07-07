@@ -22,7 +22,6 @@ nomap("n", "<C-h>")
 nomap("n", "<C-j>")
 nomap("n", "<C-k>")
 nomap("n", "<C-l>")
-nomap("v", "ff")
 
 -- terminal
 nomap("n", "<leader>h")
@@ -64,7 +63,6 @@ map("n", "vn", "vj", { desc = "Motions select" })
 
 map("n", "f", "n", { desc = "Motions go to next occurance" })
 map("n", "F", "N", { desc = "Motions go to previous occurance" })
-map("n", "ff", "N", { desc = "Motion find under cursor" })
 
 -- Lsp
 --

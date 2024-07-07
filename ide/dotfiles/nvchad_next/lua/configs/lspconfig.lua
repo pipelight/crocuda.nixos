@@ -14,7 +14,7 @@ local servers = {
   "cssls",
 
   -- "tailwindcss",
-  "tsserver",
+  -- "tsserver",
 
   -- Nix
   "nil_ls",

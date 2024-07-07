@@ -189,6 +189,9 @@ function fish_vi_key_bindings --description 'vi-like key bindings for fish'
     bind -s --preset -m insert c\$ kill-line repaint-mode
     bind -s --preset -m insert c\^ backward-kill-line repaint-mode
     bind -s --preset -m insert c0 backward-kill-line repaint-mode
+
+    ######################################
+    # Overkill mappings
     bind -s --preset -m insert cw kill-word repaint-mode
     bind -s --preset -m insert cW kill-bigword repaint-mode
     bind -s --preset -m insert ciw forward-single-char forward-single-char backward-word kill-word repaint-mode
@@ -218,7 +221,6 @@ function fish_vi_key_bindings --description 'vi-like key bindings for fish'
     bind -s --preset K 'man (commandline -t) 2>/dev/null; or echo -n \a'
     
     ## Yank/Paste
-
     # Use os clipboard
     bind -s --preset yy "fish_clipboard_copy; commandline -f end-selection repaint-mode"
     bind -s --preset Y "fish_clipboard_copy; commandline -f end-selection repaint-mode"
