@@ -9,7 +9,7 @@ hosts = [
   "areskul.com", # main
 ]
 [unit.action]
-proxy = "http://localhost:10587"
+proxy = "http://127.0.0.1:10587"
 
 # Imap
 [[unit]]
@@ -21,7 +21,7 @@ hosts = [
   "areskul.com", # main
 ]
 [unit.action]
-proxy = "http://localhost:10993"
+proxy = "http://127.0.0.1:10993"
 
 # Autoconfig
 [[unit]]
@@ -33,4 +33,4 @@ hosts = [
   "autoconfig.areskul.com", # main
 ]
 [unit.action]
-proxy = "http://localhost:1323"
+proxy = "http://127.0.0.1:1323"

@@ -25,9 +25,11 @@
     impermanence.url = "github:nix-community/impermanence";
     # Flakes
     arkenfox.url = "github:dwarfmaster/arkenfox-nixos";
+
     pipelight.url = "github:pipelight/pipelight";
+    # pipelight.url = "github:pipelight/pipelight?ref=dev";
+    jucenit.url = "github:pipelight/jucenit?ref=dev";
     virshle.url = "github:pipelight/virshle";
-    jucenit.url = "github:pipelight/jucenit";
     # ollama.url = "github:havaker/ollama-nix";
     # hyprland.url = "github:hyprwm/Hyprland";
 
