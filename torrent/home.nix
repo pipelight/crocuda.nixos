@@ -10,6 +10,6 @@
     inputs.rustmission.packages.${system}.default
   ];
   home.file = {
-    "config/rustmission/config.toml".source = dotfiles/rustmission/config.toml;
+    ".config/rustmission/config.toml".source = dotfiles/rustmission/config.toml;
   };
 }

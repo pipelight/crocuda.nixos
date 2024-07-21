@@ -220,7 +220,7 @@ with lib; {
 
   imports = [
     inputs.impermanence.nixosModules.impermanence
-
+    inputs.jucenit.nixosModules.jucenit
     inputs.nixos-utils.nixosModules.home-merger
     inputs.nixos-utils.nixosModules.allow-unfree
 

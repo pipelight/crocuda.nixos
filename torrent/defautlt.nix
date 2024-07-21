@@ -17,7 +17,9 @@ in
           ./home.nix
         ];
       };
-
+      environment.systemPackages = with pkgs; [
+        transmission
+      ];
       ################################
       ### Torrent
       services.transmission = {
