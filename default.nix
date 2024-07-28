@@ -220,9 +220,10 @@ with lib; {
 
   imports = [
     inputs.impermanence.nixosModules.impermanence
-    inputs.jucenit.nixosModules.jucenit
     inputs.nixos-utils.nixosModules.home-merger
     inputs.nixos-utils.nixosModules.allow-unfree
+
+    inputs.jucenit.nixosModules.jucenit
 
     # Add single top level import of NUR
     # for nixosModules usage

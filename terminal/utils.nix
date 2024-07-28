@@ -14,6 +14,7 @@
     ripgrep
     tldr
     cheat
+    expect
 
     # Dev utils
     neofetch

@@ -17,6 +17,7 @@ local options = {
     go = { "prettier" },
     nix = { "alejandra" },
     zig = { "zigfmt" },
+    hcl = { "hcl" },
   },
 
   format_on_save = {

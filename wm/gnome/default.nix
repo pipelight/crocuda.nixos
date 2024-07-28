@@ -37,6 +37,7 @@ in
         gnome-bluetooth
         gnome-backgrounds
         gnome-power-manager
+        gnome-maps
 
         nixos-gsettings-overrides
         gnome-settings-daemon
