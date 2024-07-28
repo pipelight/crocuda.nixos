@@ -64,10 +64,13 @@
     nil
     statix
     alejandra
-    # Toml
+    # Toml and friends
     taplo
+    # Yaml
     yamllint
     stylelint
+    # Hcl
+    hclfmt
     # Markdown
     marksman
     # Go
