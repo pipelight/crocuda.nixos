@@ -7,8 +7,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
 
     # Nixos utils and dependencies
-    nixos-utils = {
-      url = "github:pipelight/nixos-utils";
+    nixos-tidy = {
+      url = "github:pipelight/nixos-tidy";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {

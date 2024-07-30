@@ -16,6 +16,9 @@
     cheat
     expect
 
+    # File convertion
+    dasel
+
     # Dev utils
     neofetch
     onefetch

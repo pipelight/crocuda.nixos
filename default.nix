@@ -110,10 +110,10 @@ with lib; {
       };
       web = {
         pebble.enable = mkEnableOption ''
-          Nginx unit web server.
+          Pebble acme validation test suite.
         '';
-        unit.enable = mkEnableOption ''
-          Nginx unit web server.
+        jucenit.enable = mkEnableOption ''
+          Jucenit web server.
         '';
       };
       ssh = {
@@ -220,12 +220,13 @@ with lib; {
 
   imports = [
     inputs.impermanence.nixosModules.impermanence
-    inputs.nixos-utils.nixosModules.home-merger
-    inputs.nixos-utils.nixosModules.allow-unfree
+
+    inputs.nixos-tidy.nixosModules.home-merger # replaces home-manager import
+    inputs.nixos-tidy.nixosModules.allow-unfree
 
     inputs.jucenit.nixosModules.jucenit
 
-    # Add single top level import of NUR
+    # Add single top level import of NUR (Nixos User repository)
     # for nixosModules usage
     # and for inner hmModules usage
     inputs.nur.nixosModules.nur

@@ -39,6 +39,21 @@ in
             '';
           };
         };
+        autodiscover-jucenit-proxy = {
+          enable = false;
+          after = ["maddy.service" "unit.service"];
+          wantedBy = ["multi-user.target"];
+          serviceConfig = {
+            Type = "oneshot";
+            # Environment = "PATH=/run/current-system/sw/bin";
+            ExecStart = with pkgs; let
+              package = inputs.jucenit.packages.${system}.default;
+            in ''
+              ${pkgs.dasel}/bin/dasel -r toml -w xml --file /etc/jucenit/autodiscover.toml > autodiscover.xml
+              ${package}/bin/jucenit push /etc/jucenit/jucenit.maddy.toml
+            '';
+          };
+        };
       };
 
       # The mail server
@@ -56,19 +71,19 @@ in
       };
 
       # Autodiscovery services
-      services.go-autoconfig = {
-        enable = true;
-        settings = {
-          service_addr = ":1323";
-          domain = "autoconfig.${primaryDomain}";
-          imap = {
-            server = primaryDomain;
-            port = 993;
-          };
-          smtp = {
-            server = primaryDomain;
-            port = 587;
-          };
-        };
-      };
+      # services.go-autoconfig = {
+      #   enable = true;
+      #   settings = {
+      #     service_addr = "O.O.O.O:1323";
+      #     domain = "autoconfig.${primaryDomain}";
+      #     imap = {
+      #       server = primaryDomain;
+      #       port = 993;
+      #     };
+      #     smtp = {
+      #       server = primaryDomain;
+      #       port = 587;
+      #     };
+      #   };
+      # };
     }

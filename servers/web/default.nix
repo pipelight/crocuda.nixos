@@ -8,7 +8,7 @@
   cfg = config.crocuda;
 in {
   imports = [
-    ./unit.nix
+    ./jucenit.nix
     ./test.nix
   ];
 

@@ -36,3 +36,5 @@ that looks like this.
 
 Mail adress boxes are created but cannot be accessed as is.
 You need to add credentials (need root priviledges).
+
+## Create an autoconfigure file

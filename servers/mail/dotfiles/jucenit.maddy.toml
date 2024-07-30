@@ -4,10 +4,7 @@
 uuid = "fba18f41-31fe-4e0d-9072-db27bbb35ffb"
 listeners = ["*:587"]
 [unit.match]
-hosts = [
-  "crocuda.com",
-  "areskul.com", # main
-]
+hosts = ["example.com"]
 [unit.action]
 proxy = "http://127.0.0.1:10587"
 
@@ -16,21 +13,15 @@ proxy = "http://127.0.0.1:10587"
 uuid = "e503a981-033c-478d-9202-f55e19eaf945"
 listeners = ["*:993"]
 [unit.match]
-hosts = [
-  "crocuda.com",
-  "areskul.com", # main
-]
+hosts = ["example.com"]
 [unit.action]
 proxy = "http://127.0.0.1:10993"
 
 # Autoconfig
 [[unit]]
 uuid = "fd372163-c655-44b4-9850-f4b26366a7d2"
-listeners = ["*:993"]
+listeners = ["*:1323"]
 [unit.match]
-hosts = [
-  "autoconfig.crocuda.com",
-  "autoconfig.areskul.com", # main
-]
+hosts = ["autoconfig.example.com"]
 [unit.action]
-proxy = "http://127.0.0.1:1323"
+share = ["/etc/jucenit/autodiscover.xml"]

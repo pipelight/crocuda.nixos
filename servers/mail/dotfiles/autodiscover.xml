@@ -1,0 +1,41 @@
+<doc>
+  <domain>
+    <example.org>
+      <in_user>mbox-##local_part##</in_user>
+    </example.org>
+    <subdomain.example.org>
+      <in_host>test.mail.example.org</in_host>
+      <in_user>%EMAILLOCALPART%_test_accounts</in_user>
+    </subdomain.example.org>
+  </domain>
+  <provider>
+    <domains>example.org</domains>
+    <domains>users.example.org</domains>
+    <id>example.org</id>
+    <in_auth>password-cleartext</in_auth>
+    <in_host>imap.example.org</in_host>
+    <in_port>143</in_port>
+    <in_socket>STARTTLS</in_socket>
+    <in_type>imap</in_type>
+    <in_user>%EMAILADDRESS%</in_user>
+    <name_display>example.org Mail Services - some relevant mission statement</name_display>
+    <name_short>%id%</name_short>
+    <out_auth>password-cleartext</out_auth>
+    <out_host>smtp.example.org</out_host>
+    <out_port>587</out_port>
+    <out_socket>STARTTLS</out_socket>
+    <out_type>smtp</out_type>
+    <out_user>%in_user%</out_user>
+  </provider>
+  <user>
+    <ceo@example.org>
+      <in_auth>password-cleartext</in_auth>
+      <in_auth>OAuth2</in_auth>
+      <in_host>rain-cloud.example.org</in_host>
+      <in_user>%EMALLOCALPART%-example@office365.example.org</in_user>
+      <out_auth>password-cleartext</out_auth>
+      <out_auth>OAuth2</out_auth>
+      <out_host>smtp.example.org</out_host>
+    </ceo@example.org>
+  </user>
+</doc>
