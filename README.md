@@ -1,6 +1,8 @@
 # crocuda.nixos
 
-...is a set of **nixos modules** which provide trivial configuration for
+!! Early development !!
+
+A set of **nixos modules** which provide trivial configuration for
 **paranoids** and **hypocondriacs**.
 
 ## Motivations
@@ -83,9 +85,8 @@ nixosConfigurations = {
   my_machine = pkgs.lib.nixosSystem {
     specialArgs = {inherit inputs;};
     modules = [
-        # Import the module
-        crocuda.nixosModules.default
-        # Import your configuration for this module
+        # Import the module and the related configuration
+        inputs.crocuda.nixosModules.default
         ./crocuda.nix
     ];
   };

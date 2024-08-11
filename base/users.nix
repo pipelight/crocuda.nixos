@@ -3,8 +3,7 @@
   pkgs,
   lib,
   ...
-}:
- let
+}: let
   cfg = config.crocuda;
 in {
   # Create normal unpriviledged users based on a provided list of names.
@@ -19,5 +18,5 @@ in {
     cfg.users
   );
 
-  nix.settings.trusted-users = ["root"] ++ cfg.users;
+  # nix.settings.trusted-users = ["root"] ++ cfg.users;
 }

@@ -30,6 +30,8 @@ in {
     unzip
     # Usefull commands
     htop
+    # Nix doc
+    manix
 
     # btop
     nushell

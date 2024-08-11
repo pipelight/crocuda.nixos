@@ -12,9 +12,7 @@ in
     mkIf cfg.wm.gnome.enable {
       # Gaming
       allow-unfree = [
-        "steam"
-        "steam*"
-        "steam-original"
+        "steam.*"
       ];
       # Import home files
       home-merger = {
