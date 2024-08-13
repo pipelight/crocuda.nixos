@@ -219,6 +219,8 @@ with lib; {
   };
 
   imports = [
+    inputs.lix-module.nixosModules.default
+
     inputs.impermanence.nixosModules.impermanence
 
     inputs.nixos-tidy.nixosModules.home-merger # replaces home-manager import
