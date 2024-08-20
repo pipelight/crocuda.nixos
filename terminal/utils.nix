@@ -20,7 +20,7 @@
     dasel
 
     # Dev utils
-    neofetch
+    fastfetch
     onefetch
 
     # CICD

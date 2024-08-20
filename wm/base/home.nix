@@ -10,10 +10,14 @@
     vlc
     # Image manipulation tools
     gimp
+    imagemagick
+    ghostscript
+
     # Video manipulation tools
     ffmpeg
     mkvtoolnix
     mediainfo
+
     # Download videos
     yt-dlp
   ];

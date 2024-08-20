@@ -31,6 +31,10 @@ with lib; {
       Toggle the module
     '';
 
+    cicd.enable = mkEnableOption ''
+      Enable lightweight cicd tools
+    '';
+
     network = {
       privacy.enable = mkEnableOption ''
         Enable ipv6 privacy features, quad9 dns.
@@ -262,6 +266,7 @@ with lib; {
 
     # Servers
     ./servers/default.nix
+    ./cicd/default.nix
 
     # File Manager
     ./file_manager/default.nix

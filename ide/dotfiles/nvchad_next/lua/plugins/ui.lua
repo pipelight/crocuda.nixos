@@ -104,6 +104,10 @@ return {
   },
   -------------------------------
   -- Non optimal setup
+  -- {
+  -- "mrjones2015/smart-splits.nvim",
+  -- lazy = false,
+  -- },
   {
     "nvim-focus/focus.nvim",
     config = function()

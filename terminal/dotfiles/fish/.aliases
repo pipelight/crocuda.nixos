@@ -20,7 +20,7 @@ alias sshk='kitten ssh'
 alias nvik='kitten edit-in-kitty'
 alias nvchad='nvim'
 
-alias neo='neofetch'
+alias neo='fastfetch'
 alias one="onefetch"
 alias lol="lolcat"
 
