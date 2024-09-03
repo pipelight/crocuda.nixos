@@ -1,5 +1,6 @@
 # Disbale welcome message
 set fish_greeting
+
 # Source aliases
 source ~/.aliases
 
@@ -8,6 +9,7 @@ set -Ux fish_handle_reflow 0
 
 # Vim mod Colemak-DH keybindings
 set -g fish_key_bindings fish_vi_key_bindings
+
 
 ## Plugins
 direnv hook fish | source
@@ -28,3 +30,7 @@ set --export FZF_DEFAULT_OPTS \
 # set -U ABBR_TIPS_PROMPT "\n💡 \e[1m{{ .abbr }}\e[0m => {{ .cmd }}"
 # set -U ABBR_TIPS_ALIAS_WHITELIST # Not set
 # set -U ABBR_TIPS_REGEXES '(^(\w+\s+)+(-{1,2})\w+)(\s\S+)' '(^( ?\w+){3}).*' '(^( ?\w+){2}).*' '(^( ?\w+){1}).*'
+
+## Prompt
+starship init fish | source
+enable_transience

@@ -29,7 +29,7 @@ in
         colmena
         # Virshle from the flake
         # and dependencies
-        inputs.virshle.packages.${system}.default
+        # inputs.virshle.packages.${system}.default
         # Tool to easily create volumes(qcow)
         libguestfs
         guestfs-tools
@@ -40,9 +40,9 @@ in
       virtualisation.docker.enable = true;
 
       # Do not support efi boot
-      virtualisation.xen = {
-        enable = false;
-      };
+      # virtualisation.xen = {
+      #   enable = false;
+      # };
       # Enable libvirt virtualization framework
       virtualisation.libvirtd = {
         enable = true;

@@ -8,7 +8,6 @@
   home.file = {
     ".config/atuin".source = dotfiles/atuin;
     ".config/pacman/makepkg.conf".source = dotfiles/pacman/makepkg.conf;
-    ".config/neofetch".source = dotfiles/neofetch;
     # Shell aliases
     ".aliases".source = dotfiles/fish/.aliases;
     # Nushell
@@ -17,30 +16,9 @@
     # Fish
     ".config/fish/colemak.fish".source = dotfiles/fish/colemak.fish;
     ".config/fish/extra_config.fish".source = dotfiles/fish/config.fish;
+    # Prompt
+    ".config/starship.toml".source = dotfiles/starship.toml;
   };
-
-  home.packages = with pkgs; [
-    # fish
-
-    # Auto configure fish tide prompt
-    (pkgs.writeShellScriptBin "fish_tide_auto" ''
-      fish -c 'tide configure --auto \
-        --style=Classic \
-        --prompt_colors="True color" \
-        --classic_prompt_color=Dark \
-        --show_time=No \
-        --classic_prompt_separators=Angled \
-        --powerline_prompt_heads=Sharp \
-        --powerline_prompt_tails=Round \
-        --powerline_prompt_style="Two lines, character" \
-        --prompt_connection=Disconnected \
-        --powerline_right_prompt_frame=No \
-        --prompt_connection_andor_frame_color=Darkest \
-        --prompt_spacing=Sparse \
-        --icons="Few icons" \
-        --transient=Yes'
-    '')
-  ];
 
   # Shell
   programs = {
@@ -68,10 +46,6 @@
         {
           name = "grc";
           src = grc.src;
-        }
-        {
-          name = "tide";
-          src = tide.src;
         }
         {
           name = "git";

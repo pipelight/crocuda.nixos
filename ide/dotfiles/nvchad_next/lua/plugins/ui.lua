@@ -55,7 +55,7 @@ return {
   },
   {
     "echasnovski/mini.animate",
-    lazy = false,
+    lazy = true,
     config = function()
       local animate = require "mini.animate"
       require("mini.animate").setup {
@@ -100,7 +100,7 @@ return {
         enable_tailwind = false,
       }
     end,
-    lazy = false,
+    lazy = true,
   },
   -------------------------------
   -- Non optimal setup

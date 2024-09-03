@@ -28,6 +28,7 @@
     gnumake
 
     ## Fish Shell dependencies
+    starship
     fish
 
     # Recolorize commands

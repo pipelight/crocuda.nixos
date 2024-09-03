@@ -16,6 +16,7 @@ return {
     config = function()
       require "configs.conform"
     end,
+    lazy = false,
   },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -49,7 +50,7 @@ return {
     end,
     lazy = false,
   },
-  -- vim-test dependencie
+  -- toggleterm vim-test dependency
   {
     "akinsho/toggleterm.nvim",
     version = "*",
@@ -77,7 +78,7 @@ return {
     config = function()
       require "configs.harpoon"
     end,
-    lazy = false,
+    lazy = true,
   },
 
   -- {

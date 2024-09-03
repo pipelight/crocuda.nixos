@@ -18,7 +18,7 @@
     }
     fn
   '';
-  unmount_cryptstorage = pkgs.writeShellScriptBin "unmount_cryptstorage" ''
+  umount_cryptstorage = pkgs.writeShellScriptBin "umount_cryptstorage" ''
     fn() {
       ${pkgs.util-linux}/bin/umount /mnt/HDD
       ${pkgs.systemd}/bin/systemd-cryptsetup detach cryptstorage
@@ -33,7 +33,7 @@ in
         ENV{SUBSYSTEM}=="usb",\
         ENV{PRODUCT}=="1050/407/543",\
         RUN+="${pkgs.systemd}/bin/systemctl start kill_all_sessions",\
-        RUN+="${unmount_cryptstorage}/bin/unmount_cryptstorage"
+        RUN+="${umount_cryptstorage}/bin/umount_cryptstorage"
       '';
       environment.systemPackages = with pkgs; [
         # Yubikey
@@ -44,6 +44,9 @@ in
         usbutils
         procps
         kill_all_sessions
+
+        mount_cryptstorage
+        umount_cryptstorage
       ];
 
       # security.pam.services = {

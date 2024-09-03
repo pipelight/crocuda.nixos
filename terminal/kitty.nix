@@ -8,7 +8,6 @@
   home.file = {
     ".config/pacman/makepkg.conf".source = dotfiles/pacman/makepkg.conf;
     ".config/kitty/ssh.conf".source = dotfiles/kitty/ssh.conf;
-    ".config/fastfetch/config.jsonc".source = dotfiles/fastfetch/config.jsonc;
   };
 
   home.packages = with pkgs; [
