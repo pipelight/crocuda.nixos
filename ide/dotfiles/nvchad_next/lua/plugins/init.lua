@@ -78,7 +78,7 @@ return {
     config = function()
       require "configs.harpoon"
     end,
-    lazy = true,
+    lazy = false,
   },
 
   -- {

@@ -20,6 +20,10 @@ $git_state\
 $git_metrics\
 $git_status\
 
+$sudo\
+$direnv\
+$env_var\
+$cmd_duration\
 
 $fill\
 
@@ -82,11 +86,7 @@ $gcloud\
 $openstack\
 $azure\
 $nats\
-$direnv\
-$env_var\
 $crystal\
-$sudo\
-$cmd_duration\
 
 $line_break\
 $jobs\

@@ -22,7 +22,7 @@ in
       ## Video /Sound
       programs.light.enable = true;
       # Disable old software
-      sound.enable = false;
+      # sound.enable = false;
       hardware.pulseaudio.enable = false;
       # Enable new software
       security.rtkit.enable = true;

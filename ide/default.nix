@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  pkgs-unstable,
   lib,
   inputs,
   ...
@@ -20,19 +21,13 @@ in
       };
 
       # Set default editor
-      programs = {
-        neovim = {
-          enable = true;
-          defaultEditor = true;
-        };
-      };
       programs.nano.enable = false;
 
       # Add essential developer packages
       environment.systemPackages = with pkgs; [
         # Text editor (IDE)
         vim
-        neovim
+        pkgs-unstable.neovim
         # charmbracelet / Charm.sh
         # glow
         # mods

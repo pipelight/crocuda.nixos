@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  pkgs-unstable,
   lib,
   utils,
   inputs,
@@ -254,7 +255,6 @@ with lib; {
         };
       }
     )
-
     # Base
     ./base/default.nix
 

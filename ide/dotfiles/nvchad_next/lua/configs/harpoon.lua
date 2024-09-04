@@ -35,16 +35,19 @@ end
 
 map("n", "<C-,>", function()
   toggle_telescope(harpoon:list())
-end, { desc = "Telescope open harpoon list" })
+end, { desc = "Harpoon open telescope harpoon list" })
 
 map("n", "<leader>a", function()
   harpoon:list():add()
 end, { desc = "Harpoon add file to list" })
 map("n", "<leader>A", function()
   harpoon:list():remove()
-end, { desc = "Harpoon Remove file from list" })
+end, { desc = "Harpoon remove file from list" })
 
 -- Toggle previous & next buffers stored within Harpoon list
 map("n", "<Tab>", function()
   harpoon:list():prev { ui_nav_wrap = true }
+end)
+map("n", "<S-Tab>", function()
+  harpoon:list():next { ui_nav_wrap = true }
 end)

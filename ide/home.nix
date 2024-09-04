@@ -24,9 +24,11 @@
     ".config/zellij".source = dotfiles/zellij;
 
     # NvChad
-    # :Lazy sync on first boot
     ".config/nvim/lua".source = dotfiles/nvchad_next/lua;
     ".config/nvim/init.lua".source = dotfiles/nvchad_next/init.lua;
+    # Lock plugin versions
+    # :Lazy sync on first boot
+    ".config/nvim/lazy-lock.json".source = dotfiles/nvchad_next/lazy-lock.json;
 
     # Vim colemak conf
     ".vimrc".source = dotfiles/.vimrc;
@@ -51,7 +53,7 @@
     nodePackages.prettier
     nodePackages.typescript
     nodePackages.typescript-language-server
-    nodePackages.eslint
+    # nodePackages.eslint
     nodePackages.jsonlint
     nodePackages.vue-language-server
     # nodePackages.vscode-css-languageserver-bin
