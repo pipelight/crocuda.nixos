@@ -13,7 +13,7 @@ in
       # Import home files
       home-merger = {
         enable = true;
-        extraSpecialArgs = {inherit cfg pkgs inputs;};
+        extraSpecialArgs = {inherit cfg pkgs pkgs-unstable inputs;};
         users = cfg.users;
         modules = [
           ./home.nix
@@ -21,7 +21,14 @@ in
       };
 
       # Set default editor
-      programs.nano.enable = false;
+      programs.nano = {
+        enable = false;
+      };
+      programs = {
+        neovim = {
+          defaultEditor = true;
+        };
+      };
 
       # Add essential developer packages
       environment.systemPackages = with pkgs; [

@@ -13,15 +13,15 @@
   '';
   mount_cryptstorage = pkgs.writeShellScriptBin "mount_cryptstorage" ''
     fn() {
-      ${pkgs.systemd}/bin/systemd-cryptsetup attach cryptstorage /dev/disk/by-label/CRYPTSTORAGE
-      ${pkgs.util-linux}/bin/mount /dev/mapper/cryptstorage /mnt/HDD
+      sudo ${pkgs.systemd}/bin/systemd-cryptsetup attach cryptstorage /dev/disk/by-label/CRYPTSTORAGE
+      sudo ${pkgs.util-linux}/bin/mount /dev/mapper/cryptstorage /mnt/HDD
     }
     fn
   '';
   umount_cryptstorage = pkgs.writeShellScriptBin "umount_cryptstorage" ''
     fn() {
-      ${pkgs.util-linux}/bin/umount /mnt/HDD
-      ${pkgs.systemd}/bin/systemd-cryptsetup detach cryptstorage
+      sudo ${pkgs.util-linux}/bin/umount /mnt/HDD
+      sudo ${pkgs.systemd}/bin/systemd-cryptsetup detach cryptstorage
     }
     fn
   '';

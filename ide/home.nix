@@ -2,6 +2,7 @@
   config,
   cfg,
   pkgs,
+  pkgs-unstable,
   lib,
   inputs,
   ...
@@ -15,6 +16,9 @@
       }
     )
   ];
+
+  # Force default editor to neovim
+  home.sessionVariables.EDITOR = lib.mkForce "nvim";
 
   home.file = {
     # Notifications
@@ -45,6 +49,7 @@
   };
 
   home.packages = with pkgs; [
+    pkgs-unstable.neovim
     ## Lsp lint/formatting tools
     tree-sitter
     # Node LSP servers
