@@ -39,6 +39,11 @@ in
       programs.firefox = {
         enable = true;
         policies = {
+          package = pkgs.firefox.override {
+            cfg = {
+              enableTridactylNative = true;
+            };
+          };
           DisableFirefoxStudies = true;
           EnableTrackingProtection = {
             Value = true;

@@ -55,6 +55,7 @@ in {
     # Builders
     gnumake
     cmake
+    bintools
 
     # Js utils
     jo
