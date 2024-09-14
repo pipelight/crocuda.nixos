@@ -14,6 +14,8 @@
 
     ###################################
     ## Crocuda dependencies
+    nixos-cli.url = "github:water-sucks/nixos";
+
     # NixOs tidy and dependencies
     nixos-tidy = {
       url = "github:pipelight/nixos-tidy";
@@ -27,16 +29,13 @@
     # NUR - Nix User Repository
     nur = {
       url = "github:nix-community/NUR";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     # Utils
     flake-utils = {
       url = "github:numtide/flake-utils";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     impermanence = {
       url = "github:nix-community/impermanence";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     # Flakes
     arkenfox = {
@@ -55,6 +54,23 @@
       url = "github:pipelight/virshle";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    ###################################
+    # WM - Window manager
+    yofi = {
+      url = "github:l4l/yofi";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hyprland = {
+      type = "git";
+      url = "https://github.com/hyprwm/Hyprland";
+      submodules = true;
+      ref = "refs/tags/v0.42.0";
+    };
+    hyprscroller = {
+      url = "github:dawsers/hyprscroller";
+      inputs.hyprland.follows = "hyprland";
+    };
+    ###################################
     # LLM
     # ollama.url = "github:havaker/ollama-nix";
     # Torrent
@@ -70,11 +86,6 @@
     };
     # radicle-interface.url = "git+https://seed.radicle.garden/z4V1sjrXqjvFdnCUbxPFqd5p4DtH5";
     # rust-overlay.url = "github:oxalica/rust-overlay";
-    # WM - Window manager
-    yofi = {
-      url = "github:l4l/yofi";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = {

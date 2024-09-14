@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  pkgs-unstable,
   lib,
   utils,
   inputs,
@@ -13,7 +14,7 @@ in
       # Import home file
       home-merger = {
         enable = true;
-        extraSpecialArgs = {inherit cfg pkgs inputs;};
+        extraSpecialArgs = {inherit cfg pkgs pkgs-unstable inputs;};
         users = cfg.users;
         modules = [
           ./home.nix
@@ -22,7 +23,7 @@ in
 
       programs.hyprland = {
         enable = true;
-        # xwayland.enable = true;
+        xwayland.enable = true;
       };
 
       environment.systemPackages = with pkgs; [

@@ -30,6 +30,7 @@
     # NvChad
     ".config/nvim/lua".source = dotfiles/nvchad_next/lua;
     ".config/nvim/init.lua".source = dotfiles/nvchad_next/init.lua;
+
     # Lock plugin versions
     # :Lazy sync on first boot
     ".config/nvim/lazy-lock.json".source = dotfiles/nvchad_next/lazy-lock.json;
@@ -43,8 +44,8 @@
       mkMerge [
         (mkIf (cfg.keyboard.layout == "colemak-dh") "nvim")
         # (mkIf (cfg.keyboard.layout == "colemak-dh") "nvchad-colemak-dh")
-        # (mkIf (cfg.keyboard.layout == "azerty") "nvchad-azerty")
-        # (mkIf (cfg.keyboard.layout == "azerty") "nvchad-qwerty")
+        (mkIf (cfg.keyboard.layout == "azerty") "nvchad-azerty")
+        (mkIf (cfg.keyboard.layout == "qwerty") "nvchad-qwerty")
       ];
   };
 
@@ -74,6 +75,7 @@
     # Toml and friends
     taplo
     # Yaml
+    yaml-language-server
     yamllint
     stylelint
     # Hcl
@@ -87,7 +89,7 @@
     python3Packages.python-lsp-server
     ruff
     black
-    # Zip
+    # Zig
     zls
     # Sql
     sqls

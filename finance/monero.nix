@@ -27,9 +27,12 @@ in
         monero-gui
       ];
 
+      systemd.tmpfiles.rules = [
+        "d /mnt/HDD/monero 755 monero monero - -"
+      ];
       users.users.monero = {
-        isNormalUser = true;
         home = "/mnt/HDD/monero";
+        isNormalUser = true;
       };
 
       environment.etc = {
@@ -40,10 +43,14 @@ in
 
       # Run monero node
       systemd.services."monerod" = {
-        enable = false;
+        enable = true;
         after = ["network.target"];
         serviceConfig = {
-          ExecStart = "${pkgs.monero-cli}/bin/monerod --config-file ~/monero/monero.conf";
+          ExecStart = ''
+            ${pkgs.monero-cli}/bin/monerod \
+              --config-file /etc/monero/monerod.conf \
+              --non-interactive
+          '';
           User = "monero";
           Group = "users";
           Type = "simple";
@@ -55,10 +62,14 @@ in
       };
 
       systemd.services."monerod-testnet" = {
-        enable = false;
+        enable = true;
         after = ["network.target"];
         serviceConfig = {
-          ExecStart = "${pkgs.monero-cli}/bin/monerod --config-file ~/monero/monero.testnet.conf";
+          ExecStart = ''
+            ${pkgs.monero-cli}/bin/monerod \
+            --config-file /etc/monero/monerod.testnet.conf \
+            --non-interactive
+          '';
           User = "monero";
           Group = "users";
           Type = "simple";
@@ -71,7 +82,7 @@ in
 
       # Mine monero (validation node)
       services.xmrig = {
-        enable = false;
+        enable = true;
         settings = {
           autosave = true;
           cpu = true;

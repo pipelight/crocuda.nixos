@@ -2,6 +2,7 @@
   config,
   cfg,
   pkgs,
+  pkgs-unstable,
   lib,
   inputs,
   ...
@@ -11,46 +12,59 @@
     convert $1 -colorspace gray $1.gray.jpeg
   '';
 in {
+  ## Plugins
+  wayland.windowManager.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+    # package = pkgs-unstable.hyprland;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    plugins = [
+      # pkgs.hyprlandPlugins.hyprscroller
+      inputs.hyprscroller.packages.${pkgs.system}.default
+    ];
+    extraConfig = lib.readFile dotfiles/hypr/hyprland.conf;
+  };
+
   home.packages = with pkgs; [
     # Yofi and dependencies
     inputs.yofi.packages.${system}.default
-    #libnotify
-    #fontconfig
+
+    # Font support
+    libnotify
+    fontconfig
 
     # Wallpapers
     convert_to_grayscale
     swww
-
     # toolbars
     eww
-
     # utils
     wev
-
     # notifications
     dunst
   ];
+
   home.file = {
     ## Hyprland specific
     # Utils functions
-    # ".config/hypr".source = dotfiles/hypr;
     ".config/hypr/utils".source = dotfiles/hypr/utils;
+
+    # Keyindings
+    ".config/hypr/binds".source = dotfiles/hypr/binds;
+
     ".config/hypr/rules.conf".source = dotfiles/hypr/rules.conf;
     ".config/hypr/theme.conf".source = dotfiles/hypr/theme.conf;
-    ".config/hypr/hyprland.conf".source = dotfiles/hypr/hyprland.conf;
-
-    # Keyboard layouts
-    ".config/hypr/binds.conf".source = with lib;
-      mkMerge [
-        (mkIf (cfg.keyboard.layout == "colemak-dh") dotfiles/hypr/binds/colemak.conf)
-        (mkIf (cfg.keyboard.layout == "azerty") dotfiles/hypr/binds/azerty.conf)
-        (mkIf (cfg.keyboard.layout == "qwerty") dotfiles/hypr/binds/qwerty.conf)
-      ];
-
-    ".config/wpaperd/wallpaper.toml".source = dotfiles/wpaperd/wallpaper.toml;
+    # ".config/hypr/hyprland.conf".source = dotfiles/hypr/hyprland.conf;
 
     # Widgets
     ".config/eww".source = dotfiles/eww;
     ".config/yofi".source = dotfiles/yofi;
   };
+
+  # Default keybindings
+  systemd.user.tmpfiles.rules = with lib; let
+    mode = "niri"; #or bspwm
+  in [
+    "L+ %h/.config/hypr/binds.default.conf - - - - %h/.config/hypr/binds/${cfg.keyboard.layout}.${mode}.conf"
+  ];
 }

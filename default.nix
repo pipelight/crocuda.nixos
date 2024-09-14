@@ -20,16 +20,19 @@ with lib; {
 
     # Set the keyboard layout
     keyboard.layout = mkOption {
-      # type = with types; listOf str;
-      type = with types; str;
+      type = with types; enum ["colemak-dh" "qwerty" "azerty"];
       description = ''
-        The name of the user for whome to add this module.
+        The default hyprland keybindings
       '';
-      default = ["anon"];
+      default = "colemak-dh";
     };
 
     yubikey.enable = mkEnableOption ''
       Toggle the module
+    '';
+
+    logs.enable = mkEnableOption ''
+      Toggle rsyslog and logrotate
     '';
 
     cicd.enable = mkEnableOption ''
@@ -201,6 +204,16 @@ with lib; {
           '';
         };
       };
+      wownero = {
+        enable = mkEnableOption ''
+          Run local monero node
+        '';
+        mining = {
+          enable = mkEnableOption ''
+            Toggle monero mining
+          '';
+        };
+      };
       darkfi = {
         enable = mkEnableOption ''
           Run local darkfi node
@@ -226,10 +239,10 @@ with lib; {
   imports = [
     inputs.lix-module.nixosModules.default
 
-    inputs.impermanence.nixosModules.impermanence
-
     inputs.nixos-tidy.nixosModules.home-merger # replaces home-manager import
     inputs.nixos-tidy.nixosModules.allow-unfree
+
+    inputs.impermanence.nixosModules.impermanence
 
     inputs.jucenit.nixosModules.jucenit
 

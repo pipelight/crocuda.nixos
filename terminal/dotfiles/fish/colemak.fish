@@ -83,7 +83,7 @@ function fish_vi_key_bindings --description 'vi-like key bindings for fish'
     ## Keybindings
     # Default mode
     set -l init_mode insert
-
+    
     # Default (command) mode
     bind -s --preset :q exit
     bind -s --preset -m insert \cc cancel-commandline repaint-mode
@@ -267,7 +267,6 @@ function fish_vi_key_bindings --description 'vi-like key bindings for fish'
     # bind -s --preset p yank
     # bind -s --preset P yank
     # bind -s --preset gp yank-pop
-
 
     #
     # Lowercase r, enters replace_one mode

@@ -7,6 +7,7 @@
 }: {
   imports = [
     ./monero.nix
+    ./wownero.nix
     ./darkfi.nix
   ];
 }

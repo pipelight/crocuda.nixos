@@ -17,11 +17,10 @@
 
   programs.firefox = {
     enable = true;
-    package = pkgs.firefox.override {
-      cfg = {
-        enableTridactylNative = true;
-      };
-    };
+
+    # native tridactyl support
+    nativeMessagingHosts = [pkgs.tridactyl-native];
+
     ## Enable arkenfox user.js
     arkenfox = {
       enable = true;

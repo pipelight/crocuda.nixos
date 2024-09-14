@@ -12,6 +12,7 @@ in {
     # Add single top level NUR for other modules
     # inputs.nur.nixosModules.nur
     ./users.nix
+    ./logs.nix
     ./yubikey.nix
   ];
 
@@ -43,7 +44,11 @@ in {
   security.polkit.enable = true;
 
   environment.systemPackages = with pkgs; [
-    # doas
+    # Nixos easy cli
+    inputs.nixos-cli.packages.${system}.default
+
+    #doas
+
     # Versioning
     git
     util-linux

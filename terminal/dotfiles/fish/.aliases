@@ -29,6 +29,7 @@ alias speed="speedtest-go"
 alias p="pipelight"
 alias v="virshle"
 
+alias cl="clear -x; tput cup (math round $LINES*2/3)"
 
 # Terminal multiplexer
 # fish function
