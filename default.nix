@@ -74,9 +74,9 @@ with lib; {
     };
 
     llm = {
-      oatmeal = {
+      ollama = {
         enable = mkEnableOption ''
-          Toggle the module
+          Toggle the ollama
         '';
       };
     };

@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  pkgs-unstable,
   lib,
   utils,
   inputs,
@@ -9,49 +10,31 @@
   cfg = config.crocuda;
 in
   with lib;
-    mkIf cfg.llm.oatmeal.enable {
-      nixpkgs.overlays = [
-        # (
-        #   final: prev: {
-        #     ollamagpu = pkgs.ollama.override {
-        #       llama-cpp = pkgs.llama-cpp.override {
-        #         cudaSupport = true;
-        #         # openblasSupport = false;
-        #       };
-        #     };
-        #   }
-        # )
-      ];
+    mkIf cfg.llm.ollama.enable {
+      # openblasSupport = false;
       environment.systemPackages = with pkgs; [
         cachix
-        # ollamagpu
-        ollama
-        #cudatoolkit
-        #cudatoolkit_11
+        # pkgs-unstable.ollama
+        cudatoolkit
         freeglut
         # Python dependencies managment
         poetry
-        config.nur.repos.dustinblackman.oatmeal
       ];
 
-      users.users."llm" = {
-        isNormalUser = true;
-        home = "/home/llm";
+      environment.variables = {
+        OLLAMA_LLM_LIBRARY = "cuda_v12";
+      };
+      services.ollama = {
+        package = pkgs.ollama;
+        enable = true;
+        acceleration = "cuda";
+        # loadModels = ["mistral"];
+        environmentVariables = {
+          OLLAMA_LLM_LIBRARY = "cuda_v12";
+        };
       };
 
-      systemd.services."ollama" = {
-        enable = true;
-        after = ["network.target"];
-        description = "Ollama service";
-        documentation = ["https://github.com/jmorganca/ollama"];
-        serviceConfig = {
-          User = "llm";
-          Group = "users";
-          WorkingDirectory = "~";
-          ExecStart = ''
-            ${pkgs.ollama}/bin/ollama serve
-          '';
-        };
-        wantedBy = ["multi-user.target"];
+      environment.sessionVariables = {
+        OLLAMA_API_KEY = "";
       };
     }

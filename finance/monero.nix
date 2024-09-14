@@ -28,7 +28,7 @@ in
       ];
 
       systemd.tmpfiles.rules = [
-        "d /mnt/HDD/monero 755 monero monero - -"
+        "d /mnt/HDD/monero 755 monero users - -"
       ];
       users.users.monero = {
         home = "/mnt/HDD/monero";

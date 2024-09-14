@@ -28,12 +28,12 @@
     ".config/zellij".source = dotfiles/zellij;
 
     # NvChad
-    ".config/nvim/lua".source = dotfiles/nvchad_next/lua;
-    ".config/nvim/init.lua".source = dotfiles/nvchad_next/init.lua;
+    ".config/nvim/lua".source = dotfiles/nvchad/lua;
+    ".config/nvim/init.lua".source = dotfiles/nvchad/init.lua;
 
     # Lock plugin versions
     # :Lazy sync on first boot
-    ".config/nvim/lazy-lock.json".source = dotfiles/nvchad_next/lazy-lock.json;
+    # ".config/nvim/lazy-lock.json".source = dotfiles/nvchad/lazy-lock.json;
 
     # Vim colemak conf
     ".vimrc".source = dotfiles/.vimrc;

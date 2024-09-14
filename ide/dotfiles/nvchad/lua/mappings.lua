@@ -13,11 +13,11 @@ map("n", "<C-q>", "<cmd> q <CR>", { desc = "File quit if saved" })
 --
 
 -- switch between windows
-map("n", "<C-m>", "<C-w>h", { desc = "Move to window left" })
-map("n", "<C-n>", "<C-w>j", { desc = "Move to window down" })
-map("n", "<C-e>", "<C-w>k", { desc = "Move to window up" })
-map("n", "<C-i>", "<C-w>l", { desc = "Move to window right" })
-map("n", "<C-x>", "<C-w>x", { desc = "Swap with next window" })
+map("n", "<C-m>", "<C-w>h", { desc = "Go to window left" })
+map("n", "<C-n>", "<C-w>j", { desc = "Go to window down" })
+map("n", "<C-e>", "<C-w>k", { desc = "Go to window up" })
+map("n", "<C-i>", "<C-w>l", { desc = "Go to window right" })
+map("n", "<C-x>", "<C-w>x", { desc = "Go swap with next window" })
 nomap("n", "<C-h>")
 nomap("n", "<C-j>")
 nomap("n", "<C-k>")
@@ -35,7 +35,7 @@ map("v", "<PageDown>", "<cmd>call smoothie#do('25<C-d>z.')<cr>", { desc = "Motio
 map("n", "<PageDown>", "<cmd>call smoothie#do('25<C-d>z.')<cr>", { desc = "Motions page down (smooth)" })
 map("i", "<PageDown>", "<cmd>call smoothie#do('25<C-d>z.')<cr>", { desc = "Motions page down (smooth)" })
 
-map("n", "m", "h", { desc = "rotions move left" })
+map("n", "m", "h", { desc = "Motions move left" })
 map("v", "m", "h", { desc = "Motions move left" })
 
 -- map("n", "n", "1<C-d>", { desc = "Motions move down" })
@@ -61,8 +61,12 @@ map("n", "vn", "vj", { desc = "Motions select" })
 
 -- find
 
-map("n", "f", "n", { desc = "Motions go to next occurance" })
-map("n", "F", "N", { desc = "Motions go to previous occurance" })
+map("n", "h", "n", { desc = "Motions go to next occurance" })
+map("n", "H", "N", { desc = "Motions go to previous occurance" })
+
+-- ident
+map("v", "<", "<gv", { desc = "Move indent block to left" })
+map("v", ">", ">gv", { desc = "Move indent block to right" })
 
 -- Lsp
 --

@@ -33,8 +33,9 @@ local servers = {
   -- Python
   "pylsp",
 
+  --- Moved down below
   -- Rust
-  "rust_analyzer",
+  -- "rust_analyzer",
 
   -- Zig
   "zls",
@@ -54,6 +55,23 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
+
+lspconfig.rust_analyzer.setup {
+  settings = {
+    -- Autoreload cargo at start for better completion -> avoid typing ":CargoReload" every time
+    -- https://github.com/rust-lang/rust-analyzer/blob/master/docs/user/generated_config.adoc
+    ["rust-analyzer.rust-analyzer.workspace.discoverConfig"] = {
+      ["command"] = {
+        "rust-project",
+        "develop-json",
+      },
+      ["progressLabel"] = "rust-analyzer",
+      ["filesToWatch"] = {
+        "BUCK",
+      },
+    },
+  },
+}
 
 -- Diagnostic styling
 --

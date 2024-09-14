@@ -27,7 +27,6 @@ return {
     end,
     lazy = false,
   },
-
   {
     "numToStr/Comment.nvim",
     config = function()
@@ -35,6 +34,8 @@ return {
     end,
     lazy = false,
   },
+  { "echasnovski/mini.ai", version = false },
+  { "ggandor/leap.nvim", lazy = false },
 
   -- Tests
   --
