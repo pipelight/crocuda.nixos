@@ -68,11 +68,11 @@ return {
         close = {
           enable = false,
         },
-        cursor = {
-          enable = false,
-        },
         scroll = {
           enable = false,
+        },
+        cursor = {
+          enable = true,
         },
         resize = {
           enable = true,
