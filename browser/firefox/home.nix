@@ -11,8 +11,11 @@
 
   home.file = {
     # ".config/keepassxc/keepassxc.ini".source = dotfiles/keepassxc/keepassxc.ini;
+
     # Desktop entry for firefox_i2p
     ".local/share/applications/firefox_i2p.desktop".source = dotfiles/firefox_i2p.desktop;
+
+    ".config/tridactyl".source = dotfiles/tridactyl;
   };
 
   programs.firefox = {

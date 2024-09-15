@@ -58,7 +58,7 @@ return {
   },
   {
     "echasnovski/mini.animate",
-    lazy = true,
+    lazy = false,
     config = function()
       local animate = require "mini.animate"
       require("mini.animate").setup {
@@ -84,6 +84,7 @@ return {
   },
   {
     "brenoprata10/nvim-highlight-colors",
+    lazy = true,
     config = function()
       vim.opt.termguicolors = true
       require("nvim-highlight-colors").setup {
@@ -103,7 +104,6 @@ return {
         enable_tailwind = false,
       }
     end,
-    lazy = true,
   },
   -------------------------------
   -- Non optimal setup
@@ -113,6 +113,7 @@ return {
   -- },
   {
     "nvim-focus/focus.nvim",
+    lazy = true,
     config = function()
       local ignore_filetypes = { "nvim-tree", "neo-tree", "NvimTree_" }
       local ignore_buftypes = { "nofile", "prompt", "popup", "NvimTree_", "fish;#toggleterm#" }
@@ -155,6 +156,5 @@ return {
         },
       }
     end,
-    lazy = true,
   },
 }

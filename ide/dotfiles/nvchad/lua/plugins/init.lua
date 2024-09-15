@@ -35,7 +35,13 @@ return {
     lazy = false,
   },
   { "echasnovski/mini.ai", version = false },
-  { "ggandor/leap.nvim", lazy = false },
+  {
+    "ggandor/leap.nvim",
+    lazy = false,
+    config = function()
+      require("leap").create_default_mappings()
+    end,
+  },
 
   -- Tests
   --

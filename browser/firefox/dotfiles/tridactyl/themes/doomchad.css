@@ -1,0 +1,326 @@
+/* Colors */
+:root {
+  --base00: #282c34;
+  --base01: #32363e;
+  --base02: #3c4048;
+  --base03: #4e525a;
+  --base04: #5a5e66;
+  --base05: #a7aebb;
+  --base06: #b3bac7;
+  --base07: #bbc2cf;
+  --base08: #ff6c6b;
+  --base09: #ea9558;
+  --base0A: #ecbe7b;
+  --base0B: #98be65;
+  --base0C: #66c4ff;
+  --base0D: #dc8ef3;
+  --base0E: #48a6e6;
+  --base0F: #c85a50;
+
+  --tridactyl-fg: var(--base05);
+  --tridactyl-bg: var(--base00);
+  --tridactyl-url-fg: var(--base08);
+  --tridactyl-url-bg: var(--base00);
+  --tridactyl-highlight-box-bg: var(--base0B);
+  --tridactyl-highlight-box-fg: var(--base00);
+
+  /* Hint character tags */
+  --tridactyl-hintspan-fg: var(--base00) !important;
+  --tridactyl-hintspan-bg: var(--base0B) !important;
+
+  /* Element Highlights */
+  --tridactyl-hint-active-fg: none;
+  --tridactyl-hint-active-bg: none;
+  --tridactyl-hint-active-outline: none;
+  --tridactyl-hint-bg: none;
+  --tridactyl-hint-outline: none;
+
+  --tridactyl-cmdl-font-size: 11px;
+  --tridactyl-cmdl-bg: var(--base00);
+  --tridactyl-cmdl-font-weight: 700;
+}
+
+/* INPUT */
+#command-line-holder {
+  background: var(--tridactyl-cmdl-bg);
+  color: var(--tridactyl-cmdl-fg);
+  font-family: var(--tridactyl-cmdl-font-family);
+  font-size: var(--tridactyl-cmdl-font-size);
+  font-weight: var(--tridactyl-cmdl-font-weight);
+  /* reduce the padding added by the colon so that the command line shows up roughly where it used to be */
+  padding-left: 0.125ex;
+}
+
+#tridactyl-input {
+  width: 97%;
+  font-family: var(--tridactyl-cmdl-font-family);
+  font-size: inherit;
+  font-weight: var(--tridactyl-cmdl-font-weight);
+  line-height: var(--tridactyl-cmdl-line-height);
+  color: var(--tridactyl-cmdl-fg);
+  background: var(--tridactyl-cmdl-bg);
+  border: unset;
+  /* reduce the padding from the colon */
+  /* margin-left: -0.25ex; */
+  /* we currently have a border from the completions */
+  /* border-top: solid 1px lightgray; */
+}
+input:focus {
+  outline: none;
+}
+
+#tridactyl-colon::before {
+  content: ":";
+}
+
+/* COMPLETIONS */
+
+#completions {
+  --option-height: var(--tridactyl-cmplt-option-height);
+  color: var(--tridactyl-cmplt-fg);
+  background: var(--tridactyl-cmplt-bg);
+  display: inline-block;
+  font-size: var(--tridactyl-cmdl-font-size);
+  font-family: var(--tridactyl-cmplt-font-family);
+  overflow: hidden;
+  width: 100%;
+  border-top: var(--tridactyl-cmplt-border-top);
+}
+
+#completions .sectionHeader {
+  visibility: hidden;
+}
+
+/* Olie doesn't know how CSS inheritance works */
+#completions > div {
+  max-height: calc(20 * var(--option-height));
+  min-height: calc(10 * var(--option-height));
+}
+
+#completions > div > table {
+  width: 100%;
+  font-size: var(--tridactyl-cmdl-font-size);
+  font-weight: 700;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+
+#completions table tr td.prefix {
+  width: 3.2em;
+  padding-left: 0.5em;
+  text-align: center;
+}
+#completions table tr td.container,
+#completions table tr td.icon,
+#completions table tr td.privatewindow {
+  width: 1.5em;
+}
+#completions table tr td.tabcount {
+  width: 6em;
+}
+#completions table tr td.tgroup {
+  width: 10em;
+  padding-left: 0.5em;
+  text-align: right;
+}
+#completions table tr td.tgroup:empty {
+  display: none;
+}
+/* #completions table tr td:nth-of-type(3) { width: 5em; } */
+#completions table tr td.content {
+  width: 50%;
+}
+
+/* Accroding to src/completions/TabHistory.ts formatTimeSpan,
+ * max-width should be 14 characters (14ex), 20ex for more tolorance. */
+#completions table tr td.time {
+  width: 20ex;
+  text-align: right;
+  padding-right: 2ex;
+}
+
+#completions table tr td.excmd {
+  width: 40ex;
+}
+
+#completions table tr {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+#completions table tr td {
+  overflow: hidden;
+}
+
+#completions img {
+  display: inline;
+  vertical-align: middle;
+  height: 1em;
+  width: 1em;
+}
+
+#completions .option {
+  height: var(--option-height);
+  line-height: var(--option-height);
+}
+
+.url {
+  text-decoration: var(--tridactyl-url-text-decoration);
+}
+
+.option:not(.focused) .url {
+  color: var(--tridactyl-url-fg);
+  background: var(--tridactyl-url-bg);
+}
+
+a.url:hover {
+  cursor: var(--tridactyl-url-cursor);
+  text-decoration: underline;
+}
+
+/* Hide the URLs if the screen is small */
+@media all and (max-width: 500px) {
+  .url {
+    display: none;
+  }
+}
+
+.FindCompletionOption .match {
+  font-weight: bold;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Pick the .url out especially because otherwise its link styles dominate. */
+.focused,
+.focused .url {
+  color: var(--tridactyl-of-fg);
+  background: var(--tridactyl-of-bg);
+}
+
+.option.incognito .privatewindow {
+  background-image: var(--tridactyl-private-window-icon-url);
+}
+
+/* Still completions, but container-related stuff */
+.option .container {
+  mask-size: 1em;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+.option .privatewindow {
+  background-size: 1em;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.option.container_blue .container {
+  background-color: var(--tridactyl-container-color-blue);
+}
+.option.container_turquoise .container {
+  background-color: var(--tridactyl-container-color-turquoise);
+}
+.option.container_green .container {
+  background-color: var(--tridactyl-container-color-green);
+}
+.option.container_yellow .container {
+  background-color: var(--tridactyl-container-color-yellow);
+}
+.option.container_orange .container {
+  background-color: var(--tridactyl-container-color-orange);
+}
+.option.container_red .container {
+  background-color: var(--tridactyl-container-color-red);
+}
+.option.container_pink .container {
+  background-color: var(--tridactyl-container-color-pink);
+}
+.option.container_purple .container {
+  background-color: var(--tridactyl-container-color-purple);
+}
+.option.container_fingerprint .container {
+  mask-image: var(--tridactyl-container-fingerprint-url);
+}
+.option.container_briefcase .container {
+  mask-image: var(--tridactyl-container-briefcase-url);
+}
+.option.container_dollar .container {
+  mask-image: var(--tridactyl-container-dollar-url);
+}
+.option.container_cart .container {
+  mask-image: var(--tridactyl-container-cart-url);
+}
+.option.container_circle .container {
+  mask-image: var(--tridactyl-container-circle-url);
+}
+.option.container_gift .container {
+  mask-image: var(--tridactyl-container-gift-url);
+}
+.option.container_vacation .container {
+  mask-image: var(--tridactyl-container-vacation-url);
+}
+.option.container_food .container {
+  mask-image: var(--tridactyl-container-food-url);
+}
+.option.container_fruit .container {
+  mask-image: var(--tridactyl-container-fruit-url);
+}
+.option.container_pet .container {
+  mask-image: var(--tridactyl-container-pet-url);
+}
+.option.container_tree .container {
+  mask-image: var(--tridactyl-container-tree-url);
+}
+.option.container_chill .container {
+  mask-image: var(--tridactyl-container-chill-url);
+}
+
+.ExcmdCompletionOption td.excmd {
+  padding-left: 0.5em;
+  width: 20%;
+}
+
+.ExcmdCompletionOption td.documentation {
+  width: 100%;
+}
+
+.SettingsCompletionOption td.title {
+  padding-left: 0.5em;
+}
+
+#completions .SettingsCompletionOption td.title,
+#completions .SettingsCompletionOption td.content,
+#completions .SettingsCompletionOption td.type {
+  width: 15%;
+  text-overflow: ellipsis;
+}
+
+#completions .TabGroupCompletionOption td.title {
+  width: 15%;
+}
+
+#completions .TabGroupCompletionOption td.content {
+  width: auto;
+}
+
+.HelpCompletionOption td.name {
+  width: 25%;
+}
+
+#completions .SessionCompletionOption td.type {
+  width: 1ch !important;
+  padding: 0px 3pt;
+}
+
+#completions .SessionCompletionOption td.time {
+  width: 5ch !important;
+  padding: 0px 3pt;
+  text-align: right;
+}
+
+#completions .WindowCompletionOption td.id {
+  width: 6ch !important;
+  text-align: right;
+  padding: 0px 8pt;
+}
