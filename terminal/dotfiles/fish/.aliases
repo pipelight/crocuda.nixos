@@ -31,6 +31,11 @@ alias v="virshle"
 
 alias cl="clear -x; tput cup (math round $LINES*2/3)"
 
+# Ai shortcut
+function hey;
+  mods -f "$argv"
+end
+
 # Terminal multiplexer
 # fish function
 function ze;

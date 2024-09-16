@@ -72,7 +72,7 @@ return {
           enable = false,
         },
         cursor = {
-          enable = true,
+          enable = false,
         },
         resize = {
           enable = true,

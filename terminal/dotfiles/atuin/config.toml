@@ -1,2 +1,9 @@
+# Display options
 inline_height = 10
 prefers_reduced_motion = true
+
+# Do not store failed commands
+# store_failed = true
+
+# Ignore AI prompts
+history_filter = ["hey"]

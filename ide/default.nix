@@ -35,8 +35,5 @@ in
         # Text editor (IDE)
         vim
         pkgs-unstable.neovim
-        # charmbracelet / Charm.sh
-        # glow
-        # mods
       ];
     }

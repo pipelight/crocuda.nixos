@@ -114,7 +114,7 @@
           "My NixOS" = {
             urls = [{template = "https://mynixos.com/search?q={searchTerms}";}];
             icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-            definedAliases = ["@mynix"];
+            definedAliases = ["@nixm"];
           };
 
           "NixOS Wiki" = {
@@ -154,6 +154,8 @@
         id = 1;
 
         settings = {
+          "dom.security.https_only_mode" = lib.mkForce false;
+
           "media.peerconnection.ice.proxy_only" = true;
           "network.proxy.type" = 1;
           "network.proxy.http" = "127.0.0.1";

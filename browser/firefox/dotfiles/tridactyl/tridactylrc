@@ -14,7 +14,6 @@ bind n scrollline 5
 bind e scrollline -5
 bind d tabduplicate
 
-
 unbind <m>
 bind <m> tabprev
 unbind <i>

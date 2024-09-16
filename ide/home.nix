@@ -1,10 +1,8 @@
 {
-  config,
   cfg,
   pkgs,
   pkgs-unstable,
   lib,
-  inputs,
   ...
 }: {
   # LSP support

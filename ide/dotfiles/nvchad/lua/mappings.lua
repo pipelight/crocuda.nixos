@@ -68,6 +68,10 @@ map("n", "H", "N", { desc = "Motions go to previous occurance" })
 map("v", "<", "<gv", { desc = "Move indent block to left" })
 map("v", ">", ">gv", { desc = "Move indent block to right" })
 
+-- Leap.nvim
+map("n", "s", "<Plug>(leap-forward)", { desc = "Leap forwoard" })
+map("n", "S", "<Plug>(leap-backward)", { desc = "Leap backward" })
+
 -- Lsp
 --
 map("n", "gD", lsp.buf.declaration, { desc = "Lsp go to in file declaration" })

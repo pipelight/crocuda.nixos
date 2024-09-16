@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  pkgs-unstable,
   lib,
   utils,
   inputs,
@@ -11,6 +10,16 @@
 in
   with lib;
     mkIf cfg.llm.ollama.enable {
+      # Import home files
+      home-merger = {
+        enable = true;
+        extraSpecialArgs = {inherit cfg;};
+        users = cfg.users;
+        modules = [
+          ./home.nix
+        ];
+      };
+
       # openblasSupport = false;
       environment.systemPackages = with pkgs; [
         cachix
@@ -21,9 +30,6 @@ in
         poetry
       ];
 
-      environment.variables = {
-        OLLAMA_LLM_LIBRARY = "cuda_v12";
-      };
       services.ollama = {
         package = pkgs.ollama;
         enable = true;
@@ -36,5 +42,8 @@ in
 
       environment.sessionVariables = {
         OLLAMA_API_KEY = "";
+      };
+      environment.variables = {
+        OLLAMA_LLM_LIBRARY = "cuda_v12";
       };
     }
