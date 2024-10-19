@@ -17,5 +17,6 @@ api.nvim_set_option("clipboard", "unnamedplus")
 -- Detect dns bindzone file "*.zone"
 --
 vim.cmd "au BufNewFile,BufRead *.zone		setf bindzone"
+vim.cmd "au BufNewFile,BufRead *.rcl		setf rcl"
 -- vim.cmd "au FileType bindzone   setl cms=;%s"
 -- vim.cmd "au FileType bindzone   setl commentstring=;%s"

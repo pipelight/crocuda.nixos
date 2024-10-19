@@ -27,16 +27,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # NUR - Nix User Repository
-    nur = {
-      url = "github:nix-community/NUR";
-    };
+    nur.url = "github:nix-community/NUR";
     # Utils
-    flake-utils = {
-      url = "github:numtide/flake-utils";
-    };
-    impermanence = {
-      url = "github:nix-community/impermanence";
-    };
+    flake-utils.url = "github:numtide/flake-utils";
+    impermanence.url = "github:nix-community/impermanence";
+
     # Flakes
     arkenfox = {
       url = "github:dwarfmaster/arkenfox-nixos";
@@ -68,6 +63,10 @@
     };
     hyprscroller = {
       url = "github:dawsers/hyprscroller";
+      inputs.hyprland.follows = "hyprland";
+    };
+    hyprfocus = {
+      url = "github:pyt0xic/hyprfocus";
       inputs.hyprland.follows = "hyprland";
     };
     ###################################

@@ -18,10 +18,17 @@ map("n", "<C-n>", "<C-w>j", { desc = "Go to window down" })
 map("n", "<C-e>", "<C-w>k", { desc = "Go to window up" })
 map("n", "<C-i>", "<C-w>l", { desc = "Go to window right" })
 map("n", "<C-x>", "<C-w>x", { desc = "Go swap with next window" })
+
 nomap("n", "<C-h>")
 nomap("n", "<C-j>")
 nomap("n", "<C-k>")
 nomap("n", "<C-l>")
+
+-- resize
+-- nomap("n", "<leader>m")
+-- map("n", "<leader>m", "10<C-w><", { desc = "Size decrease window width" })
+-- nomap("n", "<leader>i")
+-- map("n", "<leader>i", "10<C-w>>", { desc = "Size increase window width" })
 
 -- terminal
 nomap("n", "<leader>h")
@@ -60,7 +67,6 @@ map("n", "vi", "vl", { desc = "Motions select" })
 map("n", "vn", "vj", { desc = "Motions select" })
 
 -- find
-
 map("n", "h", "n", { desc = "Motions go to next occurance" })
 map("n", "H", "N", { desc = "Motions go to previous occurance" })
 
@@ -68,19 +74,25 @@ map("n", "H", "N", { desc = "Motions go to previous occurance" })
 map("v", "<", "<gv", { desc = "Move indent block to left" })
 map("v", ">", ">gv", { desc = "Move indent block to right" })
 
--- Leap.nvim
-map("n", "s", "<Plug>(leap-forward)", { desc = "Leap forwoard" })
-map("n", "S", "<Plug>(leap-backward)", { desc = "Leap backward" })
+-- Jump
+--
+map("n", "<S-Tab>", "<C-i>", { desc = "Go swap with next jump" })
+map("n", "<Tab>", "<C-o>", { desc = "Go swap with previous in jump" })
+map("n", "<C-o>", "")
+
+-- flash.nvim
+map("n", "s", function()
+  require("flash").jump()
+end, { desc = "Jump to pattern" })
 
 -- Lsp
 --
 map("n", "gD", lsp.buf.declaration, { desc = "Lsp go to in file declaration" })
 map("n", "gd", lsp.buf.definition, { desc = "Lsp go to definition" })
+map("n", "gu", lsp.buf.code_action, { desc = "Lsp go to code action" })
 map("n", "gi", lsp.buf.implementation)
 map("n", "<leader>D", lsp.buf.type_definition)
 map("n", "gr", lsp.buf.references)
-map("n", "<leader>ca", lsp.buf.code_action)
-map("v", "<leader>ca", lsp.buf.code_action)
 
 -- Comment
 map("n", "<leader>/", function()
@@ -93,7 +105,7 @@ map(
   { desc = "Comment toggle" }
 )
 
--- Toggle
+-- File tree
 --
 map("n", "<C-h>", "<cmd> NvimTreeToggle <CR>", { desc = "Toggle nvimtree" })
 

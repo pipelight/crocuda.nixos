@@ -60,8 +60,8 @@
     # nodePackages.eslint
     nodePackages.jsonlint
     nodePackages.vue-language-server
-    # nodePackages.vscode-css-languageserver-bin
-    nodePackages.vscode-langservers-extracted
+    nodePackages.vscode-css-languageserver-bin
+    # nodePackages.vscode-langservers-extracted
     nodePackages."@tailwindcss/language-server"
     # Lua
     lua-language-server

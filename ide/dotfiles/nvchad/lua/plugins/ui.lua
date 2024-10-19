@@ -113,12 +113,37 @@ return {
   -- },
   {
     "nvim-focus/focus.nvim",
-    lazy = true,
+    lazy = false,
     config = function()
-      local ignore_filetypes = { "nvim-tree", "neo-tree", "NvimTree_" }
-      local ignore_buftypes = { "nofile", "prompt", "popup", "NvimTree_", "fish;#toggleterm#" }
+      local ignore_filetypes = {
+        "nvim-tree",
+        "neo-tree",
+        "NvimTree_",
+        -- "toggleterm"
+      }
+      local ignore_buftypes = {
+        "nofile",
+        "prompt",
+        "popup",
+        "NvimTree_",
+        -- "terminal",
+      }
 
       local augroup = vim.api.nvim_create_augroup("FocusDisable", { clear = true })
+
+      -- Not working yet
+      --
+      -- vim.api.nvim_create_autocmd({ "VimResized" }, {
+      --   group = augroup,
+      --   callback = function(_)
+      --     if vim.tbl_contains(ignore_buftypes, vim.bo.buftype) then
+      --       --
+      --     else
+      --       vim.cmd "<C-w>="
+      --     end
+      --   end,
+      --   desc = "Resize panes/splits on window resize",
+      -- })
 
       vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter", "VimEnter" }, {
         group = augroup,

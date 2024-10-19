@@ -14,7 +14,7 @@ in
       # Import home file
       home-merger = {
         enable = true;
-        extraSpecialArgs = {inherit cfg pkgs pkgs-unstable inputs;};
+        extraSpecialArgs = {inherit cfg pkgs inputs;};
         users = cfg.users;
         modules = [
           ./home.nix

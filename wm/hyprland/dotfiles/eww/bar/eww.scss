@@ -1,6 +1,6 @@
 /** Global ********************************************/
-*{
-	all: unset;
+* {
+  all: unset;
 }
 
 /** Bar ********************************************/
@@ -23,15 +23,16 @@
 .active_window {
   color: #f4f4f4;
 }
+
 /** Workspaces ********************************************/
-.workspaces {
-}
+
 .workspace {
   &.focused {
-    color: #ff51ff;
+    color: #57ab5a;
   }
+
   &.active {
-    color: #0BACAB;
+    color: #f47067;
   }
 }
 
@@ -41,46 +42,63 @@
 }
 
 /** System ********************************************/
-.iconcpu, .iconmem, .iconbright, .iconbat {
-	font-size : 11px;
-	font-weight : normal;
-}
-.iconcpu {
-	color: #BF616A;
-}
-.iconmem {
-	color: #A3BE8C;
-}
-.iconbright {
-	color: #EBCB8B;
-}
+.iconcpu,
+.iconmem,
+.iconbright,
 .iconbat {
-	color: #88C0D0;
+  font-size: 11px;
+  font-weight: normal;
 }
 
-.cpu_bar, .mem_bar, .bright_bar, .bat_bar, scale trough {
-	all: unset;
-	background-color: #646464;
-	border-radius: 30px;
-	min-height: 8px;
-	min-width: 240px;
+.iconcpu {
+  color: #BF616A;
 }
 
-.cpu_bar, .mem_bar, .bright_bar, .bat_bar, scale trough highlight {
-	all: unset;
-	border-radius: 30px;
+.iconmem {
+  color: #A3BE8C;
+}
+
+.iconbright {
+  color: #EBCB8B;
+}
+
+.iconbat {
+  color: #88C0D0;
+}
+
+.cpu_bar,
+.mem_bar,
+.bright_bar,
+.bat_bar,
+scale trough {
+  all: unset;
+  background-color: #646464;
+  border-radius: 30px;
+  min-height: 8px;
+  min-width: 240px;
+}
+
+.cpu_bar,
+.mem_bar,
+.bright_bar,
+.bat_bar,
+scale trough highlight {
+  all: unset;
+  border-radius: 30px;
 }
 
 .cpu_bar scale trough highlight {
-	background-color: #BF616A;
-}
-.mem_bar scale trough highlight {
-	background-color: #A3BE8C;
-}
-.bright_bar scale trough highlight {
-	background-color: #EBCB8B;
-}
-.bat_bar scale trough highlight {
-	background-color: #88C0D0;
+  background-color: #BF616A;
 }
 
+.mem_bar scale trough highlight {
+  background-color: #A3BE8C;
+}
+
+.bright_bar scale trough highlight {
+  background-color: #EBCB8B;
+}
+
+.bat_bar scale trough highlight {
+  background-color: #88C0D0;
+}

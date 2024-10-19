@@ -1,8 +1,6 @@
 {
-  config,
   cfg,
   pkgs,
-  pkgs-unstable,
   lib,
   inputs,
   ...
@@ -19,8 +17,8 @@ in {
     # package = pkgs-unstable.hyprland;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     plugins = [
-      # pkgs.hyprlandPlugins.hyprscroller
       inputs.hyprscroller.packages.${pkgs.system}.default
+      inputs.hyprfocus.packages.${pkgs.system}.default
     ];
     extraConfig = lib.readFile dotfiles/hypr/hyprland.conf;
   };

@@ -36,8 +36,8 @@ return {
   },
   { "echasnovski/mini.ai", version = false },
   {
-    "ggandor/leap.nvim",
-    lazy = false,
+    "folke/flash.nvim",
+    event = "VeryLazy",
   },
 
   -- Tests
@@ -75,16 +75,6 @@ return {
     end,
     lazy = false,
   },
-  {
-    "ThePrimeagen/harpoon",
-    branch = "harpoon2",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    config = function()
-      require "configs.harpoon"
-    end,
-    lazy = false,
-  },
-
   -- {
   -- 	"williamboman/mason.nvim",
   -- 	opts = {

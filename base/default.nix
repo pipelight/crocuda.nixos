@@ -61,6 +61,7 @@ in {
     gnumake
     cmake
     bintools
+    # clang
 
     # Js utils
     jo

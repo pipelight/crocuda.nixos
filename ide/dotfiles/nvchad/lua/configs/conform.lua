@@ -18,6 +18,7 @@ local options = {
     nix = { "alejandra" },
     zig = { "zigfmt" },
     hcl = { "hclfmt" },
+    sql = { "sqlfluff" },
   },
 
   format_on_save = {
