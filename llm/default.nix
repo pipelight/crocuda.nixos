@@ -19,10 +19,13 @@ in
           ./home.nix
         ];
       };
+
       allow-unfree = [
         # AI
         "lib.*"
         "cuda.*"
+        # Nvidia
+        "nvidia.*"
       ];
 
       # openblasSupport = false;
