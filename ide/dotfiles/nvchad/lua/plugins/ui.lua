@@ -113,7 +113,7 @@ return {
   -- },
   {
     "nvim-focus/focus.nvim",
-    lazy = false,
+    lazy = true,
     config = function()
       local ignore_filetypes = {
         "nvim-tree",

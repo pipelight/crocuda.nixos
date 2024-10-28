@@ -35,6 +35,9 @@ alias cl="clear -x; tput cup (math round $LINES*2/3)"
 function hey;
   mods -f "$argv"
 end
+function ho;
+  mods -m codestral -f "$argv"
+end
 
 # Terminal multiplexer
 # fish function

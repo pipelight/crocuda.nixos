@@ -1,4 +1,5 @@
 {
+  inputs,
   config,
   pkgs,
   lib,
@@ -17,11 +18,13 @@ in
         bluetooth.members = users;
       };
 
-      ##########################
-      ## Tcp/ip
-
       services.resolved.enable = lib.mkForce false;
       networking = {
+        ## Replace legacy iptables with nftables
+        nftables = {
+          stopRuleset = lib.readFile ./dotfiles/default.nft;
+        };
+
         networkmanager = {
           enable = true;
           dns = "none";
@@ -103,6 +106,7 @@ in
 
       environment.systemPackages = with pkgs; [
         # Networking
+        nftables
         dhcpcd
         speedtest-go
 

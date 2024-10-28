@@ -244,12 +244,16 @@ with lib; {
 
     inputs.impermanence.nixosModules.impermanence
 
+    # Network
+    inputs.nnf.nixosModules.default
+
     inputs.jucenit.nixosModules.jucenit
 
     # Add single top level import of NUR (Nixos User repository)
     # for nixosModules usage
     # and for inner hmModules usage
     inputs.nur.nixosModules.nur
+
     (
       {
         config,

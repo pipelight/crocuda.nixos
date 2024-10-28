@@ -1,5 +1,5 @@
 # Default model (gpt-3.5-turbo, gpt-4, ggml-gpt4all-j...).
-default-model: dolphin-mixtral
+default-model: dolphin-mistral
 # Text to append when using the -f flag.
 format-text:
   markdown: "Format the response as markdown without enclosing backticks."
@@ -7,7 +7,12 @@ format-text:
 # List of predefined system messages that can be used as roles.
 roles:
   "default": []
-  "linux": ["you are a linux expert", "you output responses under 150 words"]
+  "linux":
+    [
+      "you are a linux expert",
+      "you explain commands in short sentences",
+      "you output responses under 100 words",
+    ]
 
 # Ask for the response to be formatted as markdown unless otherwise set.
 format: true
@@ -32,9 +37,9 @@ include-prompt: 0
 # Maximum number of times to retry API calls.
 max-retries: 5
 # Your desired level of fanciness.
-fanciness: 10
+fanciness: 15
 # Text to show while generating.
-status-text: Generating
+status-text: Thinking
 # Default character limit on input to model.
 max-input-chars: 2048
 # Maximum number of tokens in response.
@@ -46,17 +51,14 @@ apis:
     api-key:
     api-key-env: OLLAMA_API_KEY
     models:
-      dolphin-mixtral:
+      dolphin-mistral:
         aliases: ["dmix"]
-        max-input-chars: 2048
-        fallback: mixtral
-      mixtral:
-        aliases: ["mix"]
         max-input-chars: 2048
         fallback: mistral
       mistral:
         aliases: ["mis"]
         max-input-chars: 2048
-      llama3.2:
-        aliases: ["llama"]
+      codestral:
+        aliases: ["cmis"]
         max-input-chars: 2048
+        fallback: dolphin-mistral

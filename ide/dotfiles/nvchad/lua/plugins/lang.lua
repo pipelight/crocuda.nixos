@@ -11,6 +11,10 @@ return {
     "jvirtanen/vim-hcl",
     lazy = true,
   },
+  {
+    "nfnty/vim-nftables",
+    lazy = false,
+  },
   -- {
   --   "https://github.com/apple/pkl-neovim",
   --   lazy = true,
