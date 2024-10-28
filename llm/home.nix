@@ -12,9 +12,4 @@
     mods
     glow
   ];
-  allow-unfree = [
-    # AI
-    "lib.*"
-    "cuda.*"
-  ];
 }

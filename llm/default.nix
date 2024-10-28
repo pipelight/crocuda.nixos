@@ -19,6 +19,11 @@ in
           ./home.nix
         ];
       };
+      allow-unfree = [
+        # AI
+        "lib.*"
+        "cuda.*"
+      ];
 
       # openblasSupport = false;
       environment.systemPackages = with pkgs; [
