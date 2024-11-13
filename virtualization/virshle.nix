@@ -76,7 +76,7 @@ in
             Restart = "on-failure";
             Environment = [
               "HOME=/var/run/openvswitch"
-              "OVS_SYSCONFDIR=/var/run/openvswitch"
+              "OVS_SYSCONFDIR=/var/run"
               "PATH=$PATH:${lib.makeBinPath [pkgs.gawk pkgs.coreutils pkgs.gnused pkgs.libuuid]}"
             ];
             EnvironmentFile = "-/etc/default/openvswitch-switch";
@@ -133,7 +133,7 @@ in
             LimitNOFILE = 1048576;
             Type = "forking";
             Restart = "on-failure";
-            Environment = ["HOME=/var/run/openvswitch" "OVS_SYSCONFDIR=/var/run/openvswitch"];
+            Environment = ["HOME=/var/run/openvswitch" "OVS_SYSCONFDIR=/var/run"];
             # EnvironmentFile = "-/etc/default/openvswitch-switch";
             ExecStart = ''
               ${pkgs-unstable.openvswitch-dpdk}/share/openvswitch/scripts/ovs-ctl \
@@ -175,7 +175,7 @@ in
           serviceConfig = {
             Type = "forking";
             PIDFile = "/run/openvswitch/ovs-monitor-ipsec.pid";
-            Environment = ["HOME=/var/run/openvswitch" "OVS_SYSCONFDIR=/var/run/openvswitch"];
+            Environment = ["HOME=/var/run/openvswitch" "OVS_SYSCONFDIR=/var/run"];
             ExecStart = ''
               ${pkgs-unstable.openvswitch-dpdk}/share/openvswitch/scripts/ovs-ctl \
                   --ike-daemon=strongswan \
@@ -202,7 +202,7 @@ in
           requiredBy = ["openvswitch-switch.service"];
           serviceConfig = {
             Type = "oneshot";
-            Environment = ["HOME=/var/run/openvswitch" "OVS_SYSCONFDIR=/var/run/openvswitch"];
+            Environment = ["HOME=/var/run/openvswitch" "OVS_SYSCONFDIR=/var/run"];
             ExecStart = ''
               ${pkgs-unstable.openvswitch-dpdk}/share/openvswitch/scripts/ovs-ctl \
                 record-hostname-if-not-set
