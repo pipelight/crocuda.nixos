@@ -17,6 +17,9 @@ in
         # Make them by hand if maddy unit fails
         "d '/run/maddy' 774 maddy users - -"
         "Z '/run/maddy' 774 maddy users - -"
+        # Symlink to nginx-unit certs
+        "L+ /etc/maddy/certs - - - - /var/spool/unit/certs"
+        "Z '/etc/letsencrypt' 754 root users - -"
       ];
 
       environment.etc = {
@@ -26,7 +29,7 @@ in
       systemd.services = {
         # maddy-ensure-accounts.enable = lib.mkForce false;
         maddy-jucenit-proxy = {
-          enable = true;
+          enable = false;
           after = ["maddy.service" "unit.service"];
           wantedBy = ["multi-user.target"];
           serviceConfig = {
@@ -60,14 +63,27 @@ in
       services.maddy = {
         group = "users";
         enable = true;
-        config = builtins.readFile ./dotfiles/maddy.conf;
-        openFirewall = false;
+
+        hostname = primaryDomain;
+        localDomains = domains;
         inherit primaryDomain;
-        ensureAccounts =
-          [
-            "anon@${primaryDomain}"
-          ]
-          ++ accounts;
+
+        openFirewall = false;
+        ensureAccounts = accounts;
+        config = builtins.readFile ./dotfiles/maddy.conf;
+        tls = {
+          loader = "file";
+          certificates = [
+            {
+              certPath = "/etc/letsencrypt/live/crocuda.com/fullchain.pem";
+              keyPath = "/etc/letsencrypt/live/crocuda.com/privkey.pem";
+            }
+            {
+              certPath = "/etc/letsencrypt/live/areskul.com/fullchain.pem";
+              keyPath = "/etc/letsencrypt/live/areskul.com/privkey.pem";
+            }
+          ];
+        };
       };
 
       # Autodiscovery services

@@ -20,6 +20,8 @@ in
         # Wallet
         # exodus
 
+        # Exchange
+
         # Mining
         xmrig
         p2pool

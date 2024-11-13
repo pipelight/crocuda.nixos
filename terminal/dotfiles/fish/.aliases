@@ -8,8 +8,8 @@ alias gitu='git add . && git commit && git push'
 
 alias lls='eza -aalgh'
 alias ll='eza -lgh'
-alias tree='eza --tree -lh -L 2'
-alias treee='eza --tree -lh'
+alias tree='eza --tree -algh -L 2'
+alias treee='eza --tree -algh'
 
 alias off="sudo shutdown -h now"
 alias sus="sudo systemctl suspend"

@@ -6,7 +6,7 @@ listeners = ["*:587"]
 [unit.match]
 hosts = ["example.com"]
 [unit.action]
-proxy = "http://127.0.0.1:10587"
+# proxy = "http://127.0.0.1:10587"
 
 # Imap
 [[unit]]
@@ -15,7 +15,7 @@ listeners = ["*:993"]
 [unit.match]
 hosts = ["example.com"]
 [unit.action]
-proxy = "http://127.0.0.1:10993"
+# proxy = "http://127.0.0.1:10993"
 
 # Autoconfig
 [[unit]]

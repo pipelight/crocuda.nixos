@@ -9,6 +9,7 @@
   imports = [
     ./docker.nix
     ./libvirt.nix
+    ./virshle.nix
     ./init.nix
   ];
 }

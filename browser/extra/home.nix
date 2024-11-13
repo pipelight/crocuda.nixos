@@ -1,13 +1,14 @@
 {
   config,
   pkgs,
+  pkgs-unstable,
   lib,
   inputs,
   ...
 }: {
   home.packages = with pkgs; [
     # Torrent Gui
-    qbittorrent
+    pkgs-unstable.qbittorrent
 
     # Additional web browsers
     # GUI

@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  pkgs-unstable,
   lib,
   inputs,
   ...
@@ -25,15 +26,6 @@ in
         libvirt-glib
         unscd
 
-        # VMMs
-        cloud-hypervisor
-
-        # OVMF-cloud-hypervisor
-
-        # Build images based on flakes and local config
-        nixos-generators
-        disko
-        cdrkit
         # A VM deployment tool
         colmena
         # Virshle from the flake

@@ -10,10 +10,9 @@ in
     mkIf cfg.dns.enable {
       environment.systemPackages = with pkgs; [
         dig
-        ldns # provides "drill"
+        # ldns # provides "drill"
         unbound
         nsd
+        bind
       ];
-      environment.etc = {
-      };
     }

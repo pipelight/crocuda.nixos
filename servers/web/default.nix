@@ -9,7 +9,8 @@
 in {
   imports = [
     ./jucenit.nix
-    ./test.nix
+    ./ssl-test.nix
+    ./sozu.nix
   ];
 
   environment.defaultPackages = with pkgs; [

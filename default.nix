@@ -92,6 +92,11 @@ with lib; {
           Toggle libvirt usage
         '';
       };
+      virshle = {
+        enable = mkEnableOption ''
+          Toggle virshle usage
+        '';
+      };
       docker = {
         enable = mkEnableOption ''
           Toggle docker usage
@@ -118,10 +123,13 @@ with lib; {
       };
       web = {
         pebble.enable = mkEnableOption ''
-          Pebble acme validation test suite.
+          Enable pebble, the acme validation test suite.
         '';
         jucenit.enable = mkEnableOption ''
-          Jucenit web server.
+          Enable jucenit web server.
+        '';
+        sozu.enable = mkEnableOption ''
+          Enable sozu proxy server.
         '';
       };
       ssh = {
@@ -283,6 +291,7 @@ with lib; {
 
     # Servers
     ./servers/default.nix
+
     ./cicd/default.nix
 
     # File Manager
