@@ -10,6 +10,11 @@
 in
   with lib;
     mkIf cfg.virtualization.virshle.enable {
+      # import = [
+      #   ./openvswitch.nix
+      # ];
+
+      boot.kernelModules = ["openvswitch"];
       environment.systemPackages = with pkgs; [
         # VMMs
         cloud-hypervisor
@@ -21,7 +26,7 @@ in
         cdrkit
 
         # Network
-        pkgs-unstable.openvswitch-dpdk
+        pkgs-unstable.openvswitch
       ];
 
       systemd.tmpfiles.rules = [
@@ -34,7 +39,7 @@ in
       systemd.services = let
         db-file = "/var/run/openvswitch/conf.db";
       in {
-        openvswitch-switch = {
+        openvswitch = {
           enable = true;
           description = "Open vSwitch";
 
@@ -50,7 +55,7 @@ in
           serviceConfig = {
             Type = "oneshot";
             ExecStart = "${pkgs.coreutils}/bin/true";
-            ExecReload = "${pkgs-unstable.openvswitch-dpdk}/share/openvswitch/scripts/ovs-systemd-reload";
+            ExecReload = "${pkgs-unstable.openvswitch}/share/openvswitch/scripts/ovs-systemd-reload";
             ExecStop = "${pkgs.coreutils}/bin/true";
             RemainAfterExit = "yes";
 
@@ -133,10 +138,15 @@ in
             LimitNOFILE = 1048576;
             Type = "forking";
             Restart = "on-failure";
-            Environment = ["HOME=/var/run/openvswitch" "OVS_SYSCONFDIR=/var/run"];
+            User = "root";
+            Environment = [
+              "HOME=/var/run/openvswitch"
+              "OVS_SYSCONFDIR=/var/run"
+              "PATH=$PATH:${lib.makeBinPath [pkgs.gawk pkgs.coreutils pkgs.gnused pkgs.libuuid]}"
+            ];
             # EnvironmentFile = "-/etc/default/openvswitch-switch";
             ExecStart = ''
-              ${pkgs-unstable.openvswitch-dpdk}/share/openvswitch/scripts/ovs-ctl \
+              ${pkgs-unstable.openvswitch}/share/openvswitch/scripts/ovs-ctl \
                 --no-ovsdb-server \
                 --no-monitor \
                 --system-id=random \
@@ -144,17 +154,17 @@ in
                 start $OVS_CTL_OPTS
             '';
             ExecStop = ''
-              ${pkgs-unstable.openvswitch-dpdk}/share/openvswitch/scripts/ovs-ctl \
+              ${pkgs-unstable.openvswitch}/share/openvswitch/scripts/ovs-ctl \
                 --no-ovsdb-server \
                 stop $OVS_CTL_OPTS
             '';
             ExecReload = ''
-              ${pkgs-unstable.openvswitch-dpdk}/share/openvswitch/scripts/ovs-ctl \
+              ${pkgs-unstable.openvswitch}/share/openvswitch/scripts/ovs-ctl \
                 --no-ovsdb-server \
                 --no-monitor \
                 --system-id=random \
                 --no-record-hostname \
-                restart $OVS_CTL_OPTS;
+                restart $OVS_CTL_OPTS
             '';
             TimeoutSec = 300;
 
@@ -165,7 +175,7 @@ in
         };
 
         ovs-ipsec = {
-          enable = true;
+          enable = false;
           description = "Open vSwitch IPsec daemon";
 
           requires = ["openvswitch-switch.service"];
@@ -175,14 +185,17 @@ in
           serviceConfig = {
             Type = "forking";
             PIDFile = "/run/openvswitch/ovs-monitor-ipsec.pid";
-            Environment = ["HOME=/var/run/openvswitch" "OVS_SYSCONFDIR=/var/run"];
+            Environment = [
+              "HOME=/var/run/openvswitch"
+              "OVS_SYSCONFDIR=/var/run"
+            ];
             ExecStart = ''
-              ${pkgs-unstable.openvswitch-dpdk}/share/openvswitch/scripts/ovs-ctl \
+              ${pkgs-unstable.openvswitch}/share/openvswitch/scripts/ovs-ctl \
                   --ike-daemon=strongswan \
                   start-ovs-ipsec
             '';
             ExecStop = ''
-              ${pkgs-unstable.openvswitch-dpdk}/share/openvswitch/scripts/ovs-ctl \
+              ${pkgs-unstable.openvswitch}/share/openvswitch/scripts/ovs-ctl \
                 stop-ovs-ipsec
             '';
 
@@ -202,14 +215,18 @@ in
           requiredBy = ["openvswitch-switch.service"];
           serviceConfig = {
             Type = "oneshot";
-            Environment = ["HOME=/var/run/openvswitch" "OVS_SYSCONFDIR=/var/run"];
+            Environment = with pkgs; [
+              "HOME=/var/run/openvswitch"
+              "OVS_SYSCONFDIR=/var/run"
+              "PATH=$PATH:${lib.makeBinPath [gawk coreutils gnused nettools]}"
+            ];
             ExecStart = ''
-              ${pkgs-unstable.openvswitch-dpdk}/share/openvswitch/scripts/ovs-ctl \
+              ${pkgs-unstable.openvswitch}/share/openvswitch/scripts/ovs-ctl \
                 record-hostname-if-not-set
             '';
             ExecStop = "${pkgs.coreutils}/bin/true";
             ExecReload = ''
-              ${pkgs-unstable.openvswitch-dpdk}/share/openvswitch/scripts/ovs-ctl \
+              ${pkgs-unstable.openvswitch}/share/openvswitch/scripts/ovs-ctl \
                 record-hostname-if-not-set
             '';
             TimeoutSec = 300;

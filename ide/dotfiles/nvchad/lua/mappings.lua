@@ -81,9 +81,9 @@ map("n", "<Tab>", "<C-o>", { desc = "Go swap with previous in jump" })
 map("n", "<C-o>", "")
 
 -- flash.nvim
-map("n", "s", function()
-  require("flash").jump()
-end, { desc = "Flash jump to pattern" })
+-- map("n", "s", function()
+--   require("flash").jump()
+-- end, { desc = "Flash jump to pattern" })
 -- remove unused flash mappings
 -- nomap("n", "f")
 -- nomap("n", "F")
