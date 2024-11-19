@@ -103,16 +103,6 @@ return {
     end,
     lazy = false,
   },
-  {
-    "stevearc/oil.nvim",
-    lazy = true,
-    ---@module 'oil'
-    ---@type oil.SetupOpts
-    opts = {},
-    -- Optional dependencies
-    dependencies = { { "echasnovski/mini.icons", opts = {} } },
-    -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
-  },
 
   -- {
   -- 	"williamboman/mason.nvim",

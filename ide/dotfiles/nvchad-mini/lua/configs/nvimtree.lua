@@ -7,10 +7,6 @@ M.open_nvim_tree = function(data)
   local api = require "nvim-tree.api"
   -- buffer is a directory
   local directory = vim.fn.isdirectory(data.file) == 1
-  -- if not directory then
-  -- end
-
-  vim.cmd.cd(data.file)
   api.tree.open()
 end
 vim.api.nvim_create_autocmd("VimEnter", { callback = M.open_nvim_tree })
@@ -84,8 +80,7 @@ end
 
 M.options = {
   on_attach = M.on_attach_colemak,
-
-  sync_root_with_cwd = true,
+  sync_root_with_cwd = false,
   update_focused_file = {
     enable = true,
     update_root = true,

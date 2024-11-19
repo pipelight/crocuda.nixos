@@ -28,6 +28,9 @@
     # NvChad
     ".config/nvim/lua".source = dotfiles/nvchad/lua;
     ".config/nvim/init.lua".source = dotfiles/nvchad/init.lua;
+    # NvChadMini
+    ".config/nvim-mini/lua".source = dotfiles/nvchad-mini/lua;
+    ".config/nvim-mini/init.lua".source = dotfiles/nvchad-mini/init.lua;
 
     # Lock plugin versions
     # :Lazy sync on first boot
@@ -60,7 +63,7 @@
     # nodePackages.eslint
     nodePackages.jsonlint
     nodePackages.vue-language-server
-    nodePackages.vscode-css-languageserver-bin
+    nodePackages.vscode-langservers-extracted
     # nodePackages.vscode-langservers-extracted
     nodePackages."@tailwindcss/language-server"
     # Lua

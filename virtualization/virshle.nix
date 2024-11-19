@@ -18,7 +18,6 @@ in
       environment.systemPackages = with pkgs; [
         # VMMs
         cloud-hypervisor
-        # OVMF-cloud-hypervisor
 
         # Build images based on flakes and local config
         nixos-generators
