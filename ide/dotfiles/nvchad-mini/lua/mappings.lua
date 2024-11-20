@@ -24,12 +24,6 @@ nomap("n", "<C-j>")
 nomap("n", "<C-k>")
 nomap("n", "<C-l>")
 
--- resize
--- nomap("n", "<leader>m")
--- map("n", "<leader>m", "10<C-w><", { desc = "Size decrease window width" })
--- nomap("n", "<leader>i")
--- map("n", "<leader>i", "10<C-w>>", { desc = "Size increase window width" })
-
 -- terminal
 nomap("n", "<leader>h")
 
@@ -79,15 +73,6 @@ map("v", ">", ">gv", { desc = "Move indent block to right" })
 map("n", "<S-Tab>", "<C-i>", { desc = "Go swap with next jump" })
 map("n", "<Tab>", "<C-o>", { desc = "Go swap with previous in jump" })
 map("n", "<C-o>", "")
-
--- Lsp
---
-map("n", "gD", lsp.buf.declaration, { desc = "Lsp go to in file declaration" })
-map("n", "gd", lsp.buf.definition, { desc = "Lsp go to definition" })
-map("n", "gu", lsp.buf.code_action, { desc = "Lsp go to code action" })
-map("n", "gi", lsp.buf.implementation)
-map("n", "<leader>D", lsp.buf.type_definition)
-map("n", "gr", lsp.buf.references)
 
 -- Comment
 map("n", "<leader>/", function()

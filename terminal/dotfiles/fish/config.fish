@@ -14,7 +14,6 @@ set -g fish_key_bindings fish_vi_key_bindings
 function fish_user_key_bindings
   # Rebind Ctrl-L
   ## Push prompt to bottom
-alias cl="clear -x; tput cup (math round $LINES*2/3)"
   bind --preset -M default \f 'clear -x; tput cup (math round "$LINES * 3/4") 0; commandline -f repaint-mode'
   bind --preset -M insert \f 'clear -x; tput cup (math round "$LINES * 3/4") 0; commandline -f repaint-mode'
 end
