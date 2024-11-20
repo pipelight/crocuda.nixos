@@ -7,6 +7,8 @@ local api = vim.api
 
 o.clipboard = "unnamed"
 o.clipboard = "unnamedplus"
+o.splitbelow = true
+o.splitright = true
 
 api.nvim_set_option("clipboard", "unnamed")
 api.nvim_set_option("clipboard", "unnamedplus")
