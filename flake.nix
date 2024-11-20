@@ -45,10 +45,10 @@
       url = "github:pipelight/pipelight?ref=dev";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    jucenit = {
-      url = "github:pipelight/jucenit?ref=dev";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # jucenit = {
+    #   url = "github:pipelight/jucenit?ref=dev";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     virshle = {
       url = "github:pipelight/virshle";
       inputs.nixpkgs.follows = "nixpkgs";

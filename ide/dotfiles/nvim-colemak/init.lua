@@ -1,5 +1,3 @@
-require "nvchad.mappings"
-
 local map = vim.keymap.set
 local nomap = vim.keymap.del
 local lsp = vim.lsp
@@ -34,13 +32,13 @@ nomap("n", "<C-l>")
 nomap("n", "<leader>h")
 
 -- fast file browsing
-map("n", "<PageUp>", "<cmd>call smoothie#do('25<C-u>z.')<cr>", { desc = "Motions page down (smooth)" })
-map("v", "<PageUp>", "<cmd>call smoothie#do('25<C-u>z.')<cr>", { desc = "Motions page down (smooth)" })
-map("i", "<PageUp>", "<cmd>call smoothie#do('25<C-u>z.')<cr>", { desc = "Motions page down (smooth)" })
+map("n", "<PageUp>", "25<C-u>z", { desc = "Motions page down" })
+map("v", "<PageUp>", "25<C-u>z.", { desc = "Motions page down" })
+map("i", "<PageUp>", "25<C-u>z.", { desc = "Motions page down" })
 
-map("v", "<PageDown>", "<cmd>call smoothie#do('25<C-d>z.')<cr>", { desc = "Motions page down (smooth)" })
-map("n", "<PageDown>", "<cmd>call smoothie#do('25<C-d>z.')<cr>", { desc = "Motions page down (smooth)" })
-map("i", "<PageDown>", "<cmd>call smoothie#do('25<C-d>z.')<cr>", { desc = "Motions page down (smooth)" })
+map("v", "<PageDown>", "25<C-d>z.", { desc = "Motions page down" })
+map("n", "<PageDown>", "25<C-d>z.", { desc = "Motions page down" })
+map("i", "<PageDown>", "25<C-d>z.", { desc = "Motions page down" })
 
 map("n", "m", "h", { desc = "Motions move left" })
 map("v", "m", "h", { desc = "Motions move left" })
@@ -79,35 +77,3 @@ map("v", ">", ">gv", { desc = "Move indent block to right" })
 map("n", "<S-Tab>", "<C-i>", { desc = "Go swap with next jump" })
 map("n", "<Tab>", "<C-o>", { desc = "Go swap with previous in jump" })
 map("n", "<C-o>", "")
-
--- Lsp
---
-map("n", "gD", lsp.buf.declaration, { desc = "Lsp go to in file declaration" })
-map("n", "gd", lsp.buf.definition, { desc = "Lsp go to definition" })
-map("n", "gu", lsp.buf.code_action, { desc = "Lsp go to code action" })
-map("n", "gi", lsp.buf.implementation)
-map("n", "<leader>D", lsp.buf.type_definition)
-map("n", "gr", lsp.buf.references)
-
--- Comment
-map("n", "<leader>/", function()
-  require("Comment.api").toggle.linewise.current()
-end, { desc = "Comment toggle" })
-map(
-  "v",
-  "<leader>/",
-  "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
-  { desc = "Comment toggle" }
-)
-
--- File tree
---
--- nvim-tree
-map("n", "<C-h>", "<cmd> NvimTreeToggle <CR>", { desc = "Toggle nvimtree" })
--- oil.nvim
-
--- Telescope
---
-map("n", "<C-f>", "<cmd>Telescope live_grep<CR>", { desc = "Telescope live grep" })
-map("n", "<leader>ff", "<cmd>Telescope find_files hidden=true<CR>", { desc = "Telescope find files" })
-nomap("n", "<leader>e")

@@ -17,6 +17,7 @@
 
   # Force default editor to neovim
   home.sessionVariables.EDITOR = lib.mkForce "nvim";
+  home.sessionVariables.MANPAGER = lib.mkForce "NVIM_APPNAME=nvim-mini nvim +Man!";
 
   home.file = {
     # Notifications

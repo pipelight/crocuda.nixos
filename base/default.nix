@@ -57,6 +57,7 @@ in {
     # Query
     curl
     wget
+    rsync
     # Builders
     gnumake
     cmake

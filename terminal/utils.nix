@@ -12,8 +12,11 @@
     atuin
     zoxide
     ripgrep
-    tldr
+
+    # Mini man pages
     cheat
+    tealdeer
+
     expect
 
     # File convertion
