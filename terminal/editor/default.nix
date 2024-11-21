@@ -9,7 +9,7 @@
   cfg = config.crocuda;
 in
   with lib;
-    mkIf cfg.terminal.editors.enable {
+    mkIf cfg.terminal.editors.neovim.enable {
       # Import home files
       home-merger = {
         enable = true;
@@ -32,8 +32,9 @@ in
 
       # Add essential developer packages
       environment.systemPackages = with pkgs; [
-        # Text editor (IDE)
+        # Minimal text editor
         vim
+        # neovim as IDE
         pkgs-unstable.neovim
       ];
     }

@@ -13,6 +13,8 @@ in {
     ./dns/default.nix
     ./mail/default.nix
     ./social/default.nix
+    ./privacy/default.nix
+    ./logs.nix
   ];
 
   ################################

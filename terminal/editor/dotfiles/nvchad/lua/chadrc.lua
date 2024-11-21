@@ -9,9 +9,10 @@ M.ui = {
   cmp = {
     icons = false,
   },
-  statusline = {
-    modules = {},
-  },
+  -- statusline = {
+  --   modules = {
+  --   },
+  -- },
   tabufline = {
     enabled = true,
     lazyload = false,

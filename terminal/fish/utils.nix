@@ -26,9 +26,14 @@
     fastfetch
     onefetch
 
-    # CICD
-    just
-    gnumake
+    # A terminal based chat application plugable with
+    # ircd and darkirc
+    weechat
+
+    # Js utils
+    jo
+    jq
+    yq-go
 
     ## Fish Shell dependencies
     starship
@@ -38,9 +43,24 @@
     grc
     bat
 
+    # Nixos doc
+    manix
+
     # Dotenv, environment autoload
     nix-direnv
     nix-index
+
+    # base commands
+    eza
+
+    # Archive
+    unzip
+
+    # Process management
+    # btop
+    htop
+
+    nushell
   ];
 
   programs = {

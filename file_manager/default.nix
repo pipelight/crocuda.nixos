@@ -30,13 +30,6 @@ in
       environment.systemPackages = with pkgs; [
         unrar
         du-dust
-
-        # Mount android phones
-        adbfs-rootless
-        jmtpfs
-        glib
-
-        usbutils
       ];
 
       services.udisks2.enable = true; #stable
@@ -52,12 +45,4 @@ in
         btrfs_defaults=compress=zstd
         ntfs_defaults=uid=$UID,gid=$GID
       '';
-
-      ################################
-      ### Phones
-      ## Automount Google devices
-
-      services.udev.packages = with pkgs; [
-        android-udev-rules
-      ];
     }

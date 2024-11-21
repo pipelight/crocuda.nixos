@@ -12,8 +12,6 @@ in {
     # Add single top level NUR for other modules
     # inputs.nur.nixosModules.nur
     ./users.nix
-    ./logs.nix
-    ./yubikey.nix
   ];
 
   # User specific
@@ -52,21 +50,17 @@ in {
     # Versioning
     git
     util-linux
-    sqlite
-    usql
+
     # Query
     curl
     wget
+
+    #File management
     rsync
+
     # Builders
     gnumake
     cmake
     bintools
-    # clang
-
-    # Js utils
-    jo
-    jq
-    yq-go
   ];
 }

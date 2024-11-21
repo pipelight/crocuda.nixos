@@ -43,6 +43,9 @@ in {
   ];
 
   home.file = {
+    # Notifications
+    ".config/dunst/dunstrc".source = dotfiles/dunstrc;
+
     ## Hyprland specific
     # Utils functions
     ".config/hypr/utils".source = dotfiles/hypr/utils;

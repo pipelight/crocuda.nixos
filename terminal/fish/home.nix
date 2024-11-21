@@ -10,9 +10,11 @@
     ".config/pacman/makepkg.conf".source = dotfiles/pacman/makepkg.conf;
     # Shell aliases
     ".aliases".source = dotfiles/fish/.aliases;
+
     # Nushell
     ".config/nushell/config.nu".source = dotfiles/nushell/config.nu;
     ".config/nushell/env.nu".source = dotfiles/nushell/env.nu;
+
     # Fish
     ".config/fish/colemak.fish".source = dotfiles/fish/colemak.fish;
     ".config/fish/extra_config.fish".source = dotfiles/fish/config.fish;

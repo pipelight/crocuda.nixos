@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  pkgs-unstable,
   lib,
   inputs,
   ...
@@ -10,12 +9,14 @@
     # Torrent Gui
     pkgs-unstable.qbittorrent
 
-    # Additional web browsers
+    ## Additional web browsers
     # GUI
     # qutebrowser
+    # tor-browser
+
     # TUI
     # browsh-vim
-    lynx
-    ddgr
+    # lynx
+    # ddgr
   ];
 }

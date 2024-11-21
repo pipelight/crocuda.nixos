@@ -34,7 +34,6 @@ in
         # Tool to easily create volumes(qcow)
         libguestfs
         guestfs-tools
-        deno
       ];
 
       systemd.tmpfiles.rules = let

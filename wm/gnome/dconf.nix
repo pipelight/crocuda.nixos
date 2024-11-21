@@ -18,9 +18,4 @@
       night-light-enabled = true;
     };
   };
-
-  home.packages = with pkgs; [
-    lutris
-    bottles
-  ];
 }

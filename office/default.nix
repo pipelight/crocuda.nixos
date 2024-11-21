@@ -6,17 +6,18 @@
   ...
 }: let
   cfg = config.crocuda;
-in
-  with lib;
-    mkIf cfg.chat.enable {
-  # Allow bottom tier apps
-  allow-unfree = [
-    "discord"
+in {
+  imports = [
+    ./printer.nix
+    ./yubikey.nix
+    ./stream/default.nix
+    ./gaming/default.nix
+    ./draw/default.nix
+    ./chat/default.nix
   ];
-  # User specific
+
   home-merger = {
     enable = true;
-    extraSpecialArgs = {inherit pkgs;};
     users = cfg.users;
     modules = [
       ./home.nix

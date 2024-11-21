@@ -8,10 +8,6 @@
   home.packages = with pkgs; [
     # Media player
     vlc
-    # Image manipulation tools
-    gimp
-    imagemagick
-    ghostscript
 
     # Video manipulation tools
     ffmpeg

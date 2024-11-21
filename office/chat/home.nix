@@ -9,9 +9,6 @@
     # Mail client
     thunderbird-bin
 
-    # A terminal based chat application plugable with
-    # ircd and darkirc
-    weechat
     # Messaging apps
     session-desktop
     signal-desktop

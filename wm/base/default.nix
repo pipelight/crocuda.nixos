@@ -9,23 +9,12 @@
 in
   with lib;
     mkIf cfg.wm.hyprland.enable {
-      # User specific
-      home-merger = {
-        enable = true;
-        extraSpecialArgs = {inherit pkgs;};
-        users = cfg.users;
-        modules = [
-          ./home.nix
-        ];
-      };
-
-      ## Video /Sound
       programs.light.enable = true;
-      # Disable old software
-      # sound.enable = false;
-      hardware.pulseaudio.enable = false;
-      # Enable new software
+
       security.rtkit.enable = true;
+
+      ## Sound
+      hardware.pulseaudio.enable = false;
       services.pipewire = {
         enable = true;
         alsa.enable = true;

@@ -14,7 +14,7 @@ in
         extraSpecialArgs = {inherit inputs;};
         users = cfg.users;
         modules = [
-          ./home.nix
+          # ./home.nix
         ];
       };
       environment.systemPackages = with pkgs; [
@@ -26,4 +26,8 @@ in
         # Secret managment
         novops
       ];
+      environment.sessionVariables = {
+        # Cpu friendly cargo build jobs
+        CARGO_BUILD_JOBS = "10";
+      };
     }

@@ -9,6 +9,11 @@
 in
   with lib;
     mkIf cfg.servers.web.sozu.enable {
+      environment.systemPackages = [
+        # Tcp proxy written in Rust
+        sozu
+      ];
+
       # Systemd unit template adapted from sozu doc/recipe.md
       systemd.services."sozu" = {
         description = "Sozu - A HTTP reverse proxy, configurable at runtime, fast and safe, built in Rust.";

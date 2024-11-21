@@ -1,10 +1,7 @@
 {
   config,
-  pkgs,
-  pkgs-unstable,
   lib,
   utils,
-  inputs,
   ...
 }:
 with lib; {
@@ -27,18 +24,8 @@ with lib; {
       default = "colemak-dh";
     };
 
-    yubikey.enable = mkEnableOption ''
-      Toggle the module
-    '';
-
-    logs.enable = mkEnableOption ''
-      Toggle rsyslog and logrotate
-    '';
-
-    cicd.enable = mkEnableOption ''
-      Enable lightweight cicd tools
-    '';
-
+    #########################
+    ## Network and connectivity
     network = {
       privacy.enable = mkEnableOption ''
         Enable ipv6 privacy features, quad9 dns.
@@ -47,44 +34,68 @@ with lib; {
         Enable ipv6 privacy features, quad9 dns.
       '';
     };
-
     # Set editors with the specified keyboard layout
     terminal = {
-      emulators.enable = mkEnableOption ''
+      emulator.kitty.enable = mkEnableOption ''
         Toggle the module
       '';
-      editors.enable = mkEnableOption ''
-        Toggle the module
-      '';
+      editor = {
+        neovim.enable = mkEnableOption ''
+          Install base neovim with the specified keyboard layout
+        '';
+        nvchad.enable = mkEnableOption ''
+          Install lightweight nvchad(neovim) with the specified keyboard layout
+        '';
+        nvchad-ide.enable = mkEnableOption ''
+          Install nvchad(neovim) with the specified keyboard layout
+          and complete ide extensions
+        '';
+      };
       # Set shell with the specified keyboard layout
       shell = {
         utils.enable = mkEnableOption ''
-          add fast find command and utils
+          Add command line utils for fast navigation and comfort
         '';
         fish.enable = mkEnableOption ''
           Toggle the module
         '';
       };
+      cicd.enable = mkEnableOption ''
+        Enable lightweight cicd tools
+      '';
       file_manager.enable = mkEnableOption ''
         Toggle the module
       '';
       torrent.enable = mkEnableOption ''
         Toggle the module
       '';
-    };
-
-    llm = {
-      ollama = {
-        enable = mkEnableOption ''
-          Toggle the ollama
-        '';
+      ##########################
+      ## The AI crap
+      llm = {
+        ollama = {
+          enable = mkEnableOption ''
+            Toggle the ollama server
+          '';
+        };
       };
     };
 
+    #########################
+    ## Virtualization
     virtualization = {
-      init = {
+      cloud-hypervisor = {
         enable = mkEnableOption ''
-          Toggle pipelight as cloud init replacement
+          Install cloud-hypervisor (VMM)
+        '';
+      };
+      openvswitch = {
+        enable = mkEnableOption ''
+          Install openvswitch network manager
+        '';
+      };
+      virshle = {
+        enable = mkEnableOption ''
+          Install virshle hypervisor as libvirt replacement
         '';
       };
       libvirt = {
@@ -92,24 +103,25 @@ with lib; {
           Toggle libvirt usage
         '';
       };
-      virshle = {
-        enable = mkEnableOption ''
-          Toggle virshle usage
-        '';
-      };
       docker = {
         enable = mkEnableOption ''
-          Toggle docker usage
+          Enable docker containerisation engine
+        '';
+      };
+      cloud-init = {
+        enable = mkEnableOption ''
+          Enable pipelight as cloud-init replacement
         '';
       };
     };
-    chat = {
-      enable = mkEnableOption ''
-        Toggle libvirt usage
-      '';
-    };
 
-    servers = {
+    #########################
+    ## Severs
+    ## Polished one liner server configs
+    server = {
+      logs.enable = mkEnableOption ''
+        Toggle rsyslog and logrotate
+      '';
       social = {
         mastodon.enable = mkEnableOption ''
           Enable mastodon with bird Ui.
@@ -122,15 +134,26 @@ with lib; {
         '';
       };
       web = {
-        pebble.enable = mkEnableOption ''
-          Enable pebble, the acme validation test suite.
-        '';
+        # Deprecated
         jucenit.enable = mkEnableOption ''
-          Enable jucenit web server.
+          Enable jucenit web engine.
         '';
         sozu.enable = mkEnableOption ''
           Enable sozu proxy server.
         '';
+        pebble.enable = mkEnableOption ''
+          Enable pebble, the acme validation test suite.
+        '';
+        i2p = {
+          enable = mkEnableOption ''
+            Run an i2pd node and create appropriate firefox profile.
+          '';
+        };
+        tor = {
+          enable = mkEnableOption ''
+            Run  the module
+          '';
+        };
       };
       ssh = {
         enable = mkEnableOption ''
@@ -165,11 +188,13 @@ with lib; {
             Run a git radicle instance module
           '';
         };
+        # Deprecated
         soft = {
           enable = mkEnableOption ''
             Toggle the module
           '';
         };
+        # Deprecated
         charm = {
           enable = mkEnableOption ''
             Toggle the module
@@ -178,29 +203,68 @@ with lib; {
       };
     };
 
-    browser = {
-      firefox = {
+    #########################
+    ## Window manager
+    # Heavily customed hypr
+    wm = {
+      hyprland.enable = mkEnableOption ''
+        Toggle the hyprland window manager
+      '';
+      gnome.enable = mkEnableOption ''
+        Toggle gnome desktop environment
+      '';
+    };
+
+    #########################
+    ## Office
+    # The desktop stuffs that you usualy don't want in a vm
+    office = {
+      enable = mkEnableOption ''
+        Enable small office utilities
+      '';
+      printers.enable = mkEnableOption ''
+        Enable printers and scanners
+      '';
+      draw.enable = mkEnableOption ''
+        Enable printers and scanners
+      '';
+      video-editing.enable = mkEnableOption ''
+        Enable printers and scanners
+      '';
+      stream.enable = mkEnableOption ''
+        Toggle streaming module
+      '';
+      gaming.enable = mkEnableOption ''
+        Enable some emulators
+      '';
+      yubikey.enable = mkEnableOption ''
+        Toggle the module
+      '';
+      chat = {
         enable = mkEnableOption ''
-          Toggle the module
+          Toggle libvirt usage
         '';
       };
-      searxng = {
-        enable = mkEnableOption ''
-          Toggle the module
-        '';
-      };
-      i2p = {
-        enable = mkEnableOption ''
-          Run an i2pd node and create appropriate firefox profile.
-        '';
-      };
-      tor = {
-        enable = mkEnableOption ''
-          Run  the module
-        '';
+      browser = {
+        firefox = {
+          enable = mkEnableOption ''
+            Toggle the module
+          '';
+          i2p.enable = mkEnableOption ''
+            Enable firefox i2p profile
+          '';
+        };
+        searxng = {
+          enable = mkEnableOption ''
+            Toggle the module
+          '';
+        };
       };
     };
 
+    #########################
+    ## DeFi
+    # Always fun to run a node for the community
     finance = {
       monero = {
         enable = mkEnableOption ''
@@ -228,20 +292,6 @@ with lib; {
         '';
       };
     };
-
-    # Window manager
-    # Heavily customed hypr
-    wm = {
-      hyprland.enable = mkEnableOption ''
-        Toggle the hyprland window manager
-      '';
-      gnome.enable = mkEnableOption ''
-        Toggle gnome desktop environment
-      '';
-    };
-    stream.enable = mkEnableOption ''
-      Toggle streaming module
-    '';
   };
 
   imports = [
@@ -282,6 +332,7 @@ with lib; {
     )
     # Base
     ./base/default.nix
+    ./android/default.nix
 
     # Network
     ./network/default.nix
