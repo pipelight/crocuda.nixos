@@ -11,16 +11,6 @@
 in
   with lib;
     mkIf cfg.wm.hyprland.enable {
-      # Import home file
-      home-merger = {
-        enable = true;
-        extraSpecialArgs = {inherit cfg pkgs inputs;};
-        users = cfg.users;
-        modules = [
-          ./home.nix
-        ];
-      };
-
       programs.hyprland = {
         enable = true;
         xwayland.enable = true;

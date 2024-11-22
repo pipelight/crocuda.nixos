@@ -26,8 +26,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
-      # url = "github:nix-community/home-manager";
-      url = "github:nix-community/home-manager?ref=release-24.05";
+      # url = "github:nix-community/home-manager?ref=release-24.05";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # NUR - Nix User Repository
@@ -40,6 +40,7 @@
       url = "github:dwarfmaster/arkenfox-nixos";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     pipelight = {
       url = "github:pipelight/pipelight?ref=dev";
       inputs.nixpkgs.follows = "nixpkgs";

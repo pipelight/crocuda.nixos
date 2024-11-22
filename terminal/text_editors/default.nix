@@ -11,10 +11,10 @@ in
   with lib;
     mkIf cfg.terminal.editors.neovim.enable {
       # Set default editor
-      programs.nano = {
-        enable = false;
-      };
       programs = {
+        nano = {
+          enable = false;
+        };
         neovim = {
           defaultEditor = true;
         };

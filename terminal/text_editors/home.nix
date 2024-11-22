@@ -32,9 +32,9 @@
   home.sessionVariables = {
     NVIM_APPNAME = with lib;
       mkMerge [
-        (mkIf (cfg.terminal.editor.nvchad-ide) "nvchad-ide")
-        (mkIf (cfg.terminal.editor.nvchad) "nvchad")
-        (mkIf (cfg.terminal.editor.neovim) "neovim")
+        (mkIf cfg.terminal.editors.nvchad-ide.enable "nvchad-ide")
+        (mkIf cfg.terminal.editors.nvchad.enable "nvchad")
+        (mkIf cfg.terminal.editors.neovim.enable "neovim")
       ];
   };
 
@@ -67,58 +67,68 @@
 
   home.packages = with pkgs;
   with lib;
-    [
+    mkMerge [
       #############################
       ## Terminal multiplexers
       # tmux
       # zellij
-    ]
-    // mkIf cfg.terminal.editor.nvchad.enable [
-      neovim
-    ]
-    // mkIf cfg.terminal.editor.nvchad.enable [
-      ## Lsp lint/formatting tools
-      tree-sitter
-    ]
-    // mkIf cfg.terminal.editor.nvchad-ide.enable [
-      # Node LSP servers
-      prettierd
-      tailwindcss
-      nodePackages.prettier
-      nodePackages.typescript
-      nodePackages.typescript-language-server
-      # nodePackages.eslint
-      nodePackages.jsonlint
-      nodePackages.vue-language-server
-      nodePackages.vscode-langservers-extracted
-      nodePackages."@tailwindcss/language-server"
-      # Lua
-      lua-language-server
-      stylua
-      # Nix
-      nil
-      statix
-      alejandra
-      # Toml and friends
-      taplo
-      # Yaml
-      yaml-language-server
-      yamllint
-      stylelint
-      # Hcl
-      hclfmt
-      # Markdown
-      marksman
-      # Go
-      gopls
-      golangci-lint
-      # Python
-      python3Packages.python-lsp-server
-      ruff
-      black
-      # Zig
-      zls
-      # Sql
-      sqls
+      (mkIf (cfg.terminal.editors.nvchad.enable) [neovim])
+
+      (mkIf (cfg.terminal.editors.nvchad.enable)
+        [
+          neovim
+
+          ## Lsp lint/formatting tools
+          tree-sitter
+        ])
+      (
+        mkIf (cfg.terminal.editors.nvchad-ide.enable)
+        [
+          neovim
+
+          ## Lsp lint/formatting tools
+          tree-sitter
+
+          # Node LSP servers
+          prettierd
+          tailwindcss
+          nodePackages.prettier
+          nodePackages.typescript
+          nodePackages.typescript-language-server
+          # nodePackages.eslint
+          nodePackages.jsonlint
+          nodePackages.vue-language-server
+          nodePackages.vscode-langservers-extracted
+          nodePackages."@tailwindcss/language-server"
+          # Lua
+          lua-language-server
+          stylua
+          # Nix
+          nil
+          statix
+          alejandra
+          # Toml and friends
+          taplo
+          # Yaml
+          yaml-language-server
+          yamllint
+          stylelint
+          # Hcl
+          hclfmt
+          # Markdown
+          marksman
+          # Go
+          gopls
+          golangci-lint
+          # Python
+          python3Packages.python-lsp-server
+          ruff
+          black
+          # Zig
+          zls
+          # Sql
+          sqls
+        ]
+      )
     ];
 }

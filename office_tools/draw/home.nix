@@ -3,19 +3,18 @@
   config,
   pkgs,
   lib,
+  cfg,
   ...
-}: let
-  cfg = config.crocuda;
-in
-  with lib;
-    mkIf cfg.office.draw.enable {
-      home.packages = with pkgs; [
-        # Drawing
-        inkscape
-        gimp
+}:
+with lib;
+  mkIf cfg.office.draw.enable {
+    home.packages = with pkgs; [
+      # Drawing
+      inkscape
+      gimp
 
-        # Image manipulation tools
-        imagemagick
-        ghostscript
-      ];
-    }
+      # Image manipulation tools
+      imagemagick
+      ghostscript
+    ];
+  }

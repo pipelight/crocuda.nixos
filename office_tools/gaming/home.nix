@@ -5,14 +5,13 @@
   config,
   pkgs,
   lib,
+  cfg,
   ...
-}: let
-  cfg = config.crocuda;
-in
-  with lib;
-    mkIf cfg.office.gaming.enable {
-      home.packages = with pkgs; [
-        lutris
-        bottles
-      ];
-    }
+}:
+with lib;
+  mkIf cfg.office.gaming.enable {
+    home.packages = with pkgs; [
+      lutris
+      bottles
+    ];
+  }

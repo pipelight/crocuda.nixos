@@ -3,23 +3,22 @@
   pkgs,
   lib,
   inputs,
+  cfg,
   ...
-}: let
-  cfg = config.crocuda;
-in
-  with lib;
-    mkIf cfg.office.chat.enable {
-      home.packages = with pkgs; [
-        # Mail client
-        thunderbird-bin
+}:
+with lib;
+  mkIf cfg.office.chat.enable {
+    home.packages = with pkgs; [
+      # Mail client
+      thunderbird-bin
 
-        # Messaging apps
-        session-desktop
-        signal-desktop
-        element-desktop
-        telegram-desktop
+      # Messaging apps
+      session-desktop
+      signal-desktop
+      element-desktop
+      telegram-desktop
 
-        # Bottom tier apps
-        discord
-      ];
-    }
+      # Bottom tier apps
+      discord
+    ];
+  }
