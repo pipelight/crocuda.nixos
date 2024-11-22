@@ -29,19 +29,16 @@
   #     ];
   # };
 
-  home.sessionVariables = {
-    NVIM_APPNAME = with lib;
-      mkMerge [
-        (mkIf cfg.terminal.editors.nvchad-ide.enable "nvchad-ide")
-        (mkIf cfg.terminal.editors.nvchad.enable "nvchad")
-        (mkIf cfg.terminal.editors.neovim.enable "neovim")
-      ];
+  home.sessionVariables = with lib; {
+    NVIM_APPNAME = mkMerge [
+      (mkIf (cfg.terminal.editors.nvchad-ide.enable) "nvchad-ide")
+      (mkIf (cfg.terminal.editors.nvchad.enable) "nvchad")
+      (mkIf (cfg.terminal.editors.neovim.enable) "nvim")
+      (mkDefault "nvim")
+    ];
+    EDITOR = mkForce "nvim";
+    MANPAGER = mkForce "nvim +Man!";
   };
-
-  home.sessionVariables.EDITOR = lib.mkForce "NVIM_APPNAME=nvchad nvim";
-
-  #Set man pager to nvim
-  home.sessionVariables.MANPAGER = lib.mkForce "NVIM_APPNAME=nvim-mini nvim +Man!";
 
   home.file = {
     # Terminal multiplexer
