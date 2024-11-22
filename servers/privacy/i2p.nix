@@ -9,7 +9,7 @@
   username = "i2pd";
 in
   with lib;
-    mkIf cfg.server.privacy.i2p {
+    mkIf cfg.servers.web.i2p.enable {
       # Dedicated user and group
       users.groups.i2pd = {};
       users.users.${username} = {

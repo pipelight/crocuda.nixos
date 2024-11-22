@@ -11,7 +11,7 @@
   cfg = config.crocuda;
 in
   with lib;
-    mkIf cfg.office.printer {
+    mkIf cfg.office.printers.enable {
       environment.systemPackages = with pkgs; [
         ## Gnome Gui for scanners
         simple-scan

@@ -73,14 +73,14 @@
       # tmux
       # zellij
     ]
-    // mkIf cfg.terminal.editor.nvchad [
+    // mkIf cfg.terminal.editor.nvchad.enable [
       neovim
     ]
-    // mkIf cfg.terminal.editor.nvchad [
+    // mkIf cfg.terminal.editor.nvchad.enable [
       ## Lsp lint/formatting tools
       tree-sitter
     ]
-    // mkIf cfg.terminal.editor.nvchad-ide [
+    // mkIf cfg.terminal.editor.nvchad-ide.enable [
       # Node LSP servers
       prettierd
       tailwindcss

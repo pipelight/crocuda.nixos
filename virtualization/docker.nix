@@ -9,7 +9,6 @@
 in
   with lib;
     mkIf cfg.virtualization.docker.enable {
-
       # Enable docker usage
       virtualisation.docker.enable = true;
       # Enable podman usage

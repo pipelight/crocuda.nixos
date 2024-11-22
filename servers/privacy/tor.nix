@@ -8,7 +8,7 @@
   cfg = config.crocuda;
 in
   with lib;
-    mkIf cfg.server.privacy.tor {
+    mkIf cfg.servers.web.tor.enable {
       environment.systemPackages = with pkgs; [
         # Tor
         torsocks

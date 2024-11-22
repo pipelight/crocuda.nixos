@@ -8,7 +8,7 @@
   cfg = config.crocuda;
 in
   with lib;
-    mkIf cfg.cicd.enable {
+    mkIf cfg.terminal.cicd.enable {
       environment.systemPackages = with pkgs; [
         # CICD
         just

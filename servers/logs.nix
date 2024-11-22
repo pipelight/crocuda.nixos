@@ -7,7 +7,7 @@
   cfg = config.crocuda;
 in
   with lib;
-    mkIf cfg.logs.enable {
+    mkIf cfg.servers.logs.enable {
       services.rsyslogd = {
         enable = false;
       };

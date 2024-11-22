@@ -27,7 +27,7 @@
   '';
 in
   with lib;
-    mkIf cfg.yubikey.enable {
+    mkIf cfg.office.yubikey.enable {
       services.udev.extraRules = ''
         ACTION=="remove",\
         ENV{SUBSYSTEM}=="usb",\

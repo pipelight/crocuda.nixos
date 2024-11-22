@@ -83,7 +83,7 @@ with lib; {
 
     #########################
     ## Virtualization
-    virtualisation = {
+    virtualization = {
       cloud-hypervisor = {
         enable = mkEnableOption ''
           Install cloud-hypervisor (VMM)
@@ -128,13 +128,13 @@ with lib; {
           Enable mastodon with bird Ui.
         '';
       };
+      dns = {
+        enable = mkEnableOption ''
+          Enable complete secured dns suite
+          (unbound + nsd).
+        '';
+      };
       web = {
-        dns = {
-          enable = mkEnableOption ''
-            Enable complete secured dns suite
-            (unbound + nsd).
-          '';
-        };
         # Deprecated
         jucenit.enable = mkEnableOption ''
           Enable jucenit web engine.
@@ -302,7 +302,7 @@ with lib; {
     # Add single top level import of NUR (Nixos User repository)
     # for nixosModules usage
     # and for inner hmModules usage
-    inputs.nur.nixosModules.nur
+    # inputs.nur.nixosModules.nur
     # Lix
     inputs.lix-module.nixosModules.default
     # Tidy
@@ -325,31 +325,59 @@ with lib; {
       ...
     }: {
       imports = inputs.nixos-tidy.umport {
-        # User specific
-        paths = [./.];
+        paths = [
+          # Umport do not work for the root dir yet
+          # ./.
+          ./android_compatibility
+          ./base
+          ./network
+          ./browsers
+          ./databases
+          ./decentralised_finance
+          ./office_tools
+          ./virtualization
+          ./servers
+          ./terminal
+          ./window_managers
+        ];
       };
     })
-    # ({
-    #   config,
-    #   lib,
-    #   pkgs,
-    #   inputs,
-    #   ...
-    # }: let
-    #   cfg = config.crocuda;
-    # in {
-    #   home-merger = {
-    #     enable = true;
-    #     extraSpecialArgs = {inherit inputs;};
-    #     users = cfg.users;
-    #     modules =
-    #       [
-    #         inputs.nur.hmModules.nur
-    #       ]
-    #       ++ inputs.nixos-tidy.umport-home {
-    #         paths = [./.];
-    #       };
-    #   };
-    # })
+
+    ({
+      config,
+      lib,
+      pkgs,
+      inputs,
+      ...
+    }: let
+      cfg = config.crocuda;
+    in {
+      home-merger = {
+        enable = true;
+        extraSpecialArgs = {inherit inputs config lib pkgs;};
+        users = cfg.users;
+        modules =
+          [
+            # inputs.nur.hmModules.nur
+          ]
+          ++ inputs.nixos-tidy.umport-home {
+            paths = [
+              # Umport do not work for the root dir yet
+              # ./.
+              ./android_compatibility
+              ./base
+              ./network
+              ./browsers
+              ./databases
+              ./decentralised_finance
+              ./office_tools
+              ./virtualization
+              ./servers
+              ./terminal
+              ./window_managers
+            ];
+          };
+      };
+    })
   ];
 }

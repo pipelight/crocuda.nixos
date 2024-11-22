@@ -8,7 +8,7 @@
   cfg = config.crocuda;
 in
   with lib;
-    mkIf cfg.chat.enable {
+    mkIf cfg.office.chat.enable {
       home.packages = with pkgs; [
         # Mail client
         thunderbird-bin

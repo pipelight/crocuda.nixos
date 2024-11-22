@@ -33,7 +33,6 @@
     # NUR - Nix User Repository
     nur.url = "github:nix-community/NUR";
     # Utils
-    flake-utils.url = "github:numtide/flake-utils";
     impermanence.url = "github:nix-community/impermanence";
 
     # Flakes

@@ -4,10 +4,10 @@
   lib,
   ...
 }: let
-  cfg = config.crocuda.servers;
+  cfg = config.crocuda;
 in
   with lib;
-    mkIf cfg.dns.enable {
+    mkIf cfg.servers.dns.enable {
       environment.systemPackages = with pkgs; [
         dig
         # ldns # provides "drill"

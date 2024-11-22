@@ -9,7 +9,7 @@
   cfg = config.crocuda;
 in
   with lib;
-    mkIf cfg.llm.ollama.enable {
+    mkIf cfg.terminal.llm.ollama.enable {
       allow-unfree = [
         # AI
         "lib.*"

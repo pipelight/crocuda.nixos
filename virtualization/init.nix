@@ -8,7 +8,7 @@
   cfg = config.crocuda;
 in
   with lib;
-    mkIf cfg.virtualization.init.enable {
+    mkIf cfg.virtualization.cloud-init.enable {
       systemd.services.pipelight-init = {
         enable = true;
         description = "Run pipelight as a cloud-init replacement";

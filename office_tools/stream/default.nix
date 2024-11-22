@@ -8,7 +8,7 @@
   cfg = config.crocuda;
 in
   with lib;
-    mkIf cfg.stream.enable {
+    mkIf cfg.office.stream.enable {
       # https://nixos.wiki/wiki/OBS_Studio
       boot.extraModulePackages = with config.boot.kernelPackages; [
         v4l2loopback

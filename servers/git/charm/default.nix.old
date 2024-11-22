@@ -99,7 +99,7 @@ in {
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   services.openssh = {
-    enable = true;
+    # enable = true;
     # require public key authentication for better security
     # settings.PasswordAuthentication = true;
     settings.PasswordAuthentication = false;
