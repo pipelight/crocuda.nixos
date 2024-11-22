@@ -7,24 +7,6 @@
 }: let
   cfg = config.crocuda;
 in {
-  # Automatic user creation
-  imports = [
-    # Add single top level NUR for other modules
-    # inputs.nur.nixosModules.nur
-    ./users.nix
-  ];
-
-  # User specific
-  home-merger = {
-    enable = true;
-    users = cfg.users;
-    modules = [
-      # Add single top level NUR for other modules
-      # inputs.nur.hmModules.nur
-      ./home.nix
-    ];
-  };
-
   # Loosen Security for fast sudoing
   security.sudo.extraRules = [
     {
@@ -50,13 +32,6 @@ in {
     # Versioning
     git
     util-linux
-
-    # Query
-    curl
-    wget
-
-    #File management
-    rsync
 
     # Builders
     gnumake

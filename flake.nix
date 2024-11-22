@@ -22,7 +22,7 @@
 
     # NixOs tidy and dependencies
     nixos-tidy = {
-      url = "github:pipelight/nixos-tidy";
+      url = "github:pipelight/nixos-tidy?ref=dev";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {

@@ -9,12 +9,11 @@
 in
   with lib;
     mkIf cfg.terminal.shell.fish.enable {
-      home-merger = {
-        enable = true;
-        users = cfg.users;
-        modules = [
-          ./home.nix
-          (mkIf cfg terminal.shell.utlis ./utils.nix)
-        ];
-      };
+      environment.systemPackages = with pkgs; [
+        # nushell
+
+        ## Fish Shell dependencies
+        starship
+        fish
+      ];
     }

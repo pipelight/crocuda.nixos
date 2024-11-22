@@ -5,18 +5,8 @@
   inputs,
   ...
 }: let
-  cfg = config.crocuda.servers;
+  cfg = config.crocuda;
 in {
-  imports = [
-    ./git/default.nix
-    ./web/default.nix
-    ./dns/default.nix
-    ./mail/default.nix
-    ./social/default.nix
-    ./privacy/default.nix
-    ./logs.nix
-  ];
-
   ################################
   # Ssh
   #
@@ -29,7 +19,7 @@ in {
   ];
 
   services.openssh = {
-    enable = cfg.ssh.enable;
+    enable = cfg.servers.ssh.enable;
     # require public key authentication for better security
     settings.PasswordAuthentication = false;
     settings.KbdInteractiveAuthentication = false;

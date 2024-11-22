@@ -2,6 +2,7 @@
   config,
   lib,
   utils,
+  inputs,
   ...
 }:
 with lib; {
@@ -36,10 +37,10 @@ with lib; {
     };
     # Set editors with the specified keyboard layout
     terminal = {
-      emulator.kitty.enable = mkEnableOption ''
+      emulators.kitty.enable = mkEnableOption ''
         Toggle the module
       '';
-      editor = {
+      editors = {
         neovim.enable = mkEnableOption ''
           Install base neovim with the specified keyboard layout
         '';
@@ -82,7 +83,7 @@ with lib; {
 
     #########################
     ## Virtualization
-    virtualization = {
+    virtualisation = {
       cloud-hypervisor = {
         enable = mkEnableOption ''
           Install cloud-hypervisor (VMM)
@@ -118,7 +119,7 @@ with lib; {
     #########################
     ## Severs
     ## Polished one liner server configs
-    server = {
+    servers = {
       logs.enable = mkEnableOption ''
         Toggle rsyslog and logrotate
       '';
@@ -127,13 +128,13 @@ with lib; {
           Enable mastodon with bird Ui.
         '';
       };
-      dns = {
-        enable = mkEnableOption ''
-          Enable complete secured dns suite
-          (unbound + nsd).
-        '';
-      };
       web = {
+        dns = {
+          enable = mkEnableOption ''
+            Enable complete secured dns suite
+            (unbound + nsd).
+          '';
+        };
         # Deprecated
         jucenit.enable = mkEnableOption ''
           Enable jucenit web engine.
@@ -295,9 +296,18 @@ with lib; {
   };
 
   imports = [
-    inputs.lix-module.nixosModules.default
+    ######################
+    # Modules
 
+    # Add single top level import of NUR (Nixos User repository)
+    # for nixosModules usage
+    # and for inner hmModules usage
+    inputs.nur.nixosModules.nur
+    # Lix
+    inputs.lix-module.nixosModules.default
+    # Tidy
     inputs.nixos-tidy.nixosModules.home-merger # replaces home-manager import
+
     inputs.nixos-tidy.nixosModules.allow-unfree
 
     inputs.impermanence.nixosModules.impermanence
@@ -307,75 +317,39 @@ with lib; {
 
     inputs.jucenit.nixosModules.jucenit
 
-    # Add single top level import of NUR (Nixos User repository)
-    # for nixosModules usage
-    # and for inner hmModules usage
-    inputs.nur.nixosModules.nur
-
-    (
-      {
-        config,
-        inputs,
-        ...
-      }: let
-        cfg = config.crocuda;
-      in {
-        home-merger = {
-          enable = true;
-          extraSpecialArgs = {inherit inputs;};
-          users = cfg.users;
-          modules = [
-            inputs.nur.hmModules.nur
-          ];
-        };
-      }
-    )
-    # Base
-    ./base/default.nix
-    ./android/default.nix
-
-    # Network
-    ./network/default.nix
-
-    # Terminal
-    ./terminal/default.nix
-
-    # Servers
-    ./servers/default.nix
-
-    ./cicd/default.nix
-
-    # File Manager
-    ./file_manager/default.nix
-    # Torrent
-    ./torrent/defautlt.nix
-
-    # Ide
-    ./ide/default.nix
-
-    # Browser
-    ./browser/extra/default.nix
-    ./browser/firefox/default.nix
-    ./browser/searxng/default.nix
-
-    # Chat
-    ./chat/default.nix
-
-    # Finance
-    ./finance/default.nix
-
-    # Virtualization tools
-    ./virtualization/default.nix
-
-    # AI
-    ./llm/default.nix
-
-    # Window manager
-    ./wm/base/default.nix
-    ./wm/hyprland/default.nix
-    ./wm/gnome/default.nix
-
-    # Streaming
-    ./stream/default.nix
+    ({
+      config,
+      lib,
+      pkgs,
+      inputs,
+      ...
+    }: {
+      imports = inputs.nixos-tidy.umport {
+        # User specific
+        paths = [./.];
+      };
+    })
+    # ({
+    #   config,
+    #   lib,
+    #   pkgs,
+    #   inputs,
+    #   ...
+    # }: let
+    #   cfg = config.crocuda;
+    # in {
+    #   home-merger = {
+    #     enable = true;
+    #     extraSpecialArgs = {inherit inputs;};
+    #     users = cfg.users;
+    #     modules =
+    #       [
+    #         inputs.nur.hmModules.nur
+    #       ]
+    #       ++ inputs.nixos-tidy.umport-home {
+    #         paths = [./.];
+    #       };
+    #   };
+    # })
   ];
 }

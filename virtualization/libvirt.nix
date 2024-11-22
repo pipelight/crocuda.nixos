@@ -10,16 +10,6 @@
 in
   with lib;
     mkIf cfg.virtualization.libvirt.enable {
-      # Import home file
-      home-merger = {
-        enable = true;
-        extraSpecialArgs = {inherit pkgs inputs;};
-        users = cfg.users;
-        modules = [
-          ./home.nix
-        ];
-      };
-
       environment.systemPackages = with pkgs; [
         # libvirt things
         libvirt

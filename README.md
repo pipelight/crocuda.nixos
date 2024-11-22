@@ -7,7 +7,7 @@ A set of **nixos modules** which provide trivial configuration for
 
 ## Motivations
 
-This project aim is to provide a well-documented NixOs base configuration with:
+This project aims to provide a well-documented NixOs base configuration with:
 
 - **security and privacy**.
 - **keyboard first** apps (qwerty, colemak-dh).

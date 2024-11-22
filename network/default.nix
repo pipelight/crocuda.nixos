@@ -110,12 +110,15 @@ in
         dhcpcd
         speedtest-go
 
-        # Pentest
         whois
         tshark
         iftop
         dig
         nmap
+
+        # Query
+        curl
+        wget
 
         # VPN
         wireguard-tools

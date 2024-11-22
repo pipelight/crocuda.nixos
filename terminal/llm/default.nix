@@ -10,16 +10,6 @@
 in
   with lib;
     mkIf cfg.llm.ollama.enable {
-      # Import home files
-      home-merger = {
-        enable = true;
-        extraSpecialArgs = {inherit cfg;};
-        users = cfg.users;
-        modules = [
-          ./home.nix
-        ];
-      };
-
       allow-unfree = [
         # AI
         "lib.*"
