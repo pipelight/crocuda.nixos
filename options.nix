@@ -223,8 +223,8 @@ with lib; {
     ## Office
     # The desktop stuffs that you usualy don't want in a vm
     office = {
-      enable = mkEnableOption ''
-        Enable small office utilities
+      write.enable = mkEnableOption ''
+        Enable libre/open office sute
       '';
       printers.enable = mkEnableOption ''
         Enable printers and scanners

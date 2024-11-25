@@ -25,6 +25,9 @@ in
         #File management
         rsync
 
+        # For bsdtar
+        libarchive
+
         unrar
         du-dust
       ];

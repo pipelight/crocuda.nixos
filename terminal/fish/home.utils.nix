@@ -6,12 +6,13 @@
   ...
 }: {
   home.packages = with pkgs; [
-    # Fast find
+    # Move fast in filesystem
     fzf
     fd
     atuin
     zoxide
     ripgrep
+    eza
 
     # Mini man pages
     cheat
@@ -22,7 +23,7 @@
     # File convertion
     dasel
 
-    # Dev utils
+    # Get info on dir
     fastfetch
     onefetch
 
@@ -46,8 +47,12 @@
     nix-direnv
     nix-index
 
-    # base commands
-    eza
+    # Inspect fs and io
+    pciutils
+    lshw
+
+    bintools
+    pkg-config
 
     # Process management
     # btop

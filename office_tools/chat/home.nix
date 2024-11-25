@@ -20,5 +20,8 @@ with lib;
 
       # Bottom tier apps
       discord
+
+      # Social network
+      # tuba
     ];
   }
