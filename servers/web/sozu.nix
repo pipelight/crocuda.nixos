@@ -9,7 +9,7 @@
 in
   with lib;
     mkIf cfg.servers.web.sozu.enable {
-      environment.systemPackages = [
+      environment.systemPackages = with pkgs; [
         # Tcp proxy written in Rust
         sozu
       ];

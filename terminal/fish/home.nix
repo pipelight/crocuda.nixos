@@ -1,9 +1,9 @@
 {
   config,
+  cfg,
   pkgs,
   lib,
   inputs,
-  cfg,
   ...
 }:
 with lib;

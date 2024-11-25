@@ -211,6 +211,9 @@ with lib; {
       hyprland.enable = mkEnableOption ''
         Toggle the hyprland window manager
       '';
+      bspwm.enable = mkEnableOption ''
+        Toggle the baskerville tilling window manager
+      '';
       gnome.enable = mkEnableOption ''
         Toggle gnome desktop environment
       '';

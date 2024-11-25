@@ -1,4 +1,5 @@
 {
+  config,
   cfg,
   pkgs,
   pkgs-unstable,
@@ -69,11 +70,11 @@
       ## Terminal multiplexers
       # tmux
       # zellij
-      (mkIf (cfg.terminal.editors.nvchad.enable) [neovim])
+      (mkIf (cfg.terminal.editors.neovim.enable) [pkgs-unstable.neovim])
 
       (mkIf (cfg.terminal.editors.nvchad.enable)
         [
-          neovim
+          pkgs-unstable.neovim
 
           ## Lsp lint/formatting tools
           tree-sitter
@@ -81,7 +82,7 @@
       (
         mkIf (cfg.terminal.editors.nvchad-ide.enable)
         [
-          neovim
+          pkgs-unstable.neovim
 
           ## Lsp lint/formatting tools
           tree-sitter

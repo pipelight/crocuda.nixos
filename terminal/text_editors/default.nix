@@ -9,7 +9,10 @@
   cfg = config.crocuda;
 in
   with lib;
-    mkIf cfg.terminal.editors.neovim.enable {
+    mkIf (cfg.terminal.editors.neovim.enable
+      || cfg.terminal.editors.nvchad.enable
+      || cfg.terminal.editors.nvchad-ide.enable)
+    {
       # Set default editor
       programs = {
         nano = {

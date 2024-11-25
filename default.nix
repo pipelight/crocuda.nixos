@@ -1,3 +1,5 @@
+#####################################
+## Umport
 {
   config,
   lib,
@@ -7,12 +9,15 @@
   ...
 }: let
   cfg = config.crocuda;
+  umport_params = {
+    exclude = [./flake.nix ./default.nix];
+    paths = [
+      ./.
+    ];
+  };
 in {
   imports =
     [
-      # This Nixos module options definition.
-      ./options.nix
-
       ######################
       # Modules
       inputs.impermanence.nixosModules.impermanence
@@ -28,25 +33,9 @@ in {
 
       inputs.jucenit.nixosModules.jucenit
     ]
-    ++ inputs.nixos-tidy.umport {
-      paths = [
-        # Umport do not work for the root_dir("./.") yet.
-        ./android_compatibility
-        ./base
-        ./network
-        ./browsers
-        ./databases
-        ./decentralised_finance
-        ./office_tools
-        ./virtualization
-        ./servers
-        ./terminal
-        ./window_managers
-      ];
-    };
+    ++ inputs.nixos-tidy.umport umport_params;
 
   home-merger = {
-    enable = false;
     extraSpecialArgs = {
       inherit inputs cfg pkgs-unstable;
     };
@@ -56,21 +45,6 @@ in {
         inputs.nur.hmModules.nur
         inputs.arkenfox.hmModules.arkenfox
       ]
-      ++ inputs.nixos-tidy.umport-home {
-        paths = [
-          # Umport do not work for the root_dir("./.") yet.
-          ./android_compatibility
-          ./base
-          ./network
-          ./browsers
-          ./databases
-          ./decentralised_finance
-          ./office_tools
-          ./virtualization
-          ./servers
-          ./terminal
-          ./window_managers
-        ];
-      };
+      ++ inputs.nixos-tidy.umport-home umport_params;
   };
 }

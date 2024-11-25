@@ -17,7 +17,8 @@ with lib;
       kitty = {
         enable = true;
         extraConfig = builtins.readFile dotfiles/kitty/kitty.conf;
-        theme = "GitHub Dark Dimmed";
+        themeFile = "GitHub_Dark_Dimmed";
+        # theme = "GitHub Dark Dimmed";
         # theme = "Doom One";
       };
     };

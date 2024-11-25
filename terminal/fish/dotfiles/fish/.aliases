@@ -29,7 +29,7 @@ alias speed="speedtest-go"
 alias p="pipelight"
 alias v="virshle"
 
-alias clear='clear -x; tput cup (math round "$LINES * 3/4") 0;'
+# alias clear='clear -x; tput cup (math round "$LINES * 3/4") 0;'
 
 # Ai shortcut
 function hey;
