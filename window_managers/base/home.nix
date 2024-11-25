@@ -1,17 +1,18 @@
 {
   config,
+  cfg,
   pkgs,
   lib,
   inputs,
   ...
-}: let
-  cfg = config.crocuda;
-in
-  with lib;
-    mkIf cfg.wm.hyprland.enable
-    || cfg.wm.gnome.enabled
-    || cfg.wm.bspwm.enable {
-      home.file = {
-        ".profile".source = ./dotfiles/.profile;
-      };
-    }
+}:
+with lib;
+  mkIf
+  (cfg.wm.hyprland.enable
+    || cfg.wm.gnome.enable
+    || cfg.wm.bspwm.enable)
+  {
+    home.file = {
+      ".profile".source = ./dotfiles/.profile;
+    };
+  }
