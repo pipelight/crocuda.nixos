@@ -12,19 +12,19 @@ in
     mkIf cfg.virtualization.virshle.enable {
       systemd.tmpfiles.rules = [
         "d '/var/lib/virshle/vm' 774 root users - -"
-        "Z '/var/lib/virshle/vm' 774 root users - -"
+        # "Z '/var/lib/virshle/vm' 774 root users - -"
 
         "d '/var/lib/virshle/socket' 774 root users - -"
-        "Z '/var/lib/virshle/socket' 774 root users - -"
+        # "Z '/var/lib/virshle/socket' 774 root users - -"
 
         "d '/var/lib/virshle/net' 774 root users - -"
-        "Z '/var/lib/virshle/net' 774 root users - -"
+        # "Z '/var/lib/virshle/net' 774 root users - -"
 
         "d '/var/lib/virshle/disk' 774 root users - -"
-        "Z '/var/lib/virshle/disk' 774 root users - -"
+        # "Z '/var/lib/virshle/disk' 774 root users - -"
 
         "d '/var/lib/virshle' 774 root users - -"
-        "Z '/var/lib/virshle' 774 root users - -"
+        # "Z '/var/lib/virshle' 774 root users - -"
       ];
 
       boot.kernelModules = ["openvswitch"];

@@ -24,10 +24,6 @@ in
 
         # I2P network
         i2pd
-
-        # Tor
-        torsocks
-        tor-browser
       ];
 
       environment.etc = {
@@ -84,10 +80,5 @@ in
           #LimitCORE=infinity
         };
         wantedBy = ["multi-user.target"];
-      };
-
-      ## Tor background service
-      services.tor = {
-        enable = true;
       };
     }

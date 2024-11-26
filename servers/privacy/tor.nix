@@ -12,5 +12,10 @@ in
       environment.systemPackages = with pkgs; [
         # Tor
         torsocks
+        tor-browser
       ];
+      ## Tor background service
+      services.tor = {
+        enable = true;
+      };
     }

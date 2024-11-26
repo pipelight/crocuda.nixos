@@ -100,6 +100,13 @@ in
         };
       };
 
+      system.nssDatabases = {
+        hosts = [
+          "libvirt"
+          "libvirt_guest"
+        ];
+      };
+
       ## Permissions
       # Add user to groups for permissions over
       # - network manipulation

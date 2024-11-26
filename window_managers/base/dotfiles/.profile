@@ -9,7 +9,7 @@ if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty2 ]]; then
   dbus-run-session -- gnome-shell --display-server --wayland
 fi
 
-if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty4 ]]; then
-  export XDG_CURRENT_DESKTOP=BSPWM
-  startx bspwm
-fi
+# if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty4 ]]; then
+#   export XDG_CURRENT_DESKTOP=BSPWM
+#   startx bspwm
+# fi

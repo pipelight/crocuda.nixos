@@ -91,7 +91,8 @@ M.options = {
   },
   renderer = {
     group_empty = false,
-    highlight_opened_files = "none",
+    -- highlight_opened_files = "none",
+    highlight_opened_files = "name",
     -- disable icons
     icons = {
       show = {

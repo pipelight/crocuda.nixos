@@ -30,8 +30,10 @@ in
             ${package}/bin/pipelight run provision --attach -vvv
           '';
           WorkingDirectory = "/pipelight-init";
+
+          StandardInput = "null";
           StandardOutput = "journal+console";
-          StandardErr = "journal+console";
+          StandardErr = "journal";
         };
       };
     }

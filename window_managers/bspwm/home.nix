@@ -16,8 +16,8 @@ in
     mkIf cfg.wm.bspwm.enable {
       home.file = {
         # Xorg
-        ".xinitrc".source = dotfiles/.xinitrc;
-        ".xsession".source = dotfiles/.xinitrc;
+        # ".xinitrc".source = dotfiles/.xinitrc;
+        # ".xsession".source = dotfiles/.xinitrc;
 
         # Set tilling window manager user config
         ".config/bspwm/bspwmrc".source = dotfiles/bspwmrc;

@@ -17,8 +17,10 @@ alias reboot="sudo reboot"
 
 # SSH
 alias sshk='kitten ssh'
-alias nvik='kitten edit-in-kitty'
-alias nvi='NVIM_APPNAME=nvim-mini nvim'
+## nvim variants 
+alias nvik='kitten edit-in-kitty' #over ssh
+alias nvi='NVIM_APPNAME=nvchad nvim'
+alias nv='NVIM_APPNAME=nvim nvim'
 
 alias neo='fastfetch'
 alias one="onefetch"
