@@ -7,25 +7,30 @@
   lib,
   inputs,
   ...
-}: {
-  environment.systemPackages = with pkgs; [
-    # Adb sideload
-    android-tools
+}: let
+  cfg = config.crocuda;
+in
+  with lib;
+    mkIf cfg.office.android.enable
+    {
+      environment.systemPackages = with pkgs; [
+        # Adb sideload
+        android-tools
 
-    # Mount android phones
-    adbfs-rootless
-    jmtpfs
-    glib
+        # Mount android phones
+        adbfs-rootless
+        jmtpfs
+        glib
 
-    # Work with usb devices
-    usbutils
-  ];
+        # Work with usb devices
+        usbutils
+      ];
 
-  ################################
-  ### Phones
-  ## Automount Google devices
+      ################################
+      ### Phones
+      ## Automount Google devices
 
-  services.udev.packages = with pkgs; [
-    android-udev-rules
-  ];
-}
+      services.udev.packages = with pkgs; [
+        android-udev-rules
+      ];
+    }

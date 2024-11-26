@@ -245,6 +245,11 @@ with lib; {
           Toggle libvirt usage
         '';
       };
+      android = {
+        enable = mkEnableOption ''
+          Android tooling
+        '';
+      };
       browser = {
         firefox = {
           enable = mkEnableOption ''

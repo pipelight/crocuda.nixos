@@ -29,9 +29,6 @@ in
 
       boot.kernelModules = ["openvswitch"];
       environment.systemPackages = with pkgs; [
-        # VMMs
-        cloud-hypervisor
-
         # Build images based on flakes and local config
         nixos-generators
         disko
