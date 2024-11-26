@@ -1,11 +1,14 @@
 {
   config,
+  cfg,
   pkgs,
   lib,
   inputs,
   ...
-}: {
-  home.file = {
-    ".config/libvirt/qemu.conf".source = dotfiles/qemu.conf;
-  };
-}
+}:
+with lib;
+  mkIf cfg.virtualization.libvirt.enable {
+    home.file = {
+      ".config/libvirt/qemu.conf".source = dotfiles/qemu.conf;
+    };
+  }

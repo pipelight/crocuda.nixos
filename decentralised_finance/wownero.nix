@@ -10,7 +10,7 @@
 in
   with lib;
     mkIf cfg.finance.wownero.enable {
-      boot.kernelParams = ["nr_hugepages=102400"];
+      boot.kernelParams = ["nr_hugepages=10240"];
 
       environment.systemPackages = with pkgs; [
         wownero

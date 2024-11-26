@@ -1,68 +1,71 @@
 {
   config,
+  cfg,
   pkgs,
   lib,
   inputs,
   ...
-}: {
-  home.packages = with pkgs; [
-    # Move fast in filesystem
-    fzf
-    fd
-    atuin
-    zoxide
-    ripgrep
-    eza
+}:
+with lib;
+  mkIf cfg.terminal.shell.utils.enable {
+    home.packages = with pkgs; [
+      # Move fast in filesystem
+      fzf
+      fd
+      atuin
+      zoxide
+      ripgrep
+      eza
 
-    # Mini man pages
-    cheat
-    tealdeer
+      # Mini man pages
+      cheat
+      tealdeer
 
-    expect
+      expect
 
-    # File convertion
-    dasel
+      # File convertion
+      dasel
 
-    # Get info on dir
-    fastfetch
-    onefetch
+      # Get info on dir
+      fastfetch
+      onefetch
 
-    # A terminal based chat application plugable with
-    # ircd and darkirc
-    weechat
+      # A terminal based chat application plugable with
+      # ircd and darkirc
+      weechat
 
-    # Js utils
-    jo
-    jq
-    yq-go
+      # Js utils
+      jo
+      jq
+      yq-go
 
-    # Recolorize commands
-    grc
-    bat
+      # Recolorize commands
+      grc
+      bat
 
-    # Nixos doc
-    manix
+      # Nixos doc
+      manix
 
-    # Dotenv, environment autoload
-    nix-direnv
-    nix-index
+      # Dotenv, environment autoload
+      nix-direnv
+      nix-index
 
-    # Inspect fs and io
-    pciutils
-    lshw
+      # Inspect fs and io
+      pciutils
+      lshw
 
-    bintools
-    pkg-config
+      bintools
+      pkg-config
 
-    # Process management
-    # btop
-    htop
-  ];
+      # Process management
+      # btop
+      htop
+    ];
 
-  programs = {
-    direnv = {
-      enable = true;
-      nix-direnv.enable = true;
+    programs = {
+      direnv = {
+        enable = true;
+        nix-direnv.enable = true;
+      };
     };
-  };
-}
+  }

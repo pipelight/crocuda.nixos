@@ -36,8 +36,5 @@ in
         nixos-generators
         disko
         cdrkit
-
-        # Network
-        pkgs-unstable.openvswitch
       ];
     }

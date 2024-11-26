@@ -45,10 +45,6 @@
       url = "github:pipelight/pipelight?ref=dev";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # jucenit = {
-    #   url = "github:pipelight/jucenit?ref=dev";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
     virshle = {
       url = "github:pipelight/virshle";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -94,10 +90,15 @@
   outputs = {
     self,
     nixpkgs,
+    nixpkgs-unstable,
     ...
   } @ inputs: {
     nixosModules = {
       # Default module
+      specialArgs = {
+        inherit inputs;
+        pkgs-unstable = import nixpkgs-unstable;
+      };
       default = ./default.nix;
     };
   };

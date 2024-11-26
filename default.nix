@@ -30,8 +30,6 @@ in {
       inputs.nixos-tidy.nixosModules.allow-unfree
       # Network
       inputs.nnf.nixosModules.default
-
-      inputs.jucenit.nixosModules.jucenit
     ]
     ++ inputs.nixos-tidy.umport umport_params;
 

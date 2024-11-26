@@ -135,10 +135,6 @@ with lib; {
         '';
       };
       web = {
-        # Deprecated
-        jucenit.enable = mkEnableOption ''
-          Enable jucenit web engine.
-        '';
         sozu.enable = mkEnableOption ''
           Enable sozu proxy server.
         '';

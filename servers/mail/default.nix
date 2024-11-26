@@ -22,43 +22,6 @@ in
         "Z '/etc/letsencrypt' 754 root users - -"
       ];
 
-      environment.etc = {
-        "jucenit/jucenit.maddy.toml".source = ./dotfiles/jucenit.maddy.toml;
-      };
-
-      systemd.services = {
-        # maddy-ensure-accounts.enable = lib.mkForce false;
-        maddy-jucenit-proxy = {
-          enable = false;
-          after = ["maddy.service" "unit.service"];
-          wantedBy = ["multi-user.target"];
-          serviceConfig = {
-            Type = "oneshot";
-            # Environment = "PATH=/run/current-system/sw/bin";
-            ExecStart = with pkgs; let
-              package = inputs.jucenit.packages.${system}.default;
-            in ''
-              ${package}/bin/jucenit push /etc/jucenit/jucenit.maddy.toml
-            '';
-          };
-        };
-        autodiscover-jucenit-proxy = {
-          enable = false;
-          after = ["maddy.service" "unit.service"];
-          wantedBy = ["multi-user.target"];
-          serviceConfig = {
-            Type = "oneshot";
-            # Environment = "PATH=/run/current-system/sw/bin";
-            ExecStart = with pkgs; let
-              package = inputs.jucenit.packages.${system}.default;
-            in ''
-              ${pkgs.dasel}/bin/dasel -r toml -w xml --file /etc/jucenit/autodiscover.toml > autodiscover.xml
-              ${package}/bin/jucenit push /etc/jucenit/jucenit.maddy.toml
-            '';
-          };
-        };
-      };
-
       # The mail server
       services.maddy = {
         group = "users";

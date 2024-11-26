@@ -10,7 +10,7 @@
 in
   with lib;
     mkIf cfg.finance.monero.enable {
-      boot.kernelParams = ["nr_hugepages=102400"];
+      boot.kernelParams = ["nr_hugepages=10240"];
 
       allow-unfree = [
         # "exodus"

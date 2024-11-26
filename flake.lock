@@ -1002,11 +1002,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1732610938,
-        "narHash": "sha256-/q0GT2uanb1HRuum7BqCE8HahNsBQc8T14BeobQ4WHk=",
+        "lastModified": 1732623392,
+        "narHash": "sha256-juWI4G4t2jJ0BVQnByCxDftbNc0SJ8b6pk4rU+tMAjI=",
         "owner": "pipelight",
         "repo": "pipelight",
-        "rev": "f6bb1b15afa06f66ed8797ee82a0aca9f625f609",
+        "rev": "f2df22aaf355dfb42060422a4420ab0e825987ec",
         "type": "github"
       },
       "original": {
