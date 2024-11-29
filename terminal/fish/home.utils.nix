@@ -39,8 +39,7 @@ with lib;
       jq
       yq-go
 
-      # Recolorize commands
-      grc
+      # Display file
       bat
 
       # Nixos doc

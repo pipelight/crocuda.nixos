@@ -9,7 +9,9 @@
 in
   with lib;
     mkIf cfg.network.privacy.enable {
-      boot.kernelParams = ["IPv6PrivacyExtensions=1"];
+      boot = {
+        kernelParams = ["IPv6PrivacyExtensions=1"];
+      };
 
       users.groups = let
         users = cfg.users;
@@ -30,12 +32,12 @@ in
           dns = "none";
           dhcp = "dhcpcd";
           connectionConfig = {
-            ethernet = "cloned-mac-address =random";
-            wifi = "cloned-mac-address=random";
-            ipv6 = "ip6-privacy=2";
-            ipv4 = "ignore-auto-dns=yes";
+            # "ethernet.cloned-mac-address" = mkDefault "random";
+            # "wifi.cloned-mac-address" = mkDefault "random";
+            # "ipv6.ip6-privacy" = mkDefault "2";
+            # "ipv4.ignore-auto-dns" = mkDefault "yes";
           };
-          logLevel = "DEBUG";
+          logLevel = "INFO";
         };
         dhcpcd = {
           enable = true;
@@ -119,6 +121,8 @@ in
         # Query
         curl
         wget
+
+        # dhcp config
 
         # VPN
         wireguard-tools

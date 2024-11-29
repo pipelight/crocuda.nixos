@@ -29,6 +29,7 @@ in
 
       environment.systemPackages = with pkgs; [
         # pactl audio control cli
+        xdg-utils
         pulseaudio
         pamixer
       ];

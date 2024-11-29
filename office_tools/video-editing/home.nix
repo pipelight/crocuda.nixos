@@ -20,9 +20,4 @@ with lib;
       # Download videos
       yt-dlp
     ];
-
-    home.file = {
-      # ".config/keepassxc/keepassxc.ini".source = dotfiles/keepassxc/keepassxc.ini;
-      ".profile".source = dotfiles/.profile;
-    };
   }
