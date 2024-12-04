@@ -28,6 +28,8 @@
 in
   with lib;
     mkIf cfg.office.yubikey.enable {
+      boot.initrd.luks.yubikeySupport = true;
+
       services.udev.extraRules = ''
         ACTION=="remove",\
         ENV{SUBSYSTEM}=="usb",\

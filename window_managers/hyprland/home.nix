@@ -2,6 +2,7 @@
   config,
   cfg,
   pkgs,
+  pkgs-unstable,
   lib,
   inputs,
   ...
@@ -16,11 +17,13 @@ in
       wayland.windowManager.hyprland = {
         enable = true;
         xwayland.enable = true;
-        # package = pkgs-unstable.hyprland;
-        package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-        plugins = [
-          inputs.hyprscroller.packages.${pkgs.system}.default
-          inputs.hyprfocus.packages.${pkgs.system}.default
+        package = pkgs-unstable.hyprland;
+        # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+        plugins = with pkgs-unstable.hyprlandPlugins; [
+          hyprscroller
+
+          # inputs.hyprscroller.packages.${pkgs.system}.default
+          # inputs.hyprfocus.packages.${pkgs.system}.default
         ];
         extraConfig = lib.readFile dotfiles/hypr/hyprland.conf;
       };
@@ -33,6 +36,7 @@ in
         libnotify
         fontconfig
 
+        # Wallpapers
         # Wallpapers
         convert_to_grayscale
         swww

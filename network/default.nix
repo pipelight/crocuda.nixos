@@ -13,6 +13,8 @@ in
         kernelParams = ["IPv6PrivacyExtensions=1"];
       };
 
+      services.dbus.implementation = "broker";
+
       users.groups = let
         users = cfg.users;
       in {

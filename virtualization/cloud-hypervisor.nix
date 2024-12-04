@@ -22,7 +22,7 @@ in
       boot = {
         kernelParams = ["nr_hugepages=10240"];
         kernel.sysctl = {
-          "vm.nr_hugepages" = 10240;
+          # "vm.nr_hugepages" = 10240;
         };
       };
 

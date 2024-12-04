@@ -12,7 +12,7 @@ in
     mkIf cfg.wm.gnome.enable {
       services.gnome.gnome-settings-daemon.enable = true;
       environment.systemPackages = with pkgs;
-      with pkgs.gnome; [
+      with pkgs; [
         gnome-control-center
         gnome-initial-setup
         gnome-session
@@ -22,7 +22,7 @@ in
         gnome-power-manager
         gnome-maps
 
-        nixos-gsettings-overrides
+        gnome.nixos-gsettings-overrides
         gnome-settings-daemon
         gnome-menus
         nautilus
@@ -33,7 +33,7 @@ in
       # App store
       services.flatpak.enable = true;
 
-      environment.gnome.excludePackages = with pkgs.gnome; [
+      environment.gnome.excludePackages = with pkgs; [
         gnome-photos
         gnome-tour
         gedit # text editor
