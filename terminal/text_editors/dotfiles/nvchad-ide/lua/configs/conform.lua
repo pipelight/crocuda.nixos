@@ -1,18 +1,32 @@
 local options = {
 
+  -- Add formatters that are not handled by conform.nvim
+  formatters = {
+    hclfmt = {
+      command = "hclfmt",
+    },
+  },
+
   formatters_by_ft = {
     lua = { "stylua" },
+
+    markdown = { "prettier" },
+
     css = { "prettier" },
     html = { "prettier" },
     javascript = { "prettier" },
     typescript = { "prettier" },
+
     typescriptreact = { "prettier" },
     svelte = { "prettier" },
-    json = { "prettier" },
-    yaml = { "prettier" },
-    markdown = { "prettier" },
     graphql = { "prettier" },
+
+    toml = { "taplo" },
+    yaml = { "prettier" },
+    json = { "prettier" },
+
     python = { "black" },
+
     -- rust = { "rust-fmt" },
     go = { "prettier" },
     nix = { "alejandra" },
