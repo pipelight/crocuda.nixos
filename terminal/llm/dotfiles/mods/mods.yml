@@ -47,7 +47,7 @@ max-input-chars: 2048
 # Aliases and endpoints for OpenAI compatible REST API.
 apis:
   ollama:
-    base-url: http://127.0.0.1:11434/v1
+    base-url: http://127.0.0.1:11434/api
     api-key:
     api-key-env: OLLAMA_API_KEY
     models:

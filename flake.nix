@@ -80,6 +80,9 @@
       # Default module
       specialArgs = {
         inherit inputs;
+        pkgs = import nixpkgs {
+          overlays = [inputs.nur.overlay];
+        };
         pkgs-unstable = import nixpkgs-unstable;
       };
       default = ./default.nix;

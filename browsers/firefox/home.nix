@@ -30,7 +30,7 @@ with lib;
       };
 
       profiles = let
-        extensions = with config.nur.repos.rycee.firefox-addons; [
+        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
           darkreader
           ublock-origin
           keepassxc-browser
