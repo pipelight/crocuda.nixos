@@ -24,9 +24,6 @@ in {
   security.polkit.enable = true;
 
   environment.systemPackages = with pkgs; [
-    # Nixos easy cli
-    inputs.nixos-cli.packages.${system}.default
-
     #doas
 
     # Versioning

@@ -15,9 +15,6 @@
     ###################################
     ## Crocuda dependencies
 
-    # Network nftables
-    nnf.url = "github:thelegy/nixos-nftables-firewall";
-
     nixos-cli.url = "github:water-sucks/nixos";
 
     # NixOs tidy and dependencies

@@ -34,7 +34,7 @@ in
         acceleration = "cuda";
         # loadModels = ["mistral"];
         environmentVariables = {
-          OLLAMA_LLM_LIBRARY = "cuda_v12";
+          # OLLAMA_LLM_LIBRARY = "cuda_v12";
         };
       };
 
@@ -42,6 +42,6 @@ in
         OLLAMA_API_KEY = "";
       };
       environment.variables = {
-        OLLAMA_LLM_LIBRARY = "cuda_v12";
+        # OLLAMA_LLM_LIBRARY = "cuda_v12";
       };
     }

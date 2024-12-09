@@ -28,8 +28,6 @@ in {
       # Tidy
       inputs.nixos-tidy.nixosModules.home-merger
       inputs.nixos-tidy.nixosModules.allow-unfree
-      # Network
-      inputs.nnf.nixosModules.default
     ]
     ++ inputs.nixos-tidy.umport umport_params;
 

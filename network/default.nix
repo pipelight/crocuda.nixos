@@ -11,6 +11,9 @@ in
     mkIf cfg.network.privacy.enable {
       boot = {
         kernelParams = ["IPv6PrivacyExtensions=1"];
+        kernel.sysctl = {
+          "net.ipv6.conf.all.use_tempaddr" = 1;
+        };
       };
 
       services.dbus.implementation = "broker";
@@ -25,19 +28,16 @@ in
       services.resolved.enable = lib.mkForce false;
       networking = {
         ## Replace legacy iptables with nftables
-        nftables = {
-          stopRuleset = lib.readFile ./dotfiles/default.nft;
-        };
 
         networkmanager = {
           enable = true;
           dns = "none";
-          dhcp = "dhcpcd";
+          dhcp = "internal";
           connectionConfig = {
             # "ethernet.cloned-mac-address" = mkDefault "random";
-            # "wifi.cloned-mac-address" = mkDefault "random";
-            # "ipv6.ip6-privacy" = mkDefault "2";
             # "ipv4.ignore-auto-dns" = mkDefault "yes";
+            "wifi.cloned-mac-address" = mkDefault "random";
+            "ipv6.ip6-privacy" = mkDefault "2";
           };
           logLevel = "INFO";
         };
@@ -57,6 +57,7 @@ in
           # "127.0.0.1"
           # "::1"
         ];
+        nftables.enable = true;
         firewall = {
           enable = true;
           # libvirt DHCP compatibility
