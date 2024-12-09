@@ -38,7 +38,7 @@ in {
     users = cfg.users;
     modules =
       [
-        inputs.nur.hmModules.nur
+        inputs.nur.modules.homeManager.default
         inputs.arkenfox.hmModules.arkenfox
       ]
       ++ inputs.nixos-tidy.umport-home umport_params;
