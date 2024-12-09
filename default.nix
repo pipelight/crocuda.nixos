@@ -22,7 +22,7 @@ in {
       # Modules
       inputs.impermanence.nixosModules.impermanence
       # Nur
-      inputs.nur.nixosModules.nur
+      inputs.nur.modules.nixos.default
       # Lix
       inputs.lix-module.nixosModules.default
       # Tidy
