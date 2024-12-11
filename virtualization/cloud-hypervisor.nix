@@ -20,9 +20,10 @@ in
       ];
 
       boot = {
-        kernelParams = ["nr_hugepages=10240"];
+        # kernelParams = ["nr_hugepages=10240"];
+        kernelParams = ["nr_hugepages=1000"];
         kernel.sysctl = {
-          "vm.nr_hugepages" = 10240;
+          "vm.nr_hugepages" = 1000;
         };
       };
 

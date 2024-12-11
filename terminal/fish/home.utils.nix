@@ -59,6 +59,7 @@ with lib;
       # Process management
       # btop
       htop
+      lsof
     ];
 
     programs = {

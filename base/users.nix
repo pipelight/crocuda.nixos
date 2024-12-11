@@ -6,8 +6,8 @@
 }: let
   cfg = config.crocuda;
 in {
-  # Create normal unpriviledged users based on a provided list of names.
-
+  # Create normal unpriviledged users
+  # from a provided list of names
   users.users = builtins.listToAttrs (
     builtins.map (u: {
       name = u;

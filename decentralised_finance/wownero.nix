@@ -10,7 +10,7 @@
 in
   with lib;
     mkIf cfg.finance.wownero.enable {
-      boot.kernelParams = ["nr_hugepages=10240"];
+      boot.kernelParams = ["nr_hugepages=1000"];
 
       environment.systemPackages = with pkgs; [
         wownero
@@ -18,10 +18,10 @@ in
       ];
 
       systemd.tmpfiles.rules = [
-        "d /mnt/HDD/wownero 755 wownero wownero - -"
+        "d /persist/wownero 755 wownero users - -"
       ];
       users.users.wownero = {
-        home = "/mnt/HDD/wownero";
+        home = "/persist/wownero";
         isNormalUser = true;
       };
 

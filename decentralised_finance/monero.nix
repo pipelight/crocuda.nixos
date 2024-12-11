@@ -10,7 +10,7 @@
 in
   with lib;
     mkIf cfg.finance.monero.enable {
-      boot.kernelParams = ["nr_hugepages=10240"];
+      boot.kernelParams = ["nr_hugepages=1000"];
 
       allow-unfree = [
         # "exodus"
@@ -30,10 +30,10 @@ in
       ];
 
       systemd.tmpfiles.rules = [
-        "d /mnt/HDD/monero 755 monero users - -"
+        "d /persist/monero 755 monero users - -"
       ];
       users.users.monero = {
-        home = "/mnt/HDD/monero";
+        home = "/persist/monero";
         isNormalUser = true;
       };
 

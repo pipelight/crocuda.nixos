@@ -11,7 +11,8 @@
     mkdir -p $out/share/icons
     ln -s ${pkgs.fetchzip {
       url = "https://github.com/ful1e5/Bibata_Cursor/releases/latest/download/Bibata-Modern-Ice.tar.xz";
-      hash = "sha256-wCrIjQo7eKO+piIz88TZDpMnc51iCWDYBR7HBV8/CPI=";
+      hash = "sha256-SG/NQd3K9DHNr9o4m49LJH+UC/a1eROUjrAQDSn3TAU=";
+      # hash = "sha256-wCrIjQo7eKO+piIz88TZDpMnc51iCWDYBR7HBV8/CPI="; # old
     }} $out/share/icons/bibata
   '';
   # Bspwm gnome css fix

@@ -35,7 +35,8 @@ with lib;
               owner = "PatrickF1";
               repo = "fzf.fish";
               rev = "main";
-              hash = "sha256-5cO5Ey7z7KMF3vqQhIbYip5JR6YiS2I9VPRd6BOmeC8=";
+              hash = "sha256-T8KYLA/r/gOKvAivKRoeqIwE2pINlxFQtZJHpOy9GMM=";
+              # hash = "sha256-5cO5Ey7z7KMF3vqQhIbYip5JR6YiS2I9VPRd6BOmeC8="; #old
             };
           }
           {
