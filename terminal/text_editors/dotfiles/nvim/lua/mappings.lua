@@ -17,20 +17,6 @@ map("n", "<C-e>", "<C-w>k", { desc = "Go to window up" })
 map("n", "<C-i>", "<C-w>l", { desc = "Go to window right" })
 map("n", "<C-x>", "<C-w>x", { desc = "Go swap with next window" })
 
-nomap("n", "<C-h>")
-nomap("n", "<C-j>")
-nomap("n", "<C-k>")
-nomap("n", "<C-l>")
-
--- resize
--- nomap("n", "<leader>m")
--- map("n", "<leader>m", "10<C-w><", { desc = "Size decrease window width" })
--- nomap("n", "<leader>i")
--- map("n", "<leader>i", "10<C-w>>", { desc = "Size increase window width" })
-
--- terminal
-nomap("n", "<leader>h")
-
 -- fast file browsing
 map("n", "<PageUp>", "25<C-u>z", { desc = "Motions page down" })
 map("v", "<PageUp>", "25<C-u>z.", { desc = "Motions page down" })
