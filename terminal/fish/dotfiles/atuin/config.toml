@@ -6,4 +6,4 @@ prefers_reduced_motion = true
 # store_failed = true
 
 # Ignore AI prompts
-history_filter = ["hey"]
+history_filter = ["hey", "ho"]

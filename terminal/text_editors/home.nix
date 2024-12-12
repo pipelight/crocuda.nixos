@@ -43,7 +43,7 @@ with lib;
         (mkDefault "nvim")
       ];
       EDITOR = mkForce "nvim";
-      MANPAGER = mkForce "nvim +Man!";
+      MANPAGER = mkForce "nvim -u .config/nvchad/init.lua +Man!";
     };
 
     home.file = {

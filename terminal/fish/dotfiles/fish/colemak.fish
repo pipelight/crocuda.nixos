@@ -82,7 +82,7 @@ function fish_vi_key_bindings --description 'vi-like key bindings for fish'
     #########################################################
     ## Keybindings
     # Default mode
-    set -l init_mode insert
+    set -l init_mode default
     
     # Default (command) mode
     bind -s --preset :q exit
@@ -101,26 +101,27 @@ function fish_vi_key_bindings --description 'vi-like key bindings for fish'
     bind -s --preset -m insert a forward-single-char repaint-mode
     bind -s --preset -m insert A end-of-line repaint-mode
 
+
+    ## Enter visual mode
     bind -s --preset -m visual v begin-selection repaint-mode
     bind -s --preset -m visual-line V beginning-of-line begin-selection repaint-mode
 
-    bind -s --preset gg beginning-of-buffer
-    bind -s --preset G end-of-buffer
-
+    # bind -s --preset gg beginning-of-buffer
+    # bind -s --preset G end-of-buffer
     for key in $eol_keys
         bind -s --preset $key end-of-line
     end
     for key in $bol_keys
         bind -s --preset $key beginning-of-line
     end
-
+    ## Redo/Undo
     bind -s --preset u undo
     bind -s --preset \cr redo
 
-    bind -s --preset [ history-token-search-backward
-    bind -s --preset ] history-token-search-forward
-    bind -s --preset -m insert / history-pager repaint-mode
-
+    ## History
+    # bind -s --preset [ history-token-search-backward
+    # bind -s --preset ] history-token-search-forward
+    # bind -s --preset -m insert / history-pager repaint-mode
     bind -s --preset e up-or-search
     bind -s --preset n down-or-search
     bind -s --preset b backward-word
@@ -132,11 +133,11 @@ function fish_vi_key_bindings --description 'vi-like key bindings for fish'
     # bind -s --preset e forward-single-char forward-word backward-char
     # bind -s --preset E forward-single-char forward-bigword backward-char
 
-    # Vi/Vim doesn't support these keys in insert mode but that seems silly so we do so anyway.
-    bind -s --preset -M insert -k home beginning-of-line
-    bind -s --preset -M default -k home beginning-of-line
-    bind -s --preset -M insert -k end end-of-line
-    bind -s --preset -M default -k end end-of-line
+    ## Vi/Vim doesn't support these keys in insert mode but that seems silly so we do so anyway.
+    # bind -s --preset -M insert -k home beginning-of-line
+    # bind -s --preset -M default -k home beginning-of-line
+    # bind -s --preset -M insert -k end end-of-line
+    # bind -s --preset -M default -k end end-of-line
 
     # Vi moves the cursor back if, after deleting, it is at EOL.
     # To emulate that, move forward, then backward, which will be a NOP
@@ -154,7 +155,8 @@ function fish_vi_key_bindings --description 'vi-like key bindings for fish'
     bind -s --preset -M insert \x7f backward-delete-char
     bind -s --preset -M default \x7f backward-char
 
-    bind -s --preset dd kill-whole-line
+    ## Delete/Cut
+    bind -s --preset dd "fish_clipboard_copy; commandline -f kill-whole-line repaint-mode"
     bind -s --preset D kill-line
     bind -s --preset d\$ kill-line
     bind -s --preset d\^ backward-kill-line
@@ -224,7 +226,7 @@ function fish_vi_key_bindings --description 'vi-like key bindings for fish'
     # Use os clipboard
     bind -s --preset yy "fish_clipboard_copy; commandline -f end-selection repaint-mode"
     bind -s --preset Y "fish_clipboard_copy; commandline -f end-selection repaint-mode"
-    bind -s --preset p "commandline -f forward-char; fish_clipboard_paste; commandline -f repaint-mode"
+    bind -s --preset p "commandline -f forward-char repaint-mode; fish_clipboard_paste;"
 
     # Use fish internal clipboard
     # bind -s --preset yy kill-whole-line yank
