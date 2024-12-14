@@ -103,7 +103,7 @@ with lib;
             nodePackages.typescript-language-server
             # nodePackages.eslint
             nodePackages.jsonlint
-            nodePackages.vue-language-server
+            vue-language-server
             nodePackages.vscode-langservers-extracted
             nodePackages."@tailwindcss/language-server"
             # Lua

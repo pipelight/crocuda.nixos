@@ -30,6 +30,7 @@ in
       ### Phones
       ## Automount Google devices
 
+      # automount android devices
       services.udev.packages = with pkgs; [
         android-udev-rules
       ];

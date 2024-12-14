@@ -30,12 +30,39 @@ in
 
         unrar
         du-dust
+
+        udevil
       ];
 
-      services.udisks2.enable = true; #stable
       # programs.udevil.enable = true; #unstable do not use yet
-      services.devmon.enable = true;
-      services.gvfs.enable = true;
+      # services.devmon.enable = true; #not customisable
+      # services.gvfs.enable = true;
+
+      services.udisks2 = {
+        enable = true;
+        settings = {
+          "udisks2.conf" = {
+            udisks2 = {
+              modules = ["*"];
+              modules_load_preference = "ondemand";
+            };
+            defaults = {
+              encryption = "luks2";
+              ignore_label = "RAID"; # put it somewhere else
+            };
+          };
+        };
+      };
+
+      systemd.user.services.devmon = {
+        description = "devmon automatic device mounting daemon";
+        wantedBy = ["default.target"];
+        path = [pkgs.udevil pkgs.procps pkgs.udisks2 pkgs.which];
+        serviceConfig.ExecStart = ''
+          ${pkgs.udevil}/bin/devmon \
+            --ignore-label RAID
+        '';
+      };
 
       ################################
       ## Disk automount
@@ -44,5 +71,11 @@ in
         [defaults]
         btrfs_defaults=compress=zstd
         ntfs_defaults=uid=$UID,gid=$GID
+      '';
+      # Ignore btrfs RAID disks
+      services.udev.extraRules = ''
+        ENV{ID_FS_LABEL}=="RAID",\
+        ENV{ID_FS_TYPE}=="btrfs",\
+        ENV{UDISKS_IGNORE}="1"
       '';
     }
