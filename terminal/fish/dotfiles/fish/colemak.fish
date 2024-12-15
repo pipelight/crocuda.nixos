@@ -82,7 +82,7 @@ function fish_vi_key_bindings --description 'vi-like key bindings for fish'
     #########################################################
     ## Keybindings
     # Default mode
-    set -l init_mode default
+    set -l init_mode insert
     
     # Default (command) mode
     bind -s --preset :q exit

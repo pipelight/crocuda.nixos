@@ -35,34 +35,9 @@ in
       ];
 
       # programs.udevil.enable = true; #unstable do not use yet
-      # services.devmon.enable = true; #not customisable
-      # services.gvfs.enable = true;
-
-      services.udisks2 = {
-        enable = true;
-        settings = {
-          "udisks2.conf" = {
-            udisks2 = {
-              modules = ["*"];
-              modules_load_preference = "ondemand";
-            };
-            defaults = {
-              encryption = "luks2";
-              ignore_label = "RAID"; # put it somewhere else
-            };
-          };
-        };
-      };
-
-      systemd.user.services.devmon = {
-        description = "devmon automatic device mounting daemon";
-        wantedBy = ["default.target"];
-        path = [pkgs.udevil pkgs.procps pkgs.udisks2 pkgs.which];
-        serviceConfig.ExecStart = ''
-          ${pkgs.udevil}/bin/devmon \
-            --ignore-label RAID
-        '';
-      };
+      services.devmon.enable = true; #not customisable
+      services.gvfs.enable = true;
+      services.udisks2.enable = true;
 
       ################################
       ## Disk automount

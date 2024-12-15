@@ -103,6 +103,9 @@ prepend_keymap = [
   { on = [
     "e",
   ], run = "nothing", desc = "Move forward to the end of the current or next word" },
+  { on = [
+    "q",
+  ], run = "nothing", desc = "Do not quot on q" },
 
   # Delete
   { on = [
