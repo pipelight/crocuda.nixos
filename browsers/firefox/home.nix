@@ -113,7 +113,7 @@ with lib;
             "My NixOS" = {
               urls = [{template = "https://mynixos.com/search?q={searchTerms}";}];
               icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-              definedAliases = ["@nixm"];
+              definedAliases = ["@nixs"];
             };
 
             "NixOS Wiki" = {
@@ -140,6 +140,7 @@ with lib;
             "Amazon.nl".metaData.hidden = true;
             "Bing".metaData.hidden = true;
             "eBay".metaData.hidden = true;
+            "Ecosia".metaData.hidden = true;
           };
         };
       in {
