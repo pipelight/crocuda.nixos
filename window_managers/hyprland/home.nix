@@ -69,9 +69,14 @@ in
       };
 
       # Default keybindings
-      systemd.user.tmpfiles.rules = with lib; let
-        mode = "niri"; #or bspwm
-      in [
-        "L+ %h/.config/hypr/binds.default.conf - - - - %h/.config/hypr/binds/${cfg.keyboard.layout}.${mode}.conf"
-      ];
+      systemd.user.tmpfiles.rules = with lib;
+        [
+          "L+ %h/.config/hypr/binds.conf - - - - %h/.config/hypr/binds/${cfg.keyboard.layout}.${cfg.wm.hyprland.mode}.conf"
+        ]
+        ++ [
+          (mkIf (cfg.wm.hyprland.wide)
+            "L+ %h/.config/hypr/ratio.conf - - - - %h/.config/hypr/binds/32_9.conf")
+          (mkIf (!cfg.wm.hyprland.wide)
+            "L+ %h/.config/hypr/ratio.conf - - - - %h/.config/hypr/binds/16_9.conf")
+        ];
     }
