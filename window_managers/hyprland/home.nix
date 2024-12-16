@@ -58,6 +58,7 @@ in
 
         # Keyindings
         ".config/hypr/binds".source = dotfiles/hypr/binds;
+        ".config/hypr/ratios".source = dotfiles/hypr/ratios;
 
         ".config/hypr/rules.conf".source = dotfiles/hypr/rules.conf;
         ".config/hypr/theme.conf".source = dotfiles/hypr/theme.conf;
@@ -75,8 +76,8 @@ in
         ]
         ++ [
           (mkIf (cfg.wm.hyprland.wide)
-            "L+ %h/.config/hypr/ratio.conf - - - - %h/.config/hypr/binds/32_9.conf")
+            "L+ %h/.config/hypr/ratio.conf - - - - %h/.config/hypr/ratios/32_9.conf")
           (mkIf (!cfg.wm.hyprland.wide)
-            "L+ %h/.config/hypr/ratio.conf - - - - %h/.config/hypr/binds/16_9.conf")
+            "L+ %h/.config/hypr/ratio.conf - - - - %h/.config/hypr/ratios/16_9.conf")
         ];
     }
