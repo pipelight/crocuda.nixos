@@ -18,5 +18,5 @@ in {
     cfg.users
   );
 
-  # nix.settings.trusted-users = ["root"] ++ cfg.users;
+  nix.settings.trusted-users = ["root"] ++ cfg.users;
 }
