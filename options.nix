@@ -219,9 +219,6 @@ with lib; {
           Convenient window splits for ultrawide monitors
         '';
       };
-      bspwm.enable = mkEnableOption ''
-        Toggle the baskerville tilling window manager
-      '';
       gnome.enable = mkEnableOption ''
         Toggle gnome desktop environment
       '';

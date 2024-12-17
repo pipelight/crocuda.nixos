@@ -13,6 +13,7 @@
   '';
   mount_cryptstorage = pkgs.writeShellScriptBin "mount_cryptstorage" ''
     fn() {
+      sudo mkdir -p /run/media/HDD
       sudo ${pkgs.systemd}/bin/systemd-cryptsetup attach cryptstorage /dev/disk/by-label/CRYPTSTORAGE
       sudo ${pkgs.util-linux}/bin/mount /dev/mapper/cryptstorage /run/media/HDD
     }
