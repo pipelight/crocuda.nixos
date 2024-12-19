@@ -2,8 +2,14 @@
 inline_height = 10
 prefers_reduced_motion = true
 
-# Do not store failed commands
-# store_failed = true
+# Wether to store failed commands.
+store_failed = true
 
-# Ignore AI prompts
-history_filter = ["hey", "ho"]
+# Ignore AI prompts.
+history_filter = ["^hey", "^ho"]
+
+exit_mode = "return-query"
+
+# Do not execute on enter,
+# Allow for command editing.
+enter_accept = false
