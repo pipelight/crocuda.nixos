@@ -21,9 +21,9 @@ in
         # hyprlock
         # hypridle
 
-        # Screen light
+        # Screen redlight/bluelight
         # wl-sunset
-        redshift
+        # redshift
         gammastep
 
         #Keyboard
