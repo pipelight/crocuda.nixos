@@ -2,7 +2,9 @@
   config,
   cfg,
   pkgs,
+  pkgs-stable,
   pkgs-unstable,
+  pkgs-deprecated,
   lib,
   inputs,
   ...
@@ -17,9 +19,9 @@ in
       wayland.windowManager.hyprland = {
         enable = true;
         xwayland.enable = true;
-        package = pkgs-unstable.hyprland;
+        package = pkgs-stable.hyprland;
         # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-        plugins = with pkgs-unstable.hyprlandPlugins; [
+        plugins = with pkgs-stable.hyprlandPlugins; [
           hyprscroller
 
           # inputs.hyprscroller.packages.${pkgs.system}.default

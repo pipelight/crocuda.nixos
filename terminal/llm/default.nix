@@ -20,12 +20,14 @@ in
 
       # openblasSupport = false;
       environment.systemPackages = with pkgs; [
-        cachix
         # pkgs-unstable.ollama
         cudatoolkit
         freeglut
         # Python dependencies managment
         poetry
+
+        # Add cuda binary cache
+        cachix
       ];
 
       services.ollama = {
@@ -43,5 +45,17 @@ in
       };
       environment.variables = {
         OLLAMA_LLM_LIBRARY = "cuda_v12";
+      };
+
+      # Add cuda binary cache
+      nix = {
+        settings = {
+          substituters = [
+            "https://cuda-maintainers.cachix.org"
+          ];
+          trusted-public-keys = [
+            "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="
+          ];
+        };
       };
     }

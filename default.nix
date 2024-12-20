@@ -4,7 +4,9 @@
   config,
   lib,
   pkgs,
+  pkgs-stable,
   pkgs-unstable,
+  pkgs-deprecated,
   inputs,
   ...
 }: let
@@ -33,7 +35,7 @@ in {
 
   home-merger = {
     extraSpecialArgs = {
-      inherit inputs cfg pkgs-unstable;
+      inherit inputs cfg pkgs-stable pkgs-unstable pkgs-deprecated;
     };
     users = cfg.users;
     modules =

@@ -2,10 +2,13 @@
   description = "crocuda.nixos - NixOS configuration modules for paranoids and hypocondriacs";
 
   inputs = {
+    ###################################
     # NixOs pkgs
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs-deprecated.url = "github:nixos/nixpkgs/nixos-24.05";
 
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.1-2.tar.gz";
@@ -73,18 +76,24 @@
   outputs = {
     self,
     nixpkgs,
+    nixpkgs-stable,
     nixpkgs-unstable,
+    nixpkgs-deprecated,
     ...
   } @ inputs: {
-    nixosModules = {
-      # Default module
+    nixosModules = let
       specialArgs = {
         inherit inputs;
         pkgs = import nixpkgs {
           overlays = [inputs.nur.overlay];
         };
+        pkgs-stable = import nixpkgs-unstable;
         pkgs-unstable = import nixpkgs-unstable;
+        pkgs-deprecated = import nixpkgs-deprecated;
       };
+    in {
+      # Default module
+      inherit specialArgs;
       default = ./default.nix;
     };
   };
