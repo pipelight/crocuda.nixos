@@ -228,6 +228,26 @@ with lib; {
     ## Office
     # The desktop stuffs that you usualy don't want in a vm
     office = {
+      browser = {
+        firefox = {
+          enable = mkEnableOption ''
+            Toggle the module
+          '';
+          i2p.enable = mkEnableOption ''
+            Enable firefox i2p profile
+          '';
+        };
+        searxng = {
+          enable = mkEnableOption ''
+            Toggle the module
+          '';
+        };
+      };
+      chat = {
+        enable = mkEnableOption ''
+          Toggle libvirt usage
+        '';
+      };
       write.enable = mkEnableOption ''
         Enable libre/open office sute
       '';
@@ -249,30 +269,10 @@ with lib; {
       yubikey.enable = mkEnableOption ''
         Toggle the module
       '';
-      chat = {
-        enable = mkEnableOption ''
-          Toggle libvirt usage
-        '';
-      };
       android = {
         enable = mkEnableOption ''
           Android tooling
         '';
-      };
-      browser = {
-        firefox = {
-          enable = mkEnableOption ''
-            Toggle the module
-          '';
-          i2p.enable = mkEnableOption ''
-            Enable firefox i2p profile
-          '';
-        };
-        searxng = {
-          enable = mkEnableOption ''
-            Toggle the module
-          '';
-        };
       };
     };
 

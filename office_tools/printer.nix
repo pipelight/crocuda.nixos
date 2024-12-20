@@ -24,7 +24,14 @@ in
       ];
       ## Printers
       # Enable CUPS to handle printers
-      services.printing.enable = true;
+      services.printing = {
+        enable = true;
+        drivers = with pkgs; [
+          epson-escpr
+          #or
+          epson-escpr2
+        ];
+      };
       services.avahi = {
         enable = true;
         nssmdns4 = true;
