@@ -1,0 +1,24 @@
+# Please follow the conventional commits specification:
+# <type>(<scope>): <subject>
+#
+# Types:
+#   feat:     A new feature
+#   fix:      A bug fix
+#   chore:    Routine tasks like build scripts or dependency updates
+#   docs:     Changes to documentation only
+#   style:    Changes that don't affect code logic (e.g., formatting)
+#   refactor: Code changes that neither fix a bug nor add a feature
+#   test:     Adding or updating tests
+#   perf:     Code changes that improve performance
+#   ci:       Changes to CI configuration files or scripts
+#
+# Examples:
+# feat(dbt): add customers_monthly_summary model
+#
+# Reference Ticket: [TICKET-123]
+#
+# feat(models)!: remove address column from customers model
+#
+# BREAKING CHANGE: The `address` column has been removed from the `customers` model
+# 
+# Keep the subject line under 50 characters.
