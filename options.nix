@@ -40,6 +40,11 @@ with lib; {
       emulators.kitty.enable = mkEnableOption ''
         Toggle the module
       '';
+      git.conventional = {
+        enable = mkEnableOption ''
+          Conventional commits helpers
+        '';
+      };
       editors = {
         neovim.enable = mkEnableOption ''
           Install base neovim with the specified keyboard layout

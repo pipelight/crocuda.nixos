@@ -62,6 +62,8 @@ with lib;
       # Neovim
       ".config/nvim/lua".source = dotfiles/nvim/lua;
       ".config/nvim/init.lua".source = dotfiles/nvim/init.lua;
+      # Less
+      ".lesskey".source = dotfiles/.lesskey;
 
       # Lock plugin versions
       # :Lazy sync on first boot
