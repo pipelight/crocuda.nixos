@@ -13,12 +13,12 @@ with lib;
 
       # Desktop entry for firefox_i2p
       ".local/share/applications/firefox_i2p.desktop".source = dotfiles/firefox_i2p.desktop;
-
       ".config/tridactyl".source = dotfiles/tridactyl;
     };
 
     programs.firefox = {
       enable = true;
+      package = pkgs.firefox-esr;
 
       # native tridactyl support
       nativeMessagingHosts = [pkgs.tridactyl-native];
@@ -36,9 +36,6 @@ with lib;
           keepassxc-browser
           tridactyl
         ];
-
-        # Set a default userChrome
-        userChrome = builtins.readFile dotfiles/userChrome.css;
 
         # Get every susbsection number
         # jq 'keys' arkenfox-nixos/autogen/122.0.json
@@ -144,18 +141,22 @@ with lib;
           };
         };
       in {
-        i2p = {
+        default = {
           inherit extensions;
-          userChrome = builtins.readFile dotfiles/userChrome_alt.css;
           inherit arkenfox;
           inherit search;
-
+          userChrome = builtins.readFile dotfiles/userChrome.css;
+          isDefault = true;
+        };
+        i2p = {
+          inherit extensions;
+          inherit arkenfox;
+          inherit search;
+          userChrome = builtins.readFile dotfiles/userChrome_alt.css;
           isDefault = false;
-          id = 1;
-
+          id = 10;
           settings = {
             "dom.security.https_only_mode" = lib.mkForce false;
-
             "media.peerconnection.ice.proxy_only" = true;
             "network.proxy.type" = 1;
             "network.proxy.http" = "127.0.0.1";
@@ -163,14 +164,6 @@ with lib;
             "network.proxy.ssl" = "127.0.0.1";
             "network.proxy.ssl_port" = 4444;
           };
-        };
-        default = {
-          inherit extensions;
-          inherit userChrome;
-          inherit arkenfox;
-          inherit search;
-
-          isDefault = true;
         };
       };
     };

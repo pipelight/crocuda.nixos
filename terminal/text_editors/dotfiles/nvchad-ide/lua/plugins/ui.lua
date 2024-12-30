@@ -18,6 +18,10 @@ return {
     lazy = false,
   },
   {
+    "avm99963/vim-jjdescription",
+    lazy = false,
+  },
+  {
     "windwp/nvim-autopairs",
     lazy = false,
   },

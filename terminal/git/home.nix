@@ -19,6 +19,9 @@ with lib;
         enable = true;
         extraConfig = {
           commit.template = "~/.config/git/conventional_commit_message";
+          core = {
+            editor = "nvim -u ~/.config/nvchad/init.lua";
+          };
           # Sign all commits using ssh key
           # commit.gpgsign = true;
           # gpg.format = "ssh";
@@ -42,15 +45,19 @@ with lib;
           #   backends.ssh.allowed-signers = "~/.ssh/allowed-signers";
           # };
           templates = {
-            draft_commit_descritption = let
+            draft_commit_description = let
               hint = builtins.replaceStrings ["#"] ["JJ:"] (builtins.readFile ./dotfiles/conventional_commit_message);
             in ''
               concat(
                 description,
-                "\n${hint}",
+                "${hint}",
                 surround(
                   "\nJJ: This commit contains the following changes:\n", "",
-                  indent("JJ:     ", diff.stat(72)),
+                  indent("JJ:     ", diff.stat(72))
+                ),
+                surround(
+                  "\nJJ: This commit contains the following changes:\n", "",
+                  indent("JJ:     ", diff.summary())
                 ),
               )
             '';

@@ -24,6 +24,17 @@ with lib; {
       '';
       default = "colemak-dh";
     };
+    font = {
+      enable = mkEnableOption ''
+        Enable default font
+      '';
+      size = mkOption {
+        type = with types; number;
+        description = ''
+          General font size.
+        '';
+      };
+    };
 
     #########################
     ## Network and connectivity

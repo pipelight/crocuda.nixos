@@ -41,7 +41,7 @@ in
       ];
       # Cursor theming
       home.pointerCursor = {
-        size = 24;
+        size = cfg.font.enable ? cfg.font.size 24;
         gtk.enable = true;
         x11.enable = true;
         name = "bibata";
