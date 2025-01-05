@@ -36,7 +36,11 @@ with lib;
           ui = {
             editor = "nvim -u ~/.config/nvchad/init.lua";
             # pager = "nvim -u ~/.config/nvim/init.lua";
+            paginate = "never";
             pager = "less";
+          };
+          aliases = {
+            l = ["log" "-n" "6"];
           };
           # signing = {
           #   sign-all = true;

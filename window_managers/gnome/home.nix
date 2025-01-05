@@ -41,7 +41,7 @@ in
       ];
       # Cursor theming
       home.pointerCursor = {
-        size = cfg.font.enable ? cfg.font.size 24;
+        size = 24;
         gtk.enable = true;
         x11.enable = true;
         name = "bibata";
@@ -63,7 +63,10 @@ in
         };
         font = {
           name = "JetBrainsMono";
-          size = 11;
+          size =
+            if cfg.font.enable
+            then cfg.font.size
+            else 11;
         };
       };
       dconf = {
