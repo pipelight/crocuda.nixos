@@ -11,9 +11,13 @@ alias ll='eza -lgh'
 alias tree='eza --tree -algh -L 2'
 alias treee='eza --tree -algh'
 
-alias off="sudo shutdown -h now"
-alias sus="sudo systemctl suspend"
-alias reboot="sudo reboot"
+function shutdown;
+  boulette "shutdown $argv" --ssh-only --challenge hostname
+end
+
+alias off='boulette "shutdown -h now" --ssh-only --challenge hostname'
+alias sus='boulette "systemctl suspend" --ssh-only --challenge hostname'
+alias reboot='boulette reboot --ssh-only --challenge hostname'
 
 # SSH
 alias sshk='kitten ssh'

@@ -136,6 +136,9 @@ with lib; {
     ## Severs
     ## Polished one liner server configs
     servers = {
+      security.enable = mkEnableOption ''
+        Toggle security features
+      '';
       logs.enable = mkEnableOption ''
         Toggle rsyslog and logrotate
       '';
