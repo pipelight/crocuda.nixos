@@ -75,7 +75,7 @@
     ###################################
     ## Else
     boulette = {
-      url = "github:pipelight/boulette?ref=main";
+      url = "github:pipelight/boulette?ref=dev";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

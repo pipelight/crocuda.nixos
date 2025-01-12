@@ -11,13 +11,14 @@ alias ll='eza -lgh'
 alias tree='eza --tree -algh -L 2'
 alias treee='eza --tree -algh'
 
-function shutdown;
-  boulette "shutdown $argv" --ssh-only --challenge hostname
-end
-
-alias off='boulette "shutdown -h now" --ssh-only --challenge hostname'
+# Handled by boulette module.
+# function shutdown;
+#   boulette "shutdown $argv" --ssh-only --challenge hostname
+# end
+# function reboot;
+#   boulette "reboot $argv" --ssh-only --challenge hostname
+# end
 alias sus='boulette "systemctl suspend" --ssh-only --challenge hostname'
-alias reboot='boulette reboot --ssh-only --challenge hostname'
 
 # SSH
 alias sshk='kitten ssh'

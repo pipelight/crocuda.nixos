@@ -57,10 +57,12 @@ with lib;
             src = plugin-git.src;
           }
         ];
-        interactiveShellInit = ''
-          source ~/.config/fish/colemak.fish
-          source ~/.config/fish/extra_config.fish
-        '';
+        interactiveShellInit = mkMerge [
+          ''
+            source ~/.config/fish/colemak.fish
+            source ~/.config/fish/extra_config.fish
+          ''
+        ];
       };
     };
   }

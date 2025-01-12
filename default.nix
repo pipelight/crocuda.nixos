@@ -30,6 +30,9 @@ in {
       # Tidy
       inputs.nixos-tidy.nixosModules.home-merger
       inputs.nixos-tidy.nixosModules.allow-unfree
+
+      # Boulette
+      inputs.boulette.nixosModules.default
     ]
     ++ inputs.nixos-tidy.umport umport_params;
 
@@ -42,6 +45,9 @@ in {
       [
         inputs.nur.modules.homeManager.default
         inputs.arkenfox.hmModules.arkenfox
+
+        # Boulette
+        inputs.boulette.hmModules.default
       ]
       ++ inputs.nixos-tidy.umport-home umport_params;
   };
