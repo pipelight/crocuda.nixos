@@ -53,9 +53,6 @@ with lib;
       pciutils
       lshw
 
-      bintools
-      pkg-config
-
       # Process management
       # btop
       htop

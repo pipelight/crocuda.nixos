@@ -31,6 +31,7 @@ in {
     util-linux
 
     # Builders
+    pkg-config
     gnumake
     cmake
     bintools

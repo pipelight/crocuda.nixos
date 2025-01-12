@@ -40,7 +40,8 @@ with lib;
             pager = "less";
           };
           aliases = {
-            l = ["log" "-n" "6"];
+            l = ["log" "--revisions" "root()..bookmarks()" "--limit" "6"];
+            ll = ["log" "--revisions" "root()..bookmarks()"];
           };
           # signing = {
           #   sign-all = true;

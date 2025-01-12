@@ -22,6 +22,10 @@ in
           style=GTK+
         '';
       };
+      environment.sessionVariables = {
+        QT_WAYLAND_DECORATION = "adwaita";
+        QT_QPA_PLATFORMTHEME = "gtk2";
+      };
       # Hyprland
       programs.dconf.enable = true;
       xdg.portal = {

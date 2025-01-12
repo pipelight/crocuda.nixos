@@ -71,6 +71,13 @@
     };
     # radicle-interface.url = "git+https://seed.radicle.garden/z4V1sjrXqjvFdnCUbxPFqd5p4DtH5";
     # rust-overlay.url = "github:oxalica/rust-overlay";
+
+    ###################################
+    ## Else
+    boulette = {
+      url = "github:pipelight/boulette?ref=main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
