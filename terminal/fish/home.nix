@@ -19,7 +19,7 @@ with lib;
 
       # Fish
       ".config/fish/colemak.fish".source = dotfiles/fish/colemak.fish;
-      ".config/fish/extra_config.fish".source = dotfiles/fish/config.fish;
+      ".config/fish/extra_config.fish".source = dotfiles/fish/extra_config.fish;
       # Prompt
       ".config/starship.toml".source = dotfiles/starship.toml;
     };
@@ -57,12 +57,10 @@ with lib;
             src = plugin-git.src;
           }
         ];
-        interactiveShellInit = mkMerge [
-          ''
-            source ~/.config/fish/colemak.fish
-            source ~/.config/fish/extra_config.fish
-          ''
-        ];
+        interactiveShellInit = ''
+          source ~/.config/fish/colemak.fish
+          source ~/.config/fish/extra_config.fish
+        '';
       };
     };
   }

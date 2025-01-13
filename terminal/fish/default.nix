@@ -9,6 +9,7 @@
 in
   with lib;
     mkIf cfg.terminal.shell.fish.enable {
+      programs.fish.enable = true;
       environment.systemPackages = with pkgs; [
         # nushell
 
