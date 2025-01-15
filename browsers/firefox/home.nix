@@ -18,7 +18,7 @@ with lib;
 
     programs.firefox = {
       enable = true;
-      package = pkgs.firefox-esr;
+      package = pkgs.firefox-bin;
 
       # native tridactyl support
       nativeMessagingHosts = [pkgs.tridactyl-native];
@@ -35,6 +35,9 @@ with lib;
           ublock-origin
           keepassxc-browser
           tridactyl
+          privacy-badger
+          # tranquility
+          # rust-search-extension
         ];
 
         # Get every susbsection number

@@ -40,8 +40,10 @@ with lib;
             pager = "less";
           };
           aliases = {
-            l = ["log" "--revisions" "root()..bookmarks()" "--limit" "6"];
-            ll = ["log" "--revisions" "root()..bookmarks()"];
+            l = ["log" "--revisions" "root()..@" "--limit" "6"];
+            ll = ["log" "--revisions" "root()..@" "--limit" "12"];
+            push = ["git" "push"];
+            fetch = ["git" "fetch"];
           };
           # signing = {
           #   sign-all = true;

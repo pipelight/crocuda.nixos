@@ -18,15 +18,15 @@ with lib;
       ".config/nushell/env.nu".source = dotfiles/nushell/env.nu;
 
       # Fish
-      ".config/fish/colemak.fish".source = dotfiles/fish/colemak.fish;
-      ".config/fish/extra_config.fish".source = dotfiles/fish/extra_config.fish;
+      ".config/fish/conf.d/colemak.fish".source = dotfiles/fish/colemak.fish;
+      ".config/fish/conf.d/interactive.fish".source = dotfiles/fish/interactive.fish;
       # Prompt
       ".config/starship.toml".source = dotfiles/starship.toml;
     };
 
     # Shell
     programs = {
-      fish = {
+      fish = rec {
         enable = true;
         plugins = with pkgs.fishPlugins; [
           {
@@ -36,16 +36,6 @@ with lib;
               repo = "fzf.fish";
               rev = "main";
               hash = "sha256-T8KYLA/r/gOKvAivKRoeqIwE2pINlxFQtZJHpOy9GMM=";
-              # hash = "sha256-5cO5Ey7z7KMF3vqQhIbYip5JR6YiS2I9VPRd6BOmeC8="; #old
-            };
-          }
-          {
-            name = "abrev-tips";
-            src = pkgs.fetchFromGitHub {
-              owner = "gazorby";
-              repo = "fish-abbreviation-tips";
-              rev = "master";
-              hash = "sha256-F1t81VliD+v6WEWqj1c1ehFBXzqLyumx5vV46s/FZRU=";
             };
           }
           {
@@ -58,8 +48,12 @@ with lib;
           }
         ];
         interactiveShellInit = ''
-          source ~/.config/fish/colemak.fish
-          source ~/.config/fish/extra_config.fish
+          source ~/.aliases
+          source ~/.config/fish/conf.d/colemak.fish
+          source ~/.config/fish/conf.d/interactive.fish
+        '';
+        shellInit = ''
+          source ~/.aliases
         '';
       };
     };

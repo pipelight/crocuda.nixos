@@ -86,18 +86,20 @@ function fish_vi_key_bindings --description 'vi-like key bindings for fish'
     
     # Default (command) mode
     bind -s --preset :q exit
+
+    bind -s --preset -m insert \n execute
+    bind -s --preset -m insert \r execute
+
     bind -s --preset -m insert \cc cancel-commandline repaint-mode
     bind -s --preset -m insert \cc cancel-commandline repaint-mode
 
     bind -s --preset -M default m backward-char
     bind -s --preset -M default i forward-char
-
-    bind -s --preset -m insert \n execute
-    bind -s --preset -m insert \r execute
     bind -s --preset -m insert o insert-line-under repaint-mode
     bind -s --preset -m insert O insert-line-over repaint-mode
     bind -s --preset -m insert l repaint-mode
     bind -s --preset -m insert L beginning-of-line repaint-mode
+
     bind -s --preset -m insert a forward-single-char repaint-mode
     bind -s --preset -m insert A end-of-line repaint-mode
 

@@ -1,5 +1,5 @@
 ## Alias section 
-alias cp="cp -i"
+alias cp='cp -i'
 alias df='df -h'
 alias free='free -m'
 alias kee='keepassxc-cli'
@@ -11,13 +11,7 @@ alias ll='eza -lgh'
 alias tree='eza --tree -algh -L 2'
 alias treee='eza --tree -algh'
 
-# Handled by boulette module.
-# function shutdown;
-#   boulette "shutdown $argv" --ssh-only --challenge hostname
-# end
-# function reboot;
-#   boulette "reboot $argv" --ssh-only --challenge hostname
-# end
+alias off='boulette "shutdown -h now" --ssh-only --challenge hostname'
 alias sus='boulette "systemctl suspend" --ssh-only --challenge hostname'
 
 # SSH
@@ -28,13 +22,13 @@ alias nvi='NVIM_APPNAME=nvchad nvim'
 alias nv='NVIM_APPNAME=nvim nvim'
 
 alias neo='fastfetch'
-alias one="onefetch"
+alias one='onefetch'
 alias lol="lolcat"
 
-alias speed="speedtest-go"
+alias speed='speedtest-go'
 
-alias p="pipelight"
-alias v="virshle"
+alias p='pipelight'
+alias v='virshle'
 
 # alias clear='clear -x; tput cup (math round "$LINES * 3/4") 0;'
 

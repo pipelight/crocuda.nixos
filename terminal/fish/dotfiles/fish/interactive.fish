@@ -1,10 +1,6 @@
 # Disbale welcome message
 set fish_greeting
 
-# Source aliases
-source ~/.aliases
-
-
 ## Fix reflow bug
 # set -Ux fish_handle_reflow 0
 

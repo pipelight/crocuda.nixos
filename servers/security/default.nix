@@ -14,6 +14,7 @@ in
         enableFish = true;
         enableBash = true;
         sshOnly = true;
+        enableSudoWrapper = true;
         challengeType = "hostname";
       };
     }
