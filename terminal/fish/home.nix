@@ -18,8 +18,8 @@ with lib;
       ".config/nushell/env.nu".source = dotfiles/nushell/env.nu;
 
       # Fish
-      ".config/fish/conf.d/colemak.fish".source = dotfiles/fish/colemak.fish;
-      ".config/fish/conf.d/interactive.fish".source = dotfiles/fish/interactive.fish;
+      ".config/fish/colemak.fish".source = dotfiles/fish/colemak.fish;
+      ".config/fish/interactive.fish".source = dotfiles/fish/interactive.fish;
       # Prompt
       ".config/starship.toml".source = dotfiles/starship.toml;
     };
@@ -49,8 +49,8 @@ with lib;
         ];
         interactiveShellInit = ''
           source ~/.aliases
-          source ~/.config/fish/conf.d/colemak.fish
-          source ~/.config/fish/conf.d/interactive.fish
+          source ~/.config/fish/colemak.fish
+          source ~/.config/fish/interactive.fish
         '';
         shellInit = ''
           source ~/.aliases

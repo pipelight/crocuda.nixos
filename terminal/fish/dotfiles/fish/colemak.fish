@@ -1,6 +1,5 @@
 # Colemak-DH mod based on
 # https://github.com/fish-shell/fish-shell/blob/master/share/functions/fish_vi_key_bindings.fish
-
 function fish_vi_key_bindings --description 'vi-like key bindings for fish'
 
     #########################################################
@@ -89,6 +88,7 @@ function fish_vi_key_bindings --description 'vi-like key bindings for fish'
 
     bind -s --preset -m insert \n execute
     bind -s --preset -m insert \r execute
+    bind -s --preset -m insert enter execute
 
     bind -s --preset -m insert \cc cancel-commandline repaint-mode
     bind -s --preset -m insert \cc cancel-commandline repaint-mode

@@ -13,7 +13,7 @@ in
       boot.kernelParams = ["nr_hugepages=1000"];
 
       allow-unfree = [
-        # "exodus"
+        "exodus"
       ];
 
       environment.systemPackages = with pkgs; [

@@ -12,6 +12,7 @@ in
     mkIf cfg.finance.darkfi.enable {
       environment.systemPackages = with pkgs; [
         # Dex
+        exodus
         # bisq-desktop
       ];
     }

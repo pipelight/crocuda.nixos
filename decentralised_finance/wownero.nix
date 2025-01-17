@@ -1,12 +1,13 @@
 {
   config,
-  pkgs,
+  pkgs-stable,
   lib,
   inputs,
   system,
   ...
 }: let
   cfg = config.crocuda;
+  pkgs = pkgs-stable;
 in
   with lib;
     mkIf cfg.finance.wownero.enable {

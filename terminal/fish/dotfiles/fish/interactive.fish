@@ -7,11 +7,23 @@ set fish_greeting
 # Vim mod Colemak-DH keybindings
 set -g fish_key_bindings fish_vi_key_bindings
 
+# Before exec boulette execution
+
+
 function fish_user_key_bindings
-  # Rebind Ctrl-L
+
+  # function bouletteproof_execute
+  #   echo $argv
+  #   boulette $argv
+  # end
+  # set -g bouletteproof_execute
+  # bind -M insert \n "bouletteproof_execute $(commandline)"
+  # bind -M insert \r "bouletteproof_execute $(commandline)"
+
+  # Rebind Ctrl-L (clear)
   ## Push prompt to bottom
-  bind --preset -M default \f 'clear -x; tput cup (math round "$LINES * 3/4") 0; commandline -f repaint-mode'
-  bind --preset -M insert \f 'clear -x; tput cup (math round "$LINES * 3/4") 0; commandline -f repaint-mode'
+  bind -M default \f 'clear -x; tput cup (math round "$LINES * 3/4") 0; commandline -f repaint-mode'
+  bind -M insert \f 'clear -x; tput cup (math round "$LINES * 3/4") 0; commandline -f repaint-mode'
 end
 set -g fish_user_key_bindings
 
