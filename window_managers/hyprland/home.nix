@@ -23,6 +23,7 @@ in
         # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
         plugins = with pkgs-stable.hyprlandPlugins; [
           hyprscroller
+          hyprbars
 
           # inputs.hyprscroller.packages.${pkgs.system}.default
           # inputs.hyprfocus.packages.${pkgs.system}.default

@@ -20,6 +20,7 @@ with lib;
       # Fish
       ".config/fish/colemak.fish".source = dotfiles/fish/colemak.fish;
       ".config/fish/interactive.fish".source = dotfiles/fish/interactive.fish;
+      ".config/fish/title.fish".source = dotfiles/fish/title.fish;
       # Prompt
       ".config/starship.toml".source = dotfiles/starship.toml;
     };
@@ -51,6 +52,7 @@ with lib;
           source ~/.aliases
           source ~/.config/fish/colemak.fish
           source ~/.config/fish/interactive.fish
+          source ~/.config/fish/title.fish
         '';
         shellInit = ''
           source ~/.aliases

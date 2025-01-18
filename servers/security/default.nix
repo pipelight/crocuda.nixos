@@ -13,7 +13,7 @@ in
         enable = true;
         enableFish = true;
         enableBash = true;
-        sshOnly = true;
+        sshOnly = false;
         enableSudoWrapper = true;
         challengeType = "hostname";
       };

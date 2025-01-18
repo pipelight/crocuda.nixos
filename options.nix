@@ -238,9 +238,14 @@ with lib; {
           Convenient window splits for ultrawide monitors
         '';
       };
-      gnome.enable = mkEnableOption ''
-        Toggle gnome desktop environment
-      '';
+      gnome = {
+        enable = mkEnableOption ''
+          Toggle the gnome desktop environment.
+        '';
+        flatpak.enable = mkEnableOption ''
+          Toggle flatpak and flathub package management.
+        '';
+      };
     };
 
     #########################
@@ -253,18 +258,18 @@ with lib; {
             Toggle the module
           '';
           i2p.enable = mkEnableOption ''
-            Enable firefox i2p profile
+            Enable firefox profile for i2p browsing.
           '';
         };
         searxng = {
           enable = mkEnableOption ''
-            Toggle the module
+            Toggle searx local search engine.
           '';
         };
       };
       chat = {
         enable = mkEnableOption ''
-          Toggle libvirt usage
+          Toggle signal, element, mails...
         '';
       };
       write.enable = mkEnableOption ''
@@ -299,29 +304,34 @@ with lib; {
     ## DeFi
     # Always fun to run a node for the community
     finance = {
+      dex = {
+        enable = mkEnableOption ''
+          Enable multichain Dex and Wallet.
+        '';
+      };
       monero = {
         enable = mkEnableOption ''
-          Run local monero node
+          Run a local monero node.
         '';
         mining = {
           enable = mkEnableOption ''
-            Toggle monero mining
+            Toggle monero mining.
           '';
         };
       };
       wownero = {
         enable = mkEnableOption ''
-          Run local monero node
+          Run a local wownero node.
         '';
         mining = {
           enable = mkEnableOption ''
-            Toggle monero mining
+            Toggle wownero mining.
           '';
         };
       };
       darkfi = {
         enable = mkEnableOption ''
-          Run local darkfi node
+          Run a local darkfi node.
         '';
       };
     };

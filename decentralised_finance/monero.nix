@@ -12,16 +12,7 @@ in
     mkIf cfg.finance.monero.enable {
       boot.kernelParams = ["nr_hugepages=1000"];
 
-      allow-unfree = [
-        "exodus"
-      ];
-
       environment.systemPackages = with pkgs; [
-        # Wallet
-        # exodus
-
-        # Exchange
-
         # Mining
         xmrig
         p2pool

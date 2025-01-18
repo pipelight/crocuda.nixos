@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  pkgs-stable,
   lib,
   inputs,
   system,
@@ -9,10 +10,13 @@
   cfg = config.crocuda;
 in
   with lib;
-    mkIf cfg.finance.darkfi.enable {
+    mkIf cfg.finance.dex.enable {
       environment.systemPackages = with pkgs; [
+        # Wallet
+        # exodus
+
+        ## Exchange
         # Dex
-        exodus
         # bisq-desktop
       ];
     }
