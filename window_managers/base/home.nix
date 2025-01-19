@@ -11,7 +11,12 @@ with lib;
   (cfg.wm.hyprland.enable
     || cfg.wm.gnome.enable)
   {
-    home.file = {
-      ".profile".source = ./dotfiles/.profile;
+    programs = rec {
+      fish = {
+        loginShellInit = lib.readFile ./dotfiles/.profile.sh;
+      };
+      bash = {
+        loginShellInit = lib.readFile ./dotfiles/.profile.fish;
+      };
     };
   }

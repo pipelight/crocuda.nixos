@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Autostart Hyprland on login
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
   export XDG_CURRENT_DESKTOP=Hyprland

@@ -25,8 +25,6 @@ in {
       inputs.impermanence.nixosModules.impermanence
       # Nur
       inputs.nur.modules.nixos.default
-      # Lix
-      inputs.lix-module.nixosModules.default
       # Tidy
       inputs.nixos-tidy.nixosModules.home-merger
       inputs.nixos-tidy.nixosModules.allow-unfree

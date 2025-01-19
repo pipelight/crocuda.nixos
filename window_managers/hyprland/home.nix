@@ -42,7 +42,7 @@ in
         # Wallpapers
         # Wallpapers
         convert_to_grayscale
-        swww
+        pkgs-stable.swww
         # toolbars
         eww
         # utils
@@ -50,6 +50,10 @@ in
         # notifications
         dunst
       ];
+
+      home.sessionVariables = {
+        XDG_BACKGROUND = "$HOME/Pictures/Backgrounds/goku_minimal_orange.png";
+      };
 
       home.file = {
         # Notifications
