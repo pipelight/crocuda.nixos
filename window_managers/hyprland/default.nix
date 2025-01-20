@@ -34,10 +34,6 @@ in
         via
       ];
 
-      environment.sessionVariables = {
-        XDG_BACKGROUND = "$HOME/Pictures/Backgrounds/goku_minimal_orange.png";
-      };
-
       services.udev.extraRules = ''
         ACTION=="add",\
         ENV{SUBSYSTEM}=="usb",\

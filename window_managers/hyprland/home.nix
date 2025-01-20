@@ -51,10 +51,6 @@ in
         dunst
       ];
 
-      home.sessionVariables = {
-        XDG_BACKGROUND = "$HOME/Pictures/Backgrounds/goku_minimal_orange.png";
-      };
-
       home.file = {
         # Notifications
         ".config/dunst/dunstrc".source = dotfiles/dunstrc;

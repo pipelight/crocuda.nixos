@@ -9,8 +9,11 @@
 in
   with lib;
     mkIf cfg.wm.hyprland.enable {
-      programs.light.enable = true;
+      environment.sessionVariables = {
+        XDG_BACKGROUND = "$HOME/Pictures/Backgrounds/goku_minimal_orange.png";
+      };
 
+      programs.light.enable = true;
       security.rtkit.enable = true;
 
       ## Sound
