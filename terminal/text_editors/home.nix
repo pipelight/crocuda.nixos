@@ -42,8 +42,16 @@ with lib;
         (mkIf (cfg.terminal.editors.neovim.enable) "nvim")
         (mkDefault "nvim")
       ];
-      EDITOR = mkForce "nvim";
-      MANPAGER = mkForce "nvim -u ~/.config/nvchad/init.lua +Man!";
+      EDITOR = mkMerge [
+        (mkIf (cfg.terminal.editors.nvchad-ide.enable) "nvim -u ~/.config/nvchad/init.lua")
+        (mkIf (cfg.terminal.editors.nvchad.enable) "nvim -u ~/.config/nvchad/init.lua")
+        (mkDefault "nvim")
+      ];
+      MANPAGER = mkMerge [
+        (mkIf (cfg.terminal.editors.nvchad-ide.enable) "nvim -u ~/.config/nvchad/init.lua +Man!")
+        (mkIf (cfg.terminal.editors.nvchad.enable) "nvim -u ~/.config/nvchad/init.lua +Man!")
+        (mkDefault "nvim +Man!")
+      ];
     };
 
     home.file = {
@@ -77,12 +85,11 @@ with lib;
         ## Terminal multiplexers
         # tmux
         # zellij
-        (mkIf (cfg.terminal.editors.neovim.enable) [pkgs-unstable.neovim])
+        (mkIf (cfg.terminal.editors.neovim.enable) [neovim])
 
         (mkIf (cfg.terminal.editors.nvchad.enable)
           [
-            pkgs-unstable.neovim
-
+            neovim
             ## Lsp lint/formatting tools
             tree-sitter
           ])
@@ -92,7 +99,7 @@ with lib;
             treefmt2
             git-cliff
 
-            pkgs-unstable.neovim
+            neovim
 
             ## Lsp lint/formatting tools
             tree-sitter

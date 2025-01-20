@@ -10,8 +10,20 @@ in
   with lib;
     mkIf cfg.terminal.shell.fish.enable {
       programs.fish.enable = true;
+      programs = {
+        direnv = {
+          enable = true;
+          nix-direnv.enable = true;
+        };
+      };
       environment.systemPackages = with pkgs; [
-        # nushell
+        # Move fast in filesystem
+        fzf
+        fd
+        atuin
+        zoxide
+        ripgrep
+        eza
 
         ## Fish Shell dependencies
         starship
@@ -19,5 +31,13 @@ in
 
         # Recolorize commands
         grc
+
+        eza
+
+        # Process management
+        htop
+
+        # Display file
+        bat
       ];
     }

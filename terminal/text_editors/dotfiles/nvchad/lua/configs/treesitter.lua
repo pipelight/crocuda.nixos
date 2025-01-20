@@ -17,12 +17,8 @@ M.options = {
     "vim",
     "vimdoc",
     "bash",
-    "rust",
-    "go",
     "lua",
     "nix",
-    "zig",
-    "c",
 
     --database
     "sql",
@@ -32,17 +28,6 @@ M.options = {
     "yaml",
     "jq",
     "xml",
-
-    -- web
-    "vue",
-    "javascript",
-    "typescript",
-    "css",
-    "scss",
-    "pug",
-    "html",
-
-    "yuck",
   },
   highlight = {
     enable = true,

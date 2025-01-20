@@ -28,6 +28,6 @@ in
         # Minimal text editor
         vim
         # neovim as IDE
-        pkgs-unstable.neovim
+        neovim
       ];
     }

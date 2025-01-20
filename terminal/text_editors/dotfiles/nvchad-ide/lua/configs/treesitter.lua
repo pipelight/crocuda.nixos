@@ -17,12 +17,8 @@ M.options = {
     "vim",
     "vimdoc",
     "bash",
-    "rust",
-    "go",
     "lua",
     "nix",
-    "zig",
-    "c",
 
     --database
     "sql",
@@ -32,6 +28,12 @@ M.options = {
     "yaml",
     "jq",
     "xml",
+
+    -- builder
+    "go",
+    "zig",
+    "rust",
+    "c",
 
     -- web
     "vue",
