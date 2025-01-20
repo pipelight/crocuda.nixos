@@ -3,6 +3,9 @@ prepend_keymap = [
   { on = [
     "q",
   ], run = "nothing", desc = "Do not quot on q" },
+  { on = [
+    "Q",
+  ], run = "nothing", desc = "Do not quot on Q" },
 
   { on = [
     "e",
