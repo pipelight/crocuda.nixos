@@ -7,48 +7,58 @@
 }:
 with lib; let
   cfg = config.crocuda;
-  units =
-    concatMapAttrs
-    (
-      name: domains: {
-        "certbot_${name}_" = {
-          description = "Certbot update ssl certificates for ${name}";
-          serviceConfig = {
-            Type = "oneshot";
-            User = "root";
-            ExecStart =
-              ''
-                ${pkgs.certbot}/bin/certbot certonly \
-                --cert-name ${name} \
-              ''
-              + concatMapStrings (domain: "-d ${domain} ") domains
-              + ''
-                --standalone \
-                -n
-              '';
-
-            StandardInput = "null";
-            StandardOutput = "journal+console";
-            StandardError = "journal";
-          };
-        };
-      }
-    )
-    cfg.servers.web.letsencrypt.domains;
+  certbot_clean_certs =
+    pkgs.writeShellScriptBin "certbot_clean_certs"
+    ./dotfiles/letsencrypt-utils/clean_certs.sh.text;
 in
   mkIf cfg.servers.web.letsencrypt.enable {
     environment.systemPackages = with pkgs; [
       certbot
+      certbot_clean_certs
     ];
+
+    systemd.services = with pkgs; let
+      units =
+        concatMapAttrs
+        (
+          name: domains: {
+            "certbot_${name}_" = {
+              description = "Certbot update ssl certificates for ${name}";
+              serviceConfig = {
+                Type = "oneshot";
+                User = "root";
+                ExecStartPre = ''
+                  ${certbot_clean_certs} ${name}
+                '';
+                ExecStart =
+                  ''
+                    ${pkgs.certbot}/bin/certbot certonly \
+                    --cert-name ${name} \
+                  ''
+                  + concatMapStrings (domain: "-d ${domain} ") domains
+                  + ''
+                    --standalone \
+                    -n
+                  '';
+
+                StandardInput = "null";
+                StandardOutput = "journal+console";
+                StandardError = "journal";
+              };
+            };
+          }
+        )
+        cfg.servers.web.letsencrypt.domains;
+    in
+      units;
 
     systemd.timers."certbot" = {
       wantedBy = ["timers.target"];
       timerConfig = {
         OnBootSec = "5m";
-        OnCalendar = "monthly";
         OnUnitActiveSec = "5m";
+        OnCalendar = "weekly";
         Unit = "certbot.service";
       };
     };
-    systemd.services = units;
   }
