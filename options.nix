@@ -154,6 +154,21 @@ with lib; {
         '';
       };
       web = {
+        letsencrypt = {
+          enable = mkEnableOption ''
+            Enable sozu proxy server.
+          '';
+          domains = mkOption {
+            type = with types; attrsOf listOf str;
+            description = ''
+              List of domain which to generate ssl for.
+              With certbot and cron jobs.
+            '';
+            default = {
+              example.com = ["example.com"];
+            };
+          };
+        };
         sozu.enable = mkEnableOption ''
           Enable sozu proxy server.
         '';

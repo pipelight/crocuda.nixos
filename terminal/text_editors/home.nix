@@ -86,7 +86,6 @@ with lib;
         # tmux
         # zellij
         (mkIf (cfg.terminal.editors.neovim.enable) [neovim])
-
         (mkIf (cfg.terminal.editors.nvchad.enable)
           [
             neovim
