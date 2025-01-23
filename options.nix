@@ -159,7 +159,10 @@ with lib; {
             Enable sozu proxy server.
           '';
           domains = mkOption {
-            type = with types; attrsOf listOf str;
+            type = with types; let
+              t = listOf str;
+            in
+              attrsOf t;
             description = ''
               List of domain which to generate ssl for.
               With certbot and cron jobs.

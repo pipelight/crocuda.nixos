@@ -33,7 +33,7 @@ in
 
           StandardInput = "null";
           StandardOutput = "journal+console";
-          StandardErr = "journal";
+          StandardError = "journal";
         };
       };
     }
