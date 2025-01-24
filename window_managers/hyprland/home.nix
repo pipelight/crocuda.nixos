@@ -21,6 +21,7 @@ in
         xwayland.enable = true;
         package = pkgs-stable.hyprland;
         # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+
         plugins = with pkgs-stable.hyprlandPlugins; [
           hyprscroller
           hyprbars

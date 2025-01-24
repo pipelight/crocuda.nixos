@@ -9,7 +9,8 @@ with lib; let
   cfg = config.crocuda;
   certbot_clean_certs =
     pkgs.writeShellScriptBin "certbot_clean_certs"
-    ./dotfiles/letsencrypt-utils/clean_certs.sh.text;
+    (builtins.readFile
+      ./dotfiles/letsencrypt-utils/clean_certs.sh);
 in
   mkIf cfg.servers.web.letsencrypt.enable {
     environment.systemPackages = with pkgs; [
@@ -28,7 +29,7 @@ in
                 Type = "oneshot";
                 User = "root";
                 ExecStartPre = ''
-                  ${certbot_clean_certs} ${name}
+                  ${certbot_clean_certs} clean ${name}
                 '';
                 ExecStart =
                   ''
