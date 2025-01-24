@@ -13,12 +13,12 @@ with lib; let
       ./dotfiles/letsencrypt-utils/clean_certs.sh);
 in
   mkIf cfg.servers.web.letsencrypt.enable {
-    environment.systemPackages = with pkgs; [
-      certbot
+    environment.systemPackages = [
+      pkgs.certbot
       certbot_clean_certs
     ];
 
-    systemd.services = with pkgs; let
+    systemd.services = let
       units =
         concatMapAttrs
         (
@@ -29,7 +29,7 @@ in
                 Type = "oneshot";
                 User = "root";
                 ExecStartPre = ''
-                  ${certbot_clean_certs} clean ${name}
+                  ${certbot_clean_certs}/bin/certbot_clean_certs clean ${name}
                 '';
                 ExecStart =
                   ''
