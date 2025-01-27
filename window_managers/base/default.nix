@@ -47,16 +47,16 @@ in
           };
         };
         packages = with pkgs; [
-          nerd-fonts.fira-code
-          nerd-fonts.jetbrains-mono
-          nerd-fonts.droid-sans-mono
-          # (nerd-fonts.override {
-          #   fonts = [
-          #     "FiraCode"
-          #     "JetBrainsMono"
-          #     "DroidSansMono"
-          #   ];
-          # })
+          # nerd-fonts.fira-code
+          # nerd-fonts.jetbrains-mono
+          # nerd-fonts.droid-sans-mono
+          (nerdfonts.override {
+            fonts = [
+              "FiraCode"
+              "JetBrainsMono"
+              "DroidSansMono"
+            ];
+          })
         ];
       };
     }
