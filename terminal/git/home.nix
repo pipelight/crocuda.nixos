@@ -53,7 +53,7 @@ with lib;
           # };
           templates = {
             draft_commit_description = let
-              hint = builtins.replaceStrings ["#"] ["JJ:"] (builtins.readFile ./dotfiles/conventional_commit_message);
+              hint = builtins.readFile ./dotfiles/conventional_change_message;
             in ''
               concat(
                 description,

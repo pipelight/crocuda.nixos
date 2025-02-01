@@ -1,0 +1,32 @@
+JJ:   Please follow the conventional commits specification:
+JJ:   <type>(<scope>): <subject>
+
+JJ:  Types:
+JJ:   feat:     A new feature
+JJ:   fix:      A bug fix
+JJ:   chore:    Routine tasks like build scripts or dependency updates
+JJ:   docs:     Changes to documentation only
+JJ:   style:    Changes that don't affect code logic (e.g., formatting)
+JJ:   refactor: Code changes that neither fix a bug nor add a feature
+JJ:   test:     Adding or updating tests
+JJ:   perf:     Code changes that improve performance
+JJ:   ci:       Changes to CI configuration files or scripts
+
+JJ:  Subjects:
+JJ:   add
+JJ:   remove
+JJ:   change
+JJ:   improve
+JJ:   revert
+
+JJ:  Examples:
+
+JJ:   # feat(dbt): add customers_monthly_summary model
+JJ:   #
+JJ:   # Reference Ticket: [TICKET-123]
+
+JJ:   # feat(models)!: remove address column from customers model
+JJ:   #
+JJ:   # BREAKING CHANGE: The `address` column has been removed from the `customers` model
+ 
+JJ:   Keep the subject line under 50 characters.

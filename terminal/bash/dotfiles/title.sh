@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 ## From molly-guard
 
 # Walk up the process tree until PID 1 is reached or a process with 'sshd' in
@@ -20,10 +22,30 @@ is_child_of_sshd(){
 }
 
 bash_title(){
-    set user $USER
-    set -l ssh
-    if [ -n "$SSH_TTY" ] || is_child_of_sshd
-      set ssh "["(prompt_hostname | string sub -l 10 | string collect)@$user"]"
-    end
-
+    user=$USER
+    ssh=""
+    if [[ -n "$SSH_TTY" ]] || is_child_of_sshd; then
+      ssh="["$user@$(hostname -s)"]"
+    fi
+    # An override for the current command is passed as the first parameter.
+    # This is used by `fg` to show the true process name, among others.
+    command=$0
+    if [ -z "$command" ]; then
+      echo "$ssh $command $(pwd)"
+    else
+      # Don't print "bash" because it's redundant
+      if [ $command = "bash" ]; then
+        command=""
+      fi
+      echo "$ssh $command $(pwd)"
+    fi
 }
+
+set_title(){
+    trap 'echo -ne "\033]0;$(bash_title)\007"' DEBUG
+}
+
+set_title
+
+
+

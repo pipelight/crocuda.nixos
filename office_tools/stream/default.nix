@@ -19,8 +19,8 @@ in
 
       environment.systemPackages = with pkgs; [
         obs-cli
-        shotcut
-        hyprshot
+        # shotcut
+        kdenlive
       ];
       environment.sessionVariables = {
         HYPRSHOT_DIR = "$HOME/Pictures/Screenshots";

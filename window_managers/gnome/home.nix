@@ -36,8 +36,9 @@ in
       home.packages = with pkgs; [
         ## Gtk/Qt theme compatibility
         qt6Packages.qt6ct
-        libsForQt5.qt5ct
-        qgnomeplatform
+
+        # libsForQt5.qt5ct
+        # qgnomeplatform
       ];
       # Cursor theming
       home.pointerCursor = {
@@ -85,8 +86,8 @@ in
         enable = true;
         platformTheme.name = "qtct";
         style = {
-          name = "adwaita-dark";
-          package = adwaita-qt;
+          name = "breeze-dark";
+          package = kdePackages.breeze;
         };
       };
     }

@@ -103,17 +103,6 @@ with lib;
             ## Lsp lint/formatting tools
             tree-sitter
 
-            # Node LSP servers
-            prettierd
-            tailwindcss
-            nodePackages.prettier
-            nodePackages.typescript
-            nodePackages.typescript-language-server
-            # nodePackages.eslint
-            nodePackages.jsonlint
-            vue-language-server
-            nodePackages.vscode-langservers-extracted
-            nodePackages."@tailwindcss/language-server"
             # Lua
             lua-language-server
             stylua
@@ -142,6 +131,27 @@ with lib;
             zls
             # Sql
             sqls
+
+            ##############################
+            # Web
+            # Node LSP servers
+            tailwindcss
+            prettierd
+            nodePackages.prettier
+            # nodePackages.typescript
+            typescript
+            # nodePackages.typescript-language-server
+            typescript-language-server
+
+            # nodePackages.eslint
+            eslint
+            nodePackages.jsonlint
+
+            vue-language-server
+
+            nodePackages.vscode-langservers-extracted
+            # nodePackages."@tailwindcss/language-server"
+            tailwindcss-language-server
           ]
         )
       ];

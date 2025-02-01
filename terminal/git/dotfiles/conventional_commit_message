@@ -13,12 +13,13 @@
 #   ci:       Changes to CI configuration files or scripts
 #
 # Examples:
-# feat(dbt): add customers_monthly_summary model
 #
-# Reference Ticket: [TICKET-123]
+#  # feat(dbt): add customers_monthly_summary model
+#  #
+#  # Reference Ticket: [TICKET-123]
 #
-# feat(models)!: remove address column from customers model
-#
-# BREAKING CHANGE: The `address` column has been removed from the `customers` model
+#  # feat(models)!: remove address column from customers model
+#  #
+#  # BREAKING CHANGE: The `address` column has been removed from the `customers` model
 # 
 # Keep the subject line under 50 characters.

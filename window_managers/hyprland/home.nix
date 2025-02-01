@@ -43,6 +43,9 @@ in
       };
 
       home.packages = with pkgs; [
+        # Screenshots
+        hyprshot
+
         # Yofi and dependencies
         inputs.yofi.packages.${system}.default
 

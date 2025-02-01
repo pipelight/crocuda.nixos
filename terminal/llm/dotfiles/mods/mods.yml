@@ -4,6 +4,7 @@ default-model: dolphin-mistral
 format-text:
   markdown: "Format the response as markdown without enclosing backticks."
   json: "Format the response as json without enclosing backticks."
+
 # List of predefined system messages that can be used as roles.
 roles:
   "default": []
@@ -37,7 +38,7 @@ include-prompt: 0
 # Maximum number of times to retry API calls.
 max-retries: 5
 # Your desired level of fanciness.
-fanciness: 15
+fanciness: 30
 # Text to show while generating.
 status-text: Thinking
 # Default character limit on input to model.
@@ -51,13 +52,17 @@ apis:
     api-key:
     api-key-env: OLLAMA_API_KEY
     models:
-      dolphin-mistral:
-        aliases: ["dmix"]
-        max-input-chars: 2048
-        fallback: mistral
       mistral:
         aliases: ["mis"]
         max-input-chars: 2048
+      deepseek-r1:
+        aliases: ["deep"]
+        max-input-chars: 2048
+        fallback: mistral
+      dolphin-mistral:
+        aliases: ["dmix"]
+        max-input-chars: 2048
+        fallback: deepseek-r1
       codestral:
         aliases: ["cmis"]
         max-input-chars: 2048

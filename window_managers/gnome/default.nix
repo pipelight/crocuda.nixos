@@ -23,8 +23,9 @@ in
         '';
       };
       environment.sessionVariables = {
-        QT_WAYLAND_DECORATION = "adwaita";
-        QT_QPA_PLATFORMTHEME = "gtk2";
+        # QT_WAYLAND_DECORATION = "adwaita";
+        QT_WAYLAND_DECORATION = "breeze-dark";
+        QT_QPA_PLATFORMTHEME = "gtk3";
       };
       # Hyprland
       programs.dconf.enable = true;
