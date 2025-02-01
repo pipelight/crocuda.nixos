@@ -26,7 +26,7 @@ function fish_title
     set user $USER
     set -l ssh
     if [ -n "$SSH_TTY" ] || is_child_of_sshd
-      set ssh "["(prompt_hostname | string sub -l 10 | string collect)@$user"]"
+      set ssh "["$user@(prompt_hostname | string sub -l 10 | string collect)"]"
     end
 
     # An override for the current command is passed as the first parameter.
