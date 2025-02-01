@@ -11,10 +11,10 @@
 in
   with lib;
     mkIf cfg.wm.hyprland.enable {
-      programs.hyprland = {
-        enable = true;
-        xwayland.enable = true;
-      };
+      # programs.hyprland = {
+      #   enable = true;
+      #   xwayland.enable = true;
+      # };
 
       environment.systemPackages = with pkgs; [
         wl-clipboard

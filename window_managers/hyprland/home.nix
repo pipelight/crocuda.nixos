@@ -19,17 +19,27 @@ in
       wayland.windowManager.hyprland = {
         enable = true;
         xwayland.enable = true;
-        package = pkgs-stable.hyprland;
+        # package = pkgs-unstable.hyprland;
+        package = pkgs.hyprland;
+        # package = pkgs.hyprland.override {
+        #   debug = true;
+        # };
         # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
 
-        plugins = with pkgs-stable.hyprlandPlugins; [
+        plugins = with pkgs.hyprlandPlugins; [
+          # plugins = with pkgs-unstable.hyprlandPlugins; [
           hyprscroller
           hyprbars
-
           # inputs.hyprscroller.packages.${pkgs.system}.default
           # inputs.hyprfocus.packages.${pkgs.system}.default
         ];
         extraConfig = lib.readFile dotfiles/hypr/hyprland.conf;
+      };
+
+      home.sessionVariables = {
+        # env = AQ_NO_MODIFIERS = 1;
+        # AQ_NO_ATOMIC = 1;
+        # AQ_DRM_DEVICES = "/dev/dri/card1";
       };
 
       home.packages = with pkgs; [
@@ -40,7 +50,6 @@ in
         libnotify
         fontconfig
 
-        # Wallpapers
         # Wallpapers
         convert_to_grayscale
         pkgs-stable.swww
