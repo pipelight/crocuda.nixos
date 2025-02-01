@@ -51,6 +51,20 @@
     };
     ###################################
     # WM - Window manager
+    # hyprland = {
+    #   type = "git";
+    #   url = "https://github.com/hyprwm/Hyprland";
+    #   submodules = true;
+    #   ref = "refs/tags/v0.47.0";
+    # };
+    # hyprscroller = {
+    #   url = "github:dawsers/hyprscroller";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
+    # hyprfocus = {
+    #   url = "github:pyt0xic/hyprfocus";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
     yofi = {
       url = "github:l4l/yofi";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -94,7 +108,7 @@
         pkgs = import nixpkgs {
           overlays = [inputs.nur.overlay];
         };
-        pkgs-stable = import nixpkgs-unstable;
+        pkgs-stable = import nixpkgs-stable;
         pkgs-unstable = import nixpkgs-unstable;
         pkgs-deprecated = import nixpkgs-deprecated;
       };
