@@ -52,8 +52,8 @@ in
           # nerd-fonts.droid-sans-mono
           (nerdfonts.override {
             fonts = [
-              "JetBrainsMono"
               "FiraCode"
+              "JetBrainsMono"
               "DroidSansMono"
             ];
           })
