@@ -68,8 +68,8 @@ return {
     cmd = { "SaveSession", "RestoreSession" },
     config = function()
       -- Autosession compat
-      -- vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
-      vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winpos,localoptions"
+      vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+      -- vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winpos,localoptions"
 
       require("auto-session").setup {
         log_level = "warn",
@@ -150,7 +150,7 @@ return {
   -- },
   {
     "nvim-focus/focus.nvim",
-    lazy = false,
+    event = "VeryLazy",
     opts = require("configs.focus").options,
     config = function()
       return require("focus").setup(require("configs.focus").options)

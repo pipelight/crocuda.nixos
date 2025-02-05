@@ -60,7 +60,14 @@ lspconfig.eslint.setup {
 lspconfig.volar.setup {
   cmd = { "vue-language-server", "--stdio" },
   -- takeover mode
-  filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
+  filetypes = {
+    "typescript",
+    "javascript",
+    "javascriptreact",
+    "typescriptreact",
+    "vue",
+    "json",
+  },
 }
 
 lspconfig.ts_ls.setup {

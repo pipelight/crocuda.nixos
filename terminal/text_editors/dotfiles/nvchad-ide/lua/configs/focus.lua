@@ -8,7 +8,7 @@ M.options = {
   autoresize = {
     enable = true,
     width = 100,
-    -- minwidth = 60,
+    minwidth = 60,
     height = 30,
     height_quickfix = 10,
   },
