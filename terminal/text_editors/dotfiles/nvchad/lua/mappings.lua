@@ -88,7 +88,7 @@ map(
 -- File tree
 --
 -- nvim-tree
--- map("n", "<C-h>", "<cmd> NvimTreeToggle <CR>", { desc = "Toggle nvimtree" })
+map("n", "<C-,>", "<cmd> NvimTreeToggle <CR>", { desc = "Toggle nvimtree" })
 -- oil.nvim
 map("n", "<C-h>", "<cmd> Oil <CR>", { desc = "Toggle oil.nvim file manager" })
 

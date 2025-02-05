@@ -5,6 +5,12 @@ require "nvchad.options"
 local o = vim.o
 local api = vim.api
 
+-- Fix focus.nvim warning
+o.winwidth = 60
+o.colorcolumn = 80
+api.nvim_set_option("winwidth", "60")
+api.nvim_set_option("colorcolumn", "80")
+
 o.clipboard = "unnamed"
 o.clipboard = "unnamedplus"
 o.splitbelow = true

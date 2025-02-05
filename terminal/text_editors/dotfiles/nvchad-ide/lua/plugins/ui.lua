@@ -1,6 +1,30 @@
 -- Checkout https://github.com/NvChad/NvChad for up to date plugin settings
 
 return {
+  -- File managing , picker etc
+  {
+    "nvim-tree/nvim-tree.lua",
+    cmd = { "NvimTreeToggle", "NvimTreeFocus", "NvimTreeRefresh" },
+    opts = function()
+      return require("configs.nvimtree").options
+    end,
+    config = function(_, opts)
+      require("nvim-tree").setup(opts)
+    end,
+  },
+  {
+    "stevearc/oil.nvim",
+    lazy = false,
+    ---@module 'oil'
+    -- ---@type oil.SetupOpts
+    config = function()
+      return require("oil").setup(require("configs.oil").options)
+    end,
+    -- Optional dependencies
+    dependencies = { { "echasnovski/mini.icons", opts = {} } },
+    -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
+  },
+
   ------------------------------
   -- NvChad Ui / NvUi
   "nvim-lua/plenary.nvim",
@@ -36,16 +60,6 @@ return {
     "lukas-reineke/indent-blankline.nvim",
     lazy = false,
   },
-  {
-    "stevearc/oil.nvim",
-    lazy = false,
-    ---@module 'oil'
-    ---@type oil.SetupOpts
-    opts = require("configs.oil").options,
-    -- Optional dependencies
-    dependencies = { { "echasnovski/mini.icons", opts = {} } },
-    -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
-  },
 
   -- Session manager
   -- https://github.com/NvChad/NvChad/issues/646
@@ -54,7 +68,8 @@ return {
     cmd = { "SaveSession", "RestoreSession" },
     config = function()
       -- Autosession compat
-      vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+      -- vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+      vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winpos,localoptions"
 
       require("auto-session").setup {
         log_level = "warn",
@@ -127,18 +142,6 @@ return {
   --   end,
   -- },
 
-  -- File managing , picker etc
-  {
-    "nvim-tree/nvim-tree.lua",
-    cmd = { "NvimTreeToggle", "NvimTreeFocus", "NvimTreeRefresh" },
-    opts = function()
-      return require("configs.nvimtree").options
-    end,
-    config = function(_, opts)
-      dofile(vim.g.base46_cache .. "nvimtree")
-      require("nvim-tree").setup(opts)
-    end,
-  },
   -------------------------------
   -- Non optimal setup
   -- {
@@ -148,8 +151,9 @@ return {
   {
     "nvim-focus/focus.nvim",
     lazy = false,
+    opts = require("configs.focus").options,
     config = function()
-      return require("configs.focus").config
+      return require("focus").setup(require("configs.focus").options)
     end,
   },
 }
