@@ -94,6 +94,9 @@ M.options = {
   git = {
     enable = true,
   },
+  view = {
+    width = 30,
+  },
   renderer = {
     group_empty = false,
     highlight_opened_files = "none",

@@ -23,10 +23,6 @@ local servers = {
   -- Python
   "pylsp",
 
-  --- Moved down below
-  -- Rust
-  -- "rust_analyzer",
-
   -- Zig
   "zls",
 
@@ -34,14 +30,10 @@ local servers = {
   "sqls",
 
   -- Web / Vue
+  "pug",
   "html",
   "cssls",
   "tailwindcss",
-
-  "ts_ls",
-
-  -- Deno
-  "denols",
 }
 
 -- lsps with default config
@@ -53,44 +45,45 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+-- lspconfig.eslint.setup {
+--   on_attach = on_attach,
+--   on_init = on_init,
+--   capabilities = capabilities,
+--   cmd = { "eslint" },
+-- }
+
 -- support for vue
-lspconfig.eslint.setup {
-  cmd = { "eslint" },
-}
 lspconfig.volar.setup {
-  cmd = { "vue-language-server", "--stdio" },
-  -- takeover mode
-  filetypes = {
-    "typescript",
-    "javascript",
-    "javascriptreact",
-    "typescriptreact",
-    "vue",
-    "json",
+  cmd = { "bun", "run", "vue-language-server", "--stdio" },
+  init_options = {
+    vue = {
+      hybridMode = true,
+    },
   },
+  root_dir = lspconfig.util.root_pattern("vite.config.ts", "vitest.config.ts"),
 }
 
 lspconfig.ts_ls.setup {
   on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,
+  cmd = { "bun", "run", "typescript-language-server", "--stdio" },
   init_options = {
-    plugins = { -- I think this was my breakthrough that made it work
-      -- {
-      --   -- Before, install in bun global dir:
-      --   -- bun install -g @vue/typescript-plugin && bun update -g
-      --   name = "@vue/typescript-plugin",
-      --   location = "$HOME/.bun/global/node_modules/@vue/typescript-plugin",
-      --   languages = { "vue", "typescript", "javascript" },
-      -- },
+    plugins = {
       {
         -- Before, install in bun global dir:
         -- bun install -g @vue/typescript-plugin && bun update -g
         name = "@vue/typescript-plugin",
-        -- location = "$HOME/.bun/global/node_modules/@vue/typescript-plugin",
-        location = "/usr/bin/env vue-language-server",
-        -- location = "", -- preffer dynamic location for nix compat
-        -- languages = { "vue", "typescript", "javascript" },
+        location = "",
+        -- location = "$HOME/.bun/install/global/vue-language-server",
+        languages = { "vue" },
+      },
+      {
+        -- Before, install in bun global dir:
+        -- bun install -g @vue/language-plugin-pug && bun update -g
+        name = "@vue/language-plugin-pug",
+        location = "",
+        -- location = "$HOME/.bun/install/global/vue-language-server",
         languages = { "vue" },
       },
     },
@@ -98,10 +91,17 @@ lspconfig.ts_ls.setup {
   filetypes = {
     "typescript",
     "javascript",
-    -- "vue",
     "javascriptreact",
     "typescriptreact",
+    "vue",
   },
+}
+
+lspconfig.denols.setup {
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = capabilities,
+  root_dir = lspconfig.util.root_pattern("deno.lock", "mod.ts"),
 }
 
 -- support for rust

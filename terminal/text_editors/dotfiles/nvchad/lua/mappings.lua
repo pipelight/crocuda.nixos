@@ -4,6 +4,12 @@ local map = vim.keymap.set
 local nomap = vim.keymap.del
 local lsp = vim.lsp
 
+-- Help
+-- open help in vertical buffer
+map("ca", "help", "vert help", {
+  desc = "Open help in vertical buffer",
+})
+
 -- File
 --
 map("n", "<C-q>", "<cmd> q <CR>", { desc = "File quit if saved" })
@@ -90,7 +96,7 @@ map(
 -- nvim-tree
 map("n", "<C-,>", "<cmd> NvimTreeToggle <CR>", { desc = "Toggle nvimtree" })
 -- oil.nvim
-map("n", "<C-h>", "<cmd> Oil <CR>", { desc = "Toggle oil.nvim file manager" })
+map("n", "<C-h>", "<cmd> OilToggle <CR>", { desc = "Toggle oil.nvim file manager" })
 
 -- Telescope
 --

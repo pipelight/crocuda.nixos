@@ -23,7 +23,13 @@ return {
     opts = {
       -- colemak-dh
       labels = "arstgoienmqwfpbyuljxcdvzhk",
-      search = { forward = false, backward = false, multi_window = false, continue = false, jump_labels = true },
+      search = {
+        forward = false,
+        backward = false,
+        multi_window = false,
+        continue = false,
+        jump_labels = true,
+      },
       autojump = true,
       modes = {
         search = {
@@ -47,15 +53,5 @@ return {
         desc = "Flash jump to pattern",
       },
     },
-  },
-  {
-    "stevearc/oil.nvim",
-    lazy = true,
-    ---@module 'oil'
-    ---@type oil.SetupOpts
-    opts = {},
-    -- Optional dependencies
-    dependencies = { { "echasnovski/mini.icons", opts = {} } },
-    -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
   },
 }

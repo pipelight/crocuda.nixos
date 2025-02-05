@@ -20,9 +20,6 @@ return {
     config = function()
       return require("oil").setup(require("configs.oil").options)
     end,
-    -- Optional dependencies
-    dependencies = { { "echasnovski/mini.icons", opts = {} } },
-    -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
   },
 
   ------------------------------
@@ -150,6 +147,7 @@ return {
   -- },
   {
     "nvim-focus/focus.nvim",
+    lazy = false,
     event = "VeryLazy",
     opts = require("configs.focus").options,
     config = function()

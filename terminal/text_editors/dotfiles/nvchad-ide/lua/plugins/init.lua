@@ -42,7 +42,13 @@ return {
     opts = {
       -- colemak-dh
       labels = "arstgoienmqwfpbyuljxcdvzhk",
-      search = { forward = false, backward = false, multi_window = false, continue = false, jump_labels = true },
+      search = {
+        forward = false,
+        backward = false,
+        multi_window = false,
+        continue = false,
+        jump_labels = true,
+      },
       autojump = true,
       modes = {
         search = {

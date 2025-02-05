@@ -14,6 +14,15 @@ return {
     end,
   },
   {
+    "stevearc/oil.nvim",
+    lazy = false,
+    ---@module 'oil'
+    -- ---@type oil.SetupOpts
+    config = function()
+      return require("oil").setup(require("configs.oil").options)
+    end,
+  },
+  {
     "lewis6991/gitsigns.nvim",
     lazy = false,
   },
@@ -57,6 +66,15 @@ return {
         ---Highlight tailwind colors, e.g. 'bg-blue-500'
         enable_tailwind = false,
       }
+    end,
+  },
+  {
+    "nvim-focus/focus.nvim",
+    lazy = false,
+    event = "VeryLazy",
+    opts = require("configs.focus").options,
+    config = function()
+      return require("focus").setup(require("configs.focus").options)
     end,
   },
 }

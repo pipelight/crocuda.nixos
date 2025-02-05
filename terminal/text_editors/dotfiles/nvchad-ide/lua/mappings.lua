@@ -4,6 +4,12 @@ local map = vim.keymap.set
 local nomap = vim.keymap.del
 local lsp = vim.lsp
 
+-- Help
+-- open help in vertical buffer
+map("ca", "help", "vert help", {
+  desc = "Open help in vertical buffer",
+})
+
 -- File
 --
 map("n", "<C-q>", "<cmd> q <CR>", { desc = "File quit if saved" })
