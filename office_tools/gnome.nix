@@ -25,7 +25,9 @@ in
         gnome.nixos-gsettings-overrides
         gnome-settings-daemon
         gnome-menus
+
         nautilus
+        emote
       ];
       # Temporary fix one line full gnome installation
       # services.xserver.desktopManager.gnome.enable = true;

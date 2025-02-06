@@ -40,23 +40,33 @@ in
       # Fonts
       fonts = {
         fontconfig = {
-          defaultFonts = {
-            monospace = ["JetBrainsMonoNL Nerd Font"];
-            sansSerif = ["JetBrainsMonoNL Nerd Font"];
-            serif = ["JetBrainsMonoNL Nerd Font"];
+          defaultFonts = rec {
+            emoji = ["Noto Color Emoli"];
+            monospace = [
+              "JetBrains Mono Nerd Font Mono"
+              "JetBrains Mono NL Nerd Font Mono"
+              "NotoSansM Nerd Font Mono"
+              "Noto Sans Mono CJK JP"
+            ];
+            sansSerif = monospace;
+            serif = monospace;
           };
         };
         packages = with pkgs; [
-          # nerd-fonts.fira-code
-          # nerd-fonts.jetbrains-mono
-          # nerd-fonts.droid-sans-mono
+          #24.11
           (nerdfonts.override {
             fonts = [
-              "FiraCode"
               "JetBrainsMono"
-              "DroidSansMono"
+              "Noto"
             ];
           })
+          noto-fonts-color-emoji
+          noto-fonts-cjk-sans
+
+          #25.05
+          # nerd-fonts.jetbrains-mono
+          # nerd-fonts.noto
+          # noto-fonts-color-emoji
         ];
       };
     }
