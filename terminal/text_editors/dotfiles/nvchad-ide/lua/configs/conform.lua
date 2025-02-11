@@ -7,12 +7,17 @@ local options = {
     },
   },
 
+  -- Install Prettier
+  -- install with: bun install -g prettier
+  -- add pug support: bun add -g @prettier/plugin-pug
+
   formatters_by_ft = {
     lua = { "stylua" },
 
     markdown = { "prettier" },
 
     css = { "prettier" },
+    pug = { "prettier" },
     html = { "prettier" },
     javascript = { "prettier" },
     typescript = { "prettier" },

@@ -78,15 +78,18 @@ return {
   --
   {
     "vim-test/vim-test",
+    event = "VeryLazy",
     config = function()
       vim.g["test#preserve_screen"] = 0
       vim.g["test#neovim#start_normal"] = 1
+      vim.g["test#neovim#reopen_window"] = 1
       vim.g["test#neovim#term_position"] = "vert"
       vim.g["test#strategy"] = "toggleterm"
       vim.g["test#rust#cargotest#test_options"] = "-- --test-threads 1 --nocapture"
       vim.g["test#javascript#denotest#options"] = "--allow-all"
+      -- Set vitest priority when installed
+      vim.g["test#javascript#runner"] = "vitest"
     end,
-    lazy = false,
   },
   -- toggleterm vim-test dependency
   {
@@ -95,10 +98,10 @@ return {
     config = function()
       require("toggleterm").setup {
         size = function(term)
-          return vim.o.columns * 0.32
+          return vim.o.columns * 0.4
         end,
         direction = "vertical",
-        persist_size = true,
+        persist_size = false,
         hide_numbers = true,
         close_on_exit = false,
         shade_terminals = true,

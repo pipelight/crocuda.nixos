@@ -30,10 +30,8 @@ local servers = {
   "sqls",
 
   -- Web / Vue
-  "pug",
   "html",
-  "cssls",
-  "tailwindcss",
+  -- "cssls",
 }
 
 -- lsps with default config
@@ -95,6 +93,22 @@ lspconfig.ts_ls.setup {
     "typescriptreact",
     "vue",
   },
+}
+
+-- Pug
+-- Install pug lsp from go with: go install github.com/opa-oz/pug-lsp@latest
+lspconfig.pug.setup {
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = capabilities,
+  root_dir = vim.fn.getcwd(),
+}
+
+lspconfig.tailwindcss.setup {
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = capabilities,
+  filetypes = { "pug", "css", "html", "vue", "postcss", "markdown", "svelte", "handlebars", "mustache", "jade", "htmx" },
 }
 
 lspconfig.denols.setup {

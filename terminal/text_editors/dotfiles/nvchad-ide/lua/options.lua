@@ -31,3 +31,5 @@ vim.cmd "au BufNewFile,BufRead *.rcl		setf rcl"
 -- vim.cmd "au BufNewFile,BufRead *.jjdescription		setf gitcommit"
 -- vim.cmd "au FileType bindzone   setl cms=;%s"
 -- vim.cmd "au FileType bindzone   setl commentstring=;%s"
+--
+vim.cmd "au BufNewFile,BufRead *.pug		setf pug"

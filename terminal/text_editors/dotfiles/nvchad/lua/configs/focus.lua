@@ -22,18 +22,13 @@ M.options = {
 vim.opt.winwidth = 30
 
 local ignore_filetypes = {
-  "nvim-tree",
-  "neo-tree",
   "NvimTree",
   "NvimTree_1",
-  "toggleterm",
+  -- "toggleterm",
 }
 local ignore_buftypes = {
   "nofile",
-  "prompt",
   "popup",
-  "NvimTree",
-  "NvimTree_1",
   -- "terminal",
 }
 
@@ -67,18 +62,6 @@ vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter", "FileType", "VimEnter" }, 
   desc = "Disable focus autoresize for FileType",
 })
 
--- vim.api.nvim_create_autocmd({ "VimResized" }, {
---   group = augroup,
---   callback = function(_)
---     if vim.tbl_contains(ignore_buftypes, vim.bo.buftype) then
---       --
---     else
---       vim.cmd "FocusAutoresize"
---     end
---   end,
---   desc = "Resize panes/splits on window resize",
--- })
-
 vim.api.nvim_create_autocmd({ "VimResized" }, {
   group = augroup,
   callback = function(_)
@@ -88,7 +71,19 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
       vim.cmd "wincmd ="
     end
   end,
-  desc = "Resize panes/splits on window resize",
+  desc = "Resize panes/splits on window resize for BufType",
+})
+
+vim.api.nvim_create_autocmd({ "VimResized" }, {
+  group = augroup,
+  callback = function(_)
+    if vim.tbl_contains(ignore_filetypes, vim.bo.filetype) then
+      --
+    else
+      vim.cmd "wincmd ="
+    end
+  end,
+  desc = "Resize panes/splits on window resize for FileType",
 })
 
 return M

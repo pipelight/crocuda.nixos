@@ -94,6 +94,9 @@ return {
     lazy = false,
     config = function()
       local animate = require "mini.animate"
+      local is_many_wins = function(sizes_from, sizes_to)
+        return vim.tbl_count(sizes_from) >= 2
+      end
       require("mini.animate").setup {
         open = {
           enable = false,
@@ -109,8 +112,8 @@ return {
         },
         resize = {
           enable = true,
-          timing = animate.gen_timing.quartic { easing = "out", duration = 14, unit = "total" },
-          -- subresize = animate.gen_subresize.equal({ predicate = is_many_wins }),
+          timing = animate.gen_timing.linear { easing = "out", duration = 14, unit = "total" },
+          subresize = animate.gen_subresize.equal { predicate = is_many_wins },
         },
       }
     end,
@@ -148,7 +151,7 @@ return {
   {
     "nvim-focus/focus.nvim",
     lazy = false,
-    event = "VeryLazy",
+    -- event = "VeryLazy",
     opts = require("configs.focus").options,
     config = function()
       return require("focus").setup(require("configs.focus").options)

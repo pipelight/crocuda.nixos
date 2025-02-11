@@ -135,9 +135,9 @@ with lib;
             ##############################
             # Web
             # Node LSP servers
-            tailwindcss
-            prettierd
-            nodePackages.prettier
+            # tailwindcss
+            # prettierd
+            # nodePackages.prettier
             # nodePackages.typescript
             typescript
             # nodePackages.typescript-language-server

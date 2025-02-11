@@ -41,6 +41,14 @@ local function new_git_status()
 end
 local git_status = new_git_status()
 
+-- Clear git status cache on refresh
+local refresh = require("oil.actions").refresh
+local orig_refresh = refresh.callback
+refresh.callback = function(...)
+  git_status = new_git_status()
+  orig_refresh(...)
+end
+
 M.options = {
   default_file_explorer = true,
   keymaps = {
