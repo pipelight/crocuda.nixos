@@ -134,8 +134,6 @@ with lib;
 
             ##############################
             # Web
-            # Node LSP servers
-            # tailwindcss
             # prettierd
             # nodePackages.prettier
             # nodePackages.typescript
@@ -148,10 +146,6 @@ with lib;
             nodePackages.jsonlint
 
             vue-language-server
-
-            nodePackages.vscode-langservers-extracted
-            # nodePackages."@tailwindcss/language-server"
-            tailwindcss-language-server
           ]
         )
       ];
