@@ -17,11 +17,14 @@ with lib;
 
       git = {
         enable = true;
+        # iniContent.gpg.format = lib.mkDefault "ssh";
+        iniContent.gpg.format = lib.mkForce "ssh";
         extraConfig = {
           commit.template = "~/.config/git/conventional_commit_message";
           core = {
             editor = "nvim -u ~/.config/nvchad/init.lua";
           };
+          # gpg.format = lib.mkDefault "ssh";
           # Sign all commits using ssh key
           # commit.gpgsign = true;
           # gpg.format = "ssh";

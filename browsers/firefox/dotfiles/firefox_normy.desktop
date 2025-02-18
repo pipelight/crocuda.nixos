@@ -1,0 +1,26 @@
+[Desktop Entry]
+Actions=new-private-window;new-window;profile-manager-window
+Categories=Network;WebBrowser
+Exec=firefox -P normy --name firefox-normy %U
+GenericName=Web Browser
+Icon=firefox
+MimeType=text/html;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;x-scheme-handler/http;x-scheme-handler/https
+Name=Firefox-normy
+StartupNotify=true
+StartupWMClass=firefox
+Terminal=false
+Type=Application
+Version=1.4
+Comment=Custom definition for Firefox without much security enhancement
+
+[Desktop Action new-private-window]
+Exec=firefox -P normy --private-window %U
+Name=New Private Window
+
+[Desktop Action new-window]
+Exec=firefox -P normy --new-window %U
+Name=New Window
+
+[Desktop Action profile-manager-window]
+Exec=firefox -P normy --ProfileManager
+Name=Profile Manager

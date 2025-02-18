@@ -13,6 +13,7 @@ with lib;
 
       # Desktop entry for firefox_i2p
       ".local/share/applications/firefox_i2p.desktop".source = dotfiles/firefox_i2p.desktop;
+      ".local/share/applications/firefox_normy.desktop".source = dotfiles/firefox_normy.desktop;
       ".config/tridactyl".source = dotfiles/tridactyl;
     };
 
@@ -150,6 +151,12 @@ with lib;
           inherit search;
           userChrome = builtins.readFile dotfiles/userChrome.css;
           isDefault = true;
+        };
+        normy = {
+          inherit extensions;
+          userChrome = builtins.readFile dotfiles/userChrome_normy.css;
+          isDefault = false;
+          id = 5;
         };
         i2p = {
           inherit extensions;

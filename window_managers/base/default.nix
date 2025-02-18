@@ -53,20 +53,19 @@ in
           };
         };
         packages = with pkgs; [
-          #24.11
+          # 24.11
           (nerdfonts.override {
             fonts = [
               "JetBrainsMono"
               "Noto"
             ];
           })
-          noto-fonts-color-emoji
-          noto-fonts-cjk-sans
-
           #25.05
           # nerd-fonts.jetbrains-mono
           # nerd-fonts.noto
-          # noto-fonts-color-emoji
+
+          noto-fonts-color-emoji
+          noto-fonts-cjk-sans
         ];
       };
     }

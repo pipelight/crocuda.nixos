@@ -1,15 +1,18 @@
 {
   config,
   pkgs,
+  pkgs-unstable,
+  pkgs-deprecated,
   lib,
   inputs,
   ...
 }: let
   cfg = config.crocuda;
+  sozu = pkgs-unstable.sozu;
 in
   with lib;
     mkIf cfg.servers.web.sozu.enable {
-      environment.systemPackages = with pkgs; [
+      environment.systemPackages = [
         # Tcp proxy written in Rust
         sozu
       ];
@@ -22,8 +25,8 @@ in
         wants = ["network-online.target"];
         wantedBy = ["multi-user.target"];
         serviceConfig = {
-          ExecStart = "${pkgs.sozu}/bin/sozu start --config /etc/sozu/config.toml";
-          ExecReload = "${pkgs.sozu}/bin/sozu --config /etc/sozu/config.toml reload";
+          ExecStart = "${sozu}/bin/sozu start --config /etc/sozu/config.toml";
+          ExecReload = "${sozu}/bin/sozu --config /etc/sozu/config.toml reload";
           Restart = "on-failure";
           # User = "sozu";
           # Group = "users";

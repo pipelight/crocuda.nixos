@@ -62,7 +62,13 @@ in
           enable = true;
           # libvirt DHCP compatibility
           checkReversePath = "loose";
-          # allowedTCPPorts = [80 443];
+          allowedTCPPorts = [
+            # prod
+            # 80 443
+            # test
+            # 3000
+            # 5173
+          ];
         };
       };
 
