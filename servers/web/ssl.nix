@@ -19,6 +19,7 @@ in
     ];
 
     systemd.services = let
+      email = builtins.elemAt cfg.servers.mail.maddy.accounts 0;
       units =
         concatMapAttrs
         (
@@ -28,6 +29,7 @@ in
               serviceConfig = {
                 Type = "oneshot";
                 User = "root";
+                Group = "users";
                 ExecStartPre = ''
                   ${certbot_clean_certs}/bin/certbot_clean_certs clean ${name}
                 '';
@@ -39,9 +41,12 @@ in
                   + concatMapStrings (domain: "-d ${domain} ") domains
                   + ''
                     --standalone \
-                    -n
+                    -n \
+                  ''
+                  + ''
+                    --agree-tos \
+                    --email ${email}
                   '';
-
                 StandardInput = "null";
                 StandardOutput = "journal+console";
                 StandardError = "journal";

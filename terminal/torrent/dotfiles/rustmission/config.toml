@@ -43,9 +43,64 @@ keybindings = [
   { on = "i", action = "Right" },
 ]
 
+[torrents_tab]
+headers = [
+  "Name",
+  "SizeWhenDone",
+  "Progress",
+  "Eta",
+  "DownloadRate",
+  "UploadRate",
+]
+
+default_sort = "AddedDate"
+# Reverse the default sort?
+default_sort_reverse = true
+
+# Whether to insert category icon into name as declared in categories.toml.
+# An alternative to inserting category's icon into torrent's name is adding a
+# CategoryIcon header into your headers.
+category_icon_insert_into_name = true
+
+
+[search_tab]
+providers = ["Knaben", "Nyaa"]
+
 [connection]
 url = "http://localhost:9091/transmission/rpc" # REQUIRED!
+
+# Refresh timings (in seconds)
+torrents_refresh = 5
+stats_refresh = 5
+free_space_refresh = 10
+
 
 # If you need username and password to authenticate:
 # username = "CHANGE_ME"
 # password = "CHANGE_ME"
+[icons]
+# Ascii alternatives                # Defaults
+# upload = "↑"                      # ""
+# download = "↓"                    # ""
+# arrow_left = "←"                  # ""
+# arrow_right = "→"                 # ""
+# arrow_up = "↑"                    # ""
+# arrow_down = "↓"                  # ""
+# triangle_right = "▶"              # "▶"
+# triangle_down = "▼"               # "▼"
+# file = "∷"                        # ""
+# disk = "[D]"                      # "󰋊"
+# help = "[?]"                      # "󰘥"
+# success = "✔"                     # ""
+# failure = "✖"                     # ""
+# searching = "⟳"                   # ""
+# verifying = "⟳"                   # "󰑓"
+# loading = "⌛"                    # "󱥸"
+# pause = "‖"                       # "󰏤"
+# idle = "○"                        # "󱗼"
+# magnifying_glass = "[o]"          # ""
+# provider_disabled = "⛔"          # "󰪎"
+# provider_category_general = "[G]" # ""
+# provider_category_anime = "[A]"   # "󰎁"
+# sort_ascending = "↓"              # "󰒼"
+# sort_descending = "↑"             # "󰒽""

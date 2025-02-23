@@ -7,33 +7,35 @@ local options = {
     },
   },
 
-  -- Install Prettier
-  -- install with: bun install -g prettier
-  -- add pug support: bun add -g @prettier/plugin-pug
+  -- Prettier recommandations:
+  -- Install latest prettier outside of nix
+  -- with: bun install -g prettier
+  -- then add sepecfic lang support:
+  --  - bun add -g @prettier/plugin-pug
 
   formatters_by_ft = {
     lua = { "stylua" },
 
-    markdown = { "prettier" },
+    markdown = { "prettier", "prettierd" },
 
-    css = { "prettier" },
-    pug = { "prettier" },
-    html = { "prettier" },
-    javascript = { "prettier" },
-    typescript = { "prettier" },
+    css = { "prettier", "prettierd" },
+    pug = { "prettier", "prettierd" },
+    html = { "prettier", "prettierd" },
+    javascript = { "prettier", "prettierd" },
+    typescript = { "prettier", "prettierd" },
 
-    typescriptreact = { "prettier" },
-    svelte = { "prettier" },
-    graphql = { "prettier" },
+    typescriptreact = { "prettier", "prettierd" },
+    svelte = { "prettier", "prettierd" },
+    graphql = { "prettier", "prettierd" },
 
     toml = { "taplo" },
-    yaml = { "prettier" },
-    json = { "prettier" },
+    yaml = { "prettier", "prettierd" },
+    json = { "prettier", "prettierd" },
 
     python = { "black" },
 
     -- rust = { "rust-fmt" },
-    go = { "prettier" },
+    go = { "prettier", "prettierd" },
     nix = { "alejandra" },
     zig = { "zigfmt" },
     hcl = { "hclfmt" },

@@ -48,8 +48,8 @@ with lib;
         (mkDefault "nvim")
       ];
       MANPAGER = mkMerge [
-        (mkIf (cfg.terminal.editors.nvchad-ide.enable) "nvim -u ~/.config/nvchad/init.lua +Man!")
-        (mkIf (cfg.terminal.editors.nvchad.enable) "nvim -u ~/.config/nvchad/init.lua +Man!")
+        (mkIf (cfg.terminal.editors.nvchad-ide.enable) "nvim -u ~/.config/nvchad/init.lua -c 'Man!' -o -")
+        (mkIf (cfg.terminal.editors.nvchad.enable) "nvim -u ~/.config/nvchad/init.lua -c 'Man!' -o -")
         (mkDefault "nvim +Man!")
       ];
     };
@@ -134,7 +134,7 @@ with lib;
 
             ##############################
             # Web
-            # prettierd
+            prettierd
             # nodePackages.prettier
             # nodePackages.typescript
             typescript

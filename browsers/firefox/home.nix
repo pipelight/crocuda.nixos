@@ -151,12 +151,7 @@ with lib;
           inherit search;
           userChrome = builtins.readFile dotfiles/userChrome.css;
           isDefault = true;
-        };
-        normy = {
-          inherit extensions;
-          userChrome = builtins.readFile dotfiles/userChrome_normy.css;
-          isDefault = false;
-          id = 5;
+          id = 0;
         };
         i2p = {
           inherit extensions;
@@ -164,7 +159,7 @@ with lib;
           inherit search;
           userChrome = builtins.readFile dotfiles/userChrome_alt.css;
           isDefault = false;
-          id = 10;
+          id = 1;
           settings = {
             "dom.security.https_only_mode" = lib.mkForce false;
             "media.peerconnection.ice.proxy_only" = true;
@@ -174,6 +169,13 @@ with lib;
             "network.proxy.ssl" = "127.0.0.1";
             "network.proxy.ssl_port" = 4444;
           };
+        };
+        normy = {
+          inherit extensions;
+          inherit search;
+          userChrome = builtins.readFile dotfiles/userChrome_normy.css;
+          isDefault = false;
+          id = 2;
         };
       };
     };
