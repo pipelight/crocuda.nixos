@@ -103,6 +103,8 @@ with lib;
             ## Lsp lint/formatting tools
             tree-sitter
 
+            # Grammar
+            ltex-ls
             # Lua
             lua-language-server
             stylua

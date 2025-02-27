@@ -37,4 +37,10 @@ that looks like this.
 Mail adress boxes are created but cannot be accessed as is.
 You need to add credentials (need root priviledges).
 
+```sh
+sudo maddy creds password alice@test.com
+```
+
 ## Create an autoconfigure file
+
+TODO()

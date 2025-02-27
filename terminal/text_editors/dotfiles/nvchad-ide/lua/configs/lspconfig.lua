@@ -136,6 +136,19 @@ lspconfig.rust_analyzer.setup {
   },
 }
 
+-- Grammar correction
+-- https://medium.com/@Erik_Krieg/free-and-open-source-grammar-correction-in-neovim-using-ltex-and-n-grams-dea9d10bc964
+require("lspconfig").ltex.setup {
+  settings = {
+    ltex = {
+      language = "en-GB",
+      additionalRules = {
+        languageModel = "~/Documents/Ngrams/",
+      },
+    },
+  },
+}
+
 -- Diagnostic styling
 --
 -- Enable diagnostic floating window on insert mode
