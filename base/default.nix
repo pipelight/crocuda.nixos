@@ -21,6 +21,8 @@ in {
   ];
   users.groups.wheel.members = cfg.users;
 
+  services.dbus.implementation = "broker";
+
   security.polkit.enable = true;
 
   environment.systemPackages = with pkgs; [

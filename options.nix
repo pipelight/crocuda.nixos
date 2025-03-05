@@ -39,11 +39,30 @@ with lib; {
     #########################
     ## Network and connectivity
     network = {
-      privacy.enable = mkEnableOption ''
-        Enable ipv6 privacy features, quad9 dns.
-      '';
+      privacy = {
+        enable = mkEnableOption ''
+          Enable ipv6 privacy features.
+          Quad9 dns.
+        '';
+        strategy = mkOption {
+          type = with types; enum ["fixed" "random"];
+          description = ''
+            Set the level of privacy.
+
+            - fixed: Recommended for servers.
+              Set fixed ipv6 based on a secret whether than on device macaddress.
+
+            - random: Recommended for desktops.
+              Set random ipv6 for each network with rotation every hour.
+
+            Delve into the subject with:
+              https://superuser.com/questions/243669/how-to-avoid-exposing-my-mac-address-when-using-ipv6
+          '';
+          default = "fixed";
+        };
+      };
       bluetooth.enable = mkEnableOption ''
-        Enable ipv6 privacy features, quad9 dns.
+        Enable bluetooth with Playstation remote controller fixes.
       '';
     };
     # Set editors with the specified keyboard layout

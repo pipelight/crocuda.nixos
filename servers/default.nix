@@ -14,6 +14,10 @@ in {
   # This service internally modify the firewall to
   # allow tcp and udp on the specified ports.
   #
+
+  # Enable the agent
+  programs.ssh.startAgent = true;
+
   environment.systemPackages = with pkgs; [
     # openssl
   ];
