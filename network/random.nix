@@ -20,7 +20,7 @@ in
       boot = {
         kernelParams = ["IPv6PrivacyExtensions=1"];
         kernel.sysctl = {
-          "net.ipv6.conf.all.use_tempaddr" = 1;
+          # "net.ipv6.conf.all.use_tempaddr" = 1;
         };
       };
 
@@ -30,10 +30,14 @@ in
         dns = "none";
         dhcp = "internal";
         connectionConfig = {
-          # "ethernet.cloned-mac-address" = mkDefault "random";
-          # "ipv4.ignore-auto-dns" = mkDefault "yes";
-          "wifi.cloned-mac-address" = mkDefault "random";
-          "ipv6.ip6-privacy" = mkDefault "2";
+          # MAC address randomization
+          "ethernet.cloned-mac-address" = "random";
+          "wifi.cloned-mac-address" = "random";
+
+          # Random inbound
+          "ipv6.addr-gen-mode" = "stable-privacy";
+          # Random outbound
+          "ipv6.ip6-privacy" = 2;
         };
         logLevel = "INFO";
       };

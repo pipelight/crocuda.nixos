@@ -19,7 +19,8 @@ with lib;
 
     programs.firefox = {
       enable = true;
-      package = pkgs.firefox-bin;
+      # package = pkgs.firefox-bin;
+      package = pkgs.librewolf;
 
       # native tridactyl support
       nativeMessagingHosts = [pkgs.tridactyl-native];
@@ -31,15 +32,17 @@ with lib;
       };
 
       profiles = let
-        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-          darkreader
-          ublock-origin
-          keepassxc-browser
-          tridactyl
-          privacy-badger
-          # tranquility
-          # rust-search-extension
-        ];
+        extensions = {
+          packages = with pkgs.nur.repos.rycee.firefox-addons; [
+            darkreader
+            ublock-origin
+            keepassxc-browser
+            tridactyl
+            privacy-badger
+            # tranquility
+            # rust-search-extension
+          ];
+        };
 
         # Get every susbsection number
         # jq 'keys' arkenfox-nixos/autogen/122.0.json

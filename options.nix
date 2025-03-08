@@ -44,6 +44,13 @@ with lib; {
           Enable ipv6 privacy features.
           Quad9 dns.
         '';
+        secret = mkOption {
+          type = with types; str;
+          description = ''
+            A string to generate the ipv6 default address from.
+          '';
+          default = config.networking.hostName;
+        };
         strategy = mkOption {
           type = with types; enum ["fixed" "random"];
           description = ''
@@ -53,10 +60,8 @@ with lib; {
               Set fixed ipv6 based on a secret whether than on device macaddress.
 
             - random: Recommended for desktops.
-              Set random ipv6 for each network with rotation every hour.
+              Set random ipv6 for outgoing traffic on each network with rotation every few hours.
 
-            Delve into the subject with:
-              https://superuser.com/questions/243669/how-to-avoid-exposing-my-mac-address-when-using-ipv6
           '';
           default = "fixed";
         };

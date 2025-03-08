@@ -17,6 +17,8 @@ in
 
       # Prevent from enabling systemd network backend.
       networking.useNetworkd = lib.mkForce false;
+      systemd.network.enable = lib.mkForce false;
+      boot.initrd.systemd.network.enable = lib.mkForce false;
 
       ##########################
       ## Dns

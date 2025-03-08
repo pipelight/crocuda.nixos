@@ -31,6 +31,7 @@ in
       programs.dconf.enable = true;
       xdg.portal = {
         enable = true;
+        config.common.default = "*";
         # enable = lib.mkForce false;
         extraPortals = with pkgs; [
           xdg-desktop-portal-gtk

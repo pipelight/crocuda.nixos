@@ -9,13 +9,10 @@
 in
   with lib;
     mkIf cfg.terminal.torrent.enable {
-      environment.systemPackages = with pkgs; [
-        transmission
-      ];
-
       ################################
       ### Torrent
       services.transmission = {
         enable = true;
+        package = pkgs.transmission_4;
       };
     }
