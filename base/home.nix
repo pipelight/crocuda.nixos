@@ -14,7 +14,7 @@ with lib;
       gnupg
       cryptsetup
       # Nixos easy cli
-      inputs.nixos-cli.packages.${system}.default
+      # inputs.nixos-cli.packages.${system}.default
     ];
 
     home.file = {

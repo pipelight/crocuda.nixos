@@ -9,32 +9,22 @@
 with lib;
   mkIf cfg.terminal.shell.utils.enable {
     home.packages = with pkgs; [
-      # nushell
-
       # Mini man pages
-      cheat
-      tealdeer
-
-      expect
+      # tealdeer
+      # Nixos doc
+      # manix
 
       # File convertion
-      dasel
+      # dasel
 
       # Get info on dir
       fastfetch
       onefetch
 
-      # A terminal based chat application plugable with
-      # ircd and darkirc
-      weechat
-
       # Js utils
-      jo
+      # jo
       jq
-      yq-go
-
-      # Nixos doc
-      manix
+      # yq-go
 
       # Inspect fs and io
       pciutils
@@ -43,8 +33,5 @@ with lib;
       # Process management
       # btop
       lsof
-
-      # Dotenv, environment autoload
-      nix-index
     ];
   }

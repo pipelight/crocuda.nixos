@@ -28,6 +28,7 @@ in
       ];
 
       programs.firefox = {
+        # package = pkgs.librewolf;
         enable = true;
         policies = {
           DisableFirefoxStudies = true;

@@ -44,26 +44,39 @@ with lib; {
           Enable ipv6 privacy features.
           Quad9 dns.
         '';
-        secret = mkOption {
-          type = with types; str;
-          description = ''
-            A string to generate the ipv6 default address from.
-          '';
-          default = config.networking.hostName;
-        };
-        strategy = mkOption {
-          type = with types; enum ["fixed" "random"];
-          description = ''
-            Set the level of privacy.
+        ipv6 = {
+          secret = mkOption {
+            type = with types; str;
+            description = ''
+              A string to generate the ipv6 default address from.
+              Only used if strategy is "fixed".
+            '';
+            default = config.networking.hostName;
+          };
+          iid = mkOption {
+            type = with types; str;
+            description = ''
+              A dummy ipv6 to generate default inbound address from.
+              Only used if strategy is "fixed".
+            '';
+            example = lib.literalExpression ''
+              babe:feed:b0ba:fett
+            '';
+          };
+          strategy = mkOption {
+            type = with types; enum ["fixed" "random"];
+            description = ''
+              Set the level of privacy.
 
-            - fixed: Recommended for servers.
-              Set fixed ipv6 based on a secret whether than on device macaddress.
+              - fixed: Recommended for servers.
+                Set fixed ipv6 based on a secret whether than on device macaddress.
 
-            - random: Recommended for desktops.
-              Set random ipv6 for outgoing traffic on each network with rotation every few hours.
+              - random: Recommended for desktops.
+                Set random ipv6 for outgoing traffic on each network with rotation every few hours.
 
-          '';
-          default = "fixed";
+            '';
+            default = "fixed";
+          };
         };
       };
       bluetooth.enable = mkEnableOption ''

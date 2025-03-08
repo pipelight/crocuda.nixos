@@ -26,25 +26,14 @@ in
       services.resolved.enable = lib.mkForce false;
 
       # Set privacy respecting DNS
-      networking.nameservers = [
+      networking.nameservers = lib.mkDefault [
         #Quad9
         "9.9.9.9"
         "2620:fe::fe"
         #Mullvad
-        # "100.64.0.63"
         "194.242.2.4"
         "2a07:e340::4"
-        # local
-        # "127.0.0.1"
-        # "::1"
       ];
-
-      ##########################
-      ## DHCP
-      networking.dhcpcd = {
-        enable = true;
-        extraConfig = "nohook resolv.conf";
-      };
 
       ##########################
       ## Firewall
@@ -75,20 +64,22 @@ in
 
         # Trafic inspection
         whois
-        tshark
+        # tshark
         iftop
         speedtest-go
+        traceroute
 
         # Host scanning
         dig
+        bind
+
         nmap
 
         # Query content
         curl
-        wget
 
         # VPN
-        wireguard-tools
-        mullvad-vpn
+        # wireguard-tools
+        # mullvad-vpn
       ];
     }

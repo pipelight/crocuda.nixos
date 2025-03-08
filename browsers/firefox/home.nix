@@ -19,8 +19,7 @@ with lib;
 
     programs.firefox = {
       enable = true;
-      # package = pkgs.firefox-bin;
-      package = pkgs.librewolf;
+      # package = pkgs.librewolf;
 
       # native tridactyl support
       nativeMessagingHosts = [pkgs.tridactyl-native];

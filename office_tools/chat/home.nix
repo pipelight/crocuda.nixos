@@ -13,13 +13,17 @@ with lib;
       thunderbird-bin
 
       # Messaging apps
-      session-desktop
+      # session-desktop
       signal-desktop
-      element-desktop
-      telegram-desktop
+      # element-desktop
+      # telegram-desktop
 
       # Bottom tier apps
       discord
+
+      # A terminal based chat application plugable with
+      # ircd and darkirc
+      weechat
 
       # Social network
       # tuba
