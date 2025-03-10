@@ -11,7 +11,7 @@ in {
   # Ssh
   #
   # Caution:
-  # This service internally modify the firewall to
+  # This service silently modifies the firewall to
   # allow tcp and udp on the specified ports.
   #
 
