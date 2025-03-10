@@ -9,11 +9,6 @@
 with lib;
   mkIf cfg.terminal.shell.utils.enable {
     home.packages = with pkgs; [
-      # Mini man pages
-      # tealdeer
-      # Nixos doc
-      # manix
-
       # File convertion
       # dasel
 

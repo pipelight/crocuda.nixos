@@ -16,6 +16,20 @@ in
           nix-direnv.enable = true;
         };
       };
+
+      # Retrieve tools installed with cargo,go and bun.
+      environment.sessionVariables = rec {
+        # Go env
+        GOPATH = "$HOME/.go";
+        GOBIN = "${GOPATH}/bin";
+        CGO_ENABLED = 1;
+        PATH = [
+          "$HOME/.cargo/bin"
+          "$HOME/.bun/bin"
+          "$HOME/.go/bin"
+        ];
+      };
+
       environment.systemPackages = with pkgs; [
         # Move fast in filesystem
         fzf
