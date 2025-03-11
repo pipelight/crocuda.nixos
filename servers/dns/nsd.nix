@@ -10,7 +10,11 @@
 
   unboundEnabled = config.services.unbound.enable;
 
-  mkDefaultZone = domain: ipv4: ipv6:
+  mkDefaultZone = {
+    domain,
+    ipv4,
+    ipv6,
+  }:
     with dns.combinators; let
       data =
         {
@@ -34,12 +38,16 @@
             {
               service = "autodiscovery";
               proto = "tcp";
-              port = "443";
+              port = 443;
               target = "autoconfig";
             }
           ];
         };
-    in {"${domain}" = data;};
+    in {
+      "${domain}" = {
+        data = dns.toString domain data;
+      };
+    };
 in
   with lib;
     mkIf cfg.servers.dns.enable {
@@ -47,9 +55,12 @@ in
         nsd = {
           enable = true;
 
-          hide-version = true;
-          hide-identity = true;
           verbosity = 2;
+          # extraConfig = ''
+          #   server:
+          #     hide-identity: yes
+          #     hide-version: yes
+          # '';
 
           interfaces =
             if unboundEnabled
@@ -59,8 +70,23 @@ in
             # Listen on public
             else ["0.0.0.0" "::0"];
 
-          zones = {};
-          # // mkDefaultZone "crocuda.com" null "95.164.16.172";
+          zones =
+            {}
+            // mkDefaultZone {
+              domain = "crocuda.com";
+              ipv4 = "95.164.16.172";
+              ipv6 = null;
+            }
+            // mkDefaultZone {
+              domain = "pipelight.dev";
+              ipv4 = "95.164.16.172";
+              ipv6 = null;
+            }
+            // mkDefaultZone {
+              domain = "areskul.com";
+              ipv4 = "95.164.16.172";
+              ipv6 = null;
+            };
         };
       };
     }
