@@ -7,14 +7,13 @@
 }:
 with lib; let
   cfg = config.crocuda;
+  nsdEnabled = config.services.nsd.enable;
 in
   # enabled on privacy feature only
   mkIf cfg.network.privacy.enable {
     services = {
-      enable = true;
       unbound = {
-        enableRootTrustAnchor = true;
-        checkconf = true;
+        enable = true;
         settings = {
           server = {
             unblock-lan-zones = "yes";
@@ -23,7 +22,13 @@ in
 
             # send minimal amount of information to upstream.
             hide-identity = "yes";
+            hide-version = "yes";
             verbosity = 2;
+
+            interface = [
+              "0.0.0.0"
+              "::0"
+            ];
           };
           remote-control = {
             control-enable = true;
@@ -45,6 +50,15 @@ in
                 "2620:fe::9"
               ];
             }
+          ];
+          stub-zone = [
+            (mkIf nsdEnabled {
+              name = ".";
+              stub-addr = [
+                "127.0.0.1"
+                "::1"
+              ];
+            })
           ];
         };
       };
