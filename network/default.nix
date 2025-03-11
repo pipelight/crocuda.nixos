@@ -27,12 +27,13 @@ in
 
       # Set privacy respecting DNS
       networking.nameservers = lib.mkDefault [
-        #Quad9
-        "9.9.9.9"
-        "2620:fe::fe"
         #Mullvad
         "194.242.2.4"
         "2a07:e340::4"
+        #Quad9
+        "9.9.9.9"
+        "2620:fe::fe"
+        "2620:fe::9"
       ];
 
       ##########################

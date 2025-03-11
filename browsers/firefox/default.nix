@@ -9,24 +9,6 @@
 in
   with lib;
     mkIf cfg.office.browser.firefox.enable {
-      # Browsh
-      # A tui browser based on firefox
-      # with experimental vim-mode
-      nixpkgs.overlays = [
-        (
-          final: prev: {
-            browsh-vim = pkgs.browsh.overrideAttrs (oldAttrs: rec {
-              src = prev.fetchFromGitHub {
-                owner = "browsh-org";
-                repo = "browsh";
-                rev = "refs/heads/vim-mode-exprimental";
-                hash = "sha256-KbBVcNuERBL94LuRx872zpjQTzR6c5GalsBoNR52SuQ=";
-              };
-            });
-          }
-        )
-      ];
-
       programs.firefox = {
         # package = pkgs.librewolf;
         enable = true;

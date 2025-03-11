@@ -32,26 +32,20 @@ in
 
       environment.systemPackages = with pkgs; [
         # Move fast in filesystem
-        fzf
-        fd
         atuin
         zoxide
         ripgrep
-        eza
+        fzf
+        # find file
+        fd
 
         ## Fish Shell dependencies
         starship
         fish
 
-        # Recolorize commands
-        grc
-
-        eza
-
-        # Process management
-        htop
-
-        # Display file
-        bat
+        grc # Recolorize commands
+        eza # Ls replacement
+        htop # Process management
+        bat # Display file
       ];
     }

@@ -40,7 +40,10 @@
       url = "github:dwarfmaster/arkenfox-nixos";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
+    dns = {
+      url = "github:kirelagin/dns.nix";
+      inputs.nixpkgs.follows = "nixpkgs"; # (optionally)
+    };
     pipelight = {
       url = "github:pipelight/pipelight?ref=dev";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -105,9 +108,6 @@
     nixosModules = let
       specialArgs = {
         inherit inputs;
-        pkgs = import nixpkgs {
-          overlays = [inputs.nur.overlay];
-        };
         pkgs-stable = import nixpkgs-stable;
         pkgs-unstable = import nixpkgs-unstable;
         pkgs-deprecated = import nixpkgs-deprecated;

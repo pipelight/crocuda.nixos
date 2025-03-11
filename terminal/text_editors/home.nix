@@ -11,16 +11,6 @@ with lib;
     || cfg.terminal.editors.nvchad.enable
     || cfg.terminal.editors.nvchad-ide.enable)
   {
-    # LSP support
-    # Override Nxpkgs nodejs version from lts to latest
-    nixpkgs.overlays = [
-      (
-        final: prev: {
-          nodejs = prev.nodejs_latest;
-        }
-      )
-    ];
-
     ##########################
     ## Multi keyboad layout support for neovim and vim
     ## Not working for now because I don't have much time to maintain it.
