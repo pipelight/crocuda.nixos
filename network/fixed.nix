@@ -103,9 +103,9 @@ in
 
     ## dhcpcd
     networking = {
-      # Force dhcpcd usage with networkmanager.
+      # Force dhcpcd usage with networkmanager (not working)
       # for tool concistency with servers that do not use networkmanager.
-      useDHCP = mkForce true;
+      # useDHCP = mkForce true;
       dhcpcd = {
         enable = true; #default
         extraConfig = ''
@@ -114,10 +114,6 @@ in
         '';
       };
     };
-
-    # networking.resolvconf.extraConfig = ''
-    #   lookup file bind
-    # '';
 
     ##########################
     # You should use either systemd-networkd OR NetworkManager.
@@ -145,7 +141,8 @@ in
         then "none"
         else "default";
 
-      ## Use external dhcp -> dhcpcd
+      ## Use external dhcp -> dhcpcd (not working)
+      # Not working because of concurency error.
       # dhcp = "dhcpcd";
       dhcp = "internal";
 
