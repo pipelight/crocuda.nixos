@@ -104,18 +104,19 @@
     nixpkgs-unstable,
     nixpkgs-deprecated,
     ...
-  } @ inputs: {
-    lib = import ./lib;
-    nixosModules = let
-      specialArgs = {
-        inherit self;
-        inherit inputs;
-        pkgs = import nixpkgs;
-        pkgs-stable = import nixpkgs-stable;
-        pkgs-unstable = import nixpkgs-unstable;
-        pkgs-deprecated = import nixpkgs-deprecated;
-      };
-    in {
+  } @ inputs: let
+    specialArgs = rec {
+      inherit self;
+      inherit inputs;
+      pkgs = import nixpkgs;
+      lib = pkgs.lib;
+      pkgs-stable = import nixpkgs-stable;
+      pkgs-unstable = import nixpkgs-unstable;
+      pkgs-deprecated = import nixpkgs-deprecated;
+    };
+  in {
+    lib = import ./lib specialArgs;
+    nixosModules = {
       # Default module
       inherit specialArgs;
       default = ./default.nix;
