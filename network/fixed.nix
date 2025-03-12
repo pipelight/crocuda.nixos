@@ -8,6 +8,8 @@
 with lib; let
   cfg = config.crocuda;
 
+  unboundEnabled = config.services.unbound.enable;
+
   ## Functions
 
   # Generate a 128bits hash from a secret
@@ -100,12 +102,17 @@ in
     };
 
     ## dhcpcd
-    networking.dhcpcd = {
-      enable = true; #default
-      extraConfig = ''
-        nohook resolv.conf
-        slaac token ::${token}
-      '';
+    networking = {
+      # Force dhcpcd usage with networkmanager.
+      # for tool concistency with servers that do not use networkmanager.
+      useDHCP = mkForce true;
+      dhcpcd = {
+        enable = true; #default
+        extraConfig = ''
+          nohook resolv.conf
+          slaac token ::${token}
+        '';
+      };
     };
 
     # networking.resolvconf.extraConfig = ''
@@ -125,6 +132,7 @@ in
     networking.interfaces = mkIf (!config.networking.networkmanager.enable) {
       end0.macAddress = computed_mac;
       eno1.macAddress = computed_mac;
+      ens3.macAddress = computed_mac;
     };
     ## NetworkManager
     # https://www.networkmanager.dev/docs/api/latest
@@ -132,11 +140,14 @@ in
       logLevel = "INFO";
 
       ## Use external dns -> unbound
-      dns = "none";
+      dns =
+        if unboundEnabled
+        then "none"
+        else "default";
 
       ## Use external dhcp -> dhcpcd
-      dhcp = "dhcpcd";
-      # dhcp = "internal";
+      # dhcp = "dhcpcd";
+      dhcp = "internal";
 
       connectionConfig = {
         # MAC address randomization
@@ -156,11 +167,18 @@ in
             cloned-mac-address = computed_mac;
           };
           ipv4 = {
+            dns-search = "lan";
+            # dns-priority default = 100, vpn = 50
+            dns-priority = 20;
             method = "auto";
           };
           ipv6 = {
-            # Fixed inbound ip
+            dns-search = "lan";
+            # dns-priority default = 100, vpn = 50
+            dns-priority = 20;
             method = "auto";
+
+            # Fixed inbound ip
             addr-gen-mode = "eui64";
             token = "::${token}";
 

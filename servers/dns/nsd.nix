@@ -62,10 +62,15 @@ in
           #     hide-version: yes
           # '';
 
+          port =
+            if unboundEnabled
+            # Run on non default port if unbound is already running
+            then 553
+            # Listen on default port
+            else 53;
           interfaces =
             if unboundEnabled
-            # Listen on localhost only
-            # and unbound will forward the dns zones
+            # Listen on localhost only if unbound is already running.
             then ["127.0.0.1" "::1"]
             # Listen on public
             else ["0.0.0.0" "::0"];

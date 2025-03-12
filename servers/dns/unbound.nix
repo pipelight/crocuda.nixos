@@ -13,7 +13,6 @@ in
   mkIf cfg.network.privacy.enable {
     services = {
       unbound = {
-        enable = true;
         settings = {
           server = {
             unblock-lan-zones = "yes";
@@ -55,8 +54,8 @@ in
             (mkIf nsdEnabled {
               name = ".";
               stub-addr = [
-                "127.0.0.1"
-                "::1"
+                "127.0.0.1@553"
+                "::1@553"
               ];
             })
           ];
