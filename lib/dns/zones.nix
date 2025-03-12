@@ -6,7 +6,7 @@
   ...
 }: let
   dns = inputs.dns.lib;
-
+in rec {
   mkDefaultZone = {
     domain,
     ipv4,
@@ -67,6 +67,4 @@
         data = dns.toString domain data;
       };
     };
-in {
-  inherit mkDefaultZone;
 }

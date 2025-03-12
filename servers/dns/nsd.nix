@@ -3,10 +3,11 @@
   pkgs,
   lib,
   inputs,
+  self,
   ...
 }: let
   cfg = config.crocuda;
-  dnslib = import ./lib.nix;
+  dnslib = import "${self}/lib/dns/zone.nix";
 
   unboundEnabled = config.services.unbound.enable;
 in

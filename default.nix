@@ -12,7 +12,11 @@
 }: let
   cfg = config.crocuda;
   umport_params = {
-    exclude = [./flake.nix ./default.nix];
+    exclude = [
+      ./flake.nix
+      ./default.nix
+      ./lib
+    ];
     paths = [
       ./.
     ];
