@@ -105,9 +105,12 @@
     nixpkgs-deprecated,
     ...
   } @ inputs: {
+    lib = import ./lib;
     nixosModules = let
       specialArgs = {
+        inherit self;
         inherit inputs;
+        pkgs = import nixpkgs;
         pkgs-stable = import nixpkgs-stable;
         pkgs-unstable = import nixpkgs-unstable;
         pkgs-deprecated = import nixpkgs-deprecated;

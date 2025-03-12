@@ -7,8 +7,7 @@
   ...
 }: let
   cfg = config.crocuda;
-  dnslib = import "${self}/lib/dns/zone.nix";
-
+  dns = inputs.dns.lib;
   unboundEnabled = config.services.unbound.enable;
 in
   with lib;
@@ -16,13 +15,14 @@ in
       services = {
         nsd = {
           enable = true;
+          # zonefilesCheck = false;
 
           verbosity = 2;
-          # extraConfig = ''
-          #   server:
-          #     hide-identity: yes
-          #     hide-version: yes
-          # '';
+          extraConfig = ''
+            server:
+              hide-identity: yes
+              hide-version: yes
+          '';
 
           port =
             if unboundEnabled
@@ -30,6 +30,7 @@ in
             then 553
             # Listen on default port
             else 53;
+
           interfaces =
             if unboundEnabled
             # Listen on localhost only if unbound is already running.
@@ -37,22 +38,19 @@ in
             # Listen on public
             else ["0.0.0.0" "::0"];
 
-          zones = with dnslib;
-            {}
-            // mkDefaultZone {
-              domain = "crocuda.com";
-              ipv4 = "95.164.16.172";
-              ipv6 = null;
-            }
-            // mkDefaultZone {
-              domain = "pipelight.dev";
-              ipv4 = "95.164.16.172";
-              ipv6 = null;
-            }
-            // mkDefaultZone {
-              domain = "areskul.com";
-              ipv4 = "95.164.16.172";
-              ipv6 = null;
+          zones = with dns.combinators;
+            mkDefault {
+              "example.com" = {
+                data = dns.toString "example.com" {
+                  useOrigin = true;
+                  TTL = 60 * 60;
+                  SOA = {
+                    nameServer = "ns1";
+                    adminEmail = "admin";
+                    serial = 60 * 365 * 24 * 60 * 60;
+                  };
+                };
+              };
             };
         };
       };
