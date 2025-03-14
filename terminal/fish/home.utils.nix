@@ -22,6 +22,7 @@ with lib;
       # yq-go
 
       # Inspect fs and io
+      duf # df replacement
       pciutils
       lshw
 

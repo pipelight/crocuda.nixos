@@ -17,11 +17,11 @@ in
         };
       };
       virtualisation.vswitch = {
-        package = pkgs-unstable.openvswitch-dpdk;
+        package = pkgs.openvswitch-dpdk;
         enable = true;
       };
       environment.systemPackages = with pkgs; [
         # Network
-        pkgs-unstable.openvswitch-dpdk
+        pkgs.openvswitch-dpdk
       ];
     }

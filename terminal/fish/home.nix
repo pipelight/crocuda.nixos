@@ -9,7 +9,12 @@
 with lib;
   mkIf cfg.terminal.shell.fish.enable {
     home.file = {
+      # Prompt
+      ".config/starship.toml".source = dotfiles/starship.toml;
+
+      # Atuin
       ".config/atuin".source = dotfiles/atuin;
+
       # Shell aliases
       ".aliases".source = dotfiles/fish/.aliases;
 
@@ -18,45 +23,50 @@ with lib;
       ".config/nushell/env.nu".source = dotfiles/nushell/env.nu;
 
       # Fish
-      ".config/fish/colemak.fish".source = dotfiles/fish/colemak.fish;
-      ".config/fish/interactive.fish".source = dotfiles/fish/interactive.fish;
-      ".config/fish/title.fish".source = dotfiles/fish/title.fish;
-      # Prompt
-      ".config/starship.toml".source = dotfiles/starship.toml;
+      ".config/fish/conf.d/abbrev.fish".source = dotfiles/fish/abbrev.fish;
+      ".config/fish/conf.d/colemak.fish".source = dotfiles/fish/colemak.fish;
+      ".config/fish/conf.d/interactive.fish".source = dotfiles/fish/interactive.fish;
+      ".config/fish/conf.d/title.fish".source = dotfiles/fish/title.fish;
     };
 
     # Shell
     programs = {
       fish = rec {
         enable = true;
+        interactiveShellInit = ''
+          source ~/.aliases
+          source ~/.config/fish/conf.d
+
+        '';
+        shellInit = ''
+          source ~/.aliases
+        '';
         plugins = with pkgs.fishPlugins; [
-          {
-            name = "fzf";
-            src = pkgs.fetchFromGitHub {
-              owner = "PatrickF1";
-              repo = "fzf.fish";
-              rev = "main";
-              hash = "sha256-T8KYLA/r/gOKvAivKRoeqIwE2pINlxFQtZJHpOy9GMM=";
-            };
-          }
           {
             name = "grc";
             src = grc.src;
           }
           {
-            name = "git";
-            src = plugin-git.src;
+            name = "abrev-tips";
+            src = pkgs.fetchFromGitHub {
+              owner = "gazorby";
+              repo = "fish-abbreviation-tips";
+              rev = "master";
+              hash = "sha256-F1t81VliD+v6WEWqj1c1ehFBXzqLyumx5vV46s/FZRU=";
+            };
           }
         ];
-        interactiveShellInit = ''
-          source ~/.aliases
-          source ~/.config/fish/colemak.fish
-          source ~/.config/fish/interactive.fish
-          source ~/.config/fish/title.fish
-        '';
-        shellInit = ''
-          source ~/.aliases
-        '';
+      };
+      direnv = {
+        enable = true;
+        nix-direnv.enable = true;
+      };
+      skim = {
+        enable = true;
+        enableFishIntegration = true;
+      };
+      pay-respects = {
+        enable = true;
       };
     };
   }

@@ -10,12 +10,6 @@ in
   with lib;
     mkIf cfg.terminal.shell.fish.enable {
       programs.fish.enable = true;
-      programs = {
-        direnv = {
-          enable = true;
-          nix-direnv.enable = true;
-        };
-      };
 
       # Retrieve tools installed with cargo,go and bun.
       environment.sessionVariables = rec {
@@ -35,8 +29,10 @@ in
         atuin
         zoxide
         ripgrep
-        fzf
+
         # find file
+        # fzf
+        skim
         fd
 
         ## Fish Shell dependencies

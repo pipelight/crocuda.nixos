@@ -11,6 +11,7 @@ local servers = {
 
   -- Nix
   "nil_ls",
+  -- "rnix", main contributor has passed away (will fork)
 
   -- Markup
   "taplo",
