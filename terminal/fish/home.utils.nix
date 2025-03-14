@@ -2,6 +2,7 @@
   config,
   cfg,
   pkgs,
+  pkgs-unstable,
   lib,
   inputs,
   ...
@@ -22,7 +23,7 @@ with lib;
       # yq-go
 
       #cloned repos manager (ghq)
-      ghr
+      pkgs-unstable.siketyan-ghr
 
       # Inspect fs and io
       duf # df replacement

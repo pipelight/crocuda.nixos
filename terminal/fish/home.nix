@@ -62,6 +62,10 @@ with lib;
         enable = true;
         nix-direnv.enable = true;
       };
+      atuin = {
+        enable = true;
+        enableFishIntegration = true;
+      };
       skim = {
         enable = true;
         enableFishIntegration = true;

@@ -25,7 +25,9 @@ in {
   imports =
     [
       ######################
-      # Modules
+      ## Modules
+      # Secrets
+      inputs.sops-nix.nixosModules.sops
       inputs.impermanence.nixosModules.impermanence
       # Nur
       inputs.nur.modules.nixos.default
@@ -45,7 +47,13 @@ in {
     users = cfg.users;
     modules =
       [
+        ######################
+        ## Modules
+        # Secrets
+        inputs.sops-nix.homeManagerModules.sops
+        # Nur
         inputs.nur.modules.homeManager.default
+        # Firefox
         inputs.arkenfox.hmModules.arkenfox
 
         # Boulette

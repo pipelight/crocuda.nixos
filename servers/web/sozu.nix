@@ -17,6 +17,29 @@ in
         sozu
       ];
 
+      # Main config
+      crocuda.servers.web.sozu.config = mkBefore {
+        command_socket = "/etc/sozu/sozu.sock";
+        saved_state = "/etc/sozu/state.json";
+
+        log_level = "info";
+
+        log_target = "stdout";
+        access_log_target = "stdout";
+
+        command_buffer_size = 16384;
+        worker_count = 2;
+        handle_process_affinity = false;
+        max_connections = 500;
+        max_buffers = 500;
+        buffer_size = 16384;
+        activate_listeners = true;
+      };
+
+      environment.etc.
+        "sozu/config.toml".text =
+        inputs.nix-std.lib.serde.toTOML cfg.servers.web.sozu.config;
+
       # Systemd unit template adapted from sozu doc/recipe.md
       systemd.services."sozu" = {
         description = "Sozu - A HTTP reverse proxy, configurable at runtime, fast and safe, built in Rust.";
@@ -37,7 +60,4 @@ in
         "d /etc/sozu 754 root users - -"
         "f /etc/sozu/state.json 754 root users - -"
       ];
-      # environment.etc = {
-      #   "sozu/config.toml".source = ./dotfiles/sozu/config.toml;
-      # };
     }

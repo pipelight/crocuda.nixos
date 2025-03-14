@@ -15,8 +15,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-std.url = "github:chessai/nix-std";
+
     ###################################
     ## Crocuda dependencies
+
+    sops-nix.url = "github:Mic92/sops-nix";
 
     nixos-cli.url = "github:water-sucks/nixos";
 

@@ -212,9 +212,15 @@ with lib; {
             };
           };
         };
-        sozu.enable = mkEnableOption ''
-          Enable sozu proxy server.
-        '';
+        sozu = {
+          config = mkOption {
+            type = with types; attrs;
+            description = "sozu configuration";
+          };
+          enable = mkEnableOption ''
+            Enable sozu proxy server.
+          '';
+        };
         pebble.enable = mkEnableOption ''
           Enable pebble, the acme validation test suite.
         '';
