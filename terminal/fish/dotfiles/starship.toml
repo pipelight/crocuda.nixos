@@ -127,8 +127,11 @@ ssh_only = false
 disabled = false
 format = '[@$hostname](bold green) '
 
+# [custom.abbrev-tips]
+# format = '[$line_break $ABBR_TIPS_PROMPT $line_break]'
+
 [custom.pipelight]
-description = "pipelight cicd"
+description = "pipelight cicd engine"
 format = '[$symbol ]($style)'
 symbol = "󰬗"
 detect_files = [

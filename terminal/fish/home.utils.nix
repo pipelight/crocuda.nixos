@@ -21,6 +21,9 @@ with lib;
       jq
       # yq-go
 
+      #cloned repos manager (ghq)
+      ghr
+
       # Inspect fs and io
       duf # df replacement
       pciutils

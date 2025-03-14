@@ -173,6 +173,9 @@ with lib; {
     ## Severs
     ## Polished one liner server configs
     servers = {
+      atuin.enable = mkEnableOption ''
+        Toggle atuin server.
+      '';
       security.enable = mkEnableOption ''
         Toggle security features
       '';

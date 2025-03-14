@@ -23,10 +23,12 @@ with lib;
       ".config/nushell/env.nu".source = dotfiles/nushell/env.nu;
 
       # Fish
-      ".config/fish/conf.d/abbrev.fish".source = dotfiles/fish/abbrev.fish;
       ".config/fish/conf.d/colemak.fish".source = dotfiles/fish/colemak.fish;
       ".config/fish/conf.d/interactive.fish".source = dotfiles/fish/interactive.fish;
       ".config/fish/conf.d/title.fish".source = dotfiles/fish/title.fish;
+      ".config/fish/conf.d/abbrev.fish".source = dotfiles/fish/abbrev.fish;
+      # Completion
+      ".config/fish/completions/ghr.fish".source = dotfiles/fish/completions/ghr.fish;
     };
 
     # Shell
@@ -35,8 +37,7 @@ with lib;
         enable = true;
         interactiveShellInit = ''
           source ~/.aliases
-          source ~/.config/fish/conf.d
-
+          source ~/.config/fish/conf.d/*
         '';
         shellInit = ''
           source ~/.aliases
@@ -47,7 +48,7 @@ with lib;
             src = grc.src;
           }
           {
-            name = "abrev-tips";
+            name = "abbrev-tips";
             src = pkgs.fetchFromGitHub {
               owner = "gazorby";
               repo = "fish-abbreviation-tips";

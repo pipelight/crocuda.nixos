@@ -1,6 +1,6 @@
 # Colemak-DH mod based on
 # https://github.com/fish-shell/fish-shell/blob/master/share/functions/fish_vi_key_bindings.fish
-function fish_vi_key_bindings --description 'vi-like key bindings for fish'
+function fish_vi_key_bindings --description 'colemak nvim key bindings for fish'
 
     #########################################################
     ## Utils
@@ -103,10 +103,6 @@ function fish_vi_key_bindings --description 'vi-like key bindings for fish'
     bind -s --preset -m insert a forward-single-char repaint-mode
     bind -s --preset -m insert A end-of-line repaint-mode
 
-
-    ## Enter visual mode
-    bind -s --preset -m visual v begin-selection repaint-mode
-    bind -s --preset -m visual-line V beginning-of-line begin-selection repaint-mode
 
     # bind -s --preset gg beginning-of-buffer
     # bind -s --preset G end-of-buffer
@@ -291,9 +287,12 @@ function fish_vi_key_bindings --description 'vi-like key bindings for fish'
     # but this binding just move cursor backward, not delete the changes
     bind -s --preset -M replace -k backspace backward-char
 
-    #
-    # visual mode
-    #
+    #########################################################
+    # Visual mode
+    ## Enter visual mode
+    bind -s --preset -m visual v begin-selection repaint-mode
+    bind -s --preset -m visual V begin-selection down-line repaint-mode
+
     bind -s --preset -M visual m backward-char
     bind -s --preset -M visual i forward-char
 

@@ -34,7 +34,7 @@ return {
     end,
     lazy = false,
   },
-  { "echasnovski/mini.ai", version = false },
+  { "echasnovski/mini.ai", version = false, event = "VeryLazy" },
   {
     "folke/flash.nvim",
     event = "VeryLazy",
