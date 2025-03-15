@@ -117,6 +117,7 @@
       pkgs-stable = import nixpkgs-stable;
       pkgs-unstable = import nixpkgs-unstable;
       pkgs-deprecated = import nixpkgs-deprecated;
+      slib = import ./lib specialArgs;
     };
   in {
     lib = import ./lib specialArgs;
