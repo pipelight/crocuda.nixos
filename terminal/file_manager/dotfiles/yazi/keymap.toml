@@ -7,6 +7,7 @@ prepend_keymap = [
     "Q",
   ], run = "nothing", desc = "Do not quot on Q" },
 
+  # Motions
   { on = [
     "e",
   ], run = "arrow -1", desc = "Move cursor up" },
@@ -27,12 +28,14 @@ prepend_keymap = [
     "i",
   ], run = "enter", desc = "Enter the child directory" },
 
+  # Find
   { on = [
-    "M",
-  ], run = "back", desc = "Go back to the previous directory" },
+    "h",
+  ], run = "find_arrow", desc = "Go to next found file" },
   { on = [
-    "I",
-  ], run = "forward", desc = "Go forward to the next directory" },
+    "H",
+  ], run = "find_arrow --previous", desc = "Go to previous found file" },
+
   # Linemode
   { on = [
     "k",
@@ -50,13 +53,6 @@ prepend_keymap = [
     "k",
     "n",
   ], run = "linemode none", desc = "Set linemode to none" },
-  # Find
-  { on = [
-    "h",
-  ], run = "find_arrow", desc = "Go to next found file" },
-  { on = [
-    "h",
-  ], run = "find_arrow --previous", desc = "Go to previous found file" },
 ]
 
 [tasks]

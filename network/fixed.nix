@@ -101,15 +101,16 @@ in
       };
     };
 
+    ##########################
     ## dhcpcd
     networking = {
       # Force dhcpcd usage with networkmanager (not working)
       # for tool concistency with servers that do not use networkmanager.
       # useDHCP = mkForce true;
       dhcpcd = {
-        enable = true; #default
+        # enable = true; #default
         extraConfig = ''
-          nohook resolv.conf
+          # nohook resolv.conf
           slaac token ::${token}
         '';
       };
@@ -130,6 +131,7 @@ in
       eno1.macAddress = computed_mac;
       ens3.macAddress = computed_mac;
     };
+
     ## NetworkManager
     # https://www.networkmanager.dev/docs/api/latest
     networking.networkmanager = mkIf config.networking.networkmanager.enable {

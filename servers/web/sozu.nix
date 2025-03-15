@@ -17,7 +17,7 @@ in
         sozu
       ];
 
-      # Main config
+      # Main daemon config
       crocuda.servers.web.sozu.config = mkBefore {
         command_socket = "/etc/sozu/sozu.sock";
         saved_state = "/etc/sozu/state.json";

@@ -196,7 +196,7 @@ with lib; {
       web = {
         letsencrypt = {
           enable = mkEnableOption ''
-            Enable sozu proxy server.
+            Enable automatic certificate generation for the folowing domains
           '';
           domains = mkOption {
             type = with types; let
@@ -218,7 +218,7 @@ with lib; {
             description = "sozu configuration";
           };
           enable = mkEnableOption ''
-            Enable sozu proxy server.
+            Enable sozu the tcp/http server proxy .
           '';
         };
         pebble.enable = mkEnableOption ''
