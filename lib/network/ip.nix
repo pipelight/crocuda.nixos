@@ -1,8 +1,4 @@
-{
-  lib,
-  inputs,
-  ...
-}:
+{lib, ...}:
 with lib; let
   ## Functions
   # Generate a 128bits hash from a secret

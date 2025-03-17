@@ -6,22 +6,19 @@
   slib,
   ...
 }:
-with lib;
-with slib; let
+with lib; let
   cfg = config.crocuda;
 
   unboundEnabled = config.services.unbound.enable;
 
   ## Globals
-
   iid = cfg.network.privacy.ipv6.iid;
-  computed_iid = str_to_iid cfg.network.privacy.ipv6.secret;
-  token =
-    if (!isNull iid)
-    then iid
-    else computed_iid;
-
-  computed_mac = str_to_mac cfg.network.privacy.ipv6.secret;
+  # computed_iid = slib.ip.str_to_iid cfg.network.privacy.ipv6.secret;
+  # token =
+  #   if (!isNull iid)
+  #   then iid
+  #   else computed_iid;
+  # computed_mac = slib.ip.str_to_mac cfg.network.privacy.ipv6.secret;
 in
   mkIf (cfg.network.privacy.enable
     && cfg.network.privacy.ipv6.strategy
@@ -52,7 +49,7 @@ in
         "net.ipv6.conf.all.addr_gen_mode" = 2;
 
         # Set secret to hashed string
-        "net.ipv6.conf.default.stable_secret" = "::${token}";
+        # "net.ipv6.conf.default.stable_secret" = "::${token}";
       };
     };
 
@@ -66,7 +63,7 @@ in
         # enable = true; #default
         extraConfig = ''
           # nohook resolv.conf
-          slaac token ::${token}
+          # slaac token ::${token}
         '';
       };
     };
@@ -78,7 +75,7 @@ in
     systemd.network.config = ''
       [Network]
       DHCP=yes
-      IPv6Token=::${token}
+      # IPv6Token=::${token}
     '';
 
     networking.interfaces = mkIf (!config.networking.networkmanager.enable) {
@@ -118,7 +115,7 @@ in
             type = "ethernet";
           };
           ethernet = {
-            cloned-mac-address = computed_mac;
+            # cloned-mac-address = computed_mac;
           };
           ipv4 = {
             dns-search = "lan";
@@ -134,7 +131,7 @@ in
 
             # Fixed inbound ip
             addr-gen-mode = "eui64";
-            token = "::${token}";
+            # token = "::${token}";
 
             # Random outbound ip
             ip6-privacy = 2;

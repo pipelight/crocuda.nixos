@@ -5,13 +5,17 @@
     ###################################
     # NixOs pkgs
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-deprecated.url = "github:nixos/nixpkgs/nixos-24.05";
 
     lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.1-2.tar.gz";
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    lix-unit = {
+      url = "github:adisbladis/lix-unit";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -109,18 +113,19 @@
     nixpkgs-deprecated,
     ...
   } @ inputs: let
+    slib = import ./lib {inherit inputs;};
     specialArgs = rec {
       inherit self;
       inherit inputs;
       pkgs = import nixpkgs;
       lib = pkgs.lib;
+      # slib = import ./lib {inherit inputs;};
       pkgs-stable = import nixpkgs-stable;
       pkgs-unstable = import nixpkgs-unstable;
       pkgs-deprecated = import nixpkgs-deprecated;
-      slib = import ./lib specialArgs;
     };
   in {
-    lib = import ./lib specialArgs;
+    # slib = import ./lib {inherit inputs;};
     nixosModules = {
       # Default module
       inherit specialArgs;
