@@ -26,6 +26,7 @@ return {
   -- toggleterm vim-test dependency
   {
     "akinsho/toggleterm.nvim",
+    lazy = false,
     version = "*",
     config = function()
       require("toggleterm").setup {
@@ -42,20 +43,20 @@ return {
         shell = "fish",
       }
     end,
-    lazy = false,
   },
   {
     "nvim-neotest/neotest",
+    lazy = false,
     dependencies = {
       "nvim-neotest/nvim-nio",
       "nvim-lua/plenary.nvim",
       "antoinemadec/FixCursorHold.nvim",
       "nvim-treesitter/nvim-treesitter",
       -- Lang
-      "marilari88/neotest-vitest",
-      "mrcjkb/neotest-rustaceanvim",
+      "rouge8/neotest-rust",
       "markemmons/neotest-deno",
       "rcasia/neotest-bash",
+      "marilari88/neotest-vitest",
     },
   },
 }

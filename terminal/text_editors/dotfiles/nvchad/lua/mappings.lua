@@ -34,9 +34,10 @@ nomap("n", "<C-l>")
 nomap("n", "<leader>h")
 
 -- fast file browsing
-map("n", "<PageUp>", "<cmd>call smoothie#do('25<C-u>z.')<cr>", { desc = "Motions page down (smooth)" })
-map("v", "<PageUp>", "<cmd>call smoothie#do('25<C-u>z.')<cr>", { desc = "Motions page down (smooth)" })
-map("i", "<PageUp>", "<cmd>call smoothie#do('25<C-u>z.')<cr>", { desc = "Motions page down (smooth)" })
+-- Smooth PageUp and PageDown (+ horizontally centered)
+map("n", "<PageUp>", "<cmd>call smoothie#do('25<C-u>z.')<cr>", { desc = "Motions page up (smooth)" })
+map("v", "<PageUp>", "<cmd>call smoothie#do('25<C-u>z.')<cr>", { desc = "Motions page up (smooth)" })
+map("i", "<PageUp>", "<cmd>call smoothie#do('25<C-u>z.')<cr>", { desc = "Motions page up (smooth)" })
 
 map("v", "<PageDown>", "<cmd>call smoothie#do('25<C-d>z.')<cr>", { desc = "Motions page down (smooth)" })
 map("n", "<PageDown>", "<cmd>call smoothie#do('25<C-d>z.')<cr>", { desc = "Motions page down (smooth)" })

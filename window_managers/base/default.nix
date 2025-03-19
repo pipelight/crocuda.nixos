@@ -45,14 +45,27 @@ in
             emoji = ["Noto Color Emoli"];
             monospace = [
               "JetBrains Mono Nerd Font Mono"
+              "JetBrains Mono NL Nerd Font Mono"
+              "NotoSansM Nerd Font Mono"
+              "Noto Sans Mono CJK JP"
             ];
             sansSerif = monospace;
             serif = monospace;
           };
         };
         packages = with pkgs; [
-          nerd-fonts.jetbrains-mono
-          nerd-fonts.noto
+          #24.11
+          (nerdfonts.override {
+            fonts = [
+              "JetBrainsMono"
+              "Noto"
+            ];
+          })
+
+          #25.05
+          # nerd-fonts.jetbrains-mono
+          # nerd-fonts.noto
+
           noto-fonts-color-emoji
           noto-fonts-cjk-sans
         ];

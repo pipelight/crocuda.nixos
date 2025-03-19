@@ -1,9 +1,7 @@
 {
   config,
-  pkgs,
   lib,
   inputs,
-  self,
   ...
 }: let
   cfg = config.crocuda;

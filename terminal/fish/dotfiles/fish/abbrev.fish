@@ -13,7 +13,8 @@ set -U ABBR_TIPS_REGEXES '(^(\w+\s+)+(-{1,2})\w+)(\s\S+)' '(^( ?\w+){3}).*' '(^(
 
 
 # ## Filesystem
-# abbr -a dfl duf --only local
+abbr -a dufl duf --only local
+
 # # Ls
 # abbr -a ls eza
 # abbr -a lls eza -aalgh

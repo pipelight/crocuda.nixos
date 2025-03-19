@@ -81,13 +81,13 @@ with lib;
           default = "SearxNG";
           order = [
             "SearxNG"
-            "DuckDuckGo"
+            "ddg"
           ];
           engines = {
             # Local search engine
             "SearxNG" = {
               urls = [{template = "http://127.0.0.1:8888/?q={searchTerms}";}];
-              iconUpdateURL = "http://127.0.0.1:8888/static/themes/simple/img/favicon.svg";
+              icon = "http://127.0.0.1:8888/static/themes/simple/img/favicon.svg";
               updateInterval = 24 * 60 * 60 * 1000;
               definedAliases = ["@searx"];
             };
@@ -126,24 +126,23 @@ with lib;
             };
 
             # Common engines
-            "Wikipedia (en)".metaData.alias = "@wiki";
+            "wikipedia".metaData.alias = "@wiki";
 
             # Torrent
             "Nyaa" = {
               urls = [{template = "https://nyaa.si/?q={searchTerms}";}];
               icon = "https://nyaa.si/static/favicon.png";
-              iconUpdateURL = "https://nyaa.si/static/favicon.png";
               updateInterval = 24 * 60 * 60 * 1000;
               definedAliases = ["@nyaa"];
             };
 
             # Remove shity search engines
-            "Google".metaData.hidden = true;
-            "Amazon.com".metaData.hidden = true;
-            "Amazon.nl".metaData.hidden = true;
-            "Bing".metaData.hidden = true;
-            "eBay".metaData.hidden = true;
-            "Ecosia".metaData.hidden = true;
+            "google".metaData.hidden = true;
+            "amazondotcom-us".metaData.hidden = true;
+            "amazondotnl".metaData.hidden = true;
+            "bing".metaData.hidden = true;
+            "ebay".metaData.hidden = true;
+            "ecosia".metaData.hidden = true;
           };
         };
       in {
