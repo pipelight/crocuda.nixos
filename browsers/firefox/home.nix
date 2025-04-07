@@ -27,7 +27,7 @@ with lib;
       ## Enable arkenfox user.js
       arkenfox = {
         enable = true;
-        version = "128.0";
+        version = "133.0";
       };
 
       profiles = let
