@@ -2,6 +2,7 @@
   config,
   cfg,
   pkgs,
+  pkgs-unstable,
   lib,
   inputs,
   ...
@@ -32,6 +33,7 @@ with lib;
       };
       jujutsu = {
         enable = true;
+        package = pkgs-unstable.jujutsu;
         settings = {
           git = {
             auto-local-bookmark = true;
