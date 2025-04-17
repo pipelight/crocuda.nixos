@@ -5,6 +5,10 @@ local capabilities = lspconfig.capabilities
 
 local lspconfig = require "lspconfig"
 
+-- Load nvchad lsp defaults
+-- local nvlsp = require "nvchad.configs.lspconfig"
+-- nvlsp.defaults()
+
 local servers = {
   -- Lua
   "lua_ls",

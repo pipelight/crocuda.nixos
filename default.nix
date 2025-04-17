@@ -4,22 +4,22 @@
   inputs,
   config,
   pkgs,
-pkgs-stable,
-pkgs-unstable,
-pkgs-deprecated,
+  pkgs-stable,
+  pkgs-unstable,
+  pkgs-deprecated,
   ...
 }: let
   cfg = config.crocuda;
   umport = {
-      paths = [
-        ./.
-      ];
-      exclude = [
-        ./flake.nix
-        ./default.nix
-        ./lib
-      ];
-    };
+    paths = [
+      ./.
+    ];
+    exclude = [
+      ./flake.nix
+      ./default.nix
+      ./lib
+    ];
+  };
 in {
   imports = let
     slib = inputs.nixos-tidy.lib;
@@ -43,24 +43,24 @@ in {
       inputs.boulette.nixosModules.default
     ]
     ++ slib.umportNixModules umport
-  ++ slib.umportHomeModules umport
-  # Function's second argument (home manager options)
-  {
-    users = cfg.users;
-    extraSpecialArgs = {
-      inherit inputs cfg pkgs-stable pkgs-unstable pkgs-deprecated;
+    ++ slib.umportHomeModules umport
+    # Function's second argument (home manager options)
+    {
+      users = cfg.users;
+      extraSpecialArgs = {
+        inherit inputs cfg pkgs-stable pkgs-unstable pkgs-deprecated;
+      };
+      imports = [
+        ######################
+        ## Modules
+        # Secrets
+        inputs.sops-nix.homeManagerModules.default
+        # # Nur
+        inputs.nur.modules.homeManager.default
+        # Firefox
+        inputs.arkenfox.hmModules.arkenfox
+        # Boulette
+        inputs.boulette.hmModules.default
+      ];
     };
-    imports = [
-      ######################
-      ## Modules
-      # Secrets
-      inputs.sops-nix.homeManagerModules.default
-      # # Nur
-      inputs.nur.modules.homeManager.default
-      # Firefox
-      inputs.arkenfox.hmModules.arkenfox
-      # Boulette
-      inputs.boulette.hmModules.default
-    ];
-  };
 }

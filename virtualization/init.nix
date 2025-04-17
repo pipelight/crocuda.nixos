@@ -8,15 +8,12 @@
   cfg = config.crocuda;
 in
   with lib;
-    mkIf cfg.virtualization.cloud-init.enable {
+    mkIf cfg.virtualization.pipelight-init.enable {
       systemd.services.pipelight-init = {
         enable = true;
         description = "Run pipelight as a cloud-init replacement";
         after = ["network.target"];
         wantedBy = ["multi-user.target"];
-        # path = with pkgs; [
-        #   coreutils
-        # ];
         # Starts only if mountpoint detected
         unitConfig = {
           ConditionPathExists = "/pipelight-init";
@@ -27,13 +24,13 @@ in
           ExecStart = with pkgs; let
             package = inputs.pipelight.packages.${system}.default;
           in ''
-            ${package}/bin/pipelight run provision --attach -vvv
+            rm ./.pipelight
+            ${package}/bin/pipelight run init --attach -vvv
           '';
           WorkingDirectory = "/pipelight-init";
-
           StandardInput = "null";
           StandardOutput = "journal+console";
-          StandardError = "journal";
+          StandardError = "journal+console";
         };
       };
     }
