@@ -12,19 +12,21 @@ in
       systemd.services.pipelight-init = {
         enable = true;
         description = "Run pipelight as a cloud-init replacement";
-        after = ["network.target"];
+        before = ["network.target"];
         wantedBy = ["multi-user.target"];
         # Starts only if mountpoint detected
         unitConfig = {
           ConditionPathExists = "/pipelight-init";
         };
-        serviceConfig = {
+        serviceConfig = with pkgs; let
+          package = inputs.pipelight.packages.${system}.default;
+        in {
           Type = "oneshot";
+          User = "root";
+          Group = "users";
           Environment = "PATH=/run/current-system/sw/bin";
-          ExecStart = with pkgs; let
-            package = inputs.pipelight.packages.${system}.default;
-          in ''
-            rm ./.pipelight
+          ExecStartPre = "-${package}/bin/pipelight logs rm";
+          ExecStart = ''
             ${package}/bin/pipelight run init --attach -vvv
           '';
           WorkingDirectory = "/pipelight-init";
