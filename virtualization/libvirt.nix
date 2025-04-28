@@ -17,7 +17,8 @@ in
         unscd
 
         # A VM deployment tool
-        colmena
+        # colmena
+
         # Virshle from the flake
         # and dependencies
         # inputs.virshle.packages.${system}.default
@@ -26,44 +27,14 @@ in
         guestfs-tools
       ];
 
-      systemd.tmpfiles.rules = let
-        cloud-hypervisor-fw = pkgs.fetchurl {
-          url = "https://github.com/cloud-hypervisor/rust-hypervisor-firmware/releases/download/0.4.2/hypervisor-fw";
-          sha256 = "0h0j0zc65pjnzrznmc3c3lrsyks6lgxh0k8j30zp41k6ph9ldhaq";
-        };
-        cloud-hypervisor-ovmf = pkgs.fetchurl {
-          url = "https://github.com/cloud-hypervisor/edk2/releases/download/ch-6624aa331f/CLOUDHV.fd";
-          sha256 = "0lh1ikngvf7lln3x9ng7c9nqb6ylv68yy0mvvlkhhk94l4c35j7x";
-        };
-      in [
-        " L+ /run/cloud-hypervisor/hypervisor-fw - - - - ${cloud-hypervisor-fw}"
-        " L+ /run/cloud-hypervisor/CLOUDVH.fd - - - - ${cloud-hypervisor-ovmf}"
-
-        # Maddy directories
-        # Make them by hand if maddy unit fails
-        "d '/var/lib/virshle/vm' 774 root users - -"
-        "Z '/var/lib/virshle/vm' 774 root users - -"
-
-        "d '/var/lib/virshle/socket' 774 root users - -"
-        "Z '/var/lib/virshle/socket' 774 root users - -"
-
-        "d '/var/lib/virshle/net' 774 root users - -"
-        "Z '/var/lib/virshle/net' 774 root users - -"
-
-        "d '/var/lib/virshle/disk' 774 root users - -"
-        "Z '/var/lib/virshle/disk' 774 root users - -"
-
-        "d '/var/lib/virshle' 774 root users - -"
-        "Z '/var/lib/virshle' 774 root users - -"
-      ];
-
       # Enable docker usage
       virtualisation.docker.enable = true;
 
-      # Do not support efi boot
+      # Warning: xen do not support efi boot.
       # virtualisation.xen = {
       #   enable = false;
       # };
+
       # Enable libvirt virtualization framework
       virtualisation.libvirtd = {
         enable = true;
