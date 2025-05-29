@@ -24,6 +24,10 @@ in {
     settings = {
       PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;
+
+      # Raise the limit for virshle ssh-agent auth.
+      MaxAuthTries = 12;
+
       Macs = [
         # rust libssh2 compat
         "hmac-sha2-256"

@@ -31,7 +31,7 @@ in
                 User = "root";
                 Group = "users";
                 ExecStartPre = ''
-                  ${certbot_clean_certs}/bin/certbot_clean_certs clean ${name}
+                  -${certbot_clean_certs}/bin/certbot_clean_certs clean ${name}
                 '';
                 ExecStart =
                   ''

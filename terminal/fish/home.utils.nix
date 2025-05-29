@@ -33,5 +33,8 @@ with lib;
       # Process management
       # btop
       lsof
+
+      # Linux capabilities
+      libcap
     ];
   }

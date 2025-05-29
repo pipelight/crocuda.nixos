@@ -43,6 +43,7 @@ with lib;
             # pager = "nvim -u ~/.config/nvim/init.lua";
             paginate = "never";
             pager = "less";
+            diff-editor = ["nvim" "-c" "DiffEditor $left $right $output"];
           };
           aliases = {
             l = ["log" "--revisions" "root()..@" "--limit" "6"];

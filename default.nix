@@ -39,6 +39,9 @@ in {
       inputs.nixos-tidy.nixosModules.allow-unfree
       # inputs.nixos-tidy.nixosModules.networking-privacy
 
+      # Virshle
+      inputs.virshle.nixosModules.default
+
       # Boulette
       inputs.boulette.nixosModules.default
     ]

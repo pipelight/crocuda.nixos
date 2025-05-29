@@ -11,17 +11,16 @@
 in
   with lib;
     mkIf cfg.virtualization.virshle.enable {
-      systemd.tmpfiles.rules = [
-        "d '/var/lib/virshle' 774 root users - -"
-        # "Z '/var/lib/virshle' 774 root users - -"
-      ];
-
-      boot.kernelModules = ["openvswitch"];
+      services.virshle.enable = true;
       environment.systemPackages = with pkgs; [
         # Build images based on flakes and local config
         nixos-generators
         rqlite
         disko
         cdrkit
+      ];
+      systemd.tmpfiles.rules = [
+        "Z '/var/lib/crotui' 774 root users - -"
+        "d '/var/lib/crotui' 774 root users - -"
       ];
     }

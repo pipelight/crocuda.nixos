@@ -37,6 +37,9 @@ local servers = {
   -- Web / Vue
   "html",
   -- "cssls",
+
+  -- 3D
+  "openscad_lsp",
 }
 
 -- lsps with default config

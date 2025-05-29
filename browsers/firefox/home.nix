@@ -125,6 +125,13 @@ with lib;
               definedAliases = ["@nixw"];
             };
 
+            "Docs.rs" = {
+              urls = [{template = "http://docs.rs/releases/search?query={searchTerms}";}];
+              icon = "https://docs.rs/favicon.ico";
+              updateInterval = 24 * 60 * 60 * 1000;
+              definedAliases = ["@rust"];
+            };
+
             # Common engines
             "wikipedia".metaData.alias = "@wiki";
 

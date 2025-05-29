@@ -73,6 +73,7 @@ in
 
         # Query content
         curl
+        grpcurl
 
         # VPN
         # wireguard-tools

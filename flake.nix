@@ -49,13 +49,17 @@
       url = "github:kirelagin/dns.nix";
       inputs.nixpkgs.follows = "nixpkgs"; # (optionally)
     };
+    dora = {
+      # url = "github:pipelight/dora";
+      url = "/home/anon/.ghr/github.com/pipelight/dora";
+      # inputs.nixpkgs.follows = "nixpkgs";
+    };
     pipelight = {
       url = "github:pipelight/pipelight?ref=dev";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     virshle = {
-      url = "github:pipelight/virshle";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:pipelight/virshle?ref=dev";
     };
     yofi = {
       url = "github:l4l/yofi";
