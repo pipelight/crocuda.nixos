@@ -68,13 +68,4 @@ return {
       }
     end,
   },
-  {
-    "nvim-focus/focus.nvim",
-    lazy = false,
-    event = "VeryLazy",
-    opts = require("configs.focus").options,
-    config = function()
-      return require("focus").setup(require("configs.focus").options)
-    end,
-  },
 }
