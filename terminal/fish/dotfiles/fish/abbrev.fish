@@ -12,13 +12,9 @@ set -U ABBR_TIPS_REGEXES '(^(\w+\s+)+(-{1,2})\w+)(\s\S+)' '(^( ?\w+){3}).*' '(^(
 # 4 : Test the first word
 
 
-# ## Filesystem
+## Filesystem
 abbr -a dufl duf --only local
 
-# # Ls
-# abbr -a ls eza
-# abbr -a lls eza -aalgh
-# abbr -a ll eza -lgh
-# # Tree
-# abbr -a tree eza --tree -algh -L 2
-# abbr -a treee eza --tree -algh
+## Jujutsu
+abbr -a jjdiffedit NVIM_APPNAME=nvchad jj diffedit
+abbr -a jjsplit NVIM_APPNAME=nvchad jj split

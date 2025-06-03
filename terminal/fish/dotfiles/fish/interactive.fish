@@ -24,7 +24,6 @@ set -g fish_user_key_bindings
 ## Plugins
 direnv hook fish | source
 zoxide init fish | source
-ghr shell fish | source
 
 ## FZF(skim) configuration
 # Keybindings

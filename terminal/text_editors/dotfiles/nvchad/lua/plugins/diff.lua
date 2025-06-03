@@ -1,5 +1,9 @@
 return {
   {
+    "sindrets/diffview.nvim",
+    lazy = false,
+  },
+  {
     "julienvincent/hunk.nvim",
     cmd = { "DiffEditor" },
     lazy = false,

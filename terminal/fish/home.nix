@@ -24,7 +24,9 @@ with lib;
 
       # Fish
       ".config/fish/conf.d/colemak.fish".source = dotfiles/fish/colemak.fish;
+
       ".config/fish/conf.d/interactive.fish".source = dotfiles/fish/interactive.fish;
+
       ".config/fish/conf.d/title.fish".source = dotfiles/fish/title.fish;
       ".config/fish/conf.d/abbrev.fish".source = dotfiles/fish/abbrev.fish;
       # Completion
