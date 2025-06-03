@@ -10,7 +10,7 @@
 in
   with lib;
     mkIf cfg.finance.monero.enable {
-      boot.kernelParams = mkDefault ["nr_hugepages=1024"];
+      boot.kernelParams = mkAfter ["nr_hugepages=1024"];
 
       environment.systemPackages = with pkgs; [
         # Mining

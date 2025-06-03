@@ -11,7 +11,7 @@
 in
   with lib;
     mkIf cfg.finance.wownero.enable {
-      boot.kernelParams = mkDefault ["nr_hugepages=1024"];
+      boot.kernelParams = mkAfter ["nr_hugepages=1024"];
 
       environment.systemPackages = with pkgs; [
         wownero

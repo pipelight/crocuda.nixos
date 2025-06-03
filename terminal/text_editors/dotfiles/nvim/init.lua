@@ -1,5 +1,5 @@
-require("options")
+require "options"
 
 vim.schedule(function()
-	require("mappings")
+  require "mappings"
 end)

@@ -10,6 +10,10 @@ map("ca", "help", "vert help", {
   desc = "Open help in vertical buffer",
 })
 
+-- NvChad specific
+--
+map("n", "<leader>ch", "<cmd>NvCheatsheet<CR>", { desc = "toggle nvcheatsheet" })
+
 -- File
 --
 map("n", "<C-q>", "<cmd> q <CR>", { desc = "File quit if saved" })
@@ -96,10 +100,29 @@ map("n", "<C-o>", "")
 
 -- Lsp
 --
-map("n", "gD", lsp.buf.declaration, { desc = "Lsp go to in file declaration" })
-map("n", "gd", lsp.buf.definition, { desc = "Lsp go to definition" })
-map("n", "gu", lsp.buf.code_action, { desc = "Lsp go to code action" })
-map("n", "gi", lsp.buf.implementation)
+map("n", "gD", lsp.buf.declaration, { desc = "LSP go to declaration in file" })
+map("n", "gd", lsp.buf.definition, { desc = "LSP go to definition" })
+map("n", "gi", lsp.buf.implementation, { desc = "LSP go to implementation" })
+map("n", "gu", lsp.buf.code_action, { desc = "LSP go to code action" })
+
+-- Next/Prev Error
+-- map("n", "ge", "<cmd>lua vim.diagnostic.goto_next()<CR>zz", { desc = "LSP go to next diagnostic" })
+map(
+  "n",
+  "ge",
+  "<cmd>lua vim.diagnostic.goto_next()<cr> \
+  <cmd>call smoothie#do('z.')<cr>",
+  { desc = "LSP go to next diagnostic" }
+)
+
+map(
+  "n",
+  "gE",
+  "<cmd>lua vim.diagnostic.goto_prev()<cr> \
+  <cmd>call smoothie#do('z.')<cr>",
+  { desc = "LSP go to prev diagnostic" }
+)
+
 map("n", "<leader>D", lsp.buf.type_definition)
 map("n", "gr", lsp.buf.references)
 

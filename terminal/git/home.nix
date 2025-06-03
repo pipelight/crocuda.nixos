@@ -40,10 +40,10 @@ with lib;
           };
           ui = {
             editor = "nvim -u ~/.config/nvchad/init.lua";
-            # pager = "nvim -u ~/.config/nvim/init.lua";
-            paginate = "never";
+            diff-editor = ["nvim" "-u" "~/.config/nvchad/init.lua" "-c" "DiffEditor $left $right $output"];
+
             pager = "less";
-            diff-editor = ["nvim" "-c" "DiffEditor $left $right $output"];
+            paginate = "never";
           };
           aliases = {
             l = ["log" "--revisions" "root()..@" "--limit" "6"];

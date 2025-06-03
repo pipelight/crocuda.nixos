@@ -19,14 +19,6 @@ in
         cloud-hypervisor
       ];
 
-      boot = {
-        # kernelParams = ["nr_hugepages=10240"];
-        kernelParams = ["nr_hugepages=4096"];
-        kernel.sysctl = {
-          "vm.nr_hugepages" = 4024;
-        };
-      };
-
       systemd.tmpfiles.rules = let
         cloud-hypervisor-fw = pkgs.fetchurl {
           url = "https://github.com/cloud-hypervisor/rust-hypervisor-firmware/releases/download/0.4.2/hypervisor-fw";

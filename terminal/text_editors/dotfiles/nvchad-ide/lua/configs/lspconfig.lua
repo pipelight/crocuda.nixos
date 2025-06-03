@@ -1,5 +1,5 @@
 local lspconfig = require "nvchad.configs.lspconfig"
-local on_attach = lspconfig.on_attach
+-- local on_attach = lspconfig.on_attach
 local on_init = lspconfig.on_init
 local capabilities = lspconfig.capabilities
 
@@ -45,7 +45,7 @@ local servers = {
 -- lsps with default config
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
-    on_attach = on_attach,
+    -- on_attach = on_attach,
     on_init = on_init,
     capabilities = capabilities,
   }
@@ -70,7 +70,7 @@ lspconfig.volar.setup {
 }
 
 lspconfig.ts_ls.setup {
-  on_attach = on_attach,
+  -- on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,
   cmd = { "bun", "run", "typescript-language-server", "--stdio" },
@@ -106,21 +106,21 @@ lspconfig.ts_ls.setup {
 -- Pug
 -- Install pug lsp from go with: go install github.com/opa-oz/pug-lsp@latest
 lspconfig.pug.setup {
-  on_attach = on_attach,
+  -- on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,
   root_dir = vim.fn.getcwd(),
 }
 
 lspconfig.tailwindcss.setup {
-  on_attach = on_attach,
+  -- on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,
   filetypes = { "pug", "css", "html", "vue", "postcss", "markdown", "svelte", "handlebars", "mustache", "jade", "htmx" },
 }
 
 lspconfig.denols.setup {
-  on_attach = on_attach,
+  -- on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,
   root_dir = lspconfig.util.root_pattern("deno.lock", "mod.ts"),
