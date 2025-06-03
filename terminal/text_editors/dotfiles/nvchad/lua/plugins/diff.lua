@@ -19,17 +19,13 @@ return {
           tree = {
             expand_node = { "i", "<Right>" },
             collapse_node = { "m", "<Left>" },
-
             open_file = { "<Cr>" },
-
             toggle_file = { "a" },
           },
 
           diff = {
             toggle_line = { "a" },
-
             toggle_hunk = { "A" },
-
             prev_hunk = { "[h" },
             next_hunk = { "]h" },
 
