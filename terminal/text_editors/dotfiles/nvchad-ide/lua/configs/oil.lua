@@ -53,18 +53,19 @@ M.options = {
   default_file_explorer = true,
   keymaps = {
     ["?"] = { "actions.show_help", mode = "n" },
-
-    -- Nav
-    ["Right"] = "actions.select",
-    ["Left"] = { "actions.parent", mode = "n" },
     ["."] = { "actions.toggle_hidden", mode = "n" },
 
     -- Close
     ["q"] = { "actions.close", mode = "n" },
 
+    -- Nav
+    ["<Left>"] = { "actions.parent", mode = "n" },
+
     -- Open
     ["s"] = { "actions.select", opts = { vertical = true } },
     ["l"] = { "actions.select", opts = { horizontal = true } },
+    ["<Right>"] = "actions.select",
+    ["<CR>"] = "actions.select",
 
     ["<C-r>"] = "actions.refresh",
     ["<C-p>"] = "actions.preview",
