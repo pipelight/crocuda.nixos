@@ -40,6 +40,10 @@ local servers = {
 
   -- 3D
   "openscad_lsp",
+
+  -- C/C++
+  -- "clangd",
+  "ccls",
 }
 
 -- lsps with default config

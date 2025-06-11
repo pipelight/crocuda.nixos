@@ -41,6 +41,7 @@ with lib;
           ui = {
             editor = "nvim -u ~/.config/nvchad/init.lua";
             diff-editor = ["nvim" "-u" "~/.config/nvchad/init.lua" "-c" "DiffEditor $left $right $output"];
+            # pager = ["nvim" "-u" "~/.config/nvchad/init.lua" "-c" "DiffEditor $left $right $output"];
             pager = "less";
             paginate = "never";
           };
