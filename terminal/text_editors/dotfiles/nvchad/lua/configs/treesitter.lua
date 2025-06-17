@@ -28,6 +28,7 @@ M.options = {
     "yaml",
     "jq",
     "xml",
+    "kdl",
   },
   highlight = {
     enable = true,

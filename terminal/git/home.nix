@@ -46,10 +46,14 @@ with lib;
             paginate = "never";
           };
           aliases = {
+            # Short history
             l = ["log" "--revisions" "root()..@" "--limit" "6"];
             ll = ["log" "--revisions" "root()..@" "--limit" "12"];
+
+            # Git wrapped commands
             push = ["git" "push"];
             fetch = ["git" "fetch"];
+            pull = ["git" "pull"];
           };
           # signing = {
           #   sign-all = true;

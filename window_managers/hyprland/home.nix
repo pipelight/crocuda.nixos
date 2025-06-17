@@ -28,7 +28,7 @@ in
 
         plugins = with pkgs.hyprlandPlugins; [
           # plugins = with pkgs-unstable.hyprlandPlugins; [
-          hyprscroller
+          # hyprscroller
           hyprbars
           # inputs.hyprscroller.packages.${pkgs.system}.default
           # inputs.hyprfocus.packages.${pkgs.system}.default

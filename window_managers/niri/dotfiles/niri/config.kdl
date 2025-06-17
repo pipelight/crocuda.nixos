@@ -1,0 +1,26 @@
+// Inputs
+input {
+    keyboard {
+        xkb {
+            layout "us"
+        }
+        numlock
+    }
+    touchpad {
+        tap
+    }
+}
+
+// Laptop
+output "eDP-1" {
+    scale 1.0
+}
+// Desktop
+output "DP-0" {
+
+}
+
+binds {
+
+}
+

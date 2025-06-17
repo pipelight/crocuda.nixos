@@ -250,6 +250,11 @@ with lib; {
     ## Window manager
     # Heavily customed hypr
     wm = {
+      niri = {
+        enable = mkEnableOption ''
+          Toggle the hyprland window manager
+        '';
+      };
       hyprland = {
         enable = mkEnableOption ''
           Toggle the hyprland window manager

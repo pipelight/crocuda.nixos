@@ -34,15 +34,15 @@ in
         via
       ];
 
-      services.udev.extraRules = ''
-        ACTION=="add",\
-        ENV{SUBSYSTEM}=="usb",\
-        ENV{PRODUCT}=="a8f8/1828/200",\
-        RUN+="",\
-
-        ACTION=="remove",\
-        ENV{SUBSYSTEM}=="usb",\
-        ENV{PRODUCT}=="a8f8/1828/200",\
-        RUN+="${pkgs.hyprland}/bin/hyprctl switchxkblayout next",\
-      '';
+      # services.udev.extraRules = ''
+      #   ACTION=="add",\
+      #   ENV{SUBSYSTEM}=="usb",\
+      #   ENV{PRODUCT}=="a8f8/1828/200",\
+      #   RUN+="",\
+      #
+      #   ACTION=="remove",\
+      #   ENV{SUBSYSTEM}=="usb",\
+      #   ENV{PRODUCT}=="a8f8/1828/200",\
+      #   RUN+="${pkgs.hyprland}/bin/hyprctl switchxkblayout next",\
+      # '';
     }

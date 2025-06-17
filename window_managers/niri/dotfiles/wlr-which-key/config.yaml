@@ -1,0 +1,81 @@
+# Theming
+font: JetBrainsMono Nerd Font 12
+background: "#282828d0"
+color: "#fbf1c7"
+border: "#8ec07c"
+separator: " ➜ "
+border_width: 2
+corner_r: 10
+padding: 15 # Defaults to corner_r
+rows_per_column: 5 # No limit by default
+column_padding: 25 # Defaults to padding
+
+# Anchor and margin
+anchor: center # One of center, left, right, top, bottom, bottom-left, top-left, etc.
+# Only relevant when anchor is not center
+margin_right: 0
+margin_bottom: 0
+margin_left: 0
+margin_top: 0
+
+# Permits key bindings that conflict with compositor key bindings.
+# Default is `false`.
+inhibit_compositor_keyboard_shortcuts: true
+
+menu:
+  ## Application shortcuts
+  - key: "Super+Space"
+    desc: Application menu
+    cmd: niri msg action spawn "yofi"
+
+  - key: "Super+Space"
+    desc: Application menu
+    cmd: niri msg action spawn "kitty" "-e" "fish"
+
+  - key: "Super+Space"
+    desc: Files
+    cmd: niri msg action spawn "kitty" "-e" "yazi"
+
+  - key: "Super+q"
+    desc: Close window
+    cmd: niri msg action close-window
+
+  ## Niri
+
+  # Motions submap
+  - key: "Super"
+    desc: Window
+    submenu:
+      # Window move focus
+      - key: "m"
+        desc: Move focus to left
+        cmd: niri msg action focus-column-left
+      - key: "n"
+        desc: Move focus down
+        cmd: niri msg action focus-column-down
+      - key: "e"
+        desc: Move focus up
+        cmd: niri msg action focus-column-up
+      - key: "i"
+        desc: Move focus to right
+        cmd: niri msg action focus-column-right
+      # Resize
+      - key: "Shift+m"
+        desc: Move focus to left
+        cmd: niri msg action focus-column-left
+      - key: "n"
+        desc: Move focus down
+        cmd: niri msg action focus-column-down
+      - key: "e"
+        desc: Move focus up
+        cmd: niri msg action focus-column-up
+      - key: "i"
+        desc: Move focus to right
+        cmd: niri msg action focus-column-right
+      # Desktop
+      - key: "n"
+        desc: Move to desktop down
+        cmd: niri msg action focus-workspace-down
+      - key: "e"
+        desc: Move to desktop up
+        cmd: niri msg action focus-workspace-up
