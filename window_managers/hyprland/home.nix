@@ -20,15 +20,15 @@ in
         enable = true;
         xwayland.enable = true;
         # package = pkgs-unstable.hyprland;
-        package = pkgs.hyprland;
+        package = pkgs-deprecated.hyprland;
         # package = pkgs.hyprland.override {
         #   debug = true;
         # };
         # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
 
-        plugins = with pkgs.hyprlandPlugins; [
+        plugins = with pkgs-deprecated.hyprlandPlugins; [
           # plugins = with pkgs-unstable.hyprlandPlugins; [
-          # hyprscroller
+          hyprscroller
           hyprbars
           # inputs.hyprscroller.packages.${pkgs.system}.default
           # inputs.hyprfocus.packages.${pkgs.system}.default

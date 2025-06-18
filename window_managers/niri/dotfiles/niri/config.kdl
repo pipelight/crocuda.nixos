@@ -1,3 +1,8 @@
+// StartUp
+spawn-at-startup "gammastep -P -O 5500 -b 0.8:0.8"
+spawn-at-startup "wlr-which-key"
+
+
 // Inputs
 input {
     keyboard {
