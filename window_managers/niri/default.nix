@@ -15,6 +15,6 @@ in
 
         # wlr-which-key
         # Waiting for newest than 1.1.0
-        inputs.wlr-which-key.packages.${system}.default
+        # inputs.wlr-which-key.packages.${system}.default
       ];
     }

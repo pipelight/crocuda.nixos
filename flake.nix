@@ -65,10 +65,10 @@
       url = "github:l4l/yofi";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    wlr-which-key = {
-      url = "github:pipelight/wlr-which-key?ref=dev";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # wlr-which-key = {
+    #   url = "github:pipelight/wlr-which-key?ref=dev";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     ###################################
     # LLM
     # ollama.url = "github:havaker/ollama-nix";
