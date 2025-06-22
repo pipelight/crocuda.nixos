@@ -41,31 +41,22 @@ in
           settings = {
             #Json
             interfaces-config = {
-              interfaces = [
-                # "eth0"
-                "vs0p1"
+              interfaces = mkDefault [
+                "br0-dhcp"
               ];
+              service-sockets-max-retries = 1000;
+              service-sockets-retry-wait-time = 5000;
+              # service-sockets-require-all = true;
+              re-detect = true;
             };
             lease-database = {
               name = "/var/lib/kea/dhcp6.leases";
               persist = true;
               type = "memfile";
             };
-            preferred-lifetime = 3000;
             rebind-timer = 2000;
             renew-timer = 1000;
-            subnet6 = [
-              {
-                id = 1;
-                pools = [
-                  {
-                    # pool = "2001:db8:1::1-2001:db8:1::ffff";
-                    pool = "2a02:842b:6361:ad01::1ff-2a02:842b:6361:ad01::ffff";
-                  }
-                ];
-                subnet = "2a02:842b:6361:ad01::/64";
-              }
-            ];
+            preferred-lifetime = 3000;
             valid-lifetime = 4000;
           };
         };

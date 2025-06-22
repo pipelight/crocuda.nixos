@@ -50,8 +50,8 @@
       inputs.nixpkgs.follows = "nixpkgs"; # (optionally)
     };
     dora = {
-      url = "github:pipelight/dora";
-      # url = "/home/anon/.ghr/github.com/pipelight/dora";
+      # url = "github:pipelight/dora";
+      url = "/home/anon/.ghr/github.com/pipelight/dora";
       # inputs.nixpkgs.follows = "nixpkgs";
     };
     pipelight = {
@@ -103,7 +103,7 @@
     nixpkgs-deprecated,
     ...
   } @ inputs: let
-    # slib = import ./lib {inherit };
+    lib = nixpkgs.lib;
     specialArgs = rec {
       inherit inputs;
       pkgs = import nixpkgs;
@@ -113,6 +113,10 @@
     };
   in {
     # slib = import ./lib {inherit inputs;};
+    lib = import ./lib {
+      inherit inputs;
+      inherit lib;
+    };
     nixosModules = {
       default = ./default.nix;
       inherit specialArgs;
