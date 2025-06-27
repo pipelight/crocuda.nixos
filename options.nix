@@ -45,6 +45,9 @@ with lib; {
       tools.enable = mkEnableOption ''
         Add some network troubleshooting tools.
       '';
+      multicast-forwarding = mkEnableOption ''
+        Enable kernel ipv6 multicast forwarding.
+      '';
     };
     # Set editors with the specified keyboard layout
     terminal = {

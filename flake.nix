@@ -50,8 +50,8 @@
       inputs.nixpkgs.follows = "nixpkgs"; # (optionally)
     };
     dora = {
-      # url = "github:pipelight/dora";
-      url = "/home/anon/.ghr/github.com/pipelight/dora";
+      url = "github:pipelight/dora";
+      # url = "/home/anon/.ghr/github.com/pipelight/dora";
       # inputs.nixpkgs.follows = "nixpkgs";
     };
     pipelight = {

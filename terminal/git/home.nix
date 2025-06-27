@@ -48,7 +48,8 @@ with lib;
           aliases = {
             # Short history
             l = ["log" "--revisions" "root()..@" "--limit" "6"];
-            ll = ["log" "--revisions" "root()..@" "--limit" "12"];
+            ll = ["log" "--limit" "12"];
+            diffshow = ["nvim" "-u" "~/.config/nvchad/init.lua" "-c" "DiffViewOpen"];
 
             # Git wrapped commands
             push = ["git" "push"];
