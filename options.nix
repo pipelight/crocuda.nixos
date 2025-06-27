@@ -45,7 +45,7 @@ with lib; {
       tools.enable = mkEnableOption ''
         Add some network troubleshooting tools.
       '';
-      multicast-forwarding = mkEnableOption ''
+      multicast-forwarding.enable = mkEnableOption ''
         Enable kernel ipv6 multicast forwarding.
       '';
     };
