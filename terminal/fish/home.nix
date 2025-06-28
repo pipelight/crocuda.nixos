@@ -73,7 +73,7 @@ with lib;
         enableFishIntegration = true;
       };
       pay-respects = {
-        enable = true;
+        enable = false;
       };
     };
   }

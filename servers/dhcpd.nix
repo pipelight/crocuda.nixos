@@ -58,19 +58,18 @@ in
               interfaces = mkDefault [
                 "br0-dhcp"
               ];
-              service-sockets-max-retries = 5;
-              service-sockets-retry-wait-time = 5000;
-              # service-sockets-require-all = true;
-              re-detect = true;
+              # service-sockets-max-retries = 5;
+              # service-sockets-retry-wait-time = 5000;
+              # re-detect = true;
             };
             lease-database = {
               name = "/var/lib/kea/dhcp4.leases";
               persist = true;
               type = "memfile";
             };
-            rebind-timer = 2000;
-            renew-timer = 1000;
-            valid-lifetime = 4000;
+            rebind-timer = 500;
+            renew-timer = 100;
+            valid-lifetime = 1000;
           };
         };
 
@@ -81,20 +80,19 @@ in
               interfaces = mkDefault [
                 "br0-dhcp"
               ];
-              service-sockets-max-retries = 5;
-              service-sockets-retry-wait-time = 5000;
-              # service-sockets-require-all = true;
-              re-detect = true;
+              # service-sockets-max-retries = 5;
+              # service-sockets-retry-wait-time = 5000;
+              # re-detect = true;
             };
             lease-database = {
               name = "/var/lib/kea/dhcp6.leases";
               persist = true;
               type = "memfile";
             };
-            rebind-timer = 2000;
-            renew-timer = 1000;
-            preferred-lifetime = 100000;
-            valid-lifetime = 800000;
+            rebind-timer = 500;
+            renew-timer = 100;
+            preferred-lifetime = -1;
+            valid-lifetime = -1;
           };
         };
       };
