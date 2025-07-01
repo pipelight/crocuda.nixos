@@ -6,6 +6,7 @@
 with lib; let
   # cfg = config.networking.privacy;
   nsdEnabled = config.services.nsd.enable;
+  keaDDnsEnabled = config.services.kea.dhcp-ddns.enable;
 in {
   # enabled on privacy feature only
   # mkIf cfg.enable {
@@ -39,6 +40,11 @@ in {
             forward-addr = [
               (mkIf nsdEnabled "127.0.0.1@553")
               (mkIf nsdEnabled "::1@553")
+
+              # VM dns
+              (mkIf keaDDnsEnabled "127.0.0.1@53002")
+              (mkIf keaDDnsEnabled "::1@53002")
+
               #Mullvad
               "194.242.2.4"
               "2a07:e340::4"
