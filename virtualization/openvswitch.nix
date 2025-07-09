@@ -17,7 +17,6 @@ in
         };
       };
       virtualisation.vswitch = mkDefault {
-        package = pkgs.openvswitch-dpdk;
         enable = true;
       };
 
@@ -30,10 +29,5 @@ in
       systemd.services.ovs-vswitchd.serviceConfig.ExecStartPost = [
         "-${pkgs.coreutils}/bin/chown -R root:users /var/run/openvswitch"
         "-${pkgs.coreutils}/bin/chmod -R 774 /var/run/openvswitch"
-      ];
-
-      environment.systemPackages = with pkgs; [
-        # Network manager
-        openvswitch-dpdk
       ];
     }
