@@ -66,7 +66,17 @@ in
               {
                 library = "${pkgs.kea}/lib/kea/hooks/libdhcp_lease_cmds.so";
               }
+              # {
+              #   library = "${pkgs.kea}/lib/kea/hooks/libdhcp_ddns_cmds.so";
+              # }
             ];
+            dhcp-ddns = {
+              enable-updates = true;
+              server-ip = "::1";
+              server-port = 53001;
+            };
+            ddns-update-on-renew = true;
+            ddns-qualifying-suffix = "vm";
           };
         };
         dhcp4 = {
@@ -96,7 +106,17 @@ in
               {
                 library = "${pkgs.kea}/lib/kea/hooks/libdhcp_lease_cmds.so";
               }
+              # {
+              #   library = "${pkgs.kea}/lib/kea/hooks/libdhcp_ddns_cmds.so";
+              # }
             ];
+            dhcp-ddns = {
+              enable-updates = true;
+              server-ip = "::1";
+              server-port = 53001;
+            };
+            ddns-update-on-renew = true;
+            ddns-qualifying-suffix = "vm";
           };
         };
 
@@ -108,14 +128,18 @@ in
             };
 
             dns-server-timeout = 500;
-            port = 53002;
+            port = 53001;
+            ip-address = "::1";
             forward-ddns = {
               ddns-domains = [
                 {
-                  name = "lan.";
+                  name = "vm.";
                   dns-servers = [
                     {
-                      ip-address = "192.168.1.1";
+                      ip-address = "127.0.0.1";
+                    }
+                    {
+                      ip-address = "::1";
                     }
                   ];
                 }

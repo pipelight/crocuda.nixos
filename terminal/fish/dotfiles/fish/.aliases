@@ -6,11 +6,11 @@ alias kee='keepassxc-cli'
 
 alias gitu='git add . && git commit && git push'
 
-alias ls='eza'
-alias lls='eza -aalgh'
-alias ll='eza -lgh'
-alias tree='eza --tree -algh -L 2'
-alias treee='eza --tree -algh'
+alias ls='eza -b'
+alias lls='eza -aalghb'
+alias ll='eza -lghb'
+alias tree='eza --tree -alghb -L 2'
+alias treee='eza --tree -alghb'
 
 alias off='boulette "shutdown -h now" --ssh-only --challenge hostname'
 alias sus='boulette "systemctl suspend" --ssh-only --challenge hostname'

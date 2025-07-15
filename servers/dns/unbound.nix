@@ -20,7 +20,7 @@ in {
           # send minimal amount of information to upstream.
           hide-identity = "yes";
           hide-version = "yes";
-          verbosity = 2;
+          verbosity = 3;
 
           interface = [
             "0.0.0.0"
@@ -42,8 +42,8 @@ in {
               (mkIf nsdEnabled "::1@553")
 
               # VM dns
-              (mkIf keaDDnsEnabled "127.0.0.1@53002")
-              (mkIf keaDDnsEnabled "::1@53002")
+              # (mkIf keaDDnsEnabled "127.0.0.1@53001")
+              # (mkIf keaDDnsEnabled "::1@53001")
 
               #Mullvad
               "194.242.2.4"

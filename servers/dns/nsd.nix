@@ -12,16 +12,14 @@ in
     mkIf cfg.servers.dns.enable {
       services = {
         nsd = {
-          enable = true;
           # zonefilesCheck = false;
 
-          verbosity = 2;
+          verbosity = 3;
           extraConfig = ''
             server:
               hide-identity: yes
               hide-version: yes
           '';
-
           port =
             if unboundEnabled
             # Run on non default port if unbound is already running
