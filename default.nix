@@ -18,6 +18,9 @@
       ./flake.nix
       ./default.nix
       ./lib
+
+      # package dderivation
+      ./servers/dns/hickory.latest.nix
     ];
   };
 in {

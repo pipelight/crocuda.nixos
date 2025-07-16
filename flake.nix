@@ -111,8 +111,9 @@
       pkgs-unstable = import nixpkgs-unstable;
       pkgs-deprecated = import nixpkgs-deprecated;
     };
-  in {
-    # slib = import ./lib {inherit inputs;};
+  in rec {
+    # For internal usage
+    slib = lib;
     lib = import ./lib {
       inherit inputs;
       inherit lib;
@@ -120,6 +121,7 @@
     nixosModules = {
       default = ./default.nix;
       inherit specialArgs;
+      inherit slib;
     };
   };
 }

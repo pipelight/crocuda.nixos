@@ -11,7 +11,11 @@
 in
   with lib;
     mkIf cfg.virtualization.virshle.enable {
-      services.virshle.enable = true;
+      services.virshle = {
+        user = "anon";
+        logLevel = "trace";
+        enable = true;
+      };
       environment.systemPackages = with pkgs; [
         # Build images based on flakes and local config
         nixos-generators

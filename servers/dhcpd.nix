@@ -8,6 +8,8 @@
   ...
 }: let
   cfg = config.crocuda;
+  nsdEnabled = config.services.nsd.enable;
+  nsdPort = config.services.nsd.port;
 in
   with lib;
     mkIf cfg.virtualization.virshle.enable {
@@ -136,10 +138,11 @@ in
                   name = "vm.";
                   dns-servers = [
                     {
-                      ip-address = "127.0.0.1";
-                    }
-                    {
                       ip-address = "::1";
+                      port =
+                        if nsdEnabled
+                        then nsdPort
+                        else 53;
                     }
                   ];
                 }

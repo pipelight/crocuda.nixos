@@ -1,11 +1,12 @@
 {
   config,
   lib,
+  slib,
   inputs,
   ...
 }: let
   cfg = config.crocuda;
-  dns = inputs.dns.lib;
+  dns = slib.dns;
   unboundEnabled = config.services.unbound.enable;
 in
   with lib;
@@ -13,8 +14,7 @@ in
       services = {
         nsd = {
           # zonefilesCheck = false;
-
-          verbosity = 3;
+          verbosity = 4;
           extraConfig = ''
             server:
               hide-identity: yes
@@ -23,7 +23,7 @@ in
           port =
             if unboundEnabled
             # Run on non default port if unbound is already running
-            then 553
+            then 53020
             # Listen on default port
             else 53;
 
@@ -34,19 +34,12 @@ in
             # Listen on public
             else ["0.0.0.0" "::0"];
 
-          zones = with dns.combinators;
-            mkDefault {
-              "example.com" = {
-                data = dns.toString "example.com" {
-                  useOrigin = true;
-                  TTL = 60 * 60;
-                  SOA = {
-                    nameServer = "ns1";
-                    adminEmail = "admin";
-                    serial = 60 * 365 * 24 * 60 * 60;
-                  };
-                };
-              };
+          zones = with dns;
+            {}
+            // mkDefaultZone {
+              domain = "vm";
+              ipv4 = null;
+              ipv6 = null;
             };
         };
       };

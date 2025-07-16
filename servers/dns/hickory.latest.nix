@@ -1,22 +1,32 @@
 {
+  pkgs ? import <nixpkgs> {},
   lib,
-  pkgs,
   ...
 }:
 with lib;
-  rustPlatform.buildRustPackage (finalAttrs: {
+with pkgs;
+  rustPlatform.buildRustPackage rec {
     pname = "hickory-dns";
-    version = "0.26.0-alpha.1";
+    # version = "0.26.0-alpha.1";
+    version = "main";
 
     src = fetchFromGitHub {
       owner = "hickory-dns";
       repo = "hickory-dns";
-      tag = "v${finalAttrs.version}";
-      hash = "sha256-/cgyGKEkTQgn3bsC75HZ1JuFbWLn2dSHpfS4/eyMAVI=";
+
+      rev = "branch/main";
+      hash = "sha256-wjLG60eY9AYPk7ha4e6HsH3W5rMloOITcJ8f8wFmj1g=";
+
+      # tag = "v${version}";
+      # hash = "sha256-tXBGnrD0KrIhRKBEeq+jLSgFWHFTRUU6AGiAGEALIwk=";
+      # hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
     };
 
     useFetchCargoVendor = true;
-    cargoHash = "sha256-q54faGF/eLdCRB0Eljkgl/x78Fnpm0eAEK9gCUwiAgo=";
+    cargoHash = "sha256-jxGyn7qDJAI4LtO+j4CL5plzMcQ6v7DUsq1dAYFyMPY=";
+
+    # cargoHash = "sha256-p3IDm+C8266Lh2To0Vho0SNL91VRktMljpI89J/A0u4=";
+    # cargoHash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
 
     buildInputs = [openssl];
     nativeBuildInputs = [pkg-config];
@@ -37,4 +47,4 @@ with lib;
       ];
       mainProgram = "hickory-dns";
     };
-  })
+  }

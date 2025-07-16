@@ -61,7 +61,7 @@ in rec {
           };
         };
     in {
-      "${domain}" = {
+      ${domain} = {
         data = dns.toString domain data;
       };
     };
