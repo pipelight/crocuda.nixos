@@ -155,7 +155,7 @@ in
       # Sytemd unit rework
 
       systemd.tmpfiles.rules = [
-        "Z '/var/lib/kea' 764 root users - -"
+        "Z '/var/lib/kea' 2764 root users - -"
       ];
       systemd.services = with lib; let
         serviceConfig = {
