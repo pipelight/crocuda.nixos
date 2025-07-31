@@ -128,11 +128,6 @@ with lib; {
           Enable docker containerisation engine
         '';
       };
-      pipelight-init = {
-        enable = mkEnableOption ''
-          Enable pipelight as cloud-init replacement
-        '';
-      };
     };
 
     #########################

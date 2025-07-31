@@ -7,7 +7,7 @@
 }: let
   cfg = config.crocuda;
   keaDDnsEnabled = config.services.kea.dhcp-ddns.enable;
-  hickory-dns-latest = pkgs.callPackage ./hickory.latest.nix {};
+  # hickory-dns-latest = pkgs.callPackage ./hickory.latest.nix {};
 
   base = pkgs.writeText "/var/lib/hickory-dns/vm.zone" ''
     ; SOA record
@@ -32,13 +32,13 @@ in {
   ];
   environment.systemPackages = [
     # pkgs-unstable.hickory-dns
-    hickory-dns-latest
+    # hickory-dns-latest
   ];
 
   services.hickory-dns = {
     debug = true;
-    # package = pkgs-unstable.hickory-dns;
-    package = hickory-dns-latest;
+    package = pkgs-unstable.hickory-dns;
+    # package = hickory-dns-latest;
     settings = {
       user = "hickory";
       group = "users";
