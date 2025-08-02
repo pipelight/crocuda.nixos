@@ -10,7 +10,8 @@
 in
   with lib;
     mkIf cfg.wm.niri.enable {
-      programs.niri.enable = true;
+      # programs.niri.enable = true;
+
       environment.systemPackages = with pkgs; [
         # niri
         niri-latest

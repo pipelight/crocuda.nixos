@@ -1,6 +1,7 @@
+///////////////////////////////
 // StartUp
 spawn-at-startup "gammastep -P -O 5500 -b 0.8:0.8"
-spawn-at-startup "wlr-which-key"
+// spawn-at-startup "wlr-which-key"
 
 
 // Inputs
@@ -25,7 +26,23 @@ output "DP-0" {
 
 }
 
-binds {
+layout {
+  gaps 4.0
+}
 
+preset-column-widths {
+  proportion 1.0
+}
+focus-ring {
+  on;
+}
+border { 
+  on; 
+}
+
+// Bindings
+binds {
+  Mod+Return { spawn "kitty" "-e" "fish"; }
+  Mod+Q { quit; } 
 }
 

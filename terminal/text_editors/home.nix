@@ -110,6 +110,8 @@ with lib;
             stylelint
             # Hcl
             hclfmt
+            # Kdl
+            kdlfmt
             # Markdown
             marksman
             # Go
