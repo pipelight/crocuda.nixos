@@ -12,7 +12,7 @@ in
       ##########################
       ## Bluetooth
 
-      hardware.bluetooth = mkIf cfg.network.bluetooth.enable {
+      hardware.bluetooth = {
         enable = true;
         powerOnBoot = true;
         settings = {
@@ -36,11 +36,11 @@ in
         };
         network = {
           General = {
-            DisableSecuriy = true;
+            DisableSecurity = true;
           };
         };
       };
-      services.blueman = mkIf cfg.network.bluetooth.enable {
+      services.blueman = {
         enable = true;
       };
 

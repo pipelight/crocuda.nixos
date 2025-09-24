@@ -27,9 +27,12 @@ in
       services.printing = {
         enable = true;
         drivers = with pkgs; [
+          # following for the 3150
           epson-escpr
           #or
-          epson-escpr2
+          # epson-escpr2
+          cups-filters
+          cups-browsed
         ];
       };
       services.avahi = {
@@ -40,10 +43,11 @@ in
       ## Scanners
       # Enable SANE to handle scanners
       hardware.sane.enable = true;
-      # Epson support
       hardware.sane.extraBackends = [pkgs.epkowa];
+      # Epson support
       users.groups = {
         scanner.members = cfg.users;
         lp.members = cfg.users;
+        cups.members = cfg.users;
       };
     }

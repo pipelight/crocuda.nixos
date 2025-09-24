@@ -9,9 +9,16 @@ in
   with lib;
     mkIf cfg.servers.logs.enable {
       services.rsyslogd = {
-        enable = false;
+        enable = true;
+        defaultConfig = ''
+
+        '';
       };
       services.logrotate = {
         enable = true;
       };
+      environment.systemPackages = with pkgs; [
+        logrotate
+        rsyslog
+      ];
     }

@@ -29,7 +29,7 @@ in
           sha256 = "0lh1ikngvf7lln3x9ng7c9nqb6ylv68yy0mvvlkhhk94l4c35j7x";
         };
       in [
-        " L+ /run/cloud-hypervisor/hypervisor-fw - - - - ${cloud-hypervisor-fw}"
-        " L+ /run/cloud-hypervisor/CLOUDVH.fd - - - - ${cloud-hypervisor-ovmf}"
+        "L+ /run/cloud-hypervisor/hypervisor-fw - - - - ${cloud-hypervisor-fw}"
+        "L+ /run/cloud-hypervisor/CLOUDVH.fd - - - - ${cloud-hypervisor-ovmf}"
       ];
     }

@@ -14,7 +14,7 @@ in
 
       environment.systemPackages = with pkgs; [
         # Mining
-        xmrig
+        # xmrig
         p2pool
         monero-cli
         monero-gui
@@ -48,8 +48,8 @@ in
           Group = "users";
           Type = "simple";
           # WorkingDirectory = "~";
-          StateDirectory = "monero";
-          LogsDirectory = "monero";
+          StateDirectory = "/var/lib/monero/mainnet";
+          LogsDirectory = "/var/log/monero/mainnet";
         };
         wantedBy = ["multi-user.target"];
       };
@@ -67,15 +67,15 @@ in
           Group = "users";
           Type = "simple";
           # WorkingDirectory = "~";
-          StateDirectory = "monero";
-          LogsDirectory = "monero";
+          StateDirectory = "/var/lib/monero/testnet";
+          LogsDirectory = "/var/log/monero/testnet";
         };
         wantedBy = ["multi-user.target"];
       };
 
       # Mine monero (validation node)
       services.xmrig = {
-        enable = true;
+        enable = false;
         settings = {
           autosave = true;
           cpu = true;

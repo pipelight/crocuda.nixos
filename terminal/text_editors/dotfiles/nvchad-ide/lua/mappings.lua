@@ -100,8 +100,8 @@ map("n", "<C-o>", "")
 
 -- Lsp
 --
-map("n", "gD", lsp.buf.declaration, { desc = "LSP go to declaration in file" })
-map("n", "gd", lsp.buf.definition, { desc = "LSP go to definition" })
+map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>z.", { desc = "LSP go to declaration in file" })
+map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>z.", { desc = "LSP go to definition" })
 map("n", "gi", lsp.buf.implementation, { desc = "LSP go to implementation" })
 map("n", "gu", lsp.buf.code_action, { desc = "LSP go to code action" })
 
@@ -140,22 +140,36 @@ map(
 -- File tree
 --
 -- nvim-tree
-map("n", "<C-,>", "<cmd> NvimTreeToggle <CR>", { desc = "Toggle nvimtree" })
+map("n", "<C-,>", "<cmd> NvimTreeToggle <cr>", { desc = "Toggle nvimtree" })
 -- oil.nvim
-map("n", "<C-h>", "<cmd> OilToggle <CR>", { desc = "Toggle oil.nvim file manager" })
+map("n", "<C-h>", "<cmd> OilToggle <cr>", { desc = "Toggle oil.nvim file manager" })
 
 -- Telescope
 --
-map("n", "<C-f>", "<cmd>Telescope live_grep<CR>", { desc = "Telescope live grep" })
-map("n", "<leader>ff", "<cmd>Telescope find_files hidden=true<CR>", { desc = "Telescope find files" })
+map("n", "<C-f>", "<cmd>Telescope live_grep<cr>", { desc = "Telescope live grep" })
+map("n", "<leader>ff", "<cmd>Telescope find_files hidden=true<cr>", { desc = "Telescope find files" })
 nomap("n", "<leader>e")
 
 -- Test suite
 --
 map("n", "<leader>tt", ":<c-u>TestFile<cr>", { desc = "Test launch nearest test suite" })
 
--- Database
+-- Editors modules
 --
+-- Database
 map("n", "<leader>db", function()
   require("dbee").toggle()
-end, { desc = "Database open editor" })
+end, { desc = "Mod editor open database" })
+
+-- Git Diffview
+map("n", "<leader>gg", function()
+  local lib = require "diffview.lib"
+  local view = lib.get_current_view()
+  if view then
+    -- Current tabpage is a Diffview; close it
+    vim.cmd.DiffviewClose()
+  else
+    -- No open Diffview exists: open a new one
+    vim.cmd.DiffviewOpen()
+  end
+end, { desc = "Mod editor open git diffview" })

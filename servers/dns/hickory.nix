@@ -27,7 +27,7 @@ in {
   ## dns resolver/caching
   systemd.tmpfiles.rules = [
     "Z '/var/lib/hickory-dns' 764 hickory users - -"
-    "Z '/var/run/hickory-dns' 764 hickory users - -"
+    "Z '/run/hickory-dns' 764 hickory users - -"
     "f '/var/lib/hickory-dns/vm.zone' 764 anon users - -"
   ];
   environment.systemPackages = [

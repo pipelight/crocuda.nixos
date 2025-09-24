@@ -12,6 +12,6 @@
     else n * pow n (i - 1);
 in {
   # Set dedicated RAM in GB (ex: 16),
-  # and hhugepage size in kb (default 2048)
+  # and hugepage size in kb (default 2048)
   ram_to_hugepage = dedicated_ram: hugepage_size: toString ((dedicated_ram * pow 1024 2) / hugepage_size);
 }

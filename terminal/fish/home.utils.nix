@@ -36,5 +36,8 @@ with lib;
 
       # Linux capabilities
       libcap
+
+      # ssh
+      ggh
     ];
   }

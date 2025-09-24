@@ -8,7 +8,8 @@
   cfg = config.crocuda;
 in
   with lib;
-    mkIf cfg.wm.hyprland.enable {
+    mkIf (cfg.wm.hyprland.enable
+      || cfg.wm.niri.enable) {
       environment.sessionVariables = {
         XDG_BACKGROUND = "$HOME/Pictures/Backgrounds/goku_minimal_orange.png";
       };
@@ -28,7 +29,17 @@ in
       users.groups = {
         audio.members = cfg.users;
         video.members = cfg.users;
+        # Swhkd
+        input.members = cfg.users;
       };
+
+      # Swhkd
+      # No longer need to be root.
+      # Members of the input group can interact with keyboard.
+      systemd.tmpfiles.rules = [
+        "z /dev/input 0775 root input - -"
+        "z /dev/uinput 0660 root input - -"
+      ];
 
       environment.systemPackages = with pkgs; [
         # pactl audio control cli

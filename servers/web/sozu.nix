@@ -23,9 +23,8 @@ in
         saved_state = "/etc/sozu/state.json";
 
         log_level = "info";
-
         log_target = "stdout";
-        access_log_target = "stdout";
+        access_logs_target = "stdout";
 
         command_buffer_size = 16384;
         worker_count = 2;

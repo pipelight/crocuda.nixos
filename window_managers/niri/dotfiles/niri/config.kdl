@@ -1,6 +1,7 @@
+///////////////////////////////
 // StartUp
 spawn-at-startup "gammastep -P -O 5500 -b 0.8:0.8"
-spawn-at-startup "wlr-which-key"
+// spawn-at-startup "wlr-which-key"
 
 
 // Inputs
@@ -17,15 +18,83 @@ input {
 }
 
 // Laptop
-output "eDP-1" {
-    scale 1.0
-}
+// output "eDP-1" {
+  ////  scale 1.0
+//}
 // Desktop
-output "DP-0" {
+// output "DP-0" {
 
+//}
+
+layout {
+  gaps 20
+  center-focused-column "never"
+  default-column-width {
+    proportion 0.5;
+  }
+  preset-column-widths {
+    proportion 0.3
+    proportion 0.5
+    proportion 1.0
+  }
+  focus-ring {
+    width 0.0;
+  }
+  border { 
+    width 1.0
+    active-color "#6bc46d"
+    inactive-color "#282c34"
+    urgent-color "#ff938a"
+  }
+  shadow {
+    softness 20
+    spread 5
+    draw-behind-window true
+    color "#00000000"
+  }
 }
 
+// Bindings
 binds {
 
+  Mod+Super_L {
+  
+    m { focus-column-left; }
+    i { focus-column-right; }
+    f { center-column; } 
+
+    Ctrl+m { move-column-left; }
+    Ctrl+i { move-column-right; }
+
+    Mod+q { close-window; } 
+
+    Mod+Super_L { submap-set; }
+    Escape { submap-set; }
+  }
+
+  Mod+Return { spawn "kitty" "-e" "fish"; }
+  Mod+Space { spawn "yofi"; }
+
+  Mod+q { close-window; } 
+  Mod+f { center-column; } 
+
+  Mod+i { focus-column-right; } 
+  Mod+m { focus-column-left; } 
+
+  XF86MonBrightnessUp { spawn "light" "-A" "10"; }
+  XF86MonBrightnessDown { spawn "light" "-U" "10"; }
+
 }
 
+animations {
+  window-open {
+    duration-ms 100
+  }
+  window-movement {
+    duration-ms 200
+  }
+}
+window-rule {
+  geometry-corner-radius 4.0;
+  clip-to-geometry true;
+}

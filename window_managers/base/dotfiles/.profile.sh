@@ -3,7 +3,7 @@
 # Autostart Hyprland on login
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
   export XDG_CURRENT_DESKTOP=niri
-  Hyprland
+  niri
 fi
 
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty2 ]]; then
