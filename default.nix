@@ -21,6 +21,7 @@
 
       # package dderivation
       ./servers/dns/hickory.latest.nix
+      ./window_managers/niri/niri.latest.nix
     ];
   };
 in {

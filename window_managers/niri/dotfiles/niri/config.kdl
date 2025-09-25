@@ -55,6 +55,21 @@ layout {
 }
 
 // Bindings
+layout {
+  gaps 4.0
+}
+
+preset-column-widths {
+  proportion 1.0
+}
+focus-ring {
+  on;
+}
+border { 
+  on; 
+}
+
+// Bindings
 binds {
 
   Mod+Super_L {

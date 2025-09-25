@@ -5,8 +5,8 @@ set current_tty $(tty)
 set is_display $(set -q $DISPLAY)
 
 if [ -n $DISPLAY ] && [ $current_tty = /dev/tty1 ];
-  export XDG_CURRENT_DESKTOP=Niri
-  niri
+  export XDG_CURRENT_DESKTOP=niri
+  niri --session
 end
 
 if [ -n $DISPLAY ] && [ $current_tty = /dev/tty2 ];

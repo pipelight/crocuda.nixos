@@ -61,6 +61,9 @@
     virshle = {
       url = "github:pipelight/virshle?ref=dev";
     };
+    mudras = {
+      url = "github:pipelight/mudras?ref=dev";
+    };
     yofi = {
       url = "github:l4l/yofi";
       inputs.nixpkgs.follows = "nixpkgs";

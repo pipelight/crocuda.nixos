@@ -37,7 +37,8 @@ in {
 
   services.hickory-dns = {
     debug = true;
-    package = pkgs-unstable.hickory-dns;
+    package = pkgs.hickory-dns;
+    # package = pkgs-unstable.hickory-dns;
     # package = hickory-dns-latest;
     settings = {
       user = "hickory";
