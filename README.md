@@ -1,82 +1,29 @@
-# crocuda.nixos
+# crocuda.nixos - Trivial server config modules.
 
-!! Early development !!
+A set of **nixos modules** which provide trivial configuration
+for servers.
 
-A set of **nixos modules** which provide trivial configuration for
-**paranoids** and **hypocondriacs**.
+For **paranoids** and **hypochondriacs**.
 
-## Motivations
+## Configuration directory architecture.
 
-This project aims to provide a well-documented NixOs base configuration with:
-
-- **security and privacy**.
-- **keyboard first** apps (qwerty, colemak-dh).
-
-It is devided in **modules** that can be cherry picked or copy/pasted and
-modified at your will.
-
-## Configuration directory architecture
-
-This flake makes a heavy use of [home-merger](https://github.com/pipelight/nixos-utils) to
-keep config files in separate dotfiles in their original formats, and keep a
-consistent file tree.
+This flake makes use of [nixos-tidy](https://github.com/pipelight/nixos-tidy) to recursively import every file from the `default.nix`.
+So you won't encounter any `imports=[]`.
 
 ## Installation and Usage (Flake)
 
-Setting up a user is sufficient to get you up and running on a fresh nixos
-installation.
-
-Enable the software you whish to use via the module options and you are done.
-Refer to `default.nix` for the list of all available options.
+Add the repo url to your flake inputs.
 
 ```nix
-# crocuda.nix
-{
-  config,
-  pkgs,
-  inputs,
-  ...
-}: {
-  crocuda = {
-    users = ["anon"];
-
-    keyboard.layout = "colemak-dh";
-
-    base.enable = true;
-
-    # Graphical
-    wm.hyprland.enable = true;
-
-    # Terminal stuffs
-    terminal = {
-      shell = {
-        fish.enable = true;
-      };
-      editor = {
-        nvchad.enable = true;
-        vim.enable = true;
-      };
-      file_manager = {
-        yazi.enable = true;
-      };
-    };
-
-    browser = {
-      firefox.enable = true;
-      searxng.enable = true;
-      i2p.enable = true;
-      tor.enable = true;
-    };
-
-    finance = {
-      monero.enable = false;
-      darkfi.enable = false;
-    };
+# flake.nix
+inputs = {
+  normal = {
+      url = "github:pipelight/crocuda.nixos";
   };
-}
+};
 ```
 
-Then import the module and its configuration file from your flake.nix.
+Add the module to your system configuration.
 
 ```nix
 # flake.nix
@@ -93,43 +40,42 @@ nixosConfigurations = {
 };
 ```
 
-```sh
-nixos-rebuild switch
+See `option.nix` for available options.
+
+```nix
+# crocuda.nix
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
+
+  services.crocuda = {
+    users = ["anon"]; # Will create user if not created.
+    base.enable = true;
+
+    keyboard.layout = "colemak-dh";
+
+    # Terminal stuffs
+    terminal = {
+      shell = {
+        fish.enable = true;
+      };
+      editor = {
+        vim.enable = true;
+        nvchad.enable = true;
+        nvchad-ide.enable = true;
+      };
+      file_manager = {
+        yazi.enable = true;
+      };
+    };
+
+    finance = {
+      monero.enable = false;
+      darkfi.enable = false;
+    };
+  };
+}
 ```
-
-## What is inside ?
-
-### Browsing and Search engines
-
-Internet navigation:
-
-- firefox security enhanced: with an hardened version of arkenfox
-- secure dns: with bind9 dns over https
-- search engine: searxng search engine configuration.
-
-Linux ipv6 privacy features enabled.
-
-### Passwords and keys
-
-Password manager:
-
-- KeepassXC (custom security centric layout)
-
-### Desktop environments
-
-- Gnome vanilla.
-
-- Hyprland, Eww, Dunst
-
-A hyprland rice to use at your own risks.
-
-<img src="hyprshot.png" width="1080"/>
-
-### Per layout configurations.
-
-Every command-line tool that has vim specific bindings has been customized to be usable with:
-
-- Qwerty
-- Azerty
-  and
-- Colemak-dh

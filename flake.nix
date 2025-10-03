@@ -1,5 +1,5 @@
 {
-  description = "crocuda.nixos - NixOS configuration modules for paranoids and hypocondriacs";
+  description = "crocuda.nixos - NixOS configuration modules for servers (and paranoids and hypochondriacs)";
 
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
@@ -7,20 +7,20 @@
 
     ###################################
     # NixOs pkgs
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
-    nixpkgs-deprecated.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs-deprecated.url = "github:nixos/nixpkgs/nixos-24.11";
 
     ###################################
     ## Crocuda dependencies
 
     nix-std.url = "github:chessai/nix-std";
 
-    nixos-cli.url = "github:water-sucks/nixos";
+    # nixos-cli.url = "github:water-sucks/nixos";
 
-    sops-nix.url = "github:Mic92/sops-nix";
+    # sops-nix.url = "github:Mic92/sops-nix";
 
     # NixOs tidy and dependencies
     nixos-tidy = {
@@ -38,13 +38,9 @@
     nur.url = "github:nix-community/NUR";
 
     # Utils
-    impermanence.url = "github:nix-community/impermanence";
+    # impermanence.url = "github:nix-community/impermanence";
 
     # Flakes
-    arkenfox = {
-      url = "github:dwarfmaster/arkenfox-nixos";
-      # inputs.nixpkgs.follows = "nixpkgs";
-    };
     dns = {
       url = "github:kirelagin/dns.nix";
       inputs.nixpkgs.follows = "nixpkgs"; # (optionally)
@@ -61,17 +57,6 @@
     virshle = {
       url = "github:pipelight/virshle?ref=dev";
     };
-    mudras = {
-      url = "github:pipelight/mudras?ref=dev";
-    };
-    yofi = {
-      url = "github:l4l/yofi";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    # wlr-which-key = {
-    #   url = "github:pipelight/wlr-which-key?ref=dev";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
     ###################################
     # LLM
     # ollama.url = "github:havaker/ollama-nix";
