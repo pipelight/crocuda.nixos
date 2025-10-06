@@ -51,7 +51,7 @@ See `option.nix` for available options.
   ...
 }: {
 
-  services.crocuda = {
+  crocuda = {
     users = ["anon"]; # Will create user if not created.
     base.enable = true;
 

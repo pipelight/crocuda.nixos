@@ -1,0 +1,15 @@
+[[pipelines]]
+name = "test-nixosModule"
+
+[[pipelines.steps]]
+name = "run flake test"
+commands = [
+  # Update flake deps
+  "nix flake update --flake ./templates/tests",
+  # Build flake
+  """
+  nixos-rebuild build \
+  --flake './templates/tests#default' \
+  --override-input normal ./
+  """,
+]

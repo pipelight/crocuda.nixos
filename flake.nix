@@ -27,18 +27,10 @@
       url = "github:pipelight/nixos-tidy?ref=dev";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     home-manager = {
-      # url = "github:nix-community/home-manager?ref=release-24.05";
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # NUR - Nix User Repository
-    nur.url = "github:nix-community/NUR";
-
-    # Utils
-    # impermanence.url = "github:nix-community/impermanence";
 
     # Flakes
     dns = {
@@ -57,14 +49,8 @@
     virshle = {
       url = "github:pipelight/virshle?ref=dev";
     };
+
     ###################################
-    # LLM
-    # ollama.url = "github:havaker/ollama-nix";
-    # Torrent
-    rustmission = {
-      url = "github:intuis/rustmission";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     # Servers
     # Git Radicle
     radicle = {
