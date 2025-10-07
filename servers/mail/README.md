@@ -1,7 +1,5 @@
 # Maddy configuration
 
-## Crocuda module config
-
 So you have come up with a crocuda module configuration
 that looks like this.
 

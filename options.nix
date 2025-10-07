@@ -16,26 +16,6 @@ with lib; {
       default = ["anon"];
     };
 
-    # Set the keyboard layout
-    keyboard.layout = mkOption {
-      type = with types; enum ["colemak-dh" "qwerty" "azerty"];
-      description = ''
-        The default hyprland keybindings
-      '';
-      default = "colemak-dh";
-    };
-    font = {
-      enable = mkEnableOption ''
-        Enable default font
-      '';
-      size = mkOption {
-        type = with types; number;
-        description = ''
-          General font size.
-        '';
-      };
-    };
-
     #########################
     ## Network and connectivity
     network = {
@@ -48,86 +28,6 @@ with lib; {
       multicast-forwarding.enable = mkEnableOption ''
         Enable kernel ipv6 multicast forwarding.
       '';
-    };
-    # Set editors with the specified keyboard layout
-    terminal = {
-      emulators.kitty.enable = mkEnableOption ''
-        Toggle the module
-      '';
-      git.conventional = {
-        enable = mkEnableOption ''
-          Conventional commits helpers
-        '';
-      };
-      editors = {
-        neovim.enable = mkEnableOption ''
-          Install base neovim with the specified keyboard layout
-        '';
-        nvchad.enable = mkEnableOption ''
-          Install lightweight nvchad(neovim) with the specified keyboard layout
-        '';
-        nvchad-ide.enable = mkEnableOption ''
-          Install nvchad(neovim) with the specified keyboard layout
-          and complete ide extensions
-        '';
-      };
-      # Set shell with the specified keyboard layout
-      shell = {
-        utils.enable = mkEnableOption ''
-          Add command line utils for fast navigation and comfort
-        '';
-        fish.enable = mkEnableOption ''
-          Toggle the module
-        '';
-      };
-      cicd.enable = mkEnableOption ''
-        Enable lightweight cicd tools
-      '';
-      file_manager.enable = mkEnableOption ''
-        Toggle the module
-      '';
-      torrent.enable = mkEnableOption ''
-        Toggle the module
-      '';
-      ##########################
-      ## The AI crap
-      llm = {
-        ollama = {
-          enable = mkEnableOption ''
-            Toggle the ollama server
-          '';
-        };
-      };
-    };
-
-    #########################
-    ## Virtualization
-    virtualization = {
-      cloud-hypervisor = {
-        enable = mkEnableOption ''
-          Install cloud-hypervisor (VMM)
-        '';
-      };
-      openvswitch = {
-        enable = mkEnableOption ''
-          Install openvswitch network manager
-        '';
-      };
-      virshle = {
-        enable = mkEnableOption ''
-          Install virshle hypervisor as libvirt replacement
-        '';
-      };
-      libvirt = {
-        enable = mkEnableOption ''
-          Toggle libvirt usage
-        '';
-      };
-      docker = {
-        enable = mkEnableOption ''
-          Enable docker containerisation engine
-        '';
-      };
     };
 
     #########################

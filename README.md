@@ -1,6 +1,6 @@
 # crocuda.nixos - Trivial server config modules.
 
-A set of **nixos modules** which provide trivial configuration
+A set of **nixos modules** which provide trivial base configuration
 for servers.
 
 For **paranoids** and **hypochondriacs**.
@@ -9,6 +9,14 @@ For **paranoids** and **hypochondriacs**.
 
 This flake makes use of [nixos-tidy](https://github.com/pipelight/nixos-tidy) to recursively import every file from the `default.nix`.
 So you won't encounter any `imports=[]`.
+
+All tools configuration files are in their original format (non-nixified) in
+`dotfiles` subdirectories.
+
+Nix serve as:
+
+- glue to imports dotfiles.
+- make systemd units when needed.
 
 ## Installation and Usage (Flake)
 

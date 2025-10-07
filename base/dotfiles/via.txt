@@ -1,2 +1,0 @@
-green = #21ff0a
-red = #ff0707
