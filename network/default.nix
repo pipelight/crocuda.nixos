@@ -9,10 +9,8 @@
 in
   with lib;
     mkIf cfg.network.tools.enable {
-      users.groups = let
-        users = cfg.users;
-      in {
-        networkmanager.members = users;
+      users.groups = {
+        networkmanager.members = config.crocuda.users;
       };
 
       ##########################

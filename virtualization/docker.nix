@@ -12,9 +12,7 @@ with lib;
     # Enable podman usage
     virtualisation.podman.enable = true;
 
-    users.groups = let
-      users = cfg.users;
-    in {
-      docker.members = users;
+    users.groups = {
+      docker.members = config.crocuda.users;
     };
   }

@@ -102,6 +102,9 @@
         # Testing directory
         ./templates
 
+        # Flake functions library
+        ./lib
+
         ./flake.nix
         ./default.nix
 
@@ -110,6 +113,7 @@
       ];
     };
   in {
+    inherit lib;
     nixosModules = {
       inherit specialArgs;
       default = {...}: {
@@ -142,6 +146,11 @@
           # Every home.*.nix files
           ++ tidy_lib.getHomeModules umport;
       };
+    };
+    ## Unit tests
+    tests = import ./lib/network/test.nix {
+      inherit self_lib;
+      inherit (nixpkgs) lib;
     };
   };
 }
