@@ -1,6 +1,5 @@
 {
   config,
-  cfg,
   pkgs,
   pkgs-unstable,
   lib,
@@ -8,7 +7,7 @@
   ...
 }:
 with lib;
-  mkIf cfg.terminal.shell.utils.enable {
+  mkIf config.crocuda.shell.utils.enable {
     home.packages = with pkgs; [
       # File convertion
       # dasel
@@ -21,9 +20,6 @@ with lib;
       # jo
       jq
       # yq-go
-
-      #cloned repos manager (ghq)
-      pkgs-unstable.siketyan-ghr
 
       # Inspect fs and io
       duf # df replacement

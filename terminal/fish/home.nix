@@ -1,13 +1,13 @@
 {
   config,
-  cfg,
   pkgs,
   lib,
   inputs,
   ...
 }:
 with lib;
-  mkIf cfg.terminal.shell.fish.enable {
+  mkIf config.crocuda.shell.fish.enable {
+    # {
     home.file = {
       # Prompt
       ".config/starship.toml".source = dotfiles/starship.toml;
@@ -35,7 +35,7 @@ with lib;
 
     # Shell
     programs = {
-      fish = rec {
+      fish = {
         enable = true;
         interactiveShellInit = ''
           source ~/.aliases
@@ -49,25 +49,16 @@ with lib;
             name = "grc";
             src = grc.src;
           }
-          {
-            name = "abbrev-tips";
-            src = pkgs.fetchFromGitHub {
-              owner = "gazorby";
-              repo = "fish-abbreviation-tips";
-              rev = "master";
-              hash = "sha256-F1t81VliD+v6WEWqj1c1ehFBXzqLyumx5vV46s/FZRU=";
-            };
-          }
         ];
       };
       direnv = {
         enable = true;
         nix-direnv.enable = true;
       };
-      atuin = {
-        enable = true;
-        enableFishIntegration = true;
-      };
+      # atuin = {
+      #   enable = true;
+      #   enableFishIntegration = true;
+      # };
       skim = {
         enable = true;
         enableFishIntegration = true;

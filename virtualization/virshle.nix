@@ -1,16 +1,13 @@
 {
   config,
   pkgs,
-  pkgs-unstable,
-  pkgs-stable,
   lib,
-  inputs,
   ...
 }: let
   cfg = config.crocuda;
 in
   with lib;
-    mkIf cfg.virtualization.virshle.enable {
+    mkIf config.crocuda.virtualization.virshle.enable {
       # environment.etc = {
       #   "virshle/config.toml".text = builtins.readFile ./dotfiles/virshle/config.toml;
       # };

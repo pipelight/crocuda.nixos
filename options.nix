@@ -19,14 +19,30 @@ with lib; {
     #########################
     ## Network and connectivity
     network = {
-      bluetooth.enable = mkEnableOption ''
-        Enable bluetooth with Playstation remote controller fixes.
-      '';
       tools.enable = mkEnableOption ''
         Add some network troubleshooting tools.
       '';
       multicast-forwarding.enable = mkEnableOption ''
         Enable kernel ipv6 multicast forwarding.
+      '';
+    };
+
+    # Set shell with the specified keyboard layout
+    shell = {
+      utils.enable = mkEnableOption ''
+        Add command line utils for fast navigation and comfort
+      '';
+      fish.enable = mkEnableOption ''
+        Toggle the module
+      '';
+    };
+
+    virtualization = {
+      docker.enable = mkEnableOption ''
+        Toggle atuin server.
+      '';
+      virshle.enable = mkEnableOption ''
+        Toggle atuin server.
       '';
     };
 
@@ -141,92 +157,6 @@ with lib; {
             Toggle the module
           '';
         };
-      };
-    };
-
-    #########################
-    ## Window manager
-    # Heavily customed hypr
-    wm = {
-      niri = {
-        enable = mkEnableOption ''
-          Toggle the hyprland window manager
-        '';
-      };
-      hyprland = {
-        enable = mkEnableOption ''
-          Toggle the hyprland window manager
-        '';
-        mode = mkOption {
-          type = with types; enum ["bspwm" "niri"];
-          description = ''
-            The default window manager tilling behavior
-          '';
-          default = "niri";
-        };
-        wide = mkEnableOption ''
-          Convenient window splits for ultrawide monitors
-        '';
-      };
-      gnome = {
-        enable = mkEnableOption ''
-          Toggle the gnome desktop environment.
-        '';
-        flatpak.enable = mkEnableOption ''
-          Toggle flatpak and flathub package management.
-        '';
-      };
-    };
-
-    #########################
-    ## Office
-    # The desktop stuffs that you usualy don't want in a vm
-    office = {
-      browser = {
-        firefox = {
-          enable = mkEnableOption ''
-            Toggle the module
-          '';
-          i2p.enable = mkEnableOption ''
-            Enable firefox profile for i2p browsing.
-          '';
-        };
-        searxng = {
-          enable = mkEnableOption ''
-            Toggle searx local search engine.
-          '';
-        };
-      };
-      chat = {
-        enable = mkEnableOption ''
-          Toggle signal, element, mails...
-        '';
-      };
-      write.enable = mkEnableOption ''
-        Enable libre/open office sute
-      '';
-      printers.enable = mkEnableOption ''
-        Enable printers and scanners
-      '';
-      draw.enable = mkEnableOption ''
-        Enable printers and scanners
-      '';
-      video-editing.enable = mkEnableOption ''
-        Enable printers and scanners
-      '';
-      stream.enable = mkEnableOption ''
-        Toggle streaming module
-      '';
-      gaming.enable = mkEnableOption ''
-        Enable some emulators
-      '';
-      yubikey.enable = mkEnableOption ''
-        Toggle the module
-      '';
-      android = {
-        enable = mkEnableOption ''
-          Android tooling
-        '';
       };
     };
 

@@ -1,16 +1,14 @@
 {
+  crocuda_lib,
   config,
   lib,
-  slib,
   inputs,
   ...
 }: let
-  cfg = config.crocuda;
-  dns = slib.dns;
   unboundEnabled = config.services.unbound.enable;
 in
   with lib;
-    mkIf cfg.servers.dns.enable {
+    mkIf config.crocuda.servers.dns.enable {
       services = {
         nsd = {
           # zonefilesCheck = false;
@@ -34,7 +32,7 @@ in
             # Listen on public
             else ["0.0.0.0" "::0"];
 
-          zones = with dns;
+          zones = with crocuda_lib.dns;
             {}
             // mkDefaultZone {
               domain = "vm";

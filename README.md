@@ -87,3 +87,15 @@ See `option.nix` for available options.
   };
 }
 ```
+
+# Try inside a VM.
+
+Test inside a vm by building the flake inside template
+
+```sh
+nixos-rebuild build-vm \
+      --flake './templates/tests#default' \
+      --override-input crocuda ./ \
+      --show-trace \
+      --offline
+```

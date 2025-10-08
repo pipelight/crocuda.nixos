@@ -5,23 +5,22 @@
     flake-utils.url = "github:numtide/flake-utils";
     flake-parts.url = "github:hercules-ci/flake-parts";
 
-    denix = {
-      url = "github:yunfachi/denix";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-    };
-
     ###################################
     # NixOs pkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-deprecated.url = "github:nixos/nixpkgs/nixos-24.11";
 
     ###################################
     ## Crocuda dependencies
+    # Libraries
     nix-std.url = "github:chessai/nix-std";
+    dns = {
+      url = "github:kirelagin/dns.nix";
+      inputs.nixpkgs.follows = "nixpkgs"; # (optionally)
+    };
     # NixOs tidy and dependencies
     nixos-tidy = {
       url = "github:pipelight/nixos-tidy?ref=dev";
@@ -30,11 +29,6 @@
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    # Flakes
-    dns = {
-      url = "github:kirelagin/dns.nix";
-      inputs.nixpkgs.follows = "nixpkgs"; # (optionally)
     };
     dora = {
       url = "github:pipelight/dora";
@@ -71,10 +65,30 @@
     nixpkgs-deprecated,
     ...
   } @ inputs: let
-    slib = inputs.nixos-tidy.lib;
+    lib = crocuda_lib;
+    self_lib = crocuda_lib;
+    crocuda_lib =
+      {}
+      // (import ./lib/network {
+        inherit (nixpkgs) lib;
+      })
+      // {
+        hugepages = import ./lib/hugepages.nix {
+          inherit (nixpkgs) lib;
+        };
+      }
+      // {
+        dns = import ./lib/dns-zones.nix {
+          inherit inputs;
+          inherit (nixpkgs) lib;
+        };
+      };
+
+    tidy_lib = inputs.nixos-tidy.lib;
     specialArgs = {
-      inherit slib;
       inherit inputs;
+      inherit crocuda_lib;
+      inherit self_lib;
       pkgs = import nixpkgs;
       pkgs-stable = import nixpkgs-stable;
       pkgs-unstable = import nixpkgs-unstable;
@@ -85,26 +99,20 @@
         ./.
       ];
       exclude = [
-        # Testing dir
+        # Testing directory
         ./templates
 
         ./flake.nix
         ./default.nix
 
-        # package derivations
+        # package derivations (imported by other means)
         ./servers/dns/hickory.latest.nix
       ];
     };
   in {
     nixosModules = {
       inherit specialArgs;
-      inherit slib;
-      default = {
-        config,
-        pkgs,
-        lib,
-        ...
-      }: {
+      default = {...}: {
         imports =
           [
             # Tidy
@@ -116,24 +124,23 @@
             # Dhcp: experimental dhcp server.
             inputs.dora.nixosModules.default
           ]
-          ++ slib.getNixModules umport;
+          ++ tidy_lib.getNixModules umport;
       };
     };
     homeModules = {
       inherit specialArgs;
-      inherit slib;
-      default = {
-        config,
-        pkgs,
-        lib,
-        ...
-      }: {
+      default = {...}: {
         imports =
           [
             # Boulette
             inputs.boulette.hmModules.default
           ]
-          ++ slib.getHomeModules umport;
+          ## Clever hack :)
+          # Add same configuration options definition as
+          # So user can configure both at one time.
+          ++ [./options.nix]
+          # Every home.*.nix files
+          ++ tidy_lib.getHomeModules umport;
       };
     };
   };

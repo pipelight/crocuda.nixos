@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
 
-    normal.url = "github:pipelight/normal.nixos?ref=dev";
+    crocuda.url = "github:pipelight/crocuda.nixos?ref=dev";
 
     ###################################
     ### crocuda.nixos dependencies
@@ -57,40 +57,68 @@
   in rec {
     nixosConfigurations = {
       # Default module
-      default = pkgs.lib.nixosSystem {
+      default = pkgs.lib.nixosSystem rec {
         specialArgs = {inherit inputs;};
-        modules = [
+
+        modules = let
+          ### The Nix AND Home module configuration
+          # To be inported once as a regular module and once in home-manager.
+          crocudaCfg = {...}: {
+            crocuda = {
+              users = ["anon"];
+              shell = {
+                fish.enable = true;
+                utils.enable = true;
+              };
+              servers = {
+                ssh.enable = true;
+              };
+            };
+          };
+        in [
+          # Base hardware config for tests
           ../commons/configuration.nix
           ../commons/hardware-configuration.nix
 
           inputs.crocuda.nixosModules.default
+          crocudaCfg
 
           ###################################
           # You may move this module into its own file.
           ({
+            pkgs,
             lib,
-            inpus,
             config,
+            inputs,
             ...
           }: {
-            crocuda = {
-              users = ["anon"];
-              font = {
-                enable = true;
-                size = 11;
-              };
-              terminal = {
-                torrent = {
-                  enable = true;
-                };
-              };
-              wm = {
-                niri.enable = true;
-                gnome.enable = true;
-              };
+            users.users."root" = {
+              initialPassword = "root";
+            };
+            users.users."anon" = {
+              isNormalUser = true;
+              initialPassword = "anon";
             };
           })
+
           ###################################
+          # You may move this module into its own file.
+          inputs.home-manager.nixosModules.home-manager
+          {
+            home-manager.extraSpecialArgs = {
+              inherit inputs;
+            };
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+
+            home-manager.users."anon" = {...}: {
+              home.stateVersion = "25.05";
+              imports = [
+                inputs.crocuda.homeModules.default
+                crocudaCfg
+              ];
+            };
+          }
         ];
       };
     };

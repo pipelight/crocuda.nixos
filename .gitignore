@@ -1,0 +1,6 @@
+# flake.lock
+result*
+*.qcow2
+
+# Ci/Cd
+.pipelight/

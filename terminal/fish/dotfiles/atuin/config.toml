@@ -1,20 +1,24 @@
-# Display options
+## Display options
 inline_height = 10
 prefers_reduced_motion = true
+# Preview
+show_preview = true
+max_preview_height = 10
 
+## History
 # Wether to store failed commands.
 store_failed = true
-
 # Ignore AI prompts.
 history_filter = ["^hey", "^ho"]
 
-exit_mode = "return-query"
 
+## Motions
+exit_mode = "return-query"
 # Do not execute on enter,
 # Allow for command editing.
 enter_accept = false
 
 # Sync with local server
-sync_address = "http://deku.lan/atuin"
+sync_address = "http://deku/atuin"
 auto_sync = true
 sync_ferquency = "1m"

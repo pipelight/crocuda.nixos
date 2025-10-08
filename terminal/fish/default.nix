@@ -8,7 +8,7 @@
   cfg = config.crocuda;
 in
   with lib;
-    mkIf cfg.terminal.shell.fish.enable {
+    mkIf cfg.shell.fish.enable {
       programs.fish.enable = true;
 
       # Retrieve tools installed with cargo,go and bun.
