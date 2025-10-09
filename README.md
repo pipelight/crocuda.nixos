@@ -61,7 +61,6 @@ See `option.nix` for available options.
 
   crocuda = {
     users = ["anon"]; # Will create user if not created.
-    base.enable = true;
 
     keyboard.layout = "colemak-dh";
 

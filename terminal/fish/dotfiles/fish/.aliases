@@ -19,7 +19,8 @@ alias sus='boulette "systemctl suspend" --ssh-only --challenge hostname'
 alias sshk='kitten ssh'
 
 ## nvim variants 
-alias nvik='kitten edit-in-kitty' #over ssh
+alias nvid='neovide'
+alias nvik='kitten edit-in-kitty' #practical over ssh
 alias nvi='NVIM_APPNAME=nvchad nvim'
 alias nv='NVIM_APPNAME=nvim nvim'
 

@@ -35,14 +35,9 @@
       # inputs.nixpkgs.follows = "nixpkgs";
     };
     # CI/CD
-    pipelight = {
-      url = "github:pipelight/pipelight?ref=dev";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    pipelight.url = "github:pipelight/pipelight?ref=dev";
     # Virtualization
-    virshle = {
-      url = "github:pipelight/virshle?ref=dev";
-    };
+    virshle.url = "github:pipelight/virshle?ref=dev";
     # Servers
     # Git Radicle
     radicle = {
