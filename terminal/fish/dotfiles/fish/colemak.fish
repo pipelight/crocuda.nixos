@@ -1,10 +1,10 @@
 # Colemak-DH mod based on
 # https://github.com/fish-shell/fish-shell/blob/master/share/functions/fish_vi_key_bindings.fish
+
 function fish_vi_key_bindings --description 'colemak nvim key bindings for fish'
 
     #########################################################
     ## Utils
-
     if contains -- -h $argv
         or contains -- --help $argv
         echo "Sorry but this function doesn't support -h or --help" >&2
@@ -80,29 +80,63 @@ function fish_vi_key_bindings --description 'colemak nvim key bindings for fish'
 
     #########################################################
     ## Keybindings
-    # Default mode
+    
+    # Set the init mode
     set -l init_mode insert
     
-    # Default (command) mode
+    #########################################################
+    # Insert mode
     bind -s --preset :q exit
 
     bind -s --preset -m insert \n execute
     bind -s --preset -m insert \r execute
     bind -s --preset -m insert enter execute
-
+    # Ctrl-C
     bind -s --preset -m insert \cc cancel-commandline repaint-mode
-    bind -s --preset -m insert \cc cancel-commandline repaint-mode
 
+    ## History
+    bind -s --preset -M insert up _atuin_search
+    # bind -s --preset e up-or-search
+    # bind -s --preset n down-or-search
+
+    #########################################################
+    # Normal mode
+
+    # Motions
+    bind -s --preset -M default e up-line
+    bind -s --preset -M default n down-line
+    bind -s --preset -M default up up-line
+    bind -s --preset -M default down down-line
     bind -s --preset -M default m backward-char
     bind -s --preset -M default i forward-char
+
+    # Normal -> Insert
     bind -s --preset -m insert o insert-line-under repaint-mode
     bind -s --preset -m insert O insert-line-over repaint-mode
     bind -s --preset -m insert l repaint-mode
     bind -s --preset -m insert L beginning-of-line repaint-mode
-
     bind -s --preset -m insert a forward-single-char repaint-mode
     bind -s --preset -m insert A end-of-line repaint-mode
 
+    ## Motions
+    bind -s --preset b backward-word
+    bind -s --preset B backward-bigword
+    bind -s --preset w forward-word forward-single-char
+    bind -s --preset W forward-bigword forward-single-char
+
+    ## Yank/Paste
+    # Use os clipboard
+    bind -s --preset yy "fish_clipboard_copy; commandline -f end-selection repaint-mode"
+    bind -s --preset Y "fish_clipboard_copy; commandline -f end-selection repaint-mode"
+    bind -s --preset p "commandline -f forward-char repaint-mode; fish_clipboard_paste;"
+
+    ## History
+    # bind -s --preset e up-or-search
+    # bind -s --preset n down-or-search
+
+    ## Redo/Undo
+    bind -s --preset u undo
+    bind -s --preset \cr redo
 
     # bind -s --preset gg beginning-of-buffer
     # bind -s --preset G end-of-buffer
@@ -112,30 +146,6 @@ function fish_vi_key_bindings --description 'colemak nvim key bindings for fish'
     for key in $bol_keys
         bind -s --preset $key beginning-of-line
     end
-    ## Redo/Undo
-    bind -s --preset u undo
-    bind -s --preset \cr redo
-
-    ## History
-    # bind -s --preset [ history-token-search-backward
-    # bind -s --preset ] history-token-search-forward
-    # bind -s --preset -m insert / history-pager repaint-mode
-    bind -s --preset e up-or-search
-    bind -s --preset n down-or-search
-    bind -s --preset b backward-word
-    bind -s --preset B backward-bigword
-    # bind -s --preset ge backward-word
-    # bind -s --preset gE backward-bigword
-    bind -s --preset w forward-word forward-single-char
-    bind -s --preset W forward-bigword forward-single-char
-    # bind -s --preset e forward-single-char forward-word backward-char
-    # bind -s --preset E forward-single-char forward-bigword backward-char
-
-    ## Vi/Vim doesn't support these keys in insert mode but that seems silly so we do so anyway.
-    # bind -s --preset -M insert -k home beginning-of-line
-    # bind -s --preset -M default -k home beginning-of-line
-    # bind -s --preset -M insert -k end end-of-line
-    # bind -s --preset -M default -k end end-of-line
 
     # Vi moves the cursor back if, after deleting, it is at EOL.
     # To emulate that, move forward, then backward, which will be a NOP
@@ -220,12 +230,6 @@ function fish_vi_key_bindings --description 'colemak nvim key bindings for fish'
     bind -s --preset J end-of-line delete-char
     bind -s --preset K 'man (commandline -t) 2>/dev/null; or echo -n \a'
     
-    ## Yank/Paste
-    # Use os clipboard
-    bind -s --preset yy "fish_clipboard_copy; commandline -f end-selection repaint-mode"
-    bind -s --preset Y "fish_clipboard_copy; commandline -f end-selection repaint-mode"
-    bind -s --preset p "commandline -f forward-char repaint-mode; fish_clipboard_paste;"
-
     # Use fish internal clipboard
     # bind -s --preset yy kill-whole-line yank
     # bind -s --preset Y kill-whole-line yank
@@ -268,6 +272,8 @@ function fish_vi_key_bindings --description 'colemak nvim key bindings for fish'
     # bind -s --preset P yank
     # bind -s --preset gp yank-pop
 
+    ######################################
+    ## Replace One mode
     #
     # Lowercase r, enters replace_one mode
     #
@@ -276,6 +282,8 @@ function fish_vi_key_bindings --description 'colemak nvim key bindings for fish'
     bind -s --preset -M replace_one -m default \r 'commandline -f delete-char; commandline -i \n; commandline -f backward-char; commandline -f repaint-mode'
     bind -s --preset -M replace_one -m default \e cancel repaint-mode
 
+    ######################################
+    ## Replace mode
     #
     # Uppercase R, enters replace mode
     #
@@ -288,8 +296,9 @@ function fish_vi_key_bindings --description 'colemak nvim key bindings for fish'
     bind -s --preset -M replace -k backspace backward-char
 
     #########################################################
-    # Visual mode
-    ## Enter visual mode
+    ## Visual mode
+
+    ## Normal -> Visual 
     bind -s --preset -m visual v begin-selection repaint-mode
     bind -s --preset -m visual V begin-selection down-line repaint-mode
 

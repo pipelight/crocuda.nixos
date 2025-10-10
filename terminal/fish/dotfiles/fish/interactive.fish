@@ -22,6 +22,9 @@ end
 set -g fish_user_key_bindings
 
 ## Plugins
+# set -gx ATUIN_NOBIND "true"
+# atuin init fish | source
+
 direnv hook fish | source
 zoxide init fish | source
 

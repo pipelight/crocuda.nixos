@@ -25,7 +25,7 @@ Add the repo url to your flake inputs.
 ```nix
 # flake.nix
 inputs = {
-  normal = {
+  crocuda = {
       url = "github:pipelight/crocuda.nixos";
   };
 };
@@ -87,7 +87,9 @@ See `option.nix` for available options.
 }
 ```
 
-# Try inside a VM.
+## Generate disk images for virshle hypervisor.
+
+## Try inside a VM.
 
 Test inside a vm by building the flake inside template
 

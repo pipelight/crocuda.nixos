@@ -97,6 +97,10 @@
         # Testing directory
         ./templates
 
+        # Vm disk images
+        ./hardware
+        ./rices
+
         # Flake functions library
         ./lib
 
@@ -107,8 +111,16 @@
         ./servers/dns/hickory.latest.nix
       ];
     };
+
+    # Default vm config files
+    base = [
+      inputs.virshle.nixosModule.nixos-generators
+      ./rices/vm
+    ];
   in {
     inherit lib;
+    ###################################
+    # Nixos modules
     nixosModules = {
       inherit specialArgs;
       default = {...}: {
@@ -126,6 +138,8 @@
           ++ tidy_lib.getNixModules umport;
       };
     };
+    ###################################
+    # Home manager modules
     homeModules = {
       inherit specialArgs;
       default = {...}: {
