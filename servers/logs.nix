@@ -10,9 +10,8 @@ in
     mkIf cfg.servers.logs.enable {
       services.rsyslogd = {
         enable = true;
-        defaultConfig = ''
-
-        '';
+        # defaultConfig = ''
+        # '';
       };
       services.logrotate = {
         enable = true;
