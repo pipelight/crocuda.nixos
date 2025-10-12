@@ -1,3 +1,5 @@
+#############################
+# Test
 [[pipelines]]
 name = "test-nixosModule"
 
@@ -12,4 +14,71 @@ commands = [
   --flake './templates/tests#default' \
   --override-input normal ./
   """,
+]
+
+#############################
+# Create VM disk images
+
+[[pipelines]]
+name = "build_vm_all"
+[[pipelines.steps]]
+name = "build_all_vms (default rice)"
+commands = [
+  "pipelight run build_vm_s --attach",
+  "pipelight run build_vm_xs --attach",
+  "pipelight run build_vm_xxs --attach",
+]
+
+[[pipelines]]
+name = "build_vm_xxs"
+[[pipelines.steps]]
+name = "build_base_vm_iso (default rice)"
+commands = ["""
+nix build ".#vm.xxs" \
+  --override-input crocuda ../crocuda.nixos \
+  --log-format multiline-with-logs \
+  --show-trace \
+  --out-link ./result-vm-xxs
+"""]
+[[pipelines.steps]]
+name = "copy_iso_to_home_directory(~/Iso)"
+commands = [
+  "cp -f ./result-vm-xxs/nixos.img ~/Iso/nixos.xxs.efi.img",
+  "chmod 755 ~/Iso/nixos.xxs.efi.img",
+]
+
+[[pipelines]]
+name = "build_vm_xs"
+[[pipelines.steps]]
+name = "build_base_vm_iso (default rice)"
+commands = ["""
+nix build ".#vm.xs" \
+  --override-input crocuda ../crocuda.nixos \
+  --log-format multiline-with-logs \
+  --show-trace \
+  --out-link ./result-vm-xs
+"""]
+[[pipelines.steps]]
+name = "copy_iso_to_home_directory(~/Iso)"
+commands = [
+  "cp -f ./result-vm-xs/nixos.img ~/Iso/nixos.xs.efi.img",
+  "chmod 755 ~/Iso/nixos.xs.efi.img",
+]
+
+[[pipelines]]
+name = "build_vm_s"
+[[pipelines.steps]]
+name = "build_base_vm_iso (default rice)"
+commands = ["export TMPDIR=/tmp", """
+nix build ".#vm.s" \
+  --override-input crocuda ../crocuda.nixos \
+  --log-format multiline-with-logs \
+  --show-trace \
+  --out-link ./result-vm-s
+"""]
+[[pipelines.steps]]
+name = "copy_iso_to_home_directory(~/Iso)"
+commands = [
+  "cp -f ./result-vm-s/nixos.img ~/Iso/nixos.s.efi.img",
+  "chmod 755 ~/Iso/nixos.s.efi.img",
 ]

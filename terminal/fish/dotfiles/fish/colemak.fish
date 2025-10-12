@@ -138,6 +138,9 @@ function fish_vi_key_bindings --description 'colemak nvim key bindings for fish'
     bind -s --preset u undo
     bind -s --preset \cr redo
 
+    ## Manpages
+    bind -s --preset M 'man (commandline -t) 2>/dev/null; or echo -n \a'
+
     # bind -s --preset gg beginning-of-buffer
     # bind -s --preset G end-of-buffer
     for key in $eol_keys
@@ -228,7 +231,6 @@ function fish_vi_key_bindings --description 'colemak nvim key bindings for fish'
     bind -s --preset gU upcase-word
 
     bind -s --preset J end-of-line delete-char
-    bind -s --preset K 'man (commandline -t) 2>/dev/null; or echo -n \a'
     
     # Use fish internal clipboard
     # bind -s --preset yy kill-whole-line yank
