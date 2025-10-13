@@ -16,7 +16,9 @@ in
         enable = true;
         logLevel = "debug";
         user = "anon";
+        dhcp.defaultConfig = true;
       };
+
       environment.systemPackages = with pkgs; [
         # Build images based on flakes and local config
         nixos-generators
