@@ -65,9 +65,11 @@ with lib; {
         '';
       };
       dns = {
-        enable = mkEnableOption ''
-          Enable complete secured dns suite
-          (unbound + nsd).
+        defaultConfig = mkEnableOption ''
+          Security enhanced DNS configuration (unbound + nsd).
+          Service still must be enabled.
+          `services.nsd.enable = true`
+          `services.unbound.enable = true`
         '';
       };
       web = {
