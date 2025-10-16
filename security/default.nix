@@ -4,43 +4,41 @@
   pkgs,
   lib,
   ...
-}: let
-  cfg = config.crocuda;
-in
-  with lib; {
-    ###################################
-    # Adimin users
-    # loosen security for fast sudoing
-    security.sudo.extraRules = [
-      {
-        groups = ["wheel"];
-        commands = [
-          {
-            command = "ALL";
-            options = ["NOPASSWD"];
-          }
-        ];
-      }
-    ];
-    users.groups = {
-      wheel.members = config.normal.users;
-    };
+}:
+with lib; {
+  ###################################
+  # Adimin users
+  # loosen security for fast sudoing
+  security.sudo.extraRules = [
+    {
+      groups = ["wheel"];
+      commands = [
+        {
+          command = "ALL";
+          options = ["NOPASSWD"];
+        }
+      ];
+    }
+  ];
+  users.groups = {
+    wheel.members = config.crocuda.users;
+  };
 
-    ###################################
-    # Molly guard
-    services.boulette = mkIf cfg.servers.security.enable {
-      enable = true;
-      enableFish = true;
-      enableBash = true;
-      sshOnly = false;
-      enableSudoWrapper = true;
-      challengeType = "hostname";
-    };
+  ###################################
+  # Molly guard
+  services.boulette = mkIf config.crocuda.servers.security.enable {
+    enable = true;
+    enableFish = true;
+    enableBash = true;
+    sshOnly = false;
+    enableSudoWrapper = true;
+    challengeType = "hostname";
+  };
 
-    ###################################
-    # Other
+  ###################################
+  # Other
 
-    services.dbus.implementation = "broker";
+  services.dbus.implementation = "broker";
 
-    security.polkit.enable = true;
-  }
+  security.polkit.enable = true;
+}
