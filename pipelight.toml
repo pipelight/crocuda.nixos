@@ -11,8 +11,7 @@ commands = [
   # Build flake
   """
   nixos-rebuild build \
-  --flake './templates/tests#default' \
-  --override-input normal ./
+  --flake './templates/tests#default'
   """,
 ]
 

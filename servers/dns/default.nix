@@ -1,4 +1,5 @@
 {
+  crocuda_lib,
   config,
   lib,
   ...
