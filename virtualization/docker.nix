@@ -15,4 +15,11 @@ with lib;
     users.groups = {
       docker.members = config.crocuda.users;
     };
+
+    ## Autostart containers on docker start.
+    systemd.services.docker.postStart = mkAfter ''
+      set -e
+      echo "Restarting containers..."
+      ${pkgs.docker} restart $(${pkgs.docker} ps -a -q)
+    '';
   }
