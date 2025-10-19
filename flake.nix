@@ -49,6 +49,7 @@
       url = "github:pipelight/boulette?ref=dev";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-bitcoin.url = "github:fort-nix/nix-bitcoin/release";
   };
 
   outputs = {
@@ -134,6 +135,8 @@
             inputs.boulette.nixosModules.default
             # Dhcp: experimental dhcp server.
             inputs.dora.nixosModules.default
+            # Bitcoin/Altcoin payments
+            inputs.nix-bitcoin.nixosModules.default
           ]
           ++ tidy_lib.getNixModules umport;
       };
