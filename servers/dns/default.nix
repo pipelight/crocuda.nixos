@@ -14,13 +14,18 @@ in
       ##########################
       # Set privacy respecting static DNS
       networking.nameservers = lib.mkDefault [
+        # Ipv6 first
         # Mullvad
-        "194.242.2.4"
         "2a07:e340::4"
         # Quad9
-        "9.9.9.9"
         "2620:fe::fe"
         "2620:fe::9"
+
+        # Ipv4 support
+        # Mullvad
+        "194.242.2.4"
+        # Quad9
+        "9.9.9.9"
       ];
 
       ##########################
@@ -99,11 +104,11 @@ in
                 # (mkIf keaDDnsEnabled "::1@53010")
 
                 #Mullvad
-                "194.242.2.4"
                 "2a07:e340::4"
+                "194.242.2.4"
                 #Quad9
-                "9.9.9.9"
                 "2620:fe::fe"
+                "9.9.9.9"
               ];
             }
           ];
