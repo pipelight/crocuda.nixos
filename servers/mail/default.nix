@@ -15,11 +15,11 @@ in
       systemd.tmpfiles.rules = [
         # Maddy directories
         # Make them by hand if maddy unit fails
-        "d '/run/maddy' 774 maddy users - -"
-        "Z '/run/maddy' 774 maddy users - -"
+        "d /run/maddy 774 maddy users - -"
+        "Z /run/maddy 774 maddy users - -"
         # Symlink to nginx-unit certs
         "L+ /etc/maddy/certs - - - - /var/spool/unit/certs"
-        "Z '/etc/letsencrypt' 754 root users - -"
+        "Z /etc/letsencrypt 754 root users - -"
       ];
 
       # The mail server
