@@ -20,6 +20,6 @@ with lib;
     systemd.services.docker.postStart = mkAfter ''
       set -e
       echo "Restarting containers..."
-      -${pkgs.docker}/bin/docker restart $(${pkgs.docker}/bin/docker ps -a -q)
+      ${pkgs.docker}/bin/docker restart $(${pkgs.docker}/bin/docker ps -a -q)
     '';
   }
