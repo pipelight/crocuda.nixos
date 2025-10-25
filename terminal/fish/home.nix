@@ -12,6 +12,9 @@ with lib;
       # Prompt
       ".config/starship.toml".source = dotfiles/starship.toml;
 
+      # Process management
+      # ".config/htop/htoprc".source = dotfiles/htop/htoprc;
+
       # Atuin
       ".config/atuin".source = dotfiles/atuin;
 
