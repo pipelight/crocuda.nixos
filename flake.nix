@@ -49,6 +49,7 @@
       url = "github:pipelight/boulette?ref=dev";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # inputs.nixos-cli.url = "github:nix-community/nixos-cli";
   };
 
   outputs = {
@@ -130,8 +131,9 @@
             inputs.nixos-tidy.nixosModules.allow-unfree
             # Virshle
             inputs.virshle.nixosModules.default
-            # Boulette
+            # SysAdmin
             inputs.boulette.nixosModules.default
+            # inputs.nixos-cli.nixosModules.nixos-cli
             # Dhcp: experimental dhcp server.
             inputs.dora.nixosModules.default
           ]

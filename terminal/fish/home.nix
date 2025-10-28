@@ -25,7 +25,7 @@ with lib;
       ".config/nushell/config.nu".source = dotfiles/nushell/config.nu;
       ".config/nushell/env.nu".source = dotfiles/nushell/env.nu;
 
-      # Fish
+      ## Fish
       ".config/fish/conf.d/colemak.fish".source = dotfiles/fish/colemak.fish;
 
       ".config/fish/conf.d/interactive.fish".source = dotfiles/fish/interactive.fish;
