@@ -5,18 +5,7 @@
   ...
 }:
 with lib;
-  mkIf config.crocuda.virtualization.virshle.enable {
-    # environment.etc = {
-    #   "virshle/config.toml".text = builtins.readFile ./dotfiles/virshle/config.toml;
-    # };
-
-    services.virshle = {
-      enable = true;
-      logLevel = "debug";
-      user = "anon";
-      dhcp.defaultConfig = true;
-    };
-
+  mkIf config.crocuda.virtualization.utils.enable {
     environment.systemPackages = with pkgs; [
       # Build images based on flakes and local config
       nixos-generators

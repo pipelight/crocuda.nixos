@@ -35,9 +35,9 @@
       # inputs.nixpkgs.follows = "nixpkgs";
     };
     # CI/CD
-    pipelight.url = "github:pipelight/pipelight?ref=dev";
+    # pipelight.url = "github:pipelight/pipelight?ref=dev";
     # Virtualization
-    virshle.url = "github:pipelight/virshle?ref=dev";
+    # virshle.url = "github:pipelight/virshle?ref=dev";
     # Servers
     # Git Radicle
     radicle = {
@@ -130,7 +130,7 @@
             # Tidy
             inputs.nixos-tidy.nixosModules.allow-unfree
             # Virshle
-            inputs.virshle.nixosModules.default
+            # inputs.virshle.nixosModules.default
             # SysAdmin
             inputs.boulette.nixosModules.default
             # inputs.nixos-cli.nixosModules.nixos-cli

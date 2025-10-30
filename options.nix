@@ -41,7 +41,7 @@ with lib; {
       docker.enable = mkEnableOption ''
         Toggle atuin server.
       '';
-      virshle.enable = mkEnableOption ''
+      utils.enable = mkEnableOption ''
         Toggle atuin server.
       '';
     };

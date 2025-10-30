@@ -7,7 +7,7 @@
 }:
 with lib; {
   ###################################
-  # Adimin users
+  # Admin users
   # loosen security for fast sudoing
   security.sudo.extraRules = [
     {

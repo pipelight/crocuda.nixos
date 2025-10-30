@@ -17,9 +17,10 @@ with lib;
     };
 
     ## Autostart containers on docker start.
-    systemd.services.docker.postStart = mkAfter ''
-      set -e
+    systemd.services.docker.postStart = ''
+      set +e # Do not exit if a command fails
       echo "Restarting containers..."
       ${pkgs.docker}/bin/docker restart $(${pkgs.docker}/bin/docker ps -a -q)
+      exit 0
     '';
   }
