@@ -9,6 +9,11 @@
 in
   with lib;
     mkIf cfg.servers.git.radicle.enable {
+      environment.systemPackages = with pkgs; [
+        radicle-explorer
+        radicle-tui
+      ];
+
       services.radicle = {
         enable = true;
         checkConfig = true;
@@ -18,7 +23,7 @@ in
 
         # publicKey = "/etc/radicle/id_ed25519.pub";
         # publicKey = "/var/lib/radicle/keys/radicle.pub";
-        publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPUZIvo0RPhao7s73Wt613qJw/P+KseGEnqA7/gT/AYx";
+        publicKey = /etc/radicle/id_ed25519.pub;
 
         node = {
           listenAddress = "[::1]";

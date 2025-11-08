@@ -36,14 +36,6 @@
     };
     # CI/CD
     # pipelight.url = "github:pipelight/pipelight?ref=dev";
-    # Virtualization
-    # virshle.url = "github:pipelight/virshle?ref=dev";
-    # Servers
-    # Git Radicle
-    radicle = {
-      url = "git+https://seed.radicle.garden/z3gqcJUoA1n9HaHKufZs5FCSGazv5";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     # SysAdmin
     boulette = {
       url = "github:pipelight/boulette?ref=dev";
@@ -112,12 +104,6 @@
         ./servers/dns/hickory.latest.nix
       ];
     };
-
-    # Default vm config files
-    base = [
-      inputs.virshle.nixosModule.nixos-generators
-      ./rices/vm
-    ];
   in {
     inherit lib;
     ###################################
@@ -129,8 +115,6 @@
           [
             # Tidy
             inputs.nixos-tidy.nixosModules.allow-unfree
-            # Virshle
-            # inputs.virshle.nixosModules.default
             # SysAdmin
             inputs.boulette.nixosModules.default
             # inputs.nixos-cli.nixosModules.nixos-cli
