@@ -32,8 +32,25 @@ with lib;
 
       ".config/fish/conf.d/title.fish".source = dotfiles/fish/title.fish;
       ".config/fish/conf.d/abbrev.fish".source = dotfiles/fish/abbrev.fish;
-      # siketian/ghr plugin and completion
-      ".config/fish/conf.d/ghr.fish".source = dotfiles/fish/ghr.fish;
+
+      # siketyan/ghr plugin and completion
+      ".config/fish/conf.d/ghr.fish".text = ''
+        ghr shell fish | source
+        ghr shell fish --completion | source
+
+        function gcd;
+          ghr cd $(ghr search "$argv" | head -n 1)
+        end
+        function gnv;
+          ghr open $(ghr search "$argv" | head -n 1) nvid
+        end
+      '';
+      ".ghr/ghr.toml".text = inputs.nix-std.lib.serde.toTOML {
+        applications.nvid = {
+          cmd = "${pkgs.neovide}/bin/neovide";
+          args = ["%p"];
+        };
+      };
     };
 
     # Shell

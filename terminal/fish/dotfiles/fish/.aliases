@@ -24,16 +24,19 @@ alias nvik='kitten edit-in-kitty' #practical over ssh
 alias nvi='NVIM_APPNAME=nvchad nvim'
 alias nv='NVIM_APPNAME=nvim nvim'
 
+# OS fetch
 alias neo='fastfetch'
 alias one='onefetch'
 alias lol="lolcat"
 
 alias speed='speedtest-go'
 
+# Crocuda tools
 alias p='pipelight'
 alias v='virshle'
 
 # alias clear='clear -x; tput cup (math round "$LINES * 3/4") 0;'
+
 
 # Ai shortcut
 function hey;
