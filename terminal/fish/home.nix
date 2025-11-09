@@ -32,8 +32,8 @@ with lib;
 
       ".config/fish/conf.d/title.fish".source = dotfiles/fish/title.fish;
       ".config/fish/conf.d/abbrev.fish".source = dotfiles/fish/abbrev.fish;
-      # Completion
-      ".config/fish/completions/ghr.fish".source = dotfiles/fish/completions/ghr.fish;
+      # siketian/ghr plugin and completion
+      ".config/fish/conf.d/ghr.fish".source = dotfiles/fish/ghr.fish;
     };
 
     # Shell
