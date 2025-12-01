@@ -40,7 +40,7 @@ alias v='virshle'
 
 # Ai shortcut
 function hey;
-  mods -f "$argv"
+  mods -m mistral -f "$argv"
 end
 function ho;
   mods -m deepseek-r1 -f "$argv"

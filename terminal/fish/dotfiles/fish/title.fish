@@ -1,4 +1,4 @@
-#!/usr/env fish
+#!/usr/bin/env fish
 
 ## From molly-guard
 

@@ -65,18 +65,13 @@ See `option.nix` for available options.
     keyboard.layout = "colemak-dh";
 
     # Terminal stuffs
-    terminal = {
-      shell = {
-        fish.enable = true;
-      };
-      editor = {
-        vim.enable = true;
-        nvchad.enable = true;
-        nvchad-ide.enable = true;
-      };
-      file_manager = {
-        yazi.enable = true;
-      };
+    shell = {
+       fish.enable = true;
+    };
+    editor = {
+      vim.enable = true;
+      nvchad.enable = true;
+      nvchad-ide.enable = true;
     };
 
     finance = {

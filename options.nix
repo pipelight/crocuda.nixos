@@ -97,7 +97,16 @@ with lib; {
             description = "sozu configuration";
           };
           enable = mkEnableOption ''
-            Enable sozu the tcp/http server proxy .
+            Enable Sozu the tcp/http proxy .
+          '';
+        };
+        ferron = {
+          config = mkOption {
+            type = with types; attrs;
+            description = "ferron configuration";
+          };
+          enable = mkEnableOption ''
+            Enable Ferron the tcp/http webserver + proxy.
           '';
         };
         pebble.enable = mkEnableOption ''
