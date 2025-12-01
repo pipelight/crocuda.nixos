@@ -102,7 +102,8 @@ with lib; {
         };
         ferron = {
           config = mkOption {
-            type = with types; attrs;
+            # KDL is not ready for nix interop so we use strings for now.
+            type = with types; str;
             description = "ferron configuration";
           };
           enable = mkEnableOption ''

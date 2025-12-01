@@ -102,6 +102,7 @@
 
         # package derivations (imported by other means)
         ./servers/dns/hickory.latest.nix
+        ./servers/web/ferron.latest.nix
       ];
     };
   in {
