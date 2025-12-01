@@ -1,0 +1,14 @@
+globals {
+  default_http_port 80
+  default_https_port 443
+  protocols "h1" "h2" "h3"
+  timeout 300000
+  h2_initial_window_size 65536
+  h2_max_frame_size 16384
+  h2_max_concurrent_streams 100
+  h2_max_header_list_size 8192
+  h2_enable_connect_protocol
+  protocol_proxy #false
+  buffer_request #null
+  buffer_response #null
+}

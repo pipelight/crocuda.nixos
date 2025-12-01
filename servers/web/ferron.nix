@@ -11,20 +11,25 @@
 in
   with lib;
     mkIf cfg.servers.web.ferron.enable {
-      environment.systemPackages = [
+      environment.systemPackages = with pkgs; [
         # Webserver written in Rust
         ferron
       ];
-      environment.etc.
-        "ferron/config.kdl".text =
-        inputs.nix-std.lib.serde.toTOML cfg.servers.web.sozu.config;
 
-      # Systemd unit template adapted from sozu doc/recipe.md
+      crocuda.servers.web.sozu.config = mkBefore (builtins.readFile ./dotfiles/ferron/default.kdl);
+
       systemd.services."ferron" = {
         description = "Ferron - A fast, memory-safe web server written in Rust.";
-        documentation = ["https://docs.rs/sozu/"];
+        documentation = ["https://ferron.sh/docs"];
         after = ["network-online.target"];
         wants = ["network-online.target"];
         wantedBy = ["multi-user.target"];
+        serviceConfig = {
+          ExecStart = "${ferron}/bin/ferron --config /etc/ferron/config.kdl";
+          Restart = "on-failure";
+          AmbientCapabilities = "CAP_NET_BIND_SERVICE";
+        };
       };
+      environment.etc.
+        "ferron/config.kdl".text = cfg.servers.web.ferron.config;
     }
