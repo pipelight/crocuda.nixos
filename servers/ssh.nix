@@ -17,6 +17,7 @@ in {
 
   # Enable the agent
   programs.ssh.startAgent = true;
+  services.gnome.gcr-ssh-agent.enable = false;
 
   services.openssh = {
     enable = lib.mkDefault cfg.servers.ssh.enable;
