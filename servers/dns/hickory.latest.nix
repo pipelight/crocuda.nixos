@@ -22,6 +22,11 @@ with pkgs;
       # hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
     };
 
+    # Remove doc params causing failure
+    preBuild = ''
+      sed -i "s/doc![.*]//" /build/ferron-2.1.0-vendor/monoio-0.2.4/src/lib.rs
+    '';
+
     useFetchCargoVendor = true;
     cargoHash = "sha256-jxGyn7qDJAI4LtO+j4CL5plzMcQ6v7DUsq1dAYFyMPY=";
 
@@ -30,6 +35,7 @@ with pkgs;
 
     buildInputs = [openssl];
     nativeBuildInputs = [pkg-config];
+    allowBuiltinFetchGit = true;
 
     # tests expect internet connectivity to query real nameservers like 8.8.8.8
     doCheck = false;

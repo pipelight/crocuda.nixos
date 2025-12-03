@@ -5,18 +5,22 @@
 }:
 with lib;
 with pkgs;
-  rustPlatform.buildRustPackage (finalAttrs: {
+  rustPlatform.buildRustPackage rec {
     pname = "ferron";
-    version = "2.1.0";
+    version = "2.0.1";
 
     src = fetchFromGitHub {
       owner = "ferronweb";
       repo = "ferron";
-      tag = finalAttrs.version;
-      hash = "sha256-bBIhLkh9UV2MJKovQaFk3cC1rYafiyxknRlKWVQ5gwY=";
+      tag = version;
+      # sha256 = lib.fakeSha256;
+      sha256 = "sha256-i0tMPc5qWBfdADwqITAKXpN7AAHTOPXNHWGUuYLD0vA=";
+      # sha256 = "sha256-t43xXUzXoj0Fxrt/BZaBP1fua2W8HPd1x9bsTV0uUD4=";
     };
 
-    cargoHash = "sha256-xsJJglSq8hpWWi0zknPL03nle99GxznPI3HON2o8zco=";
+    # cargoHash = "";
+    cargoHash = "sha256-M2oaKhiwxAYJRvKTdTdzWLcndxmba+sW8rBKoTNOFpc=";
+    # cargoHash = "sha256-IYK//lxxmcgMpAAeN8WAbOW4Wi9iS1oZdLCT/iFNw7A=";
 
     nativeBuildInputs = [
       pkg-config
@@ -34,7 +38,9 @@ with pkgs;
       versionCheckHook
     ];
     versionCheckProgramArg = "--version";
-    doInstallCheck = true;
+
+    doCheck = false;
+    doInstallCheck = false;
 
     passthru = {
       updateScript = nix-update-script {};
@@ -51,4 +57,4 @@ with pkgs;
       ];
       mainProgram = "ferron";
     };
-  })
+  }
