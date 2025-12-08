@@ -37,9 +37,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # Virtualization
-    virshle = {
-      url = "github:pipelight/virshle?ref=dev";
-    };
+    # virshle = {
+    #   url = "github:pipelight/virshle?ref=dev";
+    # };
     # Admin safeguard
     boulette = {
       url = "github:pipelight/boulette?ref=dev";
