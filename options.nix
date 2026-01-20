@@ -77,6 +77,12 @@ with lib; {
           enable = mkEnableOption ''
             Enable automatic certificate generation for the folowing domains
           '';
+          credentials = {
+            email = mkOption {
+              type = with types; str;
+              default = " admin@example.com";
+            };
+          };
           domains = mkOption {
             type = with types; let
               t = listOf str;

@@ -22,7 +22,10 @@ with lib;
       # yq-go
 
       # Inspect fs and io
+
       duf # df replacement
+      dysk
+
       pciutils
       lshw
 

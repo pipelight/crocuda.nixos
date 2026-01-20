@@ -17,7 +17,8 @@ in
       ];
       ## Darkirc messaging background service
       systemd.user.services."darkircd" = {
-        enable = false;
+        description = "DarkIRC - Strong anonymity P2P chat.";
+        enable = true;
         after = ["network.target"];
         serviceConfig = {
           ExecStart = "${darkfi}/bin/darkirc";

@@ -19,7 +19,7 @@ in
     ];
 
     systemd.services = let
-      email = builtins.elemAt cfg.servers.mail.maddy.accounts 0;
+      email = cfg.servers.web.letsencrypt.credentials.email;
       units =
         concatMapAttrs
         (
@@ -30,6 +30,7 @@ in
                 Type = "oneshot";
                 User = "root";
                 Group = "users";
+                wantedBy = ["certbot.target"];
                 ExecStartPre = ''
                   -${certbot_clean_certs}/bin/certbot_clean_certs clean ${name}
                 '';
@@ -64,7 +65,6 @@ in
         OnBootSec = "5m";
         OnUnitActiveSec = "5m";
         OnCalendar = "weekly";
-        Unit = "certbot.service";
       };
     };
   }

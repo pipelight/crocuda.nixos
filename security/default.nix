@@ -37,8 +37,6 @@ with lib; {
 
   ###################################
   # Other
-
   services.dbus.implementation = "broker";
-
   security.polkit.enable = true;
 }
