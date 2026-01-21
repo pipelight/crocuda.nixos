@@ -60,7 +60,9 @@ in
       units;
 
     systemd.timers."certbot" = {
-      wantedBy = ["timers.target"];
+      unitConfig = {
+        wantedBy = ["timers.target"];
+      };
       timerConfig = {
         OnBootSec = "5m";
         OnUnitActiveSec = "5m";
