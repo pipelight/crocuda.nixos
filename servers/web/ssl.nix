@@ -26,11 +26,11 @@ in
           name: domains: {
             "certbot_${name}_" = {
               description = "Certbot update ssl certificates for ${name}";
+              wantedBy = ["certbot.target"];
               serviceConfig = {
                 Type = "oneshot";
                 User = "root";
                 Group = "users";
-                wantedBy = ["certbot.target"];
                 ExecStartPre = ''
                   -${certbot_clean_certs}/bin/certbot_clean_certs clean ${name}
                 '';
@@ -60,9 +60,7 @@ in
       units;
 
     systemd.timers."certbot" = {
-      unitConfig = {
-        wantedBy = ["timers.target"];
-      };
+      wantedBy = ["timers.target"];
       timerConfig = {
         OnBootSec = "5m";
         OnUnitActiveSec = "5m";
