@@ -7,7 +7,7 @@
   ...
 }:
 with lib;
-  mkIf config.crocuda.shell.utils.enable {
+  mkIf config.crocuda.shell.fish.utils.enable {
     home.packages = with pkgs; [
       # File convertion
       # dasel
@@ -23,8 +23,8 @@ with lib;
 
       # Inspect fs and io
 
-      duf # df replacement
-      dysk
+      duf # df replacement (go)
+      dysk # df replacement (rust)
 
       pciutils
       lshw
@@ -38,5 +38,8 @@ with lib;
 
       # ssh
       ggh
+
+      # Git repository manager
+      siketyan-ghr
     ];
   }

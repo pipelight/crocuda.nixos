@@ -29,12 +29,15 @@ with lib; {
 
     # Set shell with the specified keyboard layout
     shell = {
-      utils.enable = mkEnableOption ''
-        Add command line utils for fast navigation and comfort
-      '';
-      fish.enable = mkEnableOption ''
-        Toggle the module
-      '';
+      fish = {
+        enable = mkEnableOption ''
+          Toggle the module
+        '';
+        # Git repository management
+        utils.enable = mkEnableOption ''
+          Add command line utils for fast navigation and comfort
+        '';
+      };
     };
 
     virtualization = {

@@ -17,8 +17,10 @@
     # Terminal stuffs
     terminal = {
       shell = {
-        fish.enable = true;
-        utils.enable = true;
+        fish = {
+          enable = true;
+          utils.enable = true;
+        };
       };
     };
   };
